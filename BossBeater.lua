@@ -115,12 +115,12 @@ local function CreateRaidTable()
   return raidTable, sortedBossIDs
 end
 
-local function CreateRaidTableUI(raidTable, sortedBossIDs)
+--[[local function CreateRaidTableUI(raidTable, sortedBossIDs)
   -- Check if the frame already exists
   local frame = _G["BossBeaterRaidTable"]
 
   local headerWidth = { 120, 80, 90, 60, 90, 90, 85, 80 } -- Adjust widths as needed
-  local headerOffsets = { 10, 20, 10, 90, 0, -5, -10, -15 }  -- Offsets for each header
+  local textOffsets = { 10, 20, 10, 90, 0, -5, -10, -15 }  -- Offsets for each header
 
   if not frame then
     -- Create the main frame (only if it doesn't exist)
@@ -156,7 +156,7 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
     
     for i, text in ipairs(headers) do
       local headerText = header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-      headerText:SetPoint("LEFT", header, "LEFT", (headerWidth[i] * (i - 1)) + headerOffsets[i], 0)
+      headerText:SetPoint("LEFT", header, "LEFT", (headerWidth[i] * (i - 1)) + textOffsets[i], 0)
       headerText:SetText(text)
     end
 
@@ -180,11 +180,11 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
       raidTable = CreateRaidTable()  -- Recreate the raidTable with default values
       RefreshRaidTableUI()  -- Refresh the UI
     end)
-  else
+ else
     -- If the frame exists, clear its contents
     for _, child in ipairs{frame:GetChildren()} do
       if child:GetObjectType() == "FontString" then
-        child:SetText("")
+        child:SetText("N/A")
       end
     end
   end
@@ -206,6 +206,7 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
   local contentOffset = 25
 
   if sortedBossIDs then  -- Check if sortedBossIDs is valid
+    print(sortedBossIDs)
     for _, rankingDataBossID in ipairs(sortedBossIDs) do  -- Calculate numRows
       numRows = numRows + 1
     end
@@ -229,53 +230,203 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
       bossName:SetWidth(headerWidth[1])
       bossName:SetText(bossData.bossName)
       bossName:SetJustifyH("LEFT")
+      print(bossData.bossName)
 
       local worldRecord = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       worldRecord:SetPoint("LEFT", bossName, "RIGHT", 5, 0)  -- Add spacing
       worldRecord:SetWidth(headerWidth[2] - 25)  -- Adjust width to account for spacing
-      worldRecord:SetText(raidTable[rankingDataBossID].worldRecord)
+      worldRecord:SetText(bossData.worldRecord)
       worldRecord:SetJustifyH("LEFT")
+      print(bossData.worldRecord)
 
       local serverRecord = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       serverRecord:SetPoint("LEFT", worldRecord, "RIGHT", 5, 0) -- Add spacing
       serverRecord:SetWidth(headerWidth[3] - 5)  -- Adjust width to account for spacing
-      serverRecord:SetText(raidTable[rankingDataBossID].serverRecord)
+      serverRecord:SetText(bossData.serverRecord)
       serverRecord:SetJustifyH("LEFT")
+      print(bossData.serverRecord)
 
       local guildRecord = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       guildRecord:SetPoint("LEFT", serverRecord, "RIGHT", -25, 0) -- Add spacing
       guildRecord:SetWidth(headerWidth[4] - 5)  -- Adjust width to account for spacing
       guildRecord:SetText(bossData.guildRecord)
       guildRecord:SetJustifyH("LEFT")
+      print(bossData.guildRecord)
 
       local rank = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       rank:SetPoint("LEFT", guildRecord, "RIGHT", -5, 0) -- Add spacing
       rank:SetWidth(headerWidth[5] - 20)  -- Adjust width to account for spacing
       rank:SetText(bossData.rank)
+      print(bossData.rank)
 
       local time = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       time:SetPoint("LEFT", rank, "RIGHT", 35, 0)  -- Add spacing
       time:SetWidth(headerWidth[6] - 5)  -- Adjust width
       time:SetText(bossData.time)
       time:SetJustifyH("LEFT")
+      print(bossData.time)
 
       local difference = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       difference:SetPoint("LEFT", time, "RIGHT", -35, 0) -- Add spacing
       difference:SetWidth(headerWidth[7] - 5)  -- Adjust width
       difference:SetText(bossData.difference)
       difference:SetJustifyH("LEFT")
+      print(bossData.difference)
 
       local newRank = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
       newRank:SetPoint("LEFT", difference, "RIGHT", -25, 0) -- Add spacing
       newRank:SetWidth(headerWidth[8] - 5)  -- Adjust width
       newRank:SetText(bossData.newRank)
       newRank:SetJustifyH("LEFT")
+      print(bossData.newRank)
+
+      table.insert(frame.contentFrame.rows, row)
     end
+
+        -- Create the close button
+    local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
+    closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
+    closeButton:SetScript("OnClick", function(self)
+      -- Save position before hiding
+      SaveWrapperPosition(frame)
+      frame:Hide()
+    end)
+
+    -- Create the clear button
+    local clearButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    clearButton:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 10, 10)
+    clearButton:SetSize(80, 20)
+    clearButton:SetText("Clear")
+    clearButton:SetScript("OnClick", function(self)
+      -- Clear the raid data
+      BossBeaterDB.liveData = {}  -- Reset liveData in saved variables
+      raidTable = CreateRaidTable()  -- Recreate the raidTable with default values
+      RefreshRaidTableUI()  -- Refresh the UI
+    end)
+
   else
     print("Error: sortedBossIDs is nil in CreateRaidTableUI (numRows calculation)")
   end
 
   frame:Show() -- Show the frame after creating all elements
+end]]--
+
+local function CreateRaidTableUI(raidTable, sortedBossIDs)
+    -- Check if the frame already exists
+  local frame = _G["BossBeaterRaidTable"]
+
+  local textOffsets = { 10, 140, 200, 260, 315, 390, 440, 490 }  -- Offsets for each header
+
+  if not frame or (frame and not frame:IsShown()) then
+    -- Create the main frame (only if it doesn't exist)
+    frame = CreateFrame("Frame", "BossBeaterRaidTable", UIParent)
+    frame:SetSize(650, 400) -- Adjust size as needed
+
+    if Addon.BossBeaterDB.frameX and Addon.BossBeaterDB.frameY then
+      local adjustedX = Addon.BossBeaterDB.frameX - (frame:GetWidth() / 2)
+      frame:SetPoint("LEFT", UIParent, "BOTTOMLEFT", adjustedX, Addon.BossBeaterDB.frameY) -- Use the same anchor points
+    else
+      frame:SetPoint("CENTER", UIParent, "CENTER", 700, 400) -- Default position
+    end
+
+    -- Make the frame draggable
+    frame:EnableMouse(true)
+    frame:SetMovable(true)
+    frame:RegisterForDrag("LeftButton")
+    frame:SetScript("OnDragStart", frame.StartMoving)
+    frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
+
+    -- Create the background texture
+    local bgTexture = frame:CreateTexture(nil, "BACKGROUND")
+    bgTexture:SetAllPoints(frame)
+    bgTexture:SetColorTexture(0.1, 0.1, 0.1, 0.8)
+
+    -- Create the table header
+    local header = CreateFrame("Frame", nil, frame)
+    local contentOffset = 25
+    header:SetPoint("TOPLEFT", frame, "TOPLEFT", 10, -10 - contentOffset) -- Apply contentOffset here
+    header:SetSize(650, 20) -- Adjust size as needed
+
+    local headers = { "Boss Name", "World", "Server", "Guild", "Rank (W/S)", "Time" , "Diff" , "Rank?" }
+    
+    for i, text in ipairs(headers) do
+      local headerText = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      headerText:SetPoint("LEFT", header, "LEFT", textOffsets[i], 0)
+      headerText:SetText(text)
+    end
+
+    -- Initialize the content frame and rows
+    frame.contentFrame = CreateFrame("Frame", nil, frame)
+    frame.contentFrame:SetPoint("TOPLEFT", header, "BOTTOMLEFT", 0, -10)
+    frame.contentFrame:SetSize(800, 400)
+    frame.contentFrame.rows = {}
+  end
+
+  -- Create rows
+  local rowHeight = 20
+  for i, rankingDataBossID in ipairs(sortedBossIDs) do
+    local bossData = raidTable[rankingDataBossID]
+    local row = CreateFrame("Frame", nil, frame.contentFrame)
+    row:SetPoint("TOPLEFT", frame.contentFrame, "TOPLEFT", 0, -rowHeight * i - 20) -- Adjust for header height
+    row:SetSize(800, rowHeight)
+
+    -- Create cells with data from raidTable
+    local cell1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell1:SetPoint("LEFT", row, "LEFT", 10, 0)
+    cell1:SetText(bossData.bossName or "N/A")
+
+    local cell2 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell2:SetPoint("LEFT", row, "LEFT", 140, 0)
+    cell2:SetText(bossData.worldRecord or "N/A")
+
+    local cell3 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell3:SetPoint("LEFT", row, "LEFT", 200, 0)
+    cell3:SetText(bossData.serverRecord or "N/A")
+
+    local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell4:SetPoint("LEFT", row, "LEFT", 260, 0)
+    cell4:SetText(bossData.guildRecord or "N/A")
+
+    local cell5 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell5:SetPoint("LEFT", row, "LEFT", 315, 0)
+    cell5:SetText(bossData.rank or "N/A")
+
+    local cell6 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell6:SetPoint("LEFT", row, "LEFT", 390, 0)
+    cell6:SetText(bossData.time or "-")
+
+    local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell7:SetPoint("LEFT", row, "LEFT", 440, 0)
+    cell7:SetText(bossData.difference or "-")
+
+    local cell8 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell8:SetPoint("LEFT", row, "LEFT", 490, 0)
+    cell8:SetText(bossData.newRank or "-")
+
+    -- Add the row to the content frame's rows table
+    table.insert(frame.contentFrame.rows, row)
+  end
+  -- Create the close button
+  local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
+  closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
+  closeButton:SetScript("OnClick", function(self)
+    -- Save position before hiding
+    SaveWrapperPosition(frame)
+    frame:Hide()
+  end)
+
+  -- Create the clear button
+  local clearButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+  clearButton:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 10, 10)
+  clearButton:SetSize(80, 20)
+  clearButton:SetText("Clear")
+  clearButton:SetScript("OnClick", function(self)
+    -- Clear the raid data
+    BossBeaterDB.liveData = {}  -- Reset liveData in saved variables
+    raidTable = CreateRaidTable()  -- Recreate the raidTable with default values
+    RefreshRaidTableUI()  -- Refresh the UI
+  end)
+
 end
 
 local function RefreshRaidTableUI()
@@ -408,27 +559,32 @@ end
 encounterEndFrame:RegisterEvent("ENCOUNTER_END")
 encounterEndFrame:SetScript("OnEvent", EncounterEnd)
 
-
 local function SlashCmdHandler(msg, editbox)
   local raidTable, sortedBossIDs = CreateRaidTable()
   if raidTable and sortedBossIDs then
     -- Check if the frame already exists and is shown
     local frame = _G["BossBeaterRaidTable"]
     if frame and frame:IsShown() then
+      print("Hiding raid table")
       frame:Hide()  -- Hide the frame if it's already shown
     else
-      CreateRaidTableUI(raidTable, sortedBossIDs)  -- Create and show the UI
+      print("Showing raid table")
+      if not frame then
+        CreateRaidTableUI(raidTable, sortedBossIDs)  -- Create and show the UI
+      else
+        frame:Show()  -- Show the frame if it already exists
+      end
     end
   end
 end
 
-SLASH_BOSSBATER1 = "/bb"
-SLASH_BOSSBATER2 = "/bossbeater"
-SlashCmdList["BOSSBATER"] = SlashCmdHandler
+SLASH_BOSSBEATER1 = "/bb"
+SLASH_BOSSBEATER2 = "/bossbeater"
+SlashCmdList["BOSSBEATER"] = SlashCmdHandler
 
 -- Call CreateRaidTable and CreateRaidTableUI after 2 seconds to ensure data is loaded
 C_Timer.After(2, function()
-  raidTable, sortedBossIDs = CreateRaidTable()
+  local raidTable, sortedBossIDs = CreateRaidTable()
   if raidTable and sortedBossIDs then
     CreateRaidTableUI(raidTable, sortedBossIDs)
   end
@@ -445,7 +601,9 @@ local function OnAddonLoaded()
   Addon.BossBeaterDB = BossBeaterDB
 
   -- Load previous raid table
-  raidTable = BossBeaterDB.raidData or raidTable
+  raidTable = Addon.BossBeaterDB.raidData or raidTable
+
+  CreateRaidTable()
 end
 
 local frame = CreateFrame("Frame")
