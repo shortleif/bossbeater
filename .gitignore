@@ -39,3 +39,8 @@ luac.out
 *.x86_64
 *.hex
 
+# Addon backups and logs
+backup_prints.lua
+error_log.txt
+ranking_data2.lua
+

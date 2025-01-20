@@ -1,0 +1,9 @@
+## Interface 11505
+## Title: BossBeater
+## Notes: In game comparisons of kill times
+## Author: Shortleif & Minto
+## SavedVariablesPerCharacter: BossBeaterDB
+
+boss_lookup.lua
+ranking_data.lua
+BossBeater.lua
