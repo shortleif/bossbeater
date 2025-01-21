@@ -44,7 +44,7 @@ local function CreateRaidTable()
   end
 
   -- Create a table to store the raid data
-  local raidTable = {}
+  local raidTable = raidTable or {}
 
   -- Collect data for each boss
   for _, data in ipairs(rankingData) do
@@ -115,205 +115,12 @@ local function CreateRaidTable()
   return raidTable, sortedBossIDs
 end
 
---[[local function CreateRaidTableUI(raidTable, sortedBossIDs)
-  -- Check if the frame already exists
-  local frame = _G["BossBeaterRaidTable"]
-
-  local headerWidth = { 120, 80, 90, 60, 90, 90, 85, 80 } -- Adjust widths as needed
-  local textOffsets = { 10, 20, 10, 90, 0, -5, -10, -15 }  -- Offsets for each header
-
-  if not frame then
-    -- Create the main frame (only if it doesn't exist)
-    frame = CreateFrame("Frame", "BossBeaterRaidTable", UIParent)
-    frame:SetSize(650, 400) -- Adjust size as needed
-
-    if Addon.BossBeaterDB.frameX and Addon.BossBeaterDB.frameY then
-      local adjustedX = Addon.BossBeaterDB.frameX - (frame:GetWidth() / 2)
-      frame:SetPoint("LEFT", UIParent, "BOTTOMLEFT", adjustedX, Addon.BossBeaterDB.frameY) -- Use the same anchor points
-    else
-      frame:SetPoint("CENTER", UIParent, "CENTER", 700, 400) -- Default position
-    end
-
-    -- Make the frame draggable
-    frame:EnableMouse(true)
-    frame:SetMovable(true)
-    frame:RegisterForDrag("LeftButton")
-    frame:SetScript("OnDragStart", frame.StartMoving)
-    frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
-
-    -- Create the background texture
-    local bgTexture = frame:CreateTexture(nil, "BACKGROUND")
-    bgTexture:SetAllPoints(frame)
-    bgTexture:SetColorTexture(0.1, 0.1, 0.1, 0.8)
-
-    -- Create the table header
-    local header = CreateFrame("Frame", nil, frame)
-    local contentOffset = 25
-    header:SetPoint("TOPLEFT", frame, "TOPLEFT", 10, -10 - contentOffset) -- Apply contentOffset here
-    header:SetSize(650, 20) -- Adjust size as needed
-
-    local headers = { "Boss Name", "World", "Server", "Guild", "Rank (W/S)", "Time" , "Diff" , "Rank?" }
-    
-    for i, text in ipairs(headers) do
-      local headerText = header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-      headerText:SetPoint("LEFT", header, "LEFT", (headerWidth[i] * (i - 1)) + textOffsets[i], 0)
-      headerText:SetText(text)
-    end
-
-    -- Create the close button
-    local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-    closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
-    closeButton:SetScript("OnClick", function(self)
-      -- Save position before hiding
-      SaveWrapperPosition(frame)
-      frame:Hide()
-    end)
-
-    -- Create the clear button
-    local clearButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-    clearButton:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 10, 10)
-    clearButton:SetSize(80, 20)
-    clearButton:SetText("Clear")
-    clearButton:SetScript("OnClick", function(self)
-      -- Clear the raid data
-      BossBeaterDB.liveData = {}  -- Reset liveData in saved variables
-      raidTable = CreateRaidTable()  -- Recreate the raidTable with default values
-      RefreshRaidTableUI()  -- Refresh the UI
-    end)
- else
-    -- If the frame exists, clear its contents
-    for _, child in ipairs{frame:GetChildren()} do
-      if child:GetObjectType() == "FontString" then
-        child:SetText("N/A")
-      end
-    end
-  end
-
-  -- Load live data from saved variables
-  if BossBeaterDB.liveData then
-    for rankingDataBossID, liveData in pairs(BossBeaterDB.liveData) do
-      if raidTable[rankingDataBossID] then
-        raidTable[rankingDataBossID].time = liveData.time
-        raidTable[rankingDataBossID].difference = liveData.difference
-        raidTable[rankingDataBossID].newRank = liveData.newRank
-      end
-    end
-  end
-
-  -- Create the table rows (always recreate the rows)
-  local rowHeight = 20
-  local numRows = 0  -- Initialize numRows to 0
-  local contentOffset = 25
-
-  if sortedBossIDs then  -- Check if sortedBossIDs is valid
-    print(sortedBossIDs)
-    for _, rankingDataBossID in ipairs(sortedBossIDs) do  -- Calculate numRows
-      numRows = numRows + 1
-    end
-
-    -- Adjust the height of the main frame to accommodate all rows
-    frame:SetHeight(80 + numRows * rowHeight + contentOffset) -- Add contentOffset
-
-    -- Create the content frame directly inside the main frame
-    local contentFrame = CreateFrame("Frame", nil, frame)
-    contentFrame:SetPoint("TOPLEFT", header, "BOTTOMLEFT", 0, -10) -- Apply offset here
-    contentFrame:SetSize(800, numRows * rowHeight) -- Adjust size as needed
-
-    for i, rankingDataBossID in ipairs(sortedBossIDs) do  -- Create rows
-      local bossData = raidTable[rankingDataBossID]
-      local row = CreateFrame("Frame", nil, contentFrame)
-      row:SetPoint("TOPLEFT", contentFrame, "TOPLEFT", 0, -rowHeight * (i - 1))
-      row:SetSize(800, rowHeight)
-
-      local bossName = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      bossName:SetPoint("LEFT", row, "LEFT", 10, 5)
-      bossName:SetWidth(headerWidth[1])
-      bossName:SetText(bossData.bossName)
-      bossName:SetJustifyH("LEFT")
-      print(bossData.bossName)
-
-      local worldRecord = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      worldRecord:SetPoint("LEFT", bossName, "RIGHT", 5, 0)  -- Add spacing
-      worldRecord:SetWidth(headerWidth[2] - 25)  -- Adjust width to account for spacing
-      worldRecord:SetText(bossData.worldRecord)
-      worldRecord:SetJustifyH("LEFT")
-      print(bossData.worldRecord)
-
-      local serverRecord = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      serverRecord:SetPoint("LEFT", worldRecord, "RIGHT", 5, 0) -- Add spacing
-      serverRecord:SetWidth(headerWidth[3] - 5)  -- Adjust width to account for spacing
-      serverRecord:SetText(bossData.serverRecord)
-      serverRecord:SetJustifyH("LEFT")
-      print(bossData.serverRecord)
-
-      local guildRecord = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      guildRecord:SetPoint("LEFT", serverRecord, "RIGHT", -25, 0) -- Add spacing
-      guildRecord:SetWidth(headerWidth[4] - 5)  -- Adjust width to account for spacing
-      guildRecord:SetText(bossData.guildRecord)
-      guildRecord:SetJustifyH("LEFT")
-      print(bossData.guildRecord)
-
-      local rank = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      rank:SetPoint("LEFT", guildRecord, "RIGHT", -5, 0) -- Add spacing
-      rank:SetWidth(headerWidth[5] - 20)  -- Adjust width to account for spacing
-      rank:SetText(bossData.rank)
-      print(bossData.rank)
-
-      local time = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      time:SetPoint("LEFT", rank, "RIGHT", 35, 0)  -- Add spacing
-      time:SetWidth(headerWidth[6] - 5)  -- Adjust width
-      time:SetText(bossData.time)
-      time:SetJustifyH("LEFT")
-      print(bossData.time)
-
-      local difference = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      difference:SetPoint("LEFT", time, "RIGHT", -35, 0) -- Add spacing
-      difference:SetWidth(headerWidth[7] - 5)  -- Adjust width
-      difference:SetText(bossData.difference)
-      difference:SetJustifyH("LEFT")
-      print(bossData.difference)
-
-      local newRank = row:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-      newRank:SetPoint("LEFT", difference, "RIGHT", -25, 0) -- Add spacing
-      newRank:SetWidth(headerWidth[8] - 5)  -- Adjust width
-      newRank:SetText(bossData.newRank)
-      newRank:SetJustifyH("LEFT")
-      print(bossData.newRank)
-
-      table.insert(frame.contentFrame.rows, row)
-    end
-
-        -- Create the close button
-    local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-    closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
-    closeButton:SetScript("OnClick", function(self)
-      -- Save position before hiding
-      SaveWrapperPosition(frame)
-      frame:Hide()
-    end)
-
-    -- Create the clear button
-    local clearButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
-    clearButton:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 10, 10)
-    clearButton:SetSize(80, 20)
-    clearButton:SetText("Clear")
-    clearButton:SetScript("OnClick", function(self)
-      -- Clear the raid data
-      BossBeaterDB.liveData = {}  -- Reset liveData in saved variables
-      raidTable = CreateRaidTable()  -- Recreate the raidTable with default values
-      RefreshRaidTableUI()  -- Refresh the UI
-    end)
-
-  else
-    print("Error: sortedBossIDs is nil in CreateRaidTableUI (numRows calculation)")
-  end
-
-  frame:Show() -- Show the frame after creating all elements
-end]]--
-
 local function CreateRaidTableUI(raidTable, sortedBossIDs)
     -- Check if the frame already exists
   local frame = _G["BossBeaterRaidTable"]
+  if raidTable[rankingDataBossID].time then
+  print(raidTable[rankingDataBossID].time, raidTable[rankingDataBossID].duration, raidTable[rankingDataBossID].newRank)
+  end
 
   local textOffsets = { 10, 140, 200, 260, 315, 390, 440, 490 }  -- Offsets for each header
 
@@ -469,8 +276,8 @@ encounterStartFrame:SetScript("OnEvent", EncounterStart)
 local encounterEndFrame = CreateFrame("Frame", "encounterEndFrame", UIParent)
 
 local function EncounterEnd(_, event, encounterID, encounterName, _, _, success)
-  rankingDataBossID = GetRankingDataBossID(encounterID)
-  endTime = GetTime()
+  local rankingDataBossID = GetRankingDataBossID(encounterID)
+  local endTime = GetTime()
 
   if success == 1 then
     -- Find the corresponding entry in tempKillTimes (without removing it yet)
@@ -485,68 +292,46 @@ local function EncounterEnd(_, event, encounterID, encounterName, _, _, success)
     if tempEntry then
       local startTime = tempEntry.startTime
       local duration = endTime - startTime
+      local formattedDuration = string.format("%.2f", duration)
 
-      -- Format duration as minutes and seconds (mm:ss)
-      local minutes = math.floor(duration / 60)
-      local seconds = math.floor(duration % 60)
-      local formattedDuration = string.format("%02d:%02d", minutes, seconds)
+      -- Calculate the difference from the previous best time
+      local previousBestTime = raidTable[rankingDataBossID] and raidTable[rankingDataBossID].time or duration
+      local difference = duration - previousBestTime
+      local formattedDifference = string.format("%.2f", difference)
 
-      -- Calculate difference from Concede's previous record
-      local concedeTime = GetConcedeTime(rankingDataBossID) or 0  -- Get Concede's time or use 0 if not found
+      -- Calculate new rank (example logic, adjust as needed)
+      local newWorldRank = GetNewWorldRank(rankingDataBossID, duration)
+      local newServerRank = GetNewServerRank(rankingDataBossID, duration)
 
-      -- Convert concedeTime from "mm:ss" to seconds
-      local concedeMinutes, concedeSeconds = string.match(concedeTime, "(%d+):(%d+)")
-      concedeTime = (tonumber(concedeMinutes) or 0) * 60 + (tonumber(concedeSeconds) or 0)
-
-      local difference = duration - concedeTime  -- Calculate difference in seconds
-      local formattedDifference = string.format("%.1f", difference)
-
-
-      -- Calculate new ranks
-      local newWorldRank = 1
-      local newServerRank = 1
-  
-      for _, otherData in ipairs(rankingData) do
-        if otherData.times[rankingDataBossID] and otherData.times[rankingDataBossID] < formattedDuration then
-          newWorldRank = newWorldRank + 1
-          if otherData.servername == "livingflame" and otherData.region == "eu" then  -- Check server and region for server rank
-            newServerRank = newServerRank + 1
-          end
-        end
+      -- Update the raidTable with the new data
+      if not raidTable[rankingDataBossID] then
+        raidTable[rankingDataBossID] = {
+          bossName = encounterName,
+          worldRecord = "N/A",
+          guildRecord = "N/A",
+          rank = "N/A",
+          serverRecord = "N/A",
+          serverRank = "N/A",
+        }
       end
 
-      print("Encounter ended in success:", rankingDataBossID, startTime, endTime, duration, difference, newRank)
-
-      table.insert(killTimes, {
-        rankingDataBossID = rankingDataBossID,
-        startTime = startTime,
-        endTime = endTime,
-        duration = formattedDuration,
-        difference = formattedDifference,
-        newWorldRank = newWorldRank,
-        newServerRank = newServerRank,
-      })
-
-
-      -- Update raidTable with temp data
-      if raidTable and raidTable[rankingDataBossID] then
-        raidTable[rankingDataBossID].time = formattedDuration
-        raidTable[rankingDataBossID].difference = formattedDifference
-        raidTable[rankingDataBossID].newRank = newWorldRank .. " / " .. newServerRank
-      end
+      raidTable[rankingDataBossID].time = formattedDuration
+      raidTable[rankingDataBossID].difference = formattedDifference
+      raidTable[rankingDataBossID].newRank = newWorldRank .. " / " .. newServerRank
 
       -- Save live data to saved variables
-      BossBeaterDB.liveData[rankingDataBossID] = {  -- Store only live data for this boss
+      BossBeaterDB.liveData[rankingDataBossID] = {
         time = formattedDuration,
         difference = formattedDifference,
         newRank = newWorldRank .. " / " .. newServerRank
       }
-      
+
+      -- Refresh the UI
       RefreshRaidTableUI()
     end
   else
     print("Encounter failed deleting temp data")
-    -- clear out the row for this rankingDataBossID in the temp table so that we can fill it again next try
+    -- Clear out the row for this rankingDataBossID in the temp table so that we can fill it again next try
     for i, entry in ipairs(tempKillTimes) do
       if entry.rankingDataBossID == rankingDataBossID then
         table.remove(tempKillTimes, i)
