@@ -11,7 +11,7 @@ local bossLookup = Addon.boss_lookup
 
 -- Function to transform rankingDataBossID to dataBossID
 local function GetBossID(rankingDataBossID)
-  return string.match(rankingDataBossID, "_100(%d+)")
+  return string.match(rankingDataBossID, "b_(%d+)")
 end
 
 -- Function to transform dataBossID to rankingDataBossID
@@ -21,8 +21,8 @@ end
 
 local function GetConcedeTime(rankingDataBossID)
   for _, data in ipairs(rankingData) do
-    if data.guildName == "Concede" and data.times[rankingDataBossID] then
-      return data.times[rankingDataBossID]  -- Return Concede's time for the boss
+    if data.g == "Concede" and data.t[rankingDataBossID] then
+      return data.t[rankingDataBossID]  -- Return Concede's time for the boss
     end
   end
   return nil  -- Return nil if Concede's time is not found
@@ -32,6 +32,12 @@ local function SaveWrapperPosition(frame)
   local centerX, centerY = frame:GetCenter()
   Addon.BossBeaterDB.frameX = centerX
   Addon.BossBeaterDB.frameY = centerY
+end
+
+local function FormatTime(seconds)
+  local minutes = floor(seconds / 60)
+  local remainingSeconds = seconds % 60  -- Use modulo operator to get remaining seconds
+  return string.format("%d:%02d", minutes, remainingSeconds)
 end
 
 
@@ -44,11 +50,11 @@ local function CreateRaidTable()
   end
 
   -- Create a table to store the raid data
-  local raidTable = raidTable or {}
+  local raidTable = {}
 
   -- Collect data for each boss
   for _, data in ipairs(rankingData) do
-    for rankingDataBossID, time in pairs(data.times) do
+    for rankingDataBossID, time in pairs(data.t) do
       local dataBossID = GetBossID(rankingDataBossID)
       if bossLookup[dataBossID] then
         local bossName = bossLookup[dataBossID].Name_lang
@@ -67,25 +73,31 @@ local function CreateRaidTable()
 
         -- Update world record if necessary
         if not raidTable[rankingDataBossID].worldRecord or time < raidTable[rankingDataBossID].worldRecord then
-          raidTable[rankingDataBossID].worldRecord = time
+          raidTable[rankingDataBossID].worldRecord = FormatTime(time) -- Format the time here
+          print(raidTable[rankingDataBossID])
         end
 
         -- Update guild record if necessary
-        if data.guildName == "Concede" and (not raidTable[rankingDataBossID].guildRecord or time < raidTable[rankingDataBossID].guildRecord) then
-          raidTable[rankingDataBossID].guildRecord = time
+        if data.g == "Concede" and (not raidTable[rankingDataBossID].guildRecord or time < raidTable[rankingDataBossID].guildRecord) then
+          raidTable[rankingDataBossID].guildRecord = FormatTime(time) -- Format the time here
+        end
+
+        -- Update server record if necessary
+        if data.s == "living flame" and data.r == "eu" and (not raidTable[rankingDataBossID].serverRecord or time < raidTable[rankingDataBossID].serverRecord) then
+          raidTable[rankingDataBossID].serverRecord = FormatTime(time) -- Format the time here
         end
 
         -- Calculate and update rank (world and server)
-        if data.guildName == "Concede" then
+        if data.g == "Concede" then
           local worldRank = 1
           local serverRank = 1
 
           for _, otherData in ipairs(rankingData) do
-            if otherData.times[rankingDataBossID] then
-              if otherData.times[rankingDataBossID] < time then
+            if otherData.t[rankingDataBossID] then
+              if otherData.t[rankingDataBossID] < time then
                 worldRank = worldRank + 1
               end
-              if otherData.servername == data.servername and otherData.region == data.region and otherData.times[rankingDataBossID] < time then
+              if otherData.s == data.s and otherData.r == data.r and otherData.t[rankingDataBossID] < time then
                 serverRank = serverRank + 1
               end
             end
@@ -94,16 +106,15 @@ local function CreateRaidTable()
           raidTable[rankingDataBossID].rank = worldRank .. " / " .. serverRank
         end
 
-        -- Update server record if necessary
-        if data.servername == "livingflame" and data.region == "eu" and (not raidTable[rankingDataBossID].serverRecord or time < raidTable[rankingDataBossID].serverRecord) then
-            raidTable[rankingDataBossID].serverRecord = time
-          end
       end
     end
   end
 
   -- Create a sorted list of boss IDs
   local sortedBossIDs = {}
+  for rankingDataBossID, _ in pairs(raidTable) do
+    print(rankingDataBossID, raidTable[rankingDataBossID].worldRecord, raidTable[rankingDataBossID].serverRecord, raidTable[rankingDataBossID].guildRecord)
+  end
 
   for rankingDataBossID, _ in pairs(raidTable) do
     table.insert(sortedBossIDs, rankingDataBossID)
@@ -115,12 +126,10 @@ local function CreateRaidTable()
   return raidTable, sortedBossIDs
 end
 
+
 local function CreateRaidTableUI(raidTable, sortedBossIDs)
     -- Check if the frame already exists
   local frame = _G["BossBeaterRaidTable"]
-  if raidTable[rankingDataBossID].time then
-  print(raidTable[rankingDataBossID].time, raidTable[rankingDataBossID].duration, raidTable[rankingDataBossID].newRank)
-  end
 
   local textOffsets = { 10, 140, 200, 260, 315, 390, 440, 490 }  -- Offsets for each header
 
@@ -276,8 +285,8 @@ encounterStartFrame:SetScript("OnEvent", EncounterStart)
 local encounterEndFrame = CreateFrame("Frame", "encounterEndFrame", UIParent)
 
 local function EncounterEnd(_, event, encounterID, encounterName, _, _, success)
-  local rankingDataBossID = GetRankingDataBossID(encounterID)
-  local endTime = GetTime()
+  rankingDataBossID = GetRankingDataBossID(encounterID)
+  endTime = GetTime()
 
   if success == 1 then
     -- Find the corresponding entry in tempKillTimes (without removing it yet)
@@ -292,46 +301,68 @@ local function EncounterEnd(_, event, encounterID, encounterName, _, _, success)
     if tempEntry then
       local startTime = tempEntry.startTime
       local duration = endTime - startTime
-      local formattedDuration = string.format("%.2f", duration)
 
-      -- Calculate the difference from the previous best time
-      local previousBestTime = raidTable[rankingDataBossID] and raidTable[rankingDataBossID].time or duration
-      local difference = duration - previousBestTime
-      local formattedDifference = string.format("%.2f", difference)
+      -- Format duration as minutes and seconds (mm:ss)
+      local minutes = math.floor(duration / 60)
+      local seconds = math.floor(duration % 60)
+      local formattedDuration = string.format("%02d:%02d", minutes, seconds)
 
-      -- Calculate new rank (example logic, adjust as needed)
-      local newWorldRank = GetNewWorldRank(rankingDataBossID, duration)
-      local newServerRank = GetNewServerRank(rankingDataBossID, duration)
+      -- Calculate difference from Concede's previous record
+      local concedeTime = GetConcedeTime(rankingDataBossID) or 0  -- Get Concede's time or use 0 if not found
 
-      -- Update the raidTable with the new data
-      if not raidTable[rankingDataBossID] then
-        raidTable[rankingDataBossID] = {
-          bossName = encounterName,
-          worldRecord = "N/A",
-          guildRecord = "N/A",
-          rank = "N/A",
-          serverRecord = "N/A",
-          serverRank = "N/A",
-        }
+      -- Convert concedeTime from "mm:ss" to seconds
+      local concedeMinutes, concedeSeconds = string.match(concedeTime, "(%d+):(%d+)")
+      concedeTime = (tonumber(concedeMinutes) or 0) * 60 + (tonumber(concedeSeconds) or 0)
+
+      local difference = duration - concedeTime  -- Calculate difference in seconds
+      local formattedDifference = string.format("%.1f", difference)
+
+
+      -- Calculate new ranks
+      local newWorldRank = 1
+      local newServerRank = 1
+  
+      for _, otherData in ipairs(rankingData) do
+        if otherData.t[rankingDataBossID] and otherData.t[rankingDataBossID] < formattedDuration then
+          newWorldRank = newWorldRank + 1
+          if otherData.s == "livingflame" and otherData.t == "eu" then  -- Check server and region for server rank
+            newServerRank = newServerRank + 1
+          end
+        end
       end
 
-      raidTable[rankingDataBossID].time = formattedDuration
-      raidTable[rankingDataBossID].difference = formattedDifference
-      raidTable[rankingDataBossID].newRank = newWorldRank .. " / " .. newServerRank
+      print("Encounter ended in success:", rankingDataBossID, startTime, endTime, duration, difference, newRank)
+
+      table.insert(killTimes, {
+        rankingDataBossID = rankingDataBossID,
+        startTime = startTime,
+        endTime = endTime,
+        duration = formattedDuration,
+        difference = formattedDifference,
+        newWorldRank = newWorldRank,
+        newServerRank = newServerRank,
+      })
+
+
+      -- Update raidTable with temp data
+      if raidTable and raidTable[rankingDataBossID] then
+        raidTable[rankingDataBossID].time = formattedDuration
+        raidTable[rankingDataBossID].difference = formattedDifference
+        raidTable[rankingDataBossID].newRank = newWorldRank .. " / " .. newServerRank
+      end
 
       -- Save live data to saved variables
-      BossBeaterDB.liveData[rankingDataBossID] = {
+      BossBeaterDB.liveData[rankingDataBossID] = {  -- Store only live data for this boss
         time = formattedDuration,
         difference = formattedDifference,
         newRank = newWorldRank .. " / " .. newServerRank
       }
-
-      -- Refresh the UI
+      
       RefreshRaidTableUI()
     end
   else
     print("Encounter failed deleting temp data")
-    -- Clear out the row for this rankingDataBossID in the temp table so that we can fill it again next try
+    -- clear out the row for this rankingDataBossID in the temp table so that we can fill it again next try
     for i, entry in ipairs(tempKillTimes) do
       if entry.rankingDataBossID == rankingDataBossID then
         table.remove(tempKillTimes, i)
