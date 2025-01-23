@@ -6,8 +6,14 @@ local raidTable
 local sortedBossIDs
 
 -- Access the ranking_data and the boss_lookup table
+local extractionTime = Addon.extraction_time
 local rankingData = Addon.ranking_data
 local bossLookup = Addon.boss_lookup
+
+-- Set Sizing
+TABLE_WIDTH = 500
+COMPACT_WIDTH = 300
+TABLE_HEIGHT = 300
 
 -- Function to transform rankingDataBossID to dataBossID
 local function GetBossID(rankingDataBossID)
@@ -191,15 +197,351 @@ end
 
 
 local function CreateRaidTableUI(raidTable, sortedBossIDs)
+  -- Remove the existing frame if it exists
+  if _G["BossBeaterRaidTable"] then
+    _G["BossBeaterRaidTable"]:Hide()
+    _G["BossBeaterRaidTable"] = nil
+  end
+
+  -- Create the main frame
+  local frame = CreateFrame("Frame", "BossBeaterRaidTable", UIParent)
+  if Addon.BossBeaterDB.frameX and Addon.BossBeaterDB.frameY then
+    frame:SetPoint("CENTER", UIParent, "BOTTOMLEFT", Addon.BossBeaterDB.frameX, Addon.BossBeaterDB.frameY)
+  else
+    frame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+  end
+  --[[
+
+  if Addon.BossBeaterDB.frameX and Addon.BossBeaterDB.frameY then
+    local adjustedX = Addon.BossBeaterDB.frameX - (frame:GetWidth() / 2)
+    frame:SetPoint("LEFT", UIParent, "BOTTOMLEFT", adjustedX, Addon.BossBeaterDB.frameY)
+  else
+    frame:SetPoint("CENTER", UIParent, "CENTER", TABLE_WIDTH, TABLE_HEIGHT)
+  end ]]--
+
+  -- Make the frame draggable
+  frame:EnableMouse(true)
+  frame:SetMovable(true)
+  frame:RegisterForDrag("LeftButton")
+  frame:SetScript("OnDragStart", frame.StartMoving)
+  frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
+
+  -- Create the background texture
+  local bgTexture = frame:CreateTexture(nil, "BACKGROUND")
+  bgTexture:SetAllPoints(frame)
+  bgTexture:SetColorTexture(0.1, 0.1, 0.1, 0.8)
+
+  -- Create the table header
+  local header = CreateFrame("Frame", nil, frame)
+  local contentOffset = 25
+  header:SetPoint("TOPLEFT", frame, "TOPLEFT", 10, -10 - contentOffset)
+
+  local headers
+  if BossBeaterDB.compactMode then
+    frame:SetSize(COMPACT_WIDTH, TABLE_HEIGHT)
+    header:SetSize(COMPACT_WIDTH, 20)
+    headers = { "Boss Name", "World", "Guild", "Diff" }
+  else
+    frame:SetSize(TABLE_WIDTH, TABLE_HEIGHT)
+    header:SetSize(TABLE_WIDTH, 20)
+    headers = { "Boss Name", "World", "Server", "Guild", "Rank (W/S)", "Time", "Diff", "Rank?" }
+  end
+
+  local textOffsets = { 10, 100, 160, 220, 275, 350, 400, 450 }
+  for i, text in ipairs(headers) do
+    local headerText = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    headerText:SetPoint("LEFT", header, "LEFT", textOffsets[i], 0)
+    headerText:SetText(text)
+  end
+
+  -- Initialize the content frame and rows
+  frame.contentFrame = CreateFrame("Frame", nil, frame)
+  frame.contentFrame:SetPoint("TOPLEFT", header, "BOTTOMLEFT", 0, -10)
+
+  if BossBeaterDB.compactMode then
+    frame.contentFrame:SetSize(COMPACT_WIDTH, 300)
+  else
+    frame.contentFrame:SetSize(TABLE_WIDTH, 300)
+  end
+
+  frame.contentFrame.rows = {}
+
+  -- Create rows
+  local rowHeight = 20
+  for i, rankingDataBossID in ipairs(sortedBossIDs) do
+    local bossData = raidTable[rankingDataBossID]
+    local row = CreateFrame("Frame", nil, frame.contentFrame)
+    row:SetPoint("TOPLEFT", frame.contentFrame, "TOPLEFT", 0, -rowHeight * i + 15)
+    row:SetSize(TABLE_WIDTH, rowHeight)
+
+    -- Create cells with data from raidTable
+    local cell1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell1:SetPoint("LEFT", row, "LEFT", textOffsets[1], 0)
+    cell1:SetText(bossData.bossName or "N/A")
+
+    local cell2 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    cell2:SetPoint("LEFT", row, "LEFT", textOffsets[2], 0)
+    cell2:SetText(FormatTime(bossData.worldRecord) or "N/A")
+
+    if not BossBeaterDB.compactMode then
+      local cell3 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell3:SetPoint("LEFT", row, "LEFT", textOffsets[3], 0)
+      cell3:SetText(FormatTime(bossData.serverRecord) or "N/A")
+
+      local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell4:SetPoint("LEFT", row, "LEFT", textOffsets[4], 0)
+      cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
+
+      local cell5 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell5:SetPoint("LEFT", row, "LEFT", textOffsets[5], 0)
+      cell5:SetText(bossData.rank or "N/A")
+
+      local cell6 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell6:SetPoint("LEFT", row, "LEFT", textOffsets[6], 0)
+      if bossData.time == "-" then
+        cell6:SetText("-")
+      else
+        cell6:SetText(FormatTime(bossData.time) or "-")
+      end
+
+      local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell7:SetPoint("LEFT", row, "LEFT", textOffsets[7], 0)
+      if bossData.difference == "-" then
+        cell7:SetText("-")
+      elseif bossData.difference and bossData.difference < 0 then
+        local reversedDifference = bossData.difference * -1
+        cell7:SetText("-" .. FormatTime(reversedDifference) or "-")
+      elseif bossData.difference and bossData.difference > 0 then
+        cell7:SetText(FormatTime(bossData.difference) or "-")
+      else
+        cell7:SetText("-")
+      end
+
+      local cell8 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell8:SetPoint("LEFT", row, "LEFT", textOffsets[8], 0)
+      cell8:SetText(bossData.newRank or "-")
+    else
+      row:SetSize(COMPACT_WIDTH, rowHeight)
+      local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell4:SetPoint("LEFT", row, "LEFT", textOffsets[3], 0)
+      cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
+
+      local cell6 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell6:SetPoint("LEFT", row, "LEFT", textOffsets[4], 0)
+      if bossData.time == "-" then
+        cell6:SetText("-")
+      else
+        cell6:SetText(FormatTime(bossData.time) or "-")
+      end
+    end
+
+    -- Add the row to the content frame's rows table
+    table.insert(frame.contentFrame.rows, row)
+  end
+
+  -- Add a text to show data extraction time
+  local year, month, day, hour, min, sec = extractionTime:match("(%d+)-(%d+)-(%d+) (%d+):(%d+):(%d+)")
+  local extractionTimestamp = time({year=year, month=month, day=day, hour=hour, min=min, sec=sec})
+  
+  -- Add a text to show data extraction time
+  local extractionText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+  extractionText:SetPoint("TOP", frame, "TOP", 0, -10)
+  if BossBeaterDB.compactMode then
+    local formattedDate = date("%Y-%m-%d", extractionTimestamp)
+    extractionText:SetText("Data from: " .. formattedDate)
+  else
+    local formattedMinutes = date("%Y-%m-%d %H:%M", extractionTimestamp)
+    extractionText:SetText("Data from: " .. formattedMinutes)
+  end
+
+  -- Create the close button
+  local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
+  closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
+  closeButton:SetScript("OnClick", function(self)
+    -- Save position before hiding
+    SaveWrapperPosition(frame)
+    frame:Hide()
+  end)
+
+  -- Register the frame to respond to the Escape key
+  table.insert(UISpecialFrames, frame:GetName())
+
+  -- Override the OnHide script to save the position when the frame is hidden
+  frame:HookScript("OnHide", function(self)
+    SaveWrapperPosition(self)
+  end)
+
+
+  -- Create the clear button
+  local clearButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+  clearButton:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 10, 10)
+  clearButton:SetSize(80, 20)
+  clearButton:SetText("Clear")
+  clearButton:SetScript("OnClick", function(self)
+    -- Clear the raid data
+    BossBeaterDB.liveData = {}
+
+    for bossID, bossData in pairs(raidTable) do
+      bossData.time = "-"
+      bossData.difference = "-"
+      bossData.newRank = "-"
+    end
+
+    print("Live data cleared.")
+  
+    -- Clear existing rows
+    for _, row in ipairs(frame.contentFrame.rows) do
+      row:Hide()
+    end
+    frame.contentFrame.rows = {}
+  
+    -- Recreate rows
+    local rowHeight = 20
+    for i, rankingDataBossID in ipairs(sortedBossIDs) do
+      local bossData = raidTable[rankingDataBossID]
+      local row = CreateFrame("Frame", nil, frame.contentFrame)
+      row:SetPoint("TOPLEFT", frame.contentFrame, "TOPLEFT", 0, -rowHeight * i + 15)
+      row:SetSize(TABLE_WIDTH, rowHeight)
+  
+      -- Create cells with data from raidTable
+      local cell1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell1:SetPoint("LEFT", row, "LEFT", textOffsets[1], 0)
+      cell1:SetText(bossData.bossName or "N/A")
+  
+      local cell2 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell2:SetPoint("LEFT", row, "LEFT", textOffsets[2], 0)
+      cell2:SetText(FormatTime(bossData.worldRecord) or "N/A")
+  
+      if not BossBeaterDB.compactMode then
+        local cell3 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell3:SetPoint("LEFT", row, "LEFT", textOffsets[3], 0)
+        cell3:SetText(FormatTime(bossData.serverRecord) or "N/A")
+  
+        local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell4:SetPoint("LEFT", row, "LEFT", textOffsets[4], 0)
+        cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
+  
+        local cell5 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell5:SetPoint("LEFT", row, "LEFT", textOffsets[5], 0)
+        cell5:SetText(bossData.rank or "N/A")
+  
+        local cell6 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell6:SetPoint("LEFT", row, "LEFT", textOffsets[6], 0)
+        if bossData.time == "-" then
+          cell6:SetText("-")
+        else
+          cell6:SetText(FormatTime(bossData.time) or "-")
+        end
+  
+        local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell7:SetPoint("LEFT", row, "LEFT", textOffsets[7], 0)
+        if bossData.difference == "-" then
+          cell7:SetText("-")
+        elseif bossData.difference and bossData.difference < 0 then
+          local reversedDifference = bossData.difference * -1
+          cell7:SetText("-" .. FormatTime(reversedDifference) or "-")
+        elseif bossData.difference and bossData.difference > 0 then
+          cell7:SetText(FormatTime(bossData.difference) or "-")
+        else
+          cell7:SetText("-")
+        end
+  
+        local cell8 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell8:SetPoint("LEFT", row, "LEFT", textOffsets[8], 0)
+        cell8:SetText(bossData.newRank or "-")
+      else
+        local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell4:SetPoint("LEFT", row, "LEFT", textOffsets[3], 0)
+        cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
+  
+        local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        cell7:SetPoint("LEFT", row, "LEFT", textOffsets[4], 0)
+        if bossData.difference == "-" then
+          cell7:SetText("-")
+        elseif bossData.difference and bossData.difference < 0 then
+          local reversedDifference = bossData.difference * -1
+          cell7:SetText("-" .. FormatTime(reversedDifference) or "-")
+        elseif bossData.difference and bossData.difference > 0 then
+          cell7:SetText(FormatTime(bossData.difference) or "-")
+        else
+          cell7:SetText("-")
+        end
+      end
+  
+      -- Add the row to the content frame's rows table
+      table.insert(frame.contentFrame.rows, row)
+    end
+  end)
+
+  --[[local clearButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+  clearButton:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 10, 10)
+  clearButton:SetSize(80, 20)
+  clearButton:SetText("Clear")
+  clearButton:SetScript("OnClick", function(self)
+    -- Clear the raid data
+    BossBeaterDB.liveData = {}  -- Reset liveData in saved variables
+    print("Live data cleared. Please reload the UI.")
+
+    StaticPopup_Show("BOSSBEATER_RELOAD_UI")
+  end)
+
+  -- Add a text near the clear button that says "Requires reload"
+  local reloadText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+  reloadText:SetPoint("LEFT", clearButton, "RIGHT", 10, 0)
+  reloadText:SetText("Requires reload") ]]--
+
+  -- Define the pop-up dialog
+  StaticPopupDialogs["BOSSBEATER_RELOAD_UI"] = {
+    text = "Do you want to reload the UI now?",
+    button1 = "Yes",
+    button2 = "No",
+    OnAccept = function()
+      ReloadUI()
+    end,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3,  -- Avoid some UI taint issues
+  }
+
+  -- Create the compact mode checkbox
+  local compactModeCheckbox = CreateFrame("CheckButton", nil, frame, "UICheckButtonTemplate")
+  compactModeCheckbox:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -150, 10)
+  compactModeCheckbox:SetChecked(BossBeaterDB.compactMode or false)
+  compactModeCheckbox:SetScale(0.6) 
+  compactModeCheckbox:SetScript("OnClick", function(self)
+    print("Compact mode:", self:GetChecked())
+    BossBeaterDB.compactMode = self:GetChecked()
+    SaveWrapperPosition(frame)
+    CreateRaidTableUI(raidTable, sortedBossIDs)
+  end)
+
+  -- Add a text near the compact mode checkbox that says "Compact Mode"
+  local compactModeText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+  compactModeText:SetPoint("LEFT", compactModeCheckbox, "RIGHT", 10, 2)
+  compactModeText:SetScale(0.8) 
+  compactModeText:SetText("Compact Mode")
+
+  -- Show the frame
+  frame:Show()
+end
+
+--[[local function CreateRaidTableUI(raidTable, sortedBossIDs)
     -- Check if the frame already exists
   local frame = _G["BossBeaterRaidTable"]
 
-  local textOffsets = { 10, 140, 200, 260, 315, 390, 440, 490 }  -- Offsets for each header
+  local textOffsets = { 10, 100, 160, 220, 275, 350, 400, 450 }  -- Offsets for each header
+ --local textOffsets = { 10, 140, 200, 260, 315, 390, 440, 490 }  -- Old values pre boss names shortened 
 
   if not frame or (frame and not frame:IsShown()) then
     -- Create the main frame (only if it doesn't exist)
     frame = CreateFrame("Frame", "BossBeaterRaidTable", UIParent)
-    frame:SetSize(550, 300) -- Adjust size as needed
+    
+    if not BossBeaterDB.compactMode then
+      frame:SetSize(500, 300)
+    else
+      frame:SetSize(300, 300)
+    end
 
     if Addon.BossBeaterDB.frameX and Addon.BossBeaterDB.frameY then
       local adjustedX = Addon.BossBeaterDB.frameX - (frame:GetWidth() / 2)
@@ -220,80 +562,144 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
     bgTexture:SetAllPoints(frame)
     bgTexture:SetColorTexture(0.1, 0.1, 0.1, 0.8)
 
+
     -- Create the table header
     local header = CreateFrame("Frame", nil, frame)
     local contentOffset = 25
     header:SetPoint("TOPLEFT", frame, "TOPLEFT", 10, -10 - contentOffset) -- Apply contentOffset here
-    header:SetSize(550, 20) -- Adjust size as needed
 
-    local headers = { "Boss Name", "World", "Server", "Guild", "Rank (W/S)", "Time" , "Diff" , "Rank?" }
+    if not BossBeaterDB.compactMode then
+      header:SetSize(500, 20)
+    else
+      header:SetSize(300, 20)
+    end
+
+    local headers
+    if not BossBeaterDB.compactMode then
+      header:SetSize(500, 20)
+      headers = { "Boss Name", "World", "Server", "Guild", "Rank (W/S)", "Time", "Diff", "Rank?" }
+    else
+      header:SetSize(300, 20)
+      headers = { "Boss Name", "World", "Guild", "Diff" }
+    end
     
     for i, text in ipairs(headers) do
       local headerText = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       headerText:SetPoint("LEFT", header, "LEFT", textOffsets[i], 0)
       headerText:SetText(text)
-    end
+    end   
 
     -- Initialize the content frame and rows
     frame.contentFrame = CreateFrame("Frame", nil, frame)
     frame.contentFrame:SetPoint("TOPLEFT", header, "BOTTOMLEFT", 0, -10)
-    frame.contentFrame:SetSize(550, 300)
+
+    if not BossBeaterDB.compactMode then
+      frame.contentFrame:SetSize(500, 300)
+    else
+      frame.contentFrame:SetSize(300, 300)
+    end
+    
+    frame.contentFrame.rows = {}
+  end
+
+  -- Clear existing rows
+  if frame.contentFrame.rows then
+    for _, row in ipairs(frame.contentFrame.rows) do
+      row:Hide()
+    end
+
     frame.contentFrame.rows = {}
   end
 
   -- Create rows
   local rowHeight = 20
-  for i, rankingDataBossID in ipairs(sortedBossIDs) do
-    local bossData = raidTable[rankingDataBossID]
-    local row = CreateFrame("Frame", nil, frame.contentFrame)
-    row:SetPoint("TOPLEFT", frame.contentFrame, "TOPLEFT", 0, -rowHeight * i + 15) -- Adjust for header height
-    row:SetSize(550, rowHeight)
-
-    -- Create cells with data from raidTable
-    local cell1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell1:SetPoint("LEFT", row, "LEFT", 10, 0)
-    cell1:SetText(bossData.bossName or "N/A")
-
-    local cell2 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell2:SetPoint("LEFT", row, "LEFT", 140, 0)
-    cell2:SetText(FormatTime(bossData.worldRecord) or "N/A")
-
-    local cell3 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell3:SetPoint("LEFT", row, "LEFT", 200, 0)
-    cell3:SetText(FormatTime(bossData.serverRecord) or "N/A")
-
-    local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell4:SetPoint("LEFT", row, "LEFT", 260, 0)
-    cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
-
-    local cell5 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell5:SetPoint("LEFT", row, "LEFT", 315, 0)
-    cell5:SetText(bossData.rank or "N/A")
-
-    local cell6 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell6:SetPoint("LEFT", row, "LEFT", 390, 0)
-    if bossData.time == "-" then
-      cell6:SetText("-")
-    else
-      cell6:SetText(FormatTime(bossData.time) or "-")
+  if not BossBeaterDB.compactMode then
+    for i, rankingDataBossID in ipairs(sortedBossIDs) do
+      local bossData = raidTable[rankingDataBossID]
+      local row = CreateFrame("Frame", nil, frame.contentFrame)
+      row:SetPoint("TOPLEFT", frame.contentFrame, "TOPLEFT", 0, -rowHeight * i + 15) -- Adjust for header height
+      row:SetSize(500, rowHeight)
+  
+      -- Create cells with data from raidTable
+      local cell1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell1:SetPoint("LEFT", row, "LEFT", textOffsets[1], 0)
+      cell1:SetText(bossData.bossName or "N/A")
+  
+      local cell2 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell2:SetPoint("LEFT", row, "LEFT", textOffsets[2], 0)
+      cell2:SetText(FormatTime(bossData.worldRecord) or "N/A")
+  
+      local cell3 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell3:SetPoint("LEFT", row, "LEFT", textOffsets[3], 0)
+      cell3:SetText(FormatTime(bossData.serverRecord) or "N/A")
+  
+      local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell4:SetPoint("LEFT", row, "LEFT", textOffsets[4], 0)
+      cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
+  
+      local cell5 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell5:SetPoint("LEFT", row, "LEFT", textOffsets[5], 0)
+      cell5:SetText(bossData.rank or "N/A")
+  
+      local cell6 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell6:SetPoint("LEFT", row, "LEFT", textOffsets[6], 0)
+      if bossData.time == "-" then
+        cell6:SetText("-")
+      else
+        cell6:SetText(FormatTime(bossData.time) or "-")
+      end
+  
+      local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell7:SetPoint("LEFT", row, "LEFT", textOffsets[7], 0)
+      if bossData.difference == "-" then
+        cell7:SetText("-")
+      elseif bossData.difference and bossData.difference < 0 then
+        local reversedDifference = bossData.difference * -1
+        cell7:SetText("-" .. FormatTime(reversedDifference) or "-")
+      elseif bossData.difference and bossData.difference > 0 then
+        cell7:SetText(FormatTime(bossData.difference) or "-")
+      else
+        cell7:SetText("-")
+      end
+  
+      local cell8 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell8:SetPoint("LEFT", row, "LEFT", 490, 0)
+      cell8:SetText(bossData.newRank or "-")
     end
+  else
+    for i, rankingDataBossID in ipairs(sortedBossIDs) do
+      local bossData = raidTable[rankingDataBossID]
+      local row = CreateFrame("Frame", nil, frame.contentFrame)
+      row:SetPoint("TOPLEFT", frame.contentFrame, "TOPLEFT", 0, -rowHeight * i + 15) -- Adjust for header height
+      row:SetSize(300, rowHeight)
+  
+      -- Create cells with data from raidTable
+      local cell1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell1:SetPoint("LEFT", row, "LEFT", textOffsets[1], 0)
+      cell1:SetText(bossData.bossName or "N/A")
+  
+      local cell2 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell2:SetPoint("LEFT", row, "LEFT", textOffsets[2], 0)
+      cell2:SetText(FormatTime(bossData.worldRecord) or "N/A")
+  
+      local cell4 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell4:SetPoint("LEFT", row, "LEFT", textOffsets[3], 0)
+      cell4:SetText(FormatTime(bossData.guildRecord) or "N/A")
+  
+      local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+      cell7:SetPoint("LEFT", row, "LEFT", textOffsets[4], 0)
+      if bossData.difference == "-" then
+        cell7:SetText("-")
+      elseif bossData.difference and bossData.difference < 0 then
+        local reversedDifference = bossData.difference * -1
+        cell7:SetText("-" .. FormatTime(reversedDifference) or "-")
+      elseif bossData.difference and bossData.difference > 0 then
+        cell7:SetText(FormatTime(bossData.difference) or "-")
+      else
+        cell7:SetText("-")
+      end
+  end
 
-    local cell7 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell7:SetPoint("LEFT", row, "LEFT", 440, 0)
-    if bossData.difference == "-" then
-      cell7:SetText("-")
-    elseif bossData.difference and bossData.difference < 0 then
-      local reversedDifference = bossData.difference * -1
-      cell7:SetText("-" .. FormatTime(reversedDifference) or "-")
-    elseif bossData.difference and bossData.difference > 0 then
-      cell7:SetText(FormatTime(bossData.difference) or "-")
-    else
-      cell7:SetText("-")
-    end
-
-    local cell8 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    cell8:SetPoint("LEFT", row, "LEFT", 490, 0)
-    cell8:SetText(bossData.newRank or "-")
 
     -- Add the row to the content frame's rows table
     table.insert(frame.contentFrame.rows, row)
@@ -338,7 +744,28 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
     preferredIndex = 3,  -- Avoid some UI taint issues
   }
 
+  -- Add a text near the clear button that says "Requires reload"
+  local extractionText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+  extractionText:SetPoint("LEFT", reloadText, "RIGHT", 100, 0)
+  extractionText:SetText("Data from: " .. extractionTime)
+
+  -- Create the compact mode checkbox
+  local compactModeCheckbox = CreateFrame("CheckButton", nil, frame, "UICheckButtonTemplate")
+  compactModeCheckbox:SetPoint("TOPLEFT", frame, "TOPLEFT", 10, -10)
+  compactModeCheckbox:SetChecked(BossBeaterDB.compactMode or false)
+  compactModeCheckbox:SetScript("OnClick", function(self)
+    print("Compact mode:", self:GetChecked())
+    BossBeaterDB.compactMode = self:GetChecked()
+    CreateRaidTableUI(raidTable, sortedBossIDs)
+  end)
+
+    -- Add a text near the clear button that says "Requires reload"
+    local compactModeText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    compactModeText:SetPoint("LEFT", compactModeCheckbox, "RIGHT", 10, 0)
+    compactModeText:SetText("Compact Mode")
 end
+
+]]--
 
 local function RefreshRaidTableUI(raidTable, sortedBossIDs)
   if raidTable and sortedBossIDs then
@@ -418,8 +845,7 @@ local function EncounterEnd(_, event, encounterID, encounterName, _, _, success)
         end
       end
 
-      print("Encounter ended in success:", rankingDataBossID, startTime, endTime, duration, difference, newWorldRank, newServerRank)
-
+    
       table.insert(killTimes, {
         rankingDataBossID = rankingDataBossID,
         startTime = startTime,
@@ -446,13 +872,10 @@ local function EncounterEnd(_, event, encounterID, encounterName, _, _, success)
         difference = difference,
         newRank = newWorldRank .. " / " .. newServerRank
       }
-
-      print("Live data saved:", rankingDataBossID, duration, difference, newWorldRank, newServerRank)
       
       RefreshRaidTableUI(raidTable, sortedBossIDs)
     end
   else
-    print("Encounter failed deleting temp data")
     -- clear out the row for this rankingDataBossID in the temp table so that we can fill it again next try
     for i, entry in ipairs(tempKillTimes) do
       if entry.rankingDataBossID == rankingDataBossID then
@@ -501,6 +924,7 @@ local function OnAddonLoaded()
   BossBeaterDB = BossBeaterDB or {
     frameX = nil,
     frameY = nil,
+    compactMode = false,
     liveData = {}  -- Change raidData to liveData to store only live session data
   }
   Addon.BossBeaterDB = BossBeaterDB
