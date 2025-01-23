@@ -21,7 +21,7 @@ local function GetPlayerGuildName()
   if guildName then
     return guildName
   else
-    return "No Guild"
+    return "Concede"
   end
 end
 
