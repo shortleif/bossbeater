@@ -65,7 +65,8 @@ end
 -- Function to create the raid table
 -- This function initializes the raid table and sorts the boss IDs
 -- return table, table: The raid table and the sorted boss IDs
--- Ensure rankingData and bossLookup are available  
+-- Ensure rankingData and bossLookup are available 
+local function CreateRaidTable()
   if not rankingData or not bossLookup then
     print("Error: Ranking data or boss lookup table is not available.")
     return nil, nil  -- Return nil for both values to indicate an error
