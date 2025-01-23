@@ -245,7 +245,7 @@ local function CreateRaidTableUI(raidTable, sortedBossIDs)
   if BossBeaterDB.compactMode then
     frame:SetSize(COMPACT_WIDTH, TABLE_HEIGHT)
     header:SetSize(COMPACT_WIDTH, 20)
-    headers = { "Boss Name", "World", "Guild", "Diff" }
+    headers = { "Boss Name", "World", "Guild", "Time" }
   else
     frame:SetSize(TABLE_WIDTH, TABLE_HEIGHT)
     header:SetSize(TABLE_WIDTH, 20)
