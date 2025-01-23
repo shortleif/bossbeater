@@ -1,4 +1,4 @@
-# BossBeater
+# BossBeater - By Mint and Leif
 
 BossBeater is a World of Warcraft addon that tracks and displays raid boss kill times, ranks, and records for your guild and server. It provides a user-friendly UI to view and compare your performance against other guilds and servers.
 
