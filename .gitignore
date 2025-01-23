@@ -43,4 +43,5 @@ luac.out
 backup_prints.lua
 error_log.txt
 ranking_data2.lua
+ranking_data_WC.lua
 

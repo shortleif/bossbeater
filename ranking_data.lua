@@ -1,5476 +1,17086 @@
 local BossBeater, Addon = ...
-
+Addon.extraction_time = "2025-01-23 15:45:00"
 Addon.ranking_data = {
  {
-                rank = 1,
-                guildName = "Btribe",
-                reportid = "v8Yph9C3gFAJ42fx",
-                timeSpent = "37:53",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:02",
-                    boss_100710 = "01:03",
-                    boss_100711 = "01:11",
-                    boss_100712 = "00:43",
-                    boss_100713 = "01:12",
-                    boss_100714 = "00:56",
-                    boss_100715 = "00:48",
-                    boss_100716 = "00:56",
-                    boss_100717 = "03:31"
-                }
-            },
- {
-                rank = 2,
-                guildName = "Pirelli",
-                reportid = "rWBK8fzhwMAyFJGR",
-                timeSpent = "39:41",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:19",
-                    boss_100710 = "01:14",
-                    boss_100711 = "01:24",
-                    boss_100712 = "00:51",
-                    boss_100713 = "01:29",
-                    boss_100714 = "01:11",
-                    boss_100715 = "00:57",
-                    boss_100716 = "01:14",
-                    boss_100717 = "03:47"
-                }
-            },
- {
-                rank = 3,
-                guildName = "Fas",
-                reportid = "KCMBwGtLcNy1dJA2",
-                timeSpent = "43:45",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:08",
-                    boss_100710 = "01:08",
-                    boss_100711 = "01:09",
-                    boss_100712 = "00:47",
-                    boss_100713 = "01:45",
-                    boss_100714 = "01:02",
-                    boss_100715 = "00:47",
-                    boss_100716 = "01:03",
-                    boss_100717 = "03:50"
-                }
-            },
- {
-                rank = 4,
-                guildName = "WoodWard SoD",
-                reportid = "tAFp8Q2cDZwbfM7r",
-                timeSpent = "45:13",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:29",
-                    boss_100710 = "01:42",
-                    boss_100711 = "01:55",
-                    boss_100712 = "01:11",
-                    boss_100713 = "02:24",
-                    boss_100714 = "01:28",
-                    boss_100715 = "02:02",
-                    boss_100716 = "01:35",
-                    boss_100717 = "04:26"
-                }
-            },
- {
-                rank = 5,
-                guildName = "Praxis",
-                reportid = "dRW38jJfbBhqcpYN",
-                timeSpent = "45:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:15",
-                    boss_100710 = "01:24",
-                    boss_100711 = "01:18",
-                    boss_100712 = "00:53",
-                    boss_100713 = "02:07",
-                    boss_100714 = "01:05",
-                    boss_100715 = "01:05",
-                    boss_100716 = "01:05",
-                    boss_100717 = "04:03"
-                }
-            },
- {
-                rank = 6,
-                guildName = "Inselverbot",
-                reportid = "WvxCFy3PV9KbfDHj",
-                timeSpent = "48:42",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:08",
-                    boss_100710 = "01:14",
-                    boss_100711 = "01:20",
-                    boss_100712 = "00:47",
-                    boss_100713 = "01:16",
-                    boss_100714 = "00:52",
-                    boss_100715 = "00:57",
-                    boss_100716 = "00:56",
-                    boss_100717 = "03:39"
-                }
-            },
- {
-                rank = 7,
-                guildName = "cba",
-                reportid = "JH6dVPLpcqvKaDnx",
-                timeSpent = "49:21",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:04",
-                    boss_100710 = "00:59",
-                    boss_100711 = "01:08",
-                    boss_100712 = "00:38",
-                    boss_100713 = "01:24",
-                    boss_100714 = "00:46",
-                    boss_100715 = "00:51",
-                    boss_100716 = "00:50",
-                    boss_100717 = "00:46"
-                }
-            },
- {
-                rank = 8,
-                guildName = "we are bad",
-                reportid = "twgXLq7y8NrQZB1G",
-                timeSpent = "51:58",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:11",
-                    boss_100710 = "02:11",
-                    boss_100711 = "01:17",
-                    boss_100712 = "00:57",
-                    boss_100713 = "01:58",
-                    boss_100714 = "01:01",
-                    boss_100715 = "00:57",
-                    boss_100716 = "01:14",
-                    boss_100717 = "06:23"
-                }
-            },
- {
-                rank = 9,
-                guildName = "Innuendo",
-                reportid = "3Mt49Hz2gNK8PVZD",
-                timeSpent = "52:44",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:22",
-                    boss_100710 = "01:34",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:06",
-                    boss_100713 = "02:00",
-                    boss_100714 = "01:15",
-                    boss_100715 = "01:31",
-                    boss_100716 = "01:17",
-                    boss_100717 = "04:41"
-                }
-            },
- {
-                rank = 10,
-                guildName = "Gasstation PUG",
-                reportid = "bRNcBXQ4CHmq7FxK",
-                timeSpent = "54:23",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:45",
-                    boss_100712 = "00:58",
-                    boss_100713 = "02:18",
-                    boss_100714 = "01:11",
-                    boss_100715 = "01:15",
-                    boss_100716 = "01:22",
-                    boss_100717 = "04:18"
-                }
-            },
- {
-                rank = 11,
-                guildName = "Fake Fresh",
-                reportid = "4ZvAVNGgkcKwXxJ1",
-                timeSpent = "55:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:49",
-                    boss_100710 = "01:45",
-                    boss_100711 = "02:13",
-                    boss_100712 = "01:17",
-                    boss_100713 = "03:17",
-                    boss_100714 = "01:36",
-                    boss_100715 = "01:42",
-                    boss_100716 = "01:50",
-                    boss_100717 = "05:01"
-                }
-            },
- {
-                rank = 12,
-                guildName = "the BENIS firm",
-                reportid = "7TAYPpzwRD93y8aZ",
-                timeSpent = "57:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:48",
-                    boss_100710 = "01:24",
-                    boss_100711 = "01:30",
-                    boss_100712 = "00:58",
-                    boss_100713 = "01:45",
-                    boss_100714 = "01:13",
-                    boss_100715 = "01:00",
-                    boss_100716 = "01:21",
-                    boss_100717 = "05:16"
-                }
-            },
- {
-                rank = 13,
-                guildName = "Two [FR]",
-                reportid = "bWfrDmyapcgjBxG3",
-                timeSpent = "58:00",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:15",
-                    boss_100710 = "01:25",
-                    boss_100711 = "01:41",
-                    boss_100712 = "00:57",
-                    boss_100713 = "01:37",
-                    boss_100714 = "01:03",
-                    boss_100715 = "01:04",
-                    boss_100716 = "01:17",
-                    boss_100717 = "04:02"
-                }
-            },
- {
-                rank = 14,
-                guildName = "Blaster Pug LivingFlame",
-                reportid = "hKMBPALY8TtfGnJc",
-                timeSpent = "58:31",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:40",
-                    boss_100711 = "01:42",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:32",
-                    boss_100715 = "01:32",
-                    boss_100716 = "01:32",
-                    boss_100717 = "04:12"
-                }
-            },
- {
-                rank = 15,
-                guildName = "GoldenRoll SOD",
-                reportid = "NvnAwMqPjzxaH2RX",
-                timeSpent = "58:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:47",
-                    boss_100710 = "01:48",
-                    boss_100711 = "01:54",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:09",
-                    boss_100714 = "01:34",
-                    boss_100715 = "01:43",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:05"
-                }
-            },
- {
-                rank = 16,
-                guildName = "Blackbeard",
-                reportid = "vpaD9TR3j7MQG6nx",
-                timeSpent = "59:20",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:27",
-                    boss_100710 = "01:27",
-                    boss_100711 = "01:39",
-                    boss_100712 = "00:58",
-                    boss_100713 = "02:53",
-                    boss_100714 = "01:14",
-                    boss_100715 = "01:28",
-                    boss_100716 = "01:18",
-                    boss_100717 = "04:48"
-                }
-            },
- {
-                rank = 17,
-                guildName = "Parse Attack",
-                reportid = "7BT1KfPygpGAWZNt",
-                timeSpent = "1:00:5",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:14",
-                    boss_100710 = "01:27",
-                    boss_100711 = "01:24",
-                    boss_100712 = "00:58",
-                    boss_100713 = "02:15",
-                    boss_100714 = "01:03",
-                    boss_100715 = "01:00",
-                    boss_100716 = "01:14",
-                    boss_100717 = "04:15"
-                }
-            },
- {
-                rank = 18,
-                guildName = "FOMO",
-                reportid = "hAqnzrgyTD4cW6jp",
-                timeSpent = "1:00:12",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:35",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:24",
-                    boss_100714 = "01:18",
-                    boss_100715 = "02:10",
-                    boss_100716 = "01:30",
-                    boss_100717 = "05:26"
-                }
-            },
- {
-                rank = 19,
-                guildName = "Its free",
-                reportid = "TZMtqwac76VJPNXp",
-                timeSpent = "1:00:48",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:16",
-                    boss_100710 = "01:22",
-                    boss_100711 = "01:18",
-                    boss_100712 = "00:56",
-                    boss_100713 = "01:57",
-                    boss_100714 = "01:06",
-                    boss_100715 = "00:55",
-                    boss_100716 = "01:13",
-                    boss_100717 = "03:53"
-                }
-            },
- {
-                rank = 20,
-                guildName = "La Masonería",
-                reportid = "N4RwW89MXvqt3mbJ",
-                timeSpent = "1:00:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:40",
-                    boss_100711 = "01:47",
-                    boss_100712 = "01:00",
-                    boss_100713 = "01:46",
-                    boss_100714 = "01:11",
-                    boss_100715 = "01:27",
-                    boss_100716 = "01:16",
-                    boss_100717 = "04:40"
-                }
-            },
- {
-                rank = 21,
-                guildName = "Damaged Minds",
-                reportid = "ytxXNVHBkmhnYdvz",
-                timeSpent = "1:01:25",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:11",
-                    boss_100710 = "01:22",
-                    boss_100711 = "02:05",
-                    boss_100712 = "00:48",
-                    boss_100713 = "01:49",
-                    boss_100714 = "01:04",
-                    boss_100715 = "01:00",
-                    boss_100716 = "01:15",
-                    boss_100717 = "04:24"
-                }
-            },
- {
-                rank = 22,
-                guildName = "Iron Edge",
-                reportid = "pmHYrZLBQwDgzFMx",
-                timeSpent = "1:01:46",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "01:35",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:26",
-                    boss_100714 = "01:15",
-                    boss_100715 = "01:17",
-                    boss_100716 = "01:23",
-                    boss_100717 = "05:22"
-                }
-            },
- {
-                rank = 23,
-                guildName = "Vinnare i vänskap",
-                reportid = "L7pz8FRqjPMJvwhb",
-                timeSpent = "1:01:57",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:13",
-                    boss_100710 = "01:20",
-                    boss_100711 = "01:33",
-                    boss_100712 = "00:51",
-                    boss_100713 = "01:44",
-                    boss_100714 = "01:11",
-                    boss_100715 = "00:58",
-                    boss_100716 = "01:18",
-                    boss_100717 = "03:59"
-                }
-            },
- {
-                rank = 24,
-                guildName = "Sold Out PUG",
-                reportid = "HqVcfRXJk8PTv2Bj",
-                timeSpent = "1:02:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:41",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:08",
-                    boss_100713 = "02:09",
-                    boss_100714 = "01:22",
-                    boss_100715 = "01:08",
-                    boss_100716 = "01:27",
-                    boss_100717 = "04:57"
-                }
-            },
- {
-                rank = 25,
-                guildName = "Escape from Paradise",
-                reportid = "4wdnrD2xvB9gJAjV",
-                timeSpent = "1:02:25",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:32",
-                    boss_100710 = "01:35",
-                    boss_100711 = "01:33",
-                    boss_100712 = "01:13",
-                    boss_100713 = "03:58",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:19",
-                    boss_100716 = "01:36",
-                    boss_100717 = "06:46"
-                }
-            },
- {
-                rank = 26,
-                guildName = "Luxe",
-                reportid = "yxZCkFYXnVMAc3Q9",
-                timeSpent = "1:03:27",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:04",
-                    boss_100710 = "01:08",
-                    boss_100711 = "01:15",
-                    boss_100712 = "00:45",
-                    boss_100713 = "01:43",
-                    boss_100714 = "00:54",
-                    boss_100715 = "00:52",
-                    boss_100716 = "01:05",
-                    boss_100717 = "04:06"
-                }
-            },
- {
-                rank = 27,
-                guildName = "Team Languste",
-                reportid = "NPa32htfzYvrMcX4",
-                timeSpent = "1:04:27",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:18",
-                    boss_100710 = "01:21",
-                    boss_100711 = "01:22",
-                    boss_100712 = "00:56",
-                    boss_100713 = "01:35",
-                    boss_100714 = "01:12",
-                    boss_100715 = "01:14",
-                    boss_100716 = "01:15",
-                    boss_100717 = "04:30"
-                }
-            },
- {
-                rank = 28,
-                guildName = "Kappa",
-                reportid = "p8b6K9fGPkjMncxw",
-                timeSpent = "1:04:34",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:42",
-                    boss_100711 = "02:10",
-                    boss_100712 = "01:16",
-                    boss_100713 = "02:32",
-                    boss_100714 = "01:23",
-                    boss_100715 = "02:22",
-                    boss_100716 = "01:26",
-                    boss_100717 = "04:32"
-                }
-            },
- {
-                rank = 29,
-                guildName = "RIOT - SoD",
-                reportid = "FAmJjvhWVRzPn3r4",
-                timeSpent = "1:04:59",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:06",
-                    boss_100710 = "01:17",
-                    boss_100711 = "01:21",
-                    boss_100712 = "00:50",
-                    boss_100713 = "02:48",
-                    boss_100714 = "00:51",
-                    boss_100715 = "00:53",
-                    boss_100716 = "00:59",
-                    boss_100717 = "05:08"
-                }
-            },
- {
-                rank = 30,
-                guildName = "LG pugz",
-                reportid = "RayqHF21L8gkmZ6T",
-                timeSpent = "1:05:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:22",
-                    boss_100710 = "01:30",
-                    boss_100711 = "01:33",
-                    boss_100712 = "00:58",
-                    boss_100713 = "01:56",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:23",
-                    boss_100716 = "01:14",
-                    boss_100717 = "04:10"
-                }
-            },
- {
-                rank = 31,
-                guildName = "HOOLIGANS PuG",
-                reportid = "hfb1Gr8wxYkjZLWv",
-                timeSpent = "1:05:47",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:17",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:42",
-                    boss_100712 = "01:04",
-                    boss_100713 = "03:05",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:32",
-                    boss_100716 = "01:35",
-                    boss_100717 = "04:35"
-                }
-            },
- {
-                rank = 32,
-                guildName = "Singularity",
-                reportid = "F1Q9ZbCVBG8pKv2T",
-                timeSpent = "1:05:48",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:15",
-                    boss_100710 = "01:25",
-                    boss_100711 = "01:42",
-                    boss_100712 = "00:59",
-                    boss_100713 = "02:32",
-                    boss_100714 = "01:11",
-                    boss_100715 = "01:08",
-                    boss_100716 = "01:22",
-                    boss_100717 = "04:33"
-                }
-            },
- {
-                rank = 33,
-                guildName = "Диктаторы Just pull",
-                reportid = "kndw71rYmJpxbQGC",
-                timeSpent = "1:05:54",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:35",
-                    boss_100710 = "01:24",
-                    boss_100711 = "01:42",
-                    boss_100712 = "00:59",
-                    boss_100713 = "01:53",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:20",
-                    boss_100716 = "01:19",
-                    boss_100717 = "04:10"
-                }
-            },
- {
-                rank = 34,
-                guildName = "NO GNOMO",
-                reportid = "92cYWb1HjTCXMn7t",
-                timeSpent = "1:06:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:53",
-                    boss_100712 = "01:05",
-                    boss_100713 = "02:03",
-                    boss_100714 = "01:23",
-                    boss_100715 = "02:03",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:02"
-                }
-            },
- {
-                rank = 35,
-                guildName = "Crucial",
-                reportid = "6TfjZaDb1QHqtMnd",
-                timeSpent = "1:06:17",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:10",
-                    boss_100710 = "01:24",
-                    boss_100711 = "01:22",
-                    boss_100712 = "00:54",
-                    boss_100713 = "01:45",
-                    boss_100714 = "01:04",
-                    boss_100715 = "01:01",
-                    boss_100716 = "01:05",
-                    boss_100717 = "04:01"
-                }
-            },
- {
-                rank = 36,
-                guildName = "Tem Plak",
-                reportid = "8q4N3LdRJaAZCtVw",
-                timeSpent = "1:06:37",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:29",
-                    boss_100710 = "01:25",
-                    boss_100711 = "01:31",
-                    boss_100712 = "01:01",
-                    boss_100713 = "02:22",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:45",
-                    boss_100716 = "01:26",
-                    boss_100717 = "04:16"
-                }
-            },
- {
-                rank = 37,
-                guildName = "SADDLE MY DONKEY",
-                reportid = "VaRgvdCLPn3j19hH",
-                timeSpent = "1:06:48",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:39",
-                    boss_100710 = "01:45",
-                    boss_100711 = "01:48",
-                    boss_100712 = "01:13",
-                    boss_100713 = "02:04",
-                    boss_100714 = "01:26",
-                    boss_100715 = "02:12",
-                    boss_100716 = "01:32",
-                    boss_100717 = "05:29"
-                }
-            },
- {
-                rank = 38,
-                guildName = "Déjà vu",
-                reportid = "CG7baWg8dfL91qcx",
-                timeSpent = "1:07:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:51",
-                    boss_100710 = "01:48",
-                    boss_100711 = "01:49",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:50",
-                    boss_100714 = "01:13",
-                    boss_100715 = "02:06",
-                    boss_100716 = "01:20",
-                    boss_100717 = "04:11"
-                }
-            },
- {
-                rank = 39,
-                guildName = "Low Profile",
-                reportid = "HmrLBkZGDgFzNpYb",
-                timeSpent = "1:07:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:27",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:34",
-                    boss_100712 = "00:53",
-                    boss_100713 = "02:21",
-                    boss_100714 = "01:05",
-                    boss_100715 = "01:02",
-                    boss_100716 = "01:17",
-                    boss_100717 = "04:22"
-                }
-            },
- {
-                rank = 40,
-                guildName = "WaRe",
-                reportid = "W7BRhKwkAdZmbQNF",
-                timeSpent = "1:07:35",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:16",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:32",
-                    boss_100712 = "00:54",
-                    boss_100713 = "02:01",
-                    boss_100714 = "01:08",
-                    boss_100715 = "01:23",
-                    boss_100716 = "01:21",
-                    boss_100717 = "05:00"
-                }
-            },
- {
-                rank = 41,
-                guildName = "Gob Unit",
-                reportid = "drLKGxJ1bC8ZR3Nn",
-                timeSpent = "1:09:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:54",
-                    boss_100711 = "01:59",
-                    boss_100712 = "01:18",
-                    boss_100713 = "02:02",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:51",
-                    boss_100716 = "01:39",
-                    boss_100717 = "04:56"
-                }
-            },
- {
-                rank = 42,
-                guildName = "SALZIG",
-                reportid = "zpvgJx3ZRWcwXYn8",
-                timeSpent = "1:09:17",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:29",
-                    boss_100710 = "01:21",
-                    boss_100711 = "01:38",
-                    boss_100712 = "00:59",
-                    boss_100713 = "02:29",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:04",
-                    boss_100716 = "01:18",
-                    boss_100717 = "04:23"
-                }
-            },
- {
-                rank = 43,
-                guildName = "AI PUGs",
-                reportid = "1CJnXZKQyb6NhHtf",
-                timeSpent = "1:09:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:22",
-                    boss_100710 = "01:28",
-                    boss_100711 = "01:46",
-                    boss_100712 = "00:58",
-                    boss_100713 = "01:54",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:26",
-                    boss_100716 = "01:20",
-                    boss_100717 = "05:04"
-                }
-            },
- {
-                rank = 44,
-                guildName = "MM",
-                reportid = "Fry7Ghj8CvapfX4R",
-                timeSpent = "1:09:33",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:22",
-                    boss_100710 = "01:34",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:02",
-                    boss_100713 = "01:42",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:15",
-                    boss_100716 = "01:35",
-                    boss_100717 = "04:47"
-                }
-            },
- {
-                rank = 45,
-                guildName = "Legacy Of The dAWN (LF)",
-                reportid = "WRBPywhCb4rpQGvn",
-                timeSpent = "1:09:48",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:07",
-                    boss_100710 = "01:45",
-                    boss_100711 = "01:46",
-                    boss_100712 = "01:04",
-                    boss_100713 = "02:16",
-                    boss_100714 = "01:25",
-                    boss_100715 = "01:22",
-                    boss_100716 = "01:28",
-                    boss_100717 = "05:19"
-                }
-            },
- {
-                rank = 46,
-                guildName = "Dóminous",
-                reportid = "GbY2ZdNmv9FHPCtT",
-                timeSpent = "1:09:57",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:54",
-                    boss_100710 = "02:14",
-                    boss_100711 = "01:55",
-                    boss_100712 = "01:21",
-                    boss_100713 = "02:45",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:53",
-                    boss_100716 = "01:32",
-                    boss_100717 = "06:04"
-                }
-            },
- {
-                rank = 47,
-                guildName = "Dark Circle Pug",
-                reportid = "3nQvLpf1CDqbcr8H",
-                timeSpent = "1:09:59",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:55",
-                    boss_100710 = "01:48",
-                    boss_100711 = "02:05",
-                    boss_100712 = "01:19",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:00",
-                    boss_100716 = "02:24",
-                    boss_100717 = "04:54"
-                }
-            },
- {
-                rank = 48,
-                guildName = "Sugus de Piña",
-                reportid = "68jxWwvpPAfdM7VK",
-                timeSpent = "1:10:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:44",
-                    boss_100710 = "01:54",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:24",
-                    boss_100713 = "01:52",
-                    boss_100714 = "01:35",
-                    boss_100715 = "01:21",
-                    boss_100716 = "01:43",
-                    boss_100717 = "04:26"
-                }
-            },
- {
-                rank = 49,
-                guildName = "Der blutige Pfad - SoD",
-                reportid = "gbdnqTB9WywDP67J",
-                timeSpent = "1:10:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:03",
-                    boss_100710 = "01:35",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:11",
-                    boss_100713 = "05:22",
-                    boss_100714 = "01:22",
-                    boss_100715 = "01:38",
-                    boss_100716 = "01:28",
-                    boss_100717 = "05:00"
-                }
-            },
- {
-                rank = 50,
-                guildName = "Team Træls",
-                reportid = "CQ3kjHXrb2RdTYxp",
-                timeSpent = "1:10:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "01:25",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:02",
-                    boss_100713 = "02:01",
-                    boss_100714 = "01:06",
-                    boss_100715 = "02:32",
-                    boss_100716 = "01:14",
-                    boss_100717 = "05:10"
-                }
-            },
- {
-                rank = 51,
-                guildName = "Dice",
-                reportid = "DvZhKWHn9mTctPAa",
-                timeSpent = "1:11:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:35",
-                    boss_100710 = "01:40",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:10",
-                    boss_100713 = "02:14",
-                    boss_100714 = "01:23",
-                    boss_100715 = "01:33",
-                    boss_100716 = "01:43",
-                    boss_100717 = "07:07"
-                }
-            },
- {
-                rank = 52,
-                guildName = "SWAV",
-                reportid = "tBfcQYC1bj2VrzyA",
-                timeSpent = "1:11:09",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:12",
-                    boss_100710 = "01:17",
-                    boss_100711 = "01:33",
-                    boss_100712 = "01:08",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:06",
-                    boss_100715 = "01:35",
-                    boss_100716 = "01:18",
-                    boss_100717 = "05:33"
-                }
-            },
- {
-                rank = 53,
-                guildName = "Exode",
-                reportid = "91ZxGVqB4kfv2CMw",
-                timeSpent = "1:11:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:35",
-                    boss_100711 = "01:38",
-                    boss_100712 = "00:57",
-                    boss_100713 = "02:10",
-                    boss_100714 = "01:08",
-                    boss_100715 = "01:27",
-                    boss_100716 = "01:29",
-                    boss_100717 = "04:53"
-                }
-            },
- {
-                rank = 54,
-                guildName = "Fællesskabet",
-                reportid = "RV9Hr43TbPtQxkaB",
-                timeSpent = "1:11:20",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:02",
-                    boss_100710 = "01:22",
-                    boss_100711 = "01:23",
-                    boss_100712 = "00:56",
-                    boss_100713 = "02:20",
-                    boss_100714 = "00:56",
-                    boss_100715 = "01:26",
-                    boss_100716 = "01:04",
-                    boss_100717 = "04:12"
-                }
-            },
- {
-                rank = 55,
-                guildName = "KKR",
-                reportid = "C3vpbz7j4mfBdZTR",
-                timeSpent = "1:11:38",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:55",
-                    boss_100710 = "02:14",
-                    boss_100711 = "02:13",
-                    boss_100712 = "01:21",
-                    boss_100713 = "03:08",
-                    boss_100714 = "01:40",
-                    boss_100715 = "01:35",
-                    boss_100716 = "01:38",
-                    boss_100717 = "06:25"
-                }
-            },
- {
-                rank = 56,
-                guildName = "facility management",
-                reportid = "kfNa6AzWRc7mrLw9",
-                timeSpent = "1:12:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:24",
-                    boss_100710 = "01:25",
-                    boss_100711 = "01:25",
-                    boss_100712 = "00:57",
-                    boss_100713 = "01:19",
-                    boss_100714 = "01:09",
-                    boss_100715 = "01:02",
-                    boss_100716 = "01:15",
-                    boss_100717 = "04:15"
-                }
-            },
- {
-                rank = 57,
-                guildName = "Headhunter",
-                reportid = "q9xfyA2GjtkLvwgD",
-                timeSpent = "1:12:25",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:51",
-                    boss_100711 = "02:03",
-                    boss_100712 = "01:24",
-                    boss_100713 = "02:37",
-                    boss_100714 = "01:43",
-                    boss_100715 = "02:19",
-                    boss_100716 = "01:48",
-                    boss_100717 = "07:06"
-                }
-            },
- {
-                rank = 58,
-                guildName = "Infamous",
-                reportid = "wVMt9Gxnmy8v7r4Q",
-                timeSpent = "1:13:03",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "02:03",
-                    boss_100711 = "02:43",
-                    boss_100712 = "02:13",
-                    boss_100713 = "02:32",
-                    boss_100714 = "01:30",
-                    boss_100715 = "01:44",
-                    boss_100716 = "01:41",
-                    boss_100717 = "07:45"
-                }
-            },
- {
-                rank = 59,
-                guildName = "Seven Sins OG",
-                reportid = "hNy8rad13vb9GzBM",
-                timeSpent = "1:13:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:57",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:58",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:14",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:50",
-                    boss_100716 = "02:07",
-                    boss_100717 = "06:27"
-                }
-            },
- {
-                rank = 60,
-                guildName = "GoldenRoll SOD 2",
-                reportid = "x32a8KVjP7mWJypq",
-                timeSpent = "1:13:28",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "02:08",
-                    boss_100711 = "02:19",
-                    boss_100712 = "01:43",
-                    boss_100713 = "03:14",
-                    boss_100714 = "01:53",
-                    boss_100715 = "03:22",
-                    boss_100716 = "02:05",
-                    boss_100717 = "08:44"
-                }
-            },
- {
-                rank = 61,
-                guildName = "Inevitable",
-                reportid = "6XVC7j4MLtRHgBnW",
-                timeSpent = "1:14:16",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:00",
-                    boss_100710 = "01:45",
-                    boss_100711 = "02:07",
-                    boss_100712 = "01:16",
-                    boss_100713 = "02:31",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:42",
-                    boss_100716 = "01:51",
-                    boss_100717 = "05:01"
-                }
-            },
- {
-                rank = 62,
-                guildName = "R i o t",
-                reportid = "MkFxwWdKmgRAzvPh",
-                timeSpent = "1:14:31",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:09",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:57",
-                    boss_100714 = "01:24",
-                    boss_100715 = "02:06",
-                    boss_100716 = "01:41",
-                    boss_100717 = "06:36"
-                }
-            },
- {
-                rank = 63,
-                guildName = "E D ODII",
-                reportid = "D7ZrHpaktyWKxqw8",
-                timeSpent = "1:14:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "01:51",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:07",
-                    boss_100714 = "01:29",
-                    boss_100715 = "01:46",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:06"
-                }
-            },
- {
-                rank = 64,
-                guildName = "Radiant",
-                reportid = "LDjnPqm2d1af3wNB",
-                timeSpent = "1:14:59",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:47",
-                    boss_100710 = "02:08",
-                    boss_100711 = "01:46",
-                    boss_100712 = "01:13",
-                    boss_100713 = "02:22",
-                    boss_100714 = "01:22",
-                    boss_100715 = "02:03",
-                    boss_100716 = "01:30",
-                    boss_100717 = "07:16"
-                }
-            },
- {
-                rank = 65,
-                guildName = "On Top",
-                reportid = "QHfkR8CwZXncz4da",
-                timeSpent = "1:15:28",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:09",
-                    boss_100710 = "01:17",
-                    boss_100711 = "01:28",
-                    boss_100712 = "00:48",
-                    boss_100713 = "01:53",
-                    boss_100714 = "01:00",
-                    boss_100715 = "00:53",
-                    boss_100716 = "01:05",
-                    boss_100717 = "04:50"
-                }
-            },
- {
-                rank = 66,
-                guildName = "<AVV> PUG",
-                reportid = "AdN2zQyjMK9gYwx6",
-                timeSpent = "1:15:36",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:55",
-                    boss_100711 = "01:50",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:53",
-                    boss_100714 = "01:19",
-                    boss_100715 = "01:31",
-                    boss_100716 = "01:31",
-                    boss_100717 = "05:13"
-                }
-            },
- {
-                rank = 67,
-                guildName = "Cult of the Lamb",
-                reportid = "KhcqA76btG2aXjP3",
-                timeSpent = "1:15:37",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:15",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:40",
-                    boss_100712 = "01:07",
-                    boss_100713 = "01:53",
-                    boss_100714 = "01:29",
-                    boss_100715 = "02:01",
-                    boss_100716 = "01:32",
-                    boss_100717 = "04:30"
-                }
-            },
- {
-                rank = 68,
-                guildName = "Vanilla Vibes",
-                reportid = "VKNdZcGtMT63Aa2q",
-                timeSpent = "1:15:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:37",
-                    boss_100710 = "02:01",
-                    boss_100711 = "02:15",
-                    boss_100712 = "01:25",
-                    boss_100713 = "01:54",
-                    boss_100714 = "01:37",
-                    boss_100715 = "02:45",
-                    boss_100716 = "01:54",
-                    boss_100717 = "06:00"
-                }
-            },
- {
-                rank = 69,
-                guildName = "Den Danske Metode",
-                reportid = "dgm1J3yDLzHCtwYb",
-                timeSpent = "1:16:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:25",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:00",
-                    boss_100713 = "03:16",
-                    boss_100714 = "01:18",
-                    boss_100715 = "01:17",
-                    boss_100716 = "01:22",
-                    boss_100717 = "05:50"
-                }
-            },
- {
-                rank = 70,
-                guildName = "Drumroll",
-                reportid = "NwchVFP2DXyxLg6p",
-                timeSpent = "1:16:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:43",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:03",
-                    boss_100713 = "03:06",
-                    boss_100714 = "01:14",
-                    boss_100715 = "01:44",
-                    boss_100716 = "01:21",
-                    boss_100717 = "04:56"
-                }
-            },
- {
-                rank = 71,
-                guildName = "no soup",
-                reportid = "hg1cnt9VdqbRF6y7",
-                timeSpent = "1:16:28",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:18",
-                    boss_100712 = "01:23",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:46",
-                    boss_100715 = "02:10",
-                    boss_100716 = "02:36",
-                    boss_100717 = "06:15"
-                }
-            },
- {
-                rank = 72,
-                guildName = "CHOPA PUG",
-                reportid = "hZQXHYDP2dBxatAw",
-                timeSpent = "1:17:20",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:51",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:36",
-                    boss_100714 = "01:18",
-                    boss_100715 = "01:39",
-                    boss_100716 = "01:21",
-                    boss_100717 = "04:23"
-                }
-            },
- {
-                rank = 73,
-                guildName = "HT",
-                reportid = "D3Tjdy8cNB4YnzLQ",
-                timeSpent = "1:17:24",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:01",
-                    boss_100710 = "01:43",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:17",
-                    boss_100713 = "02:58",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:52",
-                    boss_100716 = "01:34",
-                    boss_100717 = "05:15"
-                }
-            },
- {
-                rank = 74,
-                guildName = "Very Special Forces",
-                reportid = "chzbq1X2VnDYgrap",
-                timeSpent = "1:17:30",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:59",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:19",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:02",
-                    boss_100716 = "01:22",
-                    boss_100717 = "04:11"
-                }
-            },
- {
-                rank = 75,
-                guildName = "Almost Famous",
-                reportid = "7QwrzX2nt4ANYjcp",
-                timeSpent = "1:17:31",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:29",
-                    boss_100710 = "01:27",
-                    boss_100711 = "01:46",
-                    boss_100712 = "01:05",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:32",
-                    boss_100715 = "01:15",
-                    boss_100716 = "01:30",
-                    boss_100717 = "05:49"
-                }
-            },
- {
-                rank = 76,
-                guildName = "Serenity Germany",
-                reportid = "AcGDPQT9nMm72tag",
-                timeSpent = "1:18:05",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:23",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:58",
-                    boss_100714 = "01:29",
-                    boss_100715 = "02:08",
-                    boss_100716 = "01:38",
-                    boss_100717 = "05:52"
-                }
-            },
- {
-                rank = 77,
-                guildName = "Imperiet",
-                reportid = "4wNnKbAamgfMzVP8",
-                timeSpent = "1:19:02",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:26",
-                    boss_100710 = "01:53",
-                    boss_100711 = "01:54",
-                    boss_100712 = "01:09",
-                    boss_100713 = "02:22",
-                    boss_100714 = "01:29",
-                    boss_100715 = "01:43",
-                    boss_100716 = "01:27",
-                    boss_100717 = "04:46"
-                }
-            },
- {
-                rank = 78,
-                guildName = "Mirage",
-                reportid = "y2w14kH9Z7GAngXq",
-                timeSpent = "1:19:02",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:27",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:31",
-                    boss_100712 = "01:02",
-                    boss_100713 = "02:06",
-                    boss_100714 = "01:12",
-                    boss_100715 = "01:17",
-                    boss_100716 = "01:26",
-                    boss_100717 = "05:32"
-                }
-            },
- {
-                rank = 79,
-                guildName = "Huddel",
-                reportid = "CrF6PzAcYXpH49Bt",
-                timeSpent = "1:19:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:45",
-                    boss_100710 = "01:42",
-                    boss_100711 = "02:26",
-                    boss_100712 = "01:28",
-                    boss_100713 = "02:17",
-                    boss_100714 = "01:30",
-                    boss_100715 = "02:17",
-                    boss_100716 = "02:08",
-                    boss_100717 = "05:43"
-                }
-            },
- {
-                rank = 80,
-                guildName = "obscure_sod",
-                reportid = "Jtz3DXvamBTchx8N",
-                timeSpent = "1:19:20",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:49",
-                    boss_100710 = "01:54",
-                    boss_100711 = "02:01",
-                    boss_100712 = "01:17",
-                    boss_100713 = "02:06",
-                    boss_100714 = "01:44",
-                    boss_100715 = "01:22",
-                    boss_100716 = "02:05",
-                    boss_100717 = "04:45"
-                }
-            },
- {
-                rank = 81,
-                guildName = "just wait",
-                reportid = "M42mYwV7AchdDTH8",
-                timeSpent = "1:19:32",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "01:35",
-                    boss_100711 = "01:45",
-                    boss_100712 = "01:09",
-                    boss_100713 = "02:32",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:44",
-                    boss_100716 = "01:35",
-                    boss_100717 = "04:31"
-                }
-            },
- {
-                rank = 82,
-                guildName = "Kvalm",
-                reportid = "HrtqjRDpCFaXWGZh",
-                timeSpent = "1:19:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:32",
-                    boss_100710 = "01:47",
-                    boss_100711 = "01:42",
-                    boss_100712 = "01:04",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:18",
-                    boss_100716 = "01:36",
-                    boss_100717 = "05:09"
-                }
-            },
- {
-                rank = 83,
-                guildName = "Stayhigh ohne Hose",
-                reportid = "hz9RV2cYmkj7QxAX",
-                timeSpent = "1:19:51",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:39",
-                    boss_100710 = "01:51",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:06",
-                    boss_100713 = "02:59",
-                    boss_100714 = "01:27",
-                    boss_100715 = "01:41",
-                    boss_100716 = "01:28",
-                    boss_100717 = "04:36"
-                }
-            },
- {
-                rank = 84,
-                guildName = "Sure Buddy",
-                reportid = "FMrqfdwNbH3P7Lth",
-                timeSpent = "1:19:56",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:51",
-                    boss_100712 = "01:04",
-                    boss_100713 = "02:24",
-                    boss_100714 = "01:30",
-                    boss_100715 = "01:41",
-                    boss_100716 = "01:38",
-                    boss_100717 = "05:03"
-                }
-            },
- {
-                rank = 85,
-                guildName = "Sweaty Casuals",
-                reportid = "PgGDHYrjWpwNcRtf",
-                timeSpent = "1:20:05",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:54",
-                    boss_100710 = "02:24",
-                    boss_100711 = "02:36",
-                    boss_100712 = "01:37",
-                    boss_100713 = "02:41",
-                    boss_100714 = "01:58",
-                    boss_100715 = "01:54",
-                    boss_100716 = "02:03",
-                    boss_100717 = "06:42"
-                }
-            },
- {
-                rank = 86,
-                guildName = "The Unmakers",
-                reportid = "tJwZK8369razHFW1",
-                timeSpent = "1:20:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:41",
-                    boss_100710 = "02:01",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:32",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:24",
-                    boss_100716 = "01:29",
-                    boss_100717 = "05:58"
-                }
-            },
- {
-                rank = 87,
-                guildName = "Moved",
-                reportid = "NXGnCD3k8mwv91Qg",
-                timeSpent = "1:20:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:10",
-                    boss_100710 = "01:27",
-                    boss_100711 = "01:27",
-                    boss_100712 = "00:45",
-                    boss_100713 = "02:41",
-                    boss_100714 = "01:02",
-                    boss_100715 = "00:54",
-                    boss_100716 = "01:07",
-                    boss_100717 = "04:36"
-                }
-            },
- {
-                rank = 88,
-                guildName = "Unwealthy Homeless Men",
-                reportid = "WYTaQ1HpRhtL9x2j",
-                timeSpent = "1:20:29",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:05",
-                    boss_100710 = "01:46",
-                    boss_100711 = "02:26",
-                    boss_100712 = "01:59",
-                    boss_100713 = "03:52",
-                    boss_100714 = "01:53",
-                    boss_100715 = "02:50",
-                    boss_100716 = "02:19",
-                    boss_100717 = "06:34"
-                }
-            },
- {
-                rank = 89,
-                guildName = "Huomen vai Tänää",
-                reportid = "89GLRC7jHBwcAK3Z",
-                timeSpent = "1:20:38",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:42",
-                    boss_100710 = "01:45",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:27",
-                    boss_100713 = "01:49",
-                    boss_100714 = "01:36",
-                    boss_100715 = "01:25",
-                    boss_100716 = "01:51",
-                    boss_100717 = "05:13"
-                }
-            },
- {
-                rank = 90,
-                guildName = "Warsong Milkmen",
-                reportid = "h23TQwGdyXKNVfnc",
-                timeSpent = "1:20:42",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:33",
-                    boss_100710 = "01:45",
-                    boss_100711 = "01:46",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:56",
-                    boss_100714 = "01:23",
-                    boss_100715 = "01:20",
-                    boss_100716 = "01:27",
-                    boss_100717 = "04:37"
-                }
-            },
- {
-                rank = 91,
-                guildName = "ZØMBIES",
-                reportid = "fCkgwRjWt8vpd4aT",
-                timeSpent = "1:20:57",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:24",
-                    boss_100712 = "00:58",
-                    boss_100713 = "01:48",
-                    boss_100714 = "01:04",
-                    boss_100715 = "01:16",
-                    boss_100716 = "01:16",
-                    boss_100717 = "04:00"
-                }
-            },
- {
-                rank = 92,
-                guildName = "Trys Milijonai",
-                reportid = "N3DyjkAz7YdZabLW",
-                timeSpent = "1:20:58",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:22",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:40",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:18",
-                    boss_100715 = "01:18",
-                    boss_100716 = "01:37",
-                    boss_100717 = "04:13"
-                }
-            },
- {
-                rank = 93,
-                guildName = "Shâmeless",
-                reportid = "nvxC3KR6g1G9W8pd",
-                timeSpent = "1:21:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:30",
-                    boss_100710 = "01:38",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:04",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:25",
-                    boss_100716 = "01:35",
-                    boss_100717 = "04:56"
-                }
-            },
- {
-                rank = 94,
-                guildName = "AMANDLA",
-                reportid = "J7RaAKTFkBYLt1zj",
-                timeSpent = "1:21:09",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:04",
-                    boss_100710 = "01:08",
-                    boss_100711 = "01:14",
-                    boss_100712 = "00:36",
-                    boss_100713 = "02:14",
-                    boss_100714 = "00:55",
-                    boss_100715 = "00:47",
-                    boss_100716 = "01:00",
-                    boss_100717 = "03:42"
-                }
-            },
- {
-                rank = 95,
-                guildName = "dogesmile",
-                reportid = "T2hn3qG7DtmPYvj9",
-                timeSpent = "1:21:23",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:15",
-                    boss_100710 = "01:50",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:13",
-                    boss_100713 = "01:58",
-                    boss_100714 = "01:20",
-                    boss_100715 = "02:13",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:41"
-                }
-            },
- {
-                rank = 96,
-                guildName = "Gilded Gauntlet",
-                reportid = "Vf43RDPLQxmnwr81",
-                timeSpent = "1:21:24",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:37",
-                    boss_100710 = "01:37",
-                    boss_100711 = "01:54",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:49",
-                    boss_100714 = "01:29",
-                    boss_100715 = "01:20",
-                    boss_100716 = "01:43",
-                    boss_100717 = "08:04"
-                }
-            },
- {
-                rank = 97,
-                guildName = "High Heaven",
-                reportid = "BXA6aJV7DqHvhNkp",
-                timeSpent = "1:21:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:27",
-                    boss_100710 = "01:58",
-                    boss_100711 = "01:55",
-                    boss_100712 = "01:26",
-                    boss_100713 = "02:30",
-                    boss_100714 = "01:25",
-                    boss_100715 = "02:10",
-                    boss_100716 = "02:14",
-                    boss_100717 = "06:20"
-                }
-            },
- {
-                rank = 98,
-                guildName = "Kovakuori",
-                reportid = "pDZw1qAvcL8WN9ax",
-                timeSpent = "1:22:24",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:30",
-                    boss_100711 = "01:26",
-                    boss_100712 = "00:59",
-                    boss_100713 = "01:35",
-                    boss_100714 = "01:05",
-                    boss_100715 = "01:40",
-                    boss_100716 = "01:22",
-                    boss_100717 = "04:37"
-                }
-            },
- {
-                rank = 99,
-                guildName = "Im not Sure",
-                reportid = "1RmXQwC8BfaD3Mj9",
-                timeSpent = "1:22:30",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "01:27",
-                    boss_100711 = "01:28",
-                    boss_100712 = "01:16",
-                    boss_100713 = "01:27",
-                    boss_100714 = "01:00",
-                    boss_100715 = "00:59",
-                    boss_100716 = "01:15",
-                    boss_100717 = "04:26"
-                }
-            },
- {
-                rank = 100,
-                guildName = "R O I D S",
-                reportid = "zxv4FMRGh6b9JZcp",
-                timeSpent = "1:22:31",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:35",
-                    boss_100710 = "01:58",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:15",
-                    boss_100715 = "02:04",
-                    boss_100716 = "01:19",
-                    boss_100717 = "04:59"
-                }
-            },
- {
-                rank = 101,
-                guildName = "Revolver Redux",
-                reportid = "4F8pnQXzCAwbgLWj",
-                timeSpent = "1:22:34",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:47",
-                    boss_100712 = "01:11",
-                    boss_100713 = "02:18",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:54",
-                    boss_100716 = "01:30",
-                    boss_100717 = "06:29"
-                }
-            },
- {
-                rank = 102,
-                guildName = "STAND BACK IM A DOCTOR",
-                reportid = "M2xpVavChQfq4mJD",
-                timeSpent = "1:22:45",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:45",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:16",
-                    boss_100712 = "01:27",
-                    boss_100713 = "01:52",
-                    boss_100714 = "01:30",
-                    boss_100715 = "01:59",
-                    boss_100716 = "01:48",
-                    boss_100717 = "06:48"
-                }
-            },
- {
-                rank = 103,
-                guildName = "Reforged",
-                reportid = "kxHjfY1hA4KbzV6c",
-                timeSpent = "1:22:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "01:40",
-                    boss_100711 = "01:47",
-                    boss_100712 = "01:06",
-                    boss_100713 = "01:49",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:50",
-                    boss_100716 = "01:19",
-                    boss_100717 = "04:39"
-                }
-            },
- {
-                rank = 104,
-                guildName = "Eyes Closed",
-                reportid = "93L8PHV1GNhY4RkF",
-                timeSpent = "1:23:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:25",
-                    boss_100710 = "01:51",
-                    boss_100711 = "01:46",
-                    boss_100712 = "01:06",
-                    boss_100713 = "02:16",
-                    boss_100714 = "01:36",
-                    boss_100715 = "01:22",
-                    boss_100716 = "01:30",
-                    boss_100717 = "04:58"
-                }
-            },
- {
-                rank = 105,
-                guildName = "Nightshift",
-                reportid = "mNyzvr2C7pjf3TdB",
-                timeSpent = "1:23:16",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:26",
-                    boss_100710 = "01:33",
-                    boss_100711 = "02:03",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:07",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:31",
-                    boss_100716 = "01:26",
-                    boss_100717 = "04:12"
-                }
-            },
- {
-                rank = 106,
-                guildName = "Bloodbath and Beyond",
-                reportid = "cmp1Czb4yWxBPLAZ",
-                timeSpent = "1:23:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:44",
-                    boss_100710 = "01:50",
-                    boss_100711 = "01:59",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:00",
-                    boss_100714 = "01:28",
-                    boss_100715 = "01:31",
-                    boss_100716 = "01:48",
-                    boss_100717 = "07:14"
-                }
-            },
- {
-                rank = 107,
-                guildName = "macht DRUCK",
-                reportid = "hRpfnKJx4FcrVg9P",
-                timeSpent = "1:23:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:45",
-                    boss_100710 = "01:54",
-                    boss_100711 = "02:09",
-                    boss_100712 = "01:23",
-                    boss_100713 = "02:00",
-                    boss_100714 = "01:39",
-                    boss_100715 = "02:17",
-                    boss_100716 = "01:56",
-                    boss_100717 = "05:35"
-                }
-            },
- {
-                rank = 108,
-                guildName = "Beast mode pugs",
-                reportid = "Gbhav3kTzw1rtdRC",
-                timeSpent = "1:24:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:25",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:57",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:16",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:04",
-                    boss_100716 = "01:27",
-                    boss_100717 = "04:45"
-                }
-            },
- {
-                rank = 109,
-                guildName = "Nordavind",
-                reportid = "ZxQHCjGAmqwdNKMz",
-                timeSpent = "1:24:48",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:59",
-                    boss_100710 = "02:01",
-                    boss_100711 = "02:24",
-                    boss_100712 = "01:16",
-                    boss_100713 = "03:00",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:04",
-                    boss_100716 = "02:24",
-                    boss_100717 = "05:10"
-                }
-            },
- {
-                rank = 110,
-                guildName = "Endstation",
-                reportid = "ncKRDF6MgNWjQCXz",
-                timeSpent = "1:25:05",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:33",
-                    boss_100710 = "01:43",
-                    boss_100711 = "02:01",
-                    boss_100712 = "00:59",
-                    boss_100713 = "02:04",
-                    boss_100714 = "01:10",
-                    boss_100715 = "01:26",
-                    boss_100716 = "01:24",
-                    boss_100717 = "04:15"
-                }
-            },
- {
-                rank = 111,
-                guildName = "Nihilum",
-                reportid = "hJZFT63rL8mxp7Bv",
-                timeSpent = "1:25:05",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:30",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:50",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:28",
-                    boss_100714 = "01:15",
-                    boss_100715 = "02:07",
-                    boss_100716 = "01:22",
-                    boss_100717 = "04:30"
-                }
-            },
- {
-                rank = 112,
-                guildName = "BOOMER",
-                reportid = "GWhrnvmNCH3T7zf9",
-                timeSpent = "1:25:14",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:48",
-                    boss_100710 = "01:51",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:10",
-                    boss_100713 = "03:19",
-                    boss_100714 = "01:35",
-                    boss_100715 = "01:03",
-                    boss_100716 = "01:47",
-                    boss_100717 = "07:50"
-                }
-            },
- {
-                rank = 113,
-                guildName = "UNMATCHED",
-                reportid = "17mdf9TJMrxQNqA3",
-                timeSpent = "1:25:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:55",
-                    boss_100712 = "01:22",
-                    boss_100713 = "02:55",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:35",
-                    boss_100716 = "01:41",
-                    boss_100717 = "05:52"
-                }
-            },
- {
-                rank = 114,
-                guildName = "LootHorde SOD",
-                reportid = "2MmkNgHZnD4v8BaX",
-                timeSpent = "1:25:47",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:56",
-                    boss_100711 = "01:49",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:27",
-                    boss_100714 = "01:32",
-                    boss_100715 = "03:51",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:00"
-                }
-            },
- {
-                rank = 115,
-                guildName = "Lattjo Lajban",
-                reportid = "z81YVvbBr6LjkWdQ",
-                timeSpent = "1:25:56",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:35",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:11",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:16",
-                    boss_100714 = "01:34",
-                    boss_100715 = "02:12",
-                    boss_100716 = "01:42",
-                    boss_100717 = "05:09"
-                }
-            },
- {
-                rank = 116,
-                guildName = "Hegemony",
-                reportid = "wRdBJr623a1ChXFD",
-                timeSpent = "1:26:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "01:45",
-                    boss_100711 = "01:58",
-                    boss_100712 = "01:21",
-                    boss_100713 = "01:53",
-                    boss_100714 = "01:17",
-                    boss_100715 = "02:20",
-                    boss_100716 = "01:26",
-                    boss_100717 = "04:48"
-                }
-            },
- {
-                rank = 117,
-                guildName = "In Progress",
-                reportid = "KwAgTxdJHabV87zt",
-                timeSpent = "1:26:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:30",
-                    boss_100710 = "01:45",
-                    boss_100711 = "01:33",
-                    boss_100712 = "01:01",
-                    boss_100713 = "01:32",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:28",
-                    boss_100716 = "01:13",
-                    boss_100717 = "04:16"
-                }
-            },
- {
-                rank = 118,
-                guildName = "Mölndal Centrum",
-                reportid = "qV8Bg9QnNLykvFrX",
-                timeSpent = "1:26:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:07",
-                    boss_100710 = "01:56",
-                    boss_100711 = "01:54",
-                    boss_100712 = "01:24",
-                    boss_100713 = "03:48",
-                    boss_100714 = "01:22",
-                    boss_100715 = "02:21",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:35"
-                }
-            },
- {
-                rank = 119,
-                guildName = "Sisters",
-                reportid = "N2mV3xCFndpM4ahb",
-                timeSpent = "1:26:17",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:53",
-                    boss_100711 = "02:06",
-                    boss_100712 = "01:16",
-                    boss_100713 = "02:10",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:42",
-                    boss_100716 = "01:25",
-                    boss_100717 = "04:32"
-                }
-            },
- {
-                rank = 120,
-                guildName = "Tamagotchi",
-                reportid = "APdbNQFrpJDKwTa4",
-                timeSpent = "1:26:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:54",
-                    boss_100710 = "01:37",
-                    boss_100711 = "01:54",
-                    boss_100712 = "01:04",
-                    boss_100713 = "02:37",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:24",
-                    boss_100716 = "01:33",
-                    boss_100717 = "06:29"
-                }
-            },
- {
-                rank = 121,
-                guildName = "SoD Norge",
-                reportid = "Nh1xDbAr3RdFwcVB",
-                timeSpent = "1:26:42",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:33",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:47",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:41",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:34",
-                    boss_100716 = "02:08",
-                    boss_100717 = "04:40"
-                }
-            },
- {
-                rank = 122,
-                guildName = "Team Gray Parsers",
-                reportid = "zrtHC6FmyPZJMan7",
-                timeSpent = "1:26:42",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:33",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:47",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:41",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:35",
-                    boss_100716 = "02:08",
-                    boss_100717 = "04:40"
-                }
-            },
- {
-                rank = 123,
-                guildName = "Exodos",
-                reportid = "aQJpj7YhK6d8wFgV",
-                timeSpent = "1:26:56",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:37",
-                    boss_100711 = "02:05",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:20",
-                    boss_100714 = "01:17",
-                    boss_100715 = "02:04",
-                    boss_100716 = "01:28",
-                    boss_100717 = "05:25"
-                }
-            },
- {
-                rank = 124,
-                guildName = "Legion der Affen",
-                reportid = "TWFV4Hakh21jpXYy",
-                timeSpent = "1:27:00",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:47",
-                    boss_100712 = "01:01",
-                    boss_100713 = "02:04",
-                    boss_100714 = "01:20",
-                    boss_100715 = "02:05",
-                    boss_100716 = "01:23",
-                    boss_100717 = "06:24"
-                }
-            },
- {
-                rank = 125,
-                guildName = "<AVV>",
-                reportid = "vB2DaZgwf7WC8Rcp",
-                timeSpent = "1:27:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:28",
-                    boss_100710 = "01:37",
-                    boss_100711 = "02:17",
-                    boss_100712 = "01:08",
-                    boss_100713 = "01:59",
-                    boss_100714 = "01:27",
-                    boss_100715 = "01:41",
-                    boss_100716 = "02:10",
-                    boss_100717 = "04:30"
-                }
-            },
- {
-                rank = 126,
-                guildName = "No Drama Lama",
-                reportid = "tgLbykpKmDBrPFYQ",
-                timeSpent = "1:27:36",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:51",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:23",
-                    boss_100713 = "02:49",
-                    boss_100714 = "01:28",
-                    boss_100715 = "02:13",
-                    boss_100716 = "01:46",
-                    boss_100717 = "07:08"
-                }
-            },
- {
-                rank = 127,
-                guildName = "Ranked Rehab",
-                reportid = "9R24nZ3JADxGLXyC",
-                timeSpent = "1:27:57",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:53",
-                    boss_100712 = "01:07",
-                    boss_100713 = "04:53",
-                    boss_100714 = "01:30",
-                    boss_100715 = "01:22",
-                    boss_100716 = "01:48",
-                    boss_100717 = "05:11"
-                }
-            },
- {
-                rank = 128,
-                guildName = "Guilde",
-                reportid = "LXmRYjG87frtwJ1c",
-                timeSpent = "1:27:59",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:34",
-                    boss_100711 = "01:50",
-                    boss_100712 = "01:00",
-                    boss_100713 = "02:03",
-                    boss_100714 = "01:07",
-                    boss_100715 = "01:14",
-                    boss_100716 = "01:20",
-                    boss_100717 = "04:55"
-                }
-            },
- {
-                rank = 129,
-                guildName = "u n l u c k y",
-                reportid = "aBb2CyFAYK83QgrN",
-                timeSpent = "1:28:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:37",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:41",
-                    boss_100712 = "01:29",
-                    boss_100713 = "02:16",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:56",
-                    boss_100716 = "01:49",
-                    boss_100717 = "07:56"
-                }
-            },
- {
-                rank = 130,
-                guildName = "Nord",
-                reportid = "pafRPc3FKCJ6mxLT",
-                timeSpent = "1:28:25",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "01:55",
-                    boss_100711 = "02:07",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:09",
-                    boss_100714 = "02:03",
-                    boss_100715 = "01:22",
-                    boss_100716 = "01:41",
-                    boss_100717 = "04:31"
-                }
-            },
- {
-                rank = 131,
-                guildName = "Bethleblem",
-                reportid = "yhLqkZ63DjJHQmrG",
-                timeSpent = "1:28:35",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:26",
-                    boss_100710 = "01:30",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:08",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:18",
-                    boss_100715 = "01:22",
-                    boss_100716 = "01:32",
-                    boss_100717 = "04:47"
-                }
-            },
- {
-                rank = 132,
-                guildName = "bReach SoD",
-                reportid = "bgTQc8p6nZxd3DRv",
-                timeSpent = "1:28:52",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "01:53",
-                    boss_100711 = "02:05",
-                    boss_100712 = "01:14",
-                    boss_100713 = "01:41",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:37",
-                    boss_100716 = "01:58",
-                    boss_100717 = "10:38"
-                }
-            },
- {
-                rank = 133,
-                guildName = "Tryforce",
-                reportid = "M1BxhD4WrQcyTwFa",
-                timeSpent = "1:29:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "00:21",
-                    boss_100711 = "01:39",
-                    boss_100712 = "00:59",
-                    boss_100713 = "02:56",
-                    boss_100714 = "01:10",
-                    boss_100715 = "02:09",
-                    boss_100716 = "01:19",
-                    boss_100717 = "04:30"
-                }
-            },
- {
-                rank = 134,
-                guildName = "Aww yeaah",
-                reportid = "bpjXL4hF1w8ZqVzN",
-                timeSpent = "1:29:12",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:30",
-                    boss_100711 = "01:55",
-                    boss_100712 = "00:57",
-                    boss_100713 = "02:11",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:03",
-                    boss_100716 = "01:21",
-                    boss_100717 = "05:38"
-                }
-            },
- {
-                rank = 135,
-                guildName = "Discworld",
-                reportid = "p9NmzhryQF8AgPLG",
-                timeSpent = "1:29:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:32",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:04",
-                    boss_100712 = "01:10",
-                    boss_100713 = "02:35",
-                    boss_100714 = "01:19",
-                    boss_100715 = "01:37",
-                    boss_100716 = "01:31",
-                    boss_100717 = "05:19"
-                }
-            },
- {
-                rank = 136,
-                guildName = "Lone Wolf Refugees",
-                reportid = "xXJD9fYPAzjZkNcg",
-                timeSpent = "1:29:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:50",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:25",
-                    boss_100713 = "02:35",
-                    boss_100714 = "01:36",
-                    boss_100715 = "02:30",
-                    boss_100716 = "02:13",
-                    boss_100717 = "05:02"
-                }
-            },
- {
-                rank = 137,
-                guildName = "Distillery",
-                reportid = "4wB1tWTg7KGJQNpv",
-                timeSpent = "1:29:52",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:41",
-                    boss_100710 = "01:51",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:27",
-                    boss_100713 = "02:25",
-                    boss_100714 = "01:40",
-                    boss_100715 = "03:10",
-                    boss_100716 = "01:43",
-                    boss_100717 = "07:11"
-                }
-            },
- {
-                rank = 138,
-                guildName = "Bring Your Best",
-                reportid = "J8VdzMr7aCjAykGw",
-                timeSpent = "1:29:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:27",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:26",
-                    boss_100714 = "01:14",
-                    boss_100715 = "01:12",
-                    boss_100716 = "01:18",
-                    boss_100717 = "04:31"
-                }
-            },
- {
-                rank = 139,
-                guildName = "Temporalis",
-                reportid = "nvq398Pbpg62Nadw",
-                timeSpent = "1:30:03",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:09",
-                    boss_100712 = "01:09",
-                    boss_100713 = "02:24",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:20",
-                    boss_100716 = "01:43",
-                    boss_100717 = "06:43"
-                }
-            },
- {
-                rank = 140,
-                guildName = "Concede",
-                reportid = "fTK7YGCZjLAmQr69",
-                timeSpent = "1:30:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "02:09",
-                    boss_100711 = "02:12",
-                    boss_100712 = "01:29",
-                    boss_100713 = "02:54",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:17",
-                    boss_100716 = "01:41",
-                    boss_100717 = "06:57"
-                }
-            },
- {
-                rank = 141,
-                guildName = "Chocolate Milk",
-                reportid = "PVvrC2TMcL8y9zm7",
-                timeSpent = "1:30:11",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:28",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:10",
-                    boss_100713 = "02:45",
-                    boss_100714 = "01:15",
-                    boss_100715 = "02:07",
-                    boss_100716 = "01:31",
-                    boss_100717 = "04:36"
-                }
-            },
- {
-                rank = 142,
-                guildName = "Warborn",
-                reportid = "gDWJTPjhvmNKyF7b",
-                timeSpent = "1:30:14",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:42",
-                    boss_100710 = "02:01",
-                    boss_100711 = "02:10",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:51",
-                    boss_100716 = "01:33",
-                    boss_100717 = "05:01"
-                }
-            },
- {
-                rank = 143,
-                guildName = "SoDumb",
-                reportid = "BLZRxFqCrjhw7f4Y",
-                timeSpent = "1:30:16",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:42",
-                    boss_100710 = "01:58",
-                    boss_100711 = "01:46",
-                    boss_100712 = "01:21",
-                    boss_100713 = "02:09",
-                    boss_100714 = "01:31",
-                    boss_100715 = "01:33",
-                    boss_100716 = "01:33",
-                    boss_100717 = "05:02"
-                }
-            },
- {
-                rank = 144,
-                guildName = "Lårvikens Hjältar",
-                reportid = "AXRaLtG8HQ2dCKWh",
-                timeSpent = "1:30:29",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:33",
-                    boss_100710 = "01:53",
-                    boss_100711 = "01:50",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:26",
-                    boss_100714 = "01:35",
-                    boss_100715 = "02:25",
-                    boss_100716 = "01:50",
-                    boss_100717 = "06:31"
-                }
-            },
- {
-                rank = 145,
-                guildName = "Angular",
-                reportid = "4RykMnQWHchPp8LB",
-                timeSpent = "1:30:35",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:28",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:25",
-                    boss_100714 = "01:18",
-                    boss_100715 = "01:49",
-                    boss_100716 = "01:45",
-                    boss_100717 = "07:04"
-                }
-            },
- {
-                rank = 146,
-                guildName = "Salz Im Rucksack",
-                reportid = "H6tbBWAfGPv4dRF9",
-                timeSpent = "1:30:38",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:13",
-                    boss_100712 = "01:08",
-                    boss_100713 = "01:58",
-                    boss_100714 = "01:28",
-                    boss_100715 = "01:20",
-                    boss_100716 = "01:33",
-                    boss_100717 = "01:33"
-                }
-            },
- {
-                rank = 147,
-                guildName = "PUZZLE",
-                reportid = "hyCMbdzpZ1naBV72",
-                timeSpent = "1:30:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:25",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:18",
-                    boss_100712 = "01:54",
-                    boss_100713 = "05:13",
-                    boss_100714 = "01:45",
-                    boss_100715 = "02:38",
-                    boss_100716 = "02:03",
-                    boss_100717 = "07:44"
-                }
-            },
- {
-                rank = 148,
-                guildName = "Brennendes Pech",
-                reportid = "zkPqxh6ycDZ9FHwb",
-                timeSpent = "1:30:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:41",
-                    boss_100710 = "01:53",
-                    boss_100711 = "02:27",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:10",
-                    boss_100714 = "01:19",
-                    boss_100715 = "02:06",
-                    boss_100716 = "01:32",
-                    boss_100717 = "05:45"
-                }
-            },
- {
-                rank = 149,
-                guildName = "This Loot is Rigged",
-                reportid = "F3RkZALQXcqwNzar",
-                timeSpent = "1:31:08",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:17",
-                    boss_100710 = "01:53",
-                    boss_100711 = "02:08",
-                    boss_100712 = "01:22",
-                    boss_100713 = "02:58",
-                    boss_100714 = "01:30",
-                    boss_100715 = "02:43",
-                    boss_100716 = "01:45",
-                    boss_100717 = "07:51"
-                }
-            },
- {
-                rank = 150,
-                guildName = "Last Chance",
-                reportid = "LaT3Rqc7Zgn6bhCj",
-                timeSpent = "1:31:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:56",
-                    boss_100710 = "02:09",
-                    boss_100711 = "02:13",
-                    boss_100712 = "01:35",
-                    boss_100713 = "03:27",
-                    boss_100714 = "01:37",
-                    boss_100715 = "02:35",
-                    boss_100716 = "01:49",
-                    boss_100717 = "07:02"
-                }
-            },
- {
-                rank = 151,
-                guildName = "Ironjoke's pugs",
-                reportid = "XNqkYBxhzaTPj3JQ",
-                timeSpent = "1:31:19",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:42",
-                    boss_100710 = "01:40",
-                    boss_100711 = "02:01",
-                    boss_100712 = "01:22",
-                    boss_100713 = "02:34",
-                    boss_100714 = "01:35",
-                    boss_100715 = "02:57",
-                    boss_100716 = "01:45",
-                    boss_100717 = "06:45"
-                }
-            },
- {
-                rank = 152,
-                guildName = "Simple Minds",
-                reportid = "V9mJQHdxD8XnMtgR",
-                timeSpent = "1:31:57",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:35",
-                    boss_100710 = "02:01",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:11",
-                    boss_100713 = "02:07",
-                    boss_100714 = "01:24",
-                    boss_100715 = "01:34",
-                    boss_100716 = "01:34",
-                    boss_100717 = "05:02"
-                }
-            },
- {
-                rank = 153,
-                guildName = "Elysium",
-                reportid = "trpxqa84TkLFP1Gn",
-                timeSpent = "1:32:02",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:14",
-                    boss_100710 = "01:52",
-                    boss_100711 = "02:23",
-                    boss_100712 = "01:18",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:32",
-                    boss_100715 = "01:56",
-                    boss_100716 = "01:33",
-                    boss_100717 = "05:20"
-                }
-            },
- {
-                rank = 154,
-                guildName = "La Jungle",
-                reportid = "RDKQxXBkTJMnqyPv",
-                timeSpent = "1:32:03",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:28",
-                    boss_100710 = "01:46",
-                    boss_100711 = "01:50",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:55",
-                    boss_100714 = "01:25",
-                    boss_100715 = "02:14",
-                    boss_100716 = "01:47",
-                    boss_100717 = "04:42"
-                }
-            },
- {
-                rank = 155,
-                guildName = "Defiled",
-                reportid = "C8bZcx1L6QVANtkX",
-                timeSpent = "1:32:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "02:14",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:30",
-                    boss_100714 = "02:35",
-                    boss_100715 = "02:33",
-                    boss_100716 = "01:53",
-                    boss_100717 = "05:31"
-                }
-            },
- {
-                rank = 156,
-                guildName = "Arkanum",
-                reportid = "4PAfdHpvzrxLQYt8",
-                timeSpent = "1:32:11",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:44",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:05",
-                    boss_100712 = "01:16",
-                    boss_100713 = "02:21",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:49",
-                    boss_100716 = "04:01",
-                    boss_100717 = "06:49"
-                }
-            },
- {
-                rank = 157,
-                guildName = "Fifty Fifty",
-                reportid = "kQVYWT8mCDzxnFrK",
-                timeSpent = "1:32:12",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:35",
-                    boss_100710 = "01:55",
-                    boss_100711 = "01:53",
-                    boss_100712 = "01:09",
-                    boss_100713 = "02:30",
-                    boss_100714 = "01:21",
-                    boss_100715 = "02:59",
-                    boss_100716 = "01:43",
-                    boss_100717 = "05:48"
-                }
-            },
- {
-                rank = 158,
-                guildName = "VULTURES",
-                reportid = "TzZkgDxMbYNqGcLm",
-                timeSpent = "1:32:37",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:30",
-                    boss_100710 = "02:17",
-                    boss_100711 = "02:01",
-                    boss_100712 = "01:09",
-                    boss_100713 = "01:32",
-                    boss_100714 = "01:14",
-                    boss_100715 = "01:45",
-                    boss_100716 = "01:41",
-                    boss_100717 = "04:41"
-                }
-            },
- {
-                rank = 159,
-                guildName = "Gammal och horde",
-                reportid = "8DJRLTGxB1Knqagw",
-                timeSpent = "1:33:18",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:02",
-                    boss_100710 = "02:28",
-                    boss_100711 = "02:28",
-                    boss_100712 = "01:52",
-                    boss_100713 = "03:06",
-                    boss_100714 = "01:58",
-                    boss_100715 = "03:22",
-                    boss_100716 = "03:02",
-                    boss_100717 = "06:38"
-                }
-            },
- {
-                rank = 160,
-                guildName = "Epica",
-                reportid = "RQaP4gGnq1K98Fyw",
-                timeSpent = "1:33:31",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:53",
-                    boss_100710 = "02:50",
-                    boss_100711 = "02:04",
-                    boss_100712 = "01:28",
-                    boss_100713 = "03:18",
-                    boss_100714 = "01:37",
-                    boss_100715 = "01:53",
-                    boss_100716 = "02:06",
-                    boss_100717 = "07:32"
-                }
-            },
- {
-                rank = 161,
-                guildName = "Captain Morgans Revenge",
-                reportid = "6Yt3aMRD18Kgm2rJ",
-                timeSpent = "1:33:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:16",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:10",
-                    boss_100712 = "01:04",
-                    boss_100713 = "04:28",
-                    boss_100714 = "01:22",
-                    boss_100715 = "01:30",
-                    boss_100716 = "01:31",
-                    boss_100717 = "04:51"
-                }
-            },
- {
-                rank = 162,
-                guildName = "From The Darkness",
-                reportid = "cDdq9nNwXaACT4kf",
-                timeSpent = "1:34:09",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "01:33",
-                    boss_100711 = "01:51",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:08",
-                    boss_100716 = "01:23",
-                    boss_100717 = "01:09"
-                }
-            },
- {
-                rank = 163,
-                guildName = "Organic Wine Club",
-                reportid = "4bj2d3KvAZFWzm6x",
-                timeSpent = "1:34:41",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:53",
-                    boss_100711 = "01:57",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:30",
-                    boss_100714 = "01:30",
-                    boss_100715 = "01:43",
-                    boss_100716 = "01:38",
-                    boss_100717 = "06:20"
-                }
-            },
- {
-                rank = 164,
-                guildName = "Remedy",
-                reportid = "m6VCR2cYZ9nwPz7L",
-                timeSpent = "1:34:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "02:06",
-                    boss_100711 = "01:57",
-                    boss_100712 = "01:21",
-                    boss_100713 = "02:05",
-                    boss_100714 = "01:26",
-                    boss_100715 = "02:18",
-                    boss_100716 = "01:48",
-                    boss_100717 = "06:42"
-                }
-            },
- {
-                rank = 165,
-                guildName = "Sulfuras",
-                reportid = "NG2YjTLwzmBxAfCJ",
-                timeSpent = "1:35:13",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:00",
-                    boss_100710 = "01:33",
-                    boss_100711 = "02:04",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:29",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:43",
-                    boss_100716 = "01:37",
-                    boss_100717 = "00:59"
-                }
-            },
- {
-                rank = 166,
-                guildName = "Lumens",
-                reportid = "PW6rhRxtDcZ9wMk3",
-                timeSpent = "1:35:27",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:03",
-                    boss_100710 = "01:33",
-                    boss_100711 = "01:49",
-                    boss_100712 = "01:01",
-                    boss_100713 = "01:48",
-                    boss_100714 = "01:11",
-                    boss_100715 = "01:35",
-                    boss_100716 = "01:21",
-                    boss_100717 = "05:41"
-                }
-            },
- {
-                rank = 167,
-                guildName = "Evil Eye",
-                reportid = "m1pj6gJqc2TH9VCY",
-                timeSpent = "1:35:35",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:27",
-                    boss_100710 = "02:20",
-                    boss_100711 = "02:04",
-                    boss_100712 = "01:25",
-                    boss_100713 = "02:36",
-                    boss_100714 = "01:37",
-                    boss_100715 = "02:40",
-                    boss_100716 = "01:50",
-                    boss_100717 = "05:54"
-                }
-            },
- {
-                rank = 168,
-                guildName = "Tatta United",
-                reportid = "4kZxJAH9GqjCrVDm",
-                timeSpent = "1:35:36",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:39",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:58",
-                    boss_100712 = "01:31",
-                    boss_100713 = "02:50",
-                    boss_100714 = "01:28",
-                    boss_100715 = "02:37",
-                    boss_100716 = "02:19",
-                    boss_100717 = "05:46"
-                }
-            },
- {
-                rank = 169,
-                guildName = "Conquest",
-                reportid = "FxfRT8jXBVdqhW3M",
-                timeSpent = "1:35:38",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:42",
-                    boss_100710 = "01:40",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:21",
-                    boss_100713 = "02:43",
-                    boss_100714 = "01:38",
-                    boss_100715 = "02:48",
-                    boss_100716 = "01:42",
-                    boss_100717 = "07:33"
-                }
-            },
- {
-                rank = 170,
-                guildName = "Slackstreet Boys",
-                reportid = "2Hv3Qn1LZYJVNqf6",
-                timeSpent = "1:35:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:56",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:16",
-                    boss_100712 = "01:33",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:24",
-                    boss_100715 = "03:31",
-                    boss_100716 = "01:48",
-                    boss_100717 = "05:26"
-                }
-            },
- {
-                rank = 171,
-                guildName = "Beast Mode",
-                reportid = "ybA7WY4Vrz6ZqK8w",
-                timeSpent = "1:35:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:43",
-                    boss_100711 = "02:03",
-                    boss_100712 = "01:06",
-                    boss_100713 = "02:29",
-                    boss_100714 = "01:29",
-                    boss_100715 = "01:19",
-                    boss_100716 = "01:57",
-                    boss_100717 = "04:43"
-                }
-            },
- {
-                rank = 172,
-                guildName = "recht nett",
-                reportid = "cYyJ8HbgrdCFBxAR",
-                timeSpent = "1:35:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:37",
-                    boss_100710 = "01:48",
-                    boss_100711 = "01:40",
-                    boss_100712 = "01:18",
-                    boss_100713 = "01:53",
-                    boss_100714 = "01:22",
-                    boss_100715 = "03:21",
-                    boss_100716 = "01:52",
-                    boss_100717 = "06:23"
-                }
-            },
- {
-                rank = 173,
-                guildName = "Brutality",
-                reportid = "W7tmfck6JyA132vx",
-                timeSpent = "1:35:44",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:54",
-                    boss_100710 = "01:56",
-                    boss_100711 = "01:57",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:18",
-                    boss_100714 = "01:28",
-                    boss_100715 = "01:40",
-                    boss_100716 = "01:56",
-                    boss_100717 = "06:24"
-                }
-            },
- {
-                rank = 174,
-                guildName = "SOD IT",
-                reportid = "XnaWvwLzjbTfVRJg",
-                timeSpent = "1:35:47",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:14",
-                    boss_100710 = "01:35",
-                    boss_100711 = "01:43",
-                    boss_100712 = "01:11",
-                    boss_100713 = "01:45",
-                    boss_100714 = "01:09",
-                    boss_100715 = "01:33",
-                    boss_100716 = "01:17",
-                    boss_100717 = "04:45"
-                }
-            },
- {
-                rank = 175,
-                guildName = "padinko",
-                reportid = "mWyXPwadB9xG2pFr",
-                timeSpent = "1:36:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:34",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:34",
-                    boss_100712 = "01:41",
-                    boss_100713 = "03:00",
-                    boss_100714 = "01:41",
-                    boss_100715 = "02:32",
-                    boss_100716 = "01:49",
-                    boss_100717 = "06:12"
-                }
-            },
- {
-                rank = 176,
-                guildName = "Amisia",
-                reportid = "wzNnYgZHrKm2avAW",
-                timeSpent = "1:36:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:23",
-                    boss_100710 = "01:54",
-                    boss_100711 = "02:04",
-                    boss_100712 = "01:13",
-                    boss_100713 = "02:20",
-                    boss_100714 = "01:33",
-                    boss_100715 = "03:02",
-                    boss_100716 = "01:59",
-                    boss_100717 = "05:48"
-                }
-            },
- {
-                rank = 177,
-                guildName = "Made in Germany",
-                reportid = "VrN3DMPgcpt9T7Kn",
-                timeSpent = "1:36:16",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "01:53",
-                    boss_100711 = "02:16",
-                    boss_100712 = "01:31",
-                    boss_100713 = "02:54",
-                    boss_100714 = "01:37",
-                    boss_100715 = "02:09",
-                    boss_100716 = "01:58",
-                    boss_100717 = "06:22"
-                }
-            },
- {
-                rank = 178,
-                guildName = "Almost Skilled",
-                reportid = "WQw7jkVgzZNHm9aG",
-                timeSpent = "1:36:54",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:50",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:17",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:28",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:08",
-                    boss_100716 = "01:49",
-                    boss_100717 = "05:25"
-                }
-            },
- {
-                rank = 179,
-                guildName = "NOR",
-                reportid = "ZHXa8Bh1RWfjMcJF",
-                timeSpent = "1:37:13",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:53",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:28",
-                    boss_100712 = "01:24",
-                    boss_100713 = "02:41",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:03",
-                    boss_100716 = "01:45",
-                    boss_100717 = "05:54"
-                }
-            },
- {
-                rank = 180,
-                guildName = "Special Needs",
-                reportid = "2QrRvcNJWbFhVqpd",
-                timeSpent = "1:37:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:19",
-                    boss_100710 = "01:40",
-                    boss_100711 = "01:49",
-                    boss_100712 = "01:00",
-                    boss_100713 = "02:15",
-                    boss_100714 = "01:11",
-                    boss_100715 = "01:07",
-                    boss_100716 = "01:29",
-                    boss_100717 = "05:45"
-                }
-            },
- {
-                rank = 181,
-                guildName = "Senior Gentlemen's CLub",
-                reportid = "x2zFXgmyHjrtZBN9",
-                timeSpent = "1:37:30",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:44",
-                    boss_100710 = "01:45",
-                    boss_100711 = "02:05",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:51",
-                    boss_100714 = "01:23",
-                    boss_100715 = "02:17",
-                    boss_100716 = "01:53",
-                    boss_100717 = "06:47"
-                }
-            },
- {
-                rank = 182,
-                guildName = "HORSEGIRLS",
-                reportid = "7tLTxG2JmZ1wKjHR",
-                timeSpent = "1:37:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:25",
-                    boss_100712 = "01:42",
-                    boss_100713 = "02:52",
-                    boss_100714 = "01:43",
-                    boss_100715 = "02:18",
-                    boss_100716 = "01:50",
-                    boss_100717 = "02:27"
-                }
-            },
- {
-                rank = 183,
-                guildName = "Shaved Legs",
-                reportid = "aYrK7qzvDNJCjncf",
-                timeSpent = "1:38:03",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:17",
-                    boss_100713 = "02:47",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:03",
-                    boss_100716 = "02:05",
-                    boss_100717 = "01:14"
-                }
-            },
- {
-                rank = 184,
-                guildName = "Hidden",
-                reportid = "bP6K7dqjnTpJmkvw",
-                timeSpent = "1:38:11",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:57",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:51",
-                    boss_100714 = "01:22",
-                    boss_100715 = "02:49",
-                    boss_100716 = "01:43",
-                    boss_100717 = "05:06"
-                }
-            },
- {
-                rank = 185,
-                guildName = "Cruel Empire",
-                reportid = "P9vqkpnfwjzLbT64",
-                timeSpent = "1:38:27",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "02:07",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:12",
-                    boss_100713 = "03:54",
-                    boss_100714 = "01:33",
-                    boss_100715 = "02:07",
-                    boss_100716 = "01:51",
-                    boss_100717 = "06:37"
-                }
-            },
- {
-                rank = 186,
-                guildName = "Keepers",
-                reportid = "n34fxFVP6NABzmdZ",
-                timeSpent = "1:39:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:08",
-                    boss_100710 = "01:42",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:37",
-                    boss_100714 = "01:29",
-                    boss_100715 = "01:54",
-                    boss_100716 = "02:11",
-                    boss_100717 = "04:54"
-                }
-            },
- {
-                rank = 187,
-                guildName = "Svazáci",
-                reportid = "VRPF6QcnGkZ72Kmf",
-                timeSpent = "1:39:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "02:03",
-                    boss_100711 = "02:08",
-                    boss_100712 = "01:15",
-                    boss_100713 = "03:51",
-                    boss_100714 = "01:25",
-                    boss_100715 = "02:18",
-                    boss_100716 = "02:11",
-                    boss_100717 = "07:02"
-                }
-            },
- {
-                rank = 188,
-                guildName = "Die grauen Schwerter",
-                reportid = "p4br2MNPyfWdkZnq",
-                timeSpent = "1:39:13",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:59",
-                    boss_100711 = "01:57",
-                    boss_100712 = "01:22",
-                    boss_100713 = "02:16",
-                    boss_100714 = "01:25",
-                    boss_100715 = "05:14",
-                    boss_100716 = "01:39",
-                    boss_100717 = "04:27"
-                }
-            },
- {
-                rank = 189,
-                guildName = "Relentless",
-                reportid = "ag1XfA8B29yz6rn4",
-                timeSpent = "1:39:17",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:12",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:02",
-                    boss_100712 = "01:17",
-                    boss_100713 = "01:52",
-                    boss_100714 = "01:31",
-                    boss_100715 = "02:09",
-                    boss_100716 = "02:00",
-                    boss_100717 = "07:25"
-                }
-            },
- {
-                rank = 190,
-                guildName = "Blackrock Sun",
-                reportid = "kAWPnzLxFMjcZK6t",
-                timeSpent = "1:39:42",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:20",
-                    boss_100712 = "01:35",
-                    boss_100713 = "02:45",
-                    boss_100714 = "01:47",
-                    boss_100715 = "02:28",
-                    boss_100716 = "02:52",
-                    boss_100717 = "07:19"
-                }
-            },
- {
-                rank = 191,
-                guildName = "Parsenal",
-                reportid = "rFmn6Xgf7CQW34cb",
-                timeSpent = "1:40:00",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:06",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:48",
-                    boss_100712 = "01:01",
-                    boss_100713 = "02:28",
-                    boss_100714 = "01:14",
-                    boss_100715 = "01:16",
-                    boss_100716 = "01:44",
-                    boss_100717 = "05:35"
-                }
-            },
- {
-                rank = 192,
-                guildName = "Boo",
-                reportid = "Kw9taRxJP2g8ZC3A",
-                timeSpent = "1:40:12",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:25",
-                    boss_100710 = "01:54",
-                    boss_100711 = "02:08",
-                    boss_100712 = "01:25",
-                    boss_100713 = "03:26",
-                    boss_100714 = "01:39",
-                    boss_100715 = "02:32",
-                    boss_100716 = "01:43",
-                    boss_100717 = "06:02"
-                }
-            },
- {
-                rank = 193,
-                guildName = "Fixed - Gwiezdna Flota",
-                reportid = "YfHcQ1RNA49xZz8M",
-                timeSpent = "1:40:16",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:03",
-                    boss_100710 = "01:51",
-                    boss_100711 = "01:58",
-                    boss_100712 = "01:21",
-                    boss_100713 = "02:33",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:08",
-                    boss_100716 = "01:43",
-                    boss_100717 = "04:57"
-                }
-            },
- {
-                rank = 194,
-                guildName = "d o g",
-                reportid = "493VcWqrhGYgLCNp",
-                timeSpent = "1:40:17",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:02",
-                    boss_100710 = "01:40",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:08",
-                    boss_100713 = "02:30",
-                    boss_100714 = "01:23",
-                    boss_100715 = "01:19",
-                    boss_100716 = "01:33",
-                    boss_100717 = "05:11"
-                }
-            },
- {
-                rank = 195,
-                guildName = "Wintermaw",
-                reportid = "8NxQ96zf1BnytdYb",
-                timeSpent = "1:40:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "01:50",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:11",
-                    boss_100713 = "02:37",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:53",
-                    boss_100716 = "01:29",
-                    boss_100717 = "04:54"
-                }
-            },
- {
-                rank = 196,
-                guildName = "FRENCH SOD",
-                reportid = "cBaMZpNPY6WQD2dn",
-                timeSpent = "1:40:38",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:05",
-                    boss_100713 = "00:21",
-                    boss_100714 = "01:23",
-                    boss_100715 = "01:43",
-                    boss_100716 = "01:43",
-                    boss_100717 = "06:24"
-                }
-            },
- {
-                rank = 197,
-                guildName = "Ctrl Alt Defeat",
-                reportid = "7DmvfVgYK3HbXBLy",
-                timeSpent = "1:41:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:06",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:24",
-                    boss_100714 = "01:24",
-                    boss_100715 = "03:12",
-                    boss_100716 = "02:29",
-                    boss_100717 = "06:50"
-                }
-            },
- {
-                rank = 198,
-                guildName = "Vibing",
-                reportid = "xXt7Pr369cgLk2qB",
-                timeSpent = "1:41:12",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "01:29",
-                    boss_100711 = "01:38",
-                    boss_100712 = "01:02",
-                    boss_100713 = "02:38",
-                    boss_100714 = "01:13",
-                    boss_100715 = "02:36",
-                    boss_100716 = "01:23",
-                    boss_100717 = "05:05"
-                }
-            },
- {
-                rank = 199,
-                guildName = "Epicentre",
-                reportid = "pj1XhPYGbxVaKFcL",
-                timeSpent = "1:41:28",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:57",
-                    boss_100710 = "01:46",
-                    boss_100711 = "01:45",
-                    boss_100712 = "01:18",
-                    boss_100713 = "02:54",
-                    boss_100714 = "01:24",
-                    boss_100715 = "02:06",
-                    boss_100716 = "01:45",
-                    boss_100717 = "05:17"
-                }
-            },
- {
-                rank = 200,
-                guildName = "eye wash station",
-                reportid = "h9YGvwyxWQ3ZAab4",
-                timeSpent = "1:41:40",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:34",
-                    boss_100710 = "02:28",
-                    boss_100711 = "02:42",
-                    boss_100712 = "01:41",
-                    boss_100713 = "05:13",
-                    boss_100714 = "01:58",
-                    boss_100715 = "03:37",
-                    boss_100716 = "02:25",
-                    boss_100717 = "07:54"
-                }
-            },
- {
-                rank = 201,
-                guildName = "Les gens du Jardin",
-                reportid = "zaTkQPVFywv139jH",
-                timeSpent = "1:42:11",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:42",
-                    boss_100710 = "02:29",
-                    boss_100711 = "02:16",
-                    boss_100712 = "01:29",
-                    boss_100713 = "02:50",
-                    boss_100714 = "01:49",
-                    boss_100715 = "03:22",
-                    boss_100716 = "02:08",
-                    boss_100717 = "07:32"
-                }
-            },
- {
-                rank = 202,
-                guildName = "Divine Brotherhood",
-                reportid = "8ZMAh2Cgcq9pxvR7",
-                timeSpent = "1:42:38",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:35",
-                    boss_100710 = "01:37",
-                    boss_100711 = "02:30",
-                    boss_100712 = "01:29",
-                    boss_100713 = "02:56",
-                    boss_100714 = "01:18",
-                    boss_100715 = "02:02",
-                    boss_100716 = "01:54",
-                    boss_100717 = "06:30"
-                }
-            },
- {
-                rank = 203,
-                guildName = "Four Inches Buffed",
-                reportid = "ngFXmcAW71xKkJyM",
-                timeSpent = "1:42:58",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:47",
-                    boss_100710 = "01:38",
-                    boss_100711 = "02:39",
-                    boss_100712 = "01:09",
-                    boss_100713 = "02:08",
-                    boss_100714 = "01:09",
-                    boss_100715 = "02:03",
-                    boss_100716 = "01:41",
-                    boss_100717 = "05:51"
-                }
-            },
- {
-                rank = 204,
-                guildName = "B E R S E R K",
-                reportid = "Y4BNb7vcdATz2D8g",
-                timeSpent = "1:43:00",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:48",
-                    boss_100710 = "02:20",
-                    boss_100711 = "02:17",
-                    boss_100712 = "01:39",
-                    boss_100713 = "03:17",
-                    boss_100714 = "01:49",
-                    boss_100715 = "01:45",
-                    boss_100716 = "02:03",
-                    boss_100717 = "06:46"
-                }
-            },
- {
-                rank = 205,
-                guildName = "AUF",
-                reportid = "Pq3CaRTJArZKy1gD",
-                timeSpent = "1:43:01",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:23",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:48",
-                    boss_100712 = "01:03",
-                    boss_100713 = "02:12",
-                    boss_100714 = "01:20",
-                    boss_100715 = "02:00",
-                    boss_100716 = "01:35",
-                    boss_100717 = "06:03"
-                }
-            },
- {
-                rank = 206,
-                guildName = "NVMI",
-                reportid = "jXctJFv6ZGdnDPwV",
-                timeSpent = "1:43:29",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:37",
-                    boss_100710 = "01:43",
-                    boss_100711 = "01:58",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:19",
-                    boss_100714 = "01:33",
-                    boss_100715 = "02:59",
-                    boss_100716 = "01:33",
-                    boss_100717 = "05:53"
-                }
-            },
- {
-                rank = 207,
-                guildName = "Slaughtercult",
-                reportid = "Rm1Py6CpdrVtHNMX",
-                timeSpent = "1:44:31",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:41",
-                    boss_100710 = "01:37",
-                    boss_100711 = "01:49",
-                    boss_100712 = "01:11",
-                    boss_100713 = "02:09",
-                    boss_100714 = "01:28",
-                    boss_100715 = "02:20",
-                    boss_100716 = "01:46",
-                    boss_100717 = "07:23"
-                }
-            },
- {
-                rank = 208,
-                guildName = "AoE",
-                reportid = "mxcZw937rG2TaRvH",
-                timeSpent = "1:44:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:28",
-                    boss_100710 = "01:42",
-                    boss_100711 = "02:13",
-                    boss_100712 = "01:39",
-                    boss_100713 = "02:19",
-                    boss_100714 = "01:11",
-                    boss_100715 = "02:43",
-                    boss_100716 = "01:32",
-                    boss_100717 = "05:27"
-                }
-            },
- {
-                rank = 209,
-                guildName = "The Old Guard",
-                reportid = "gd7C3VWYB6m1RFyn",
-                timeSpent = "1:44:46",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:12",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:32",
-                    boss_100712 = "01:32",
-                    boss_100713 = "02:57",
-                    boss_100714 = "01:33",
-                    boss_100715 = "03:20",
-                    boss_100716 = "02:25",
-                    boss_100717 = "06:37"
-                }
-            },
- {
-                rank = 210,
-                guildName = "Easy Street",
-                reportid = "WY7GXBNJw6hkjQmv",
-                timeSpent = "1:45:14",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:31",
-                    boss_100710 = "02:09",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:30",
-                    boss_100713 = "03:02",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:46",
-                    boss_100716 = "02:12",
-                    boss_100717 = "06:02"
-                }
-            },
- {
-                rank = 211,
-                guildName = "Somnium",
-                reportid = "qjJKFfkPzx4M7Bb1",
-                timeSpent = "1:45:28",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:40",
-                    boss_100712 = "00:59",
-                    boss_100713 = "02:55",
-                    boss_100714 = "01:17",
-                    boss_100715 = "01:35",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:09"
-                }
-            },
- {
-                rank = 212,
-                guildName = "dane",
-                reportid = "wCb9L1VJ7cPRy3tq",
-                timeSpent = "1:45:34",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:58",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:19",
-                    boss_100712 = "01:20",
-                    boss_100713 = "01:54",
-                    boss_100714 = "01:43",
-                    boss_100715 = "04:09",
-                    boss_100716 = "02:43",
-                    boss_100717 = "07:09"
-                }
-            },
- {
-                rank = 213,
-                guildName = "Kebab",
-                reportid = "hyCGTD13Nkvn2AWB",
-                timeSpent = "1:45:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "02:06",
-                    boss_100711 = "01:53",
-                    boss_100712 = "01:29",
-                    boss_100713 = "02:25",
-                    boss_100714 = "01:38",
-                    boss_100715 = "02:12",
-                    boss_100716 = "01:42",
-                    boss_100717 = "05:27"
-                }
-            },
- {
-                rank = 214,
-                guildName = "Frost Paws",
-                reportid = "xfCnJ2PptXVKrh4B",
-                timeSpent = "1:46:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:44",
-                    boss_100710 = "02:33",
-                    boss_100711 = "02:03",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:29",
-                    boss_100714 = "01:29",
-                    boss_100715 = "02:22",
-                    boss_100716 = "01:44",
-                    boss_100717 = "05:09"
-                }
-            },
- {
-                rank = 215,
-                guildName = "still unlucky",
-                reportid = "tvfmdGP2JDxbXL3W",
-                timeSpent = "1:46:19",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "01:48",
-                    boss_100711 = "02:50",
-                    boss_100712 = "01:18",
-                    boss_100713 = "03:50",
-                    boss_100714 = "01:33",
-                    boss_100715 = "02:08",
-                    boss_100716 = "01:47",
-                    boss_100717 = "06:55"
-                }
-            },
- {
-                rank = 216,
-                guildName = "Upplandia",
-                reportid = "zyd8TrbjAgQ2aPFW",
-                timeSpent = "1:46:21",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:21",
-                    boss_100710 = "01:38",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:00",
-                    boss_100713 = "02:07",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:40",
-                    boss_100716 = "01:24",
-                    boss_100717 = "00:55"
-                }
-            },
- {
-                rank = 217,
-                guildName = "Kader 3",
-                reportid = "89Q6B3qCRdhFM1rp",
-                timeSpent = "1:46:41",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:56",
-                    boss_100710 = "02:30",
-                    boss_100711 = "02:29",
-                    boss_100712 = "01:18",
-                    boss_100713 = "02:57",
-                    boss_100714 = "01:45",
-                    boss_100715 = "01:58",
-                    boss_100716 = "01:56",
-                    boss_100717 = "08:00"
-                }
-            },
- {
-                rank = 218,
-                guildName = "Parseship",
-                reportid = "8dqPRbV46LvABMpT",
-                timeSpent = "1:47:30",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:45",
-                    boss_100710 = "01:42",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:07",
-                    boss_100713 = "01:53",
-                    boss_100714 = "01:28",
-                    boss_100715 = "01:32",
-                    boss_100716 = "01:41",
-                    boss_100717 = "05:12"
-                }
-            },
- {
-                rank = 219,
-                guildName = "Light of Shadow",
-                reportid = "VTgFnL8tRvC74wpJ",
-                timeSpent = "1:47:32",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:50",
-                    boss_100711 = "01:49",
-                    boss_100712 = "01:05",
-                    boss_100713 = "02:29",
-                    boss_100714 = "01:16",
-                    boss_100715 = "01:31",
-                    boss_100716 = "01:47",
-                    boss_100717 = "04:47"
-                }
-            },
- {
-                rank = 220,
-                guildName = "Grand Theft Kod0",
-                reportid = "6DbaKk1PgNB4hHRy",
-                timeSpent = "1:47:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:50",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:44",
-                    boss_100712 = "01:26",
-                    boss_100713 = "04:16",
-                    boss_100714 = "01:34",
-                    boss_100715 = "01:37",
-                    boss_100716 = "01:44",
-                    boss_100717 = "07:30"
-                }
-            },
- {
-                rank = 221,
-                guildName = "Everlasting Vendetta",
-                reportid = "MW62gPGLZxz3Q8Ht",
-                timeSpent = "1:48:16",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:53",
-                    boss_100710 = "02:38",
-                    boss_100711 = "02:10",
-                    boss_100712 = "01:35",
-                    boss_100713 = "02:38",
-                    boss_100714 = "01:28",
-                    boss_100715 = "02:15",
-                    boss_100716 = "01:36",
-                    boss_100717 = "05:32"
-                }
-            },
- {
-                rank = 222,
-                guildName = "adults in denial",
-                reportid = "wfQdWx9B6thbkmYZ",
-                timeSpent = "1:48:30",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:02",
-                    boss_100710 = "02:03",
-                    boss_100711 = "02:20",
-                    boss_100712 = "01:38",
-                    boss_100713 = "02:35",
-                    boss_100714 = "01:55",
-                    boss_100715 = "02:39",
-                    boss_100716 = "02:11",
-                    boss_100717 = "07:21"
-                }
-            },
- {
-                rank = 223,
-                guildName = "AFK Bier holen",
-                reportid = "X1qRcYGhKTNC7zZv",
-                timeSpent = "1:48:37",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:10",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:07",
-                    boss_100712 = "01:30",
-                    boss_100713 = "02:23",
-                    boss_100714 = "01:29",
-                    boss_100715 = "02:02",
-                    boss_100716 = "01:43",
-                    boss_100717 = "06:48"
-                }
-            },
- {
-                rank = 224,
-                guildName = "PlankGas",
-                reportid = "x4XzBy8MD6waHqR1",
-                timeSpent = "1:48:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:29",
-                    boss_100710 = "02:06",
-                    boss_100711 = "02:08",
-                    boss_100712 = "01:25",
-                    boss_100713 = "02:08",
-                    boss_100714 = "01:33",
-                    boss_100715 = "03:01",
-                    boss_100716 = "01:48",
-                    boss_100717 = "07:00"
-                }
-            },
- {
-                rank = 225,
-                guildName = "Legenden der Allianz",
-                reportid = "h4ZBDT6yYn8bwa3r",
-                timeSpent = "1:48:44",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:36",
-                    boss_100710 = "02:58",
-                    boss_100711 = "02:27",
-                    boss_100712 = "01:54",
-                    boss_100713 = "02:20",
-                    boss_100714 = "01:53",
-                    boss_100715 = "02:52",
-                    boss_100716 = "01:56",
-                    boss_100717 = "06:51"
-                }
-            },
- {
-                rank = 226,
-                guildName = "Monkey Madness",
-                reportid = "FdcqnmBgyHz974r1",
-                timeSpent = "1:50:21",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:08",
-                    boss_100710 = "01:50",
-                    boss_100711 = "01:44",
-                    boss_100712 = "01:25",
-                    boss_100713 = "03:56",
-                    boss_100714 = "01:18",
-                    boss_100715 = "01:40",
-                    boss_100716 = "02:15",
-                    boss_100717 = "04:55"
-                }
-            },
- {
-                rank = 227,
-                guildName = "Ruthless",
-                reportid = "BptLK36Avd4FCTJY",
-                timeSpent = "1:50:23",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "01:51",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:08",
-                    boss_100713 = "02:24",
-                    boss_100714 = "01:21",
-                    boss_100715 = "01:51",
-                    boss_100716 = "01:24",
-                    boss_100717 = "05:05"
-                }
-            },
- {
-                rank = 228,
-                guildName = "Frontline",
-                reportid = "cG87fVBWYytnQTjC",
-                timeSpent = "1:50:32",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:39",
-                    boss_100710 = "02:12",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:28",
-                    boss_100713 = "03:12",
-                    boss_100714 = "01:35",
-                    boss_100715 = "02:38",
-                    boss_100716 = "01:43",
-                    boss_100717 = "06:55"
-                }
-            },
- {
-                rank = 229,
-                guildName = "REDSTAR",
-                reportid = "WC8wQMyrnAtkVvqz",
-                timeSpent = "1:50:45",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:29",
-                    boss_100710 = "02:06",
-                    boss_100711 = "02:15",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:17",
-                    boss_100714 = "01:27",
-                    boss_100715 = "02:43",
-                    boss_100716 = "02:04",
-                    boss_100717 = "07:38"
-                }
-            },
- {
-                rank = 230,
-                guildName = "The Silver Hand",
-                reportid = "jtpA6Lwb1NJFrHkK",
-                timeSpent = "1:51:02",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:54",
-                    boss_100711 = "01:50",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:01",
-                    boss_100714 = "01:49",
-                    boss_100715 = "02:21",
-                    boss_100716 = "01:32",
-                    boss_100717 = "07:02"
-                }
-            },
- {
-                rank = 231,
-                guildName = "Hammer Of Witches",
-                reportid = "1CLYXy63dTGcxQ98",
-                timeSpent = "1:51:25",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:06",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:13",
-                    boss_100712 = "01:27",
-                    boss_100713 = "02:42",
-                    boss_100714 = "01:36",
-                    boss_100715 = "02:15",
-                    boss_100716 = "02:11",
-                    boss_100717 = "07:17"
-                }
-            },
- {
-                rank = 232,
-                guildName = "MOON GANG",
-                reportid = "H7Cq9xZDJWpKFcva",
-                timeSpent = "1:51:27",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:37",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:03",
-                    boss_100712 = "01:17",
-                    boss_100713 = "02:50",
-                    boss_100714 = "01:24",
-                    boss_100715 = "02:11",
-                    boss_100716 = "01:28",
-                    boss_100717 = "00:42"
-                }
-            },
- {
-                rank = 233,
-                guildName = "The Might of Menethil",
-                reportid = "hK9xGWatvTBYjLgZ",
-                timeSpent = "1:51:54",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:04",
-                    boss_100710 = "02:14",
-                    boss_100711 = "02:44",
-                    boss_100712 = "02:00",
-                    boss_100713 = "03:31",
-                    boss_100714 = "01:47",
-                    boss_100715 = "02:09",
-                    boss_100716 = "01:48",
-                    boss_100717 = "09:08"
-                }
-            },
- {
-                rank = 234,
-                guildName = "Unnamed",
-                reportid = "NwFJ1WkKA7gLMHQj",
-                timeSpent = "1:52:05",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:14",
-                    boss_100710 = "01:17",
-                    boss_100711 = "01:47",
-                    boss_100712 = "00:57",
-                    boss_100713 = "02:02",
-                    boss_100714 = "01:10",
-                    boss_100715 = "01:21",
-                    boss_100716 = "01:14",
-                    boss_100717 = "01:11"
-                }
-            },
- {
-                rank = 235,
-                guildName = "The Onsen",
-                reportid = "6Cb8rXkvBP3LTnRm",
-                timeSpent = "1:52:14",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "02:00",
-                    boss_100711 = "01:52",
-                    boss_100712 = "01:42",
-                    boss_100713 = "02:55",
-                    boss_100714 = "01:34",
-                    boss_100715 = "01:38",
-                    boss_100716 = "01:42",
-                    boss_100717 = "06:02"
-                }
-            },
- {
-                rank = 236,
-                guildName = "BajerBanden",
-                reportid = "231xrXcfFCaQ9nwz",
-                timeSpent = "1:52:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:47",
-                    boss_100710 = "02:19",
-                    boss_100711 = "02:08",
-                    boss_100712 = "01:58",
-                    boss_100713 = "02:00",
-                    boss_100714 = "01:33",
-                    boss_100715 = "02:40",
-                    boss_100716 = "01:38",
-                    boss_100717 = "06:01"
-                }
-            },
- {
-                rank = 237,
-                guildName = "Drengene fra Ungoro",
-                reportid = "XLK6PkHNp3vDFJGt",
-                timeSpent = "1:53:26",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:39",
-                    boss_100710 = "01:53",
-                    boss_100711 = "01:59",
-                    boss_100712 = "01:17",
-                    boss_100713 = "02:13",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:25",
-                    boss_100716 = "01:41",
-                    boss_100717 = "00:32"
-                }
-            },
- {
-                rank = 238,
-                guildName = "Intruders",
-                reportid = "GcKzbpnYHmjXB8JL",
-                timeSpent = "1:53:40",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:29",
-                    boss_100710 = "01:47",
-                    boss_100711 = "01:42",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:39",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:24",
-                    boss_100716 = "01:40",
-                    boss_100717 = "05:32"
-                }
-            },
- {
-                rank = 239,
-                guildName = "toads",
-                reportid = "XdGC8nD7P9mWJgbp",
-                timeSpent = "1:53:54",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:32",
-                    boss_100711 = "02:03",
-                    boss_100712 = "01:12",
-                    boss_100713 = "02:23",
-                    boss_100714 = "01:26",
-                    boss_100715 = "01:33",
-                    boss_100716 = "01:38",
-                    boss_100717 = "04:57"
-                }
-            },
- {
-                rank = 240,
-                guildName = "Silver Elite",
-                reportid = "2TCx6cmhf8pjL94k",
-                timeSpent = "1:53:58",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:25",
-                    boss_100712 = "01:15",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:22",
-                    boss_100715 = "01:15",
-                    boss_100716 = "01:39",
-                    boss_100717 = "06:43"
-                }
-            },
- {
-                rank = 241,
-                guildName = "WASH YER BACK",
-                reportid = "LbDGyJR98gfAxN6H",
-                timeSpent = "1:54:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "01:56",
-                    boss_100711 = "02:25",
-                    boss_100712 = "01:15",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:22",
-                    boss_100715 = "01:15",
-                    boss_100716 = "01:39",
-                    boss_100717 = "06:43"
-                }
-            },
- {
-                rank = 242,
-                guildName = "FLAMINGOSWINGERS",
-                reportid = "7v3GaJwzpbmfrVtj",
-                timeSpent = "1:54:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:11",
-                    boss_100710 = "02:35",
-                    boss_100711 = "02:43",
-                    boss_100712 = "01:45",
-                    boss_100713 = "02:05",
-                    boss_100714 = "01:56",
-                    boss_100715 = "02:07",
-                    boss_100716 = "02:35",
-                    boss_100717 = "09:18"
-                }
-            },
- {
-                rank = 243,
-                guildName = "MAD",
-                reportid = "Ywf3LjgxhMR2k8rP",
-                timeSpent = "1:55:11",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:32",
-                    boss_100710 = "01:46",
-                    boss_100711 = "02:10",
-                    boss_100712 = "01:52",
-                    boss_100713 = "02:58",
-                    boss_100714 = "01:44",
-                    boss_100715 = "02:48",
-                    boss_100716 = "01:44",
-                    boss_100717 = "09:43"
-                }
-            },
- {
-                rank = 244,
-                guildName = "DAYDREAM",
-                reportid = "R6431DXzrg2nbZWh",
-                timeSpent = "1:55:19",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:31",
-                    boss_100710 = "02:06",
-                    boss_100711 = "02:11",
-                    boss_100712 = "01:20",
-                    boss_100713 = "02:01",
-                    boss_100714 = "01:29",
-                    boss_100715 = "02:10",
-                    boss_100716 = "01:35",
-                    boss_100717 = "05:33"
-                }
-            },
- {
-                rank = 245,
-                guildName = "Ace",
-                reportid = "6LDPy8CWdtTZGnAm",
-                timeSpent = "1:56:07",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:49",
-                    boss_100710 = "01:48",
-                    boss_100711 = "02:27",
-                    boss_100712 = "01:21",
-                    boss_100713 = "02:53",
-                    boss_100714 = "01:25",
-                    boss_100715 = "02:11",
-                    boss_100716 = "01:38",
-                    boss_100717 = "06:19"
-                }
-            },
- {
-                rank = 246,
-                guildName = "Attain it",
-                reportid = "8YdraHzJPAqDhgmy",
-                timeSpent = "1:56:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:40",
-                    boss_100710 = "02:09",
-                    boss_100711 = "02:48",
-                    boss_100712 = "01:43",
-                    boss_100713 = "02:52",
-                    boss_100714 = "01:41",
-                    boss_100715 = "02:34",
-                    boss_100716 = "02:18",
-                    boss_100717 = "07:43"
-                }
-            },
- {
-                rank = 247,
-                guildName = "sod off",
-                reportid = "BXFgAtvGLT4mZJK9",
-                timeSpent = "1:57:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:02",
-                    boss_100710 = "02:29",
-                    boss_100711 = "02:22",
-                    boss_100712 = "01:46",
-                    boss_100713 = "02:37",
-                    boss_100714 = "01:45",
-                    boss_100715 = "03:25",
-                    boss_100716 = "01:49",
-                    boss_100717 = "05:16"
-                }
-            },
- {
-                rank = 248,
-                guildName = "Systembolaget Raid 2",
-                reportid = "RzGmFTjyhbftLKrC",
-                timeSpent = "1:58:47",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:14",
-                    boss_100710 = "02:46",
-                    boss_100711 = "02:27",
-                    boss_100712 = "01:30",
-                    boss_100713 = "02:51",
-                    boss_100714 = "01:25",
-                    boss_100715 = "02:38",
-                    boss_100716 = "01:45",
-                    boss_100717 = "08:03"
-                }
-            },
- {
-                rank = 249,
-                guildName = "Selskap",
-                reportid = "7QpvHaCmM2zwqrcy",
-                timeSpent = "1:58:52",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:41",
-                    boss_100710 = "02:19",
-                    boss_100711 = "02:18",
-                    boss_100712 = "01:12",
-                    boss_100713 = "03:01",
-                    boss_100714 = "01:34",
-                    boss_100715 = "02:02",
-                    boss_100716 = "02:21",
-                    boss_100717 = "06:41"
-                }
-            },
- {
-                rank = 250,
-                guildName = "xoxo",
-                reportid = "Z7ztn9CBMgyYjH8h",
-                timeSpent = "1:59:39",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "03:52",
-                    boss_100710 = "02:41",
-                    boss_100711 = "02:56",
-                    boss_100712 = "01:43",
-                    boss_100713 = "02:28",
-                    boss_100714 = "01:57",
-                    boss_100715 = "03:07",
-                    boss_100716 = "06:34",
-                    boss_100717 = "07:15"
-                }
-            },
- {
-                rank = 251,
-                guildName = "BarrensFM",
-                reportid = "yV9Tx17YJjmvGqpd",
-                timeSpent = "2:00:48",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:43",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:23",
-                    boss_100713 = "02:34",
-                    boss_100714 = "01:33",
-                    boss_100715 = "02:15",
-                    boss_100716 = "01:59",
-                    boss_100717 = "08:46"
-                }
-            },
- {
-                rank = 252,
-                guildName = "LAUMA",
-                reportid = "rMCcBDagtyj47qV1",
-                timeSpent = "2:01:13",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:36",
-                    boss_100710 = "02:03",
-                    boss_100711 = "02:35",
-                    boss_100712 = "01:51",
-                    boss_100713 = "02:52",
-                    boss_100714 = "01:33",
-                    boss_100715 = "02:08",
-                    boss_100716 = "01:45",
-                    boss_100717 = "07:57"
-                }
-            },
- {
-                rank = 253,
-                guildName = "DOWNTIME",
-                reportid = "NgXGAtchJ6YWbRZf",
-                timeSpent = "2:01:13",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "02:11",
-                    boss_100711 = "02:46",
-                    boss_100712 = "01:30",
-                    boss_100713 = "03:40",
-                    boss_100714 = "01:39",
-                    boss_100715 = "03:18",
-                    boss_100716 = "03:08",
-                    boss_100717 = "10:39"
-                }
-            },
- {
-                rank = 254,
-                guildName = "Raid at Night",
-                reportid = "pMdGm9JhLYk8Kt1x",
-                timeSpent = "2:01:24",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:00",
-                    boss_100712 = "01:10",
-                    boss_100713 = "01:54",
-                    boss_100714 = "01:22",
-                    boss_100715 = "02:06",
-                    boss_100716 = "01:18",
-                    boss_100717 = "05:39"
-                }
-            },
- {
-                rank = 255,
-                guildName = "Phoenix",
-                reportid = "TxcFWtdaQfm691bz",
-                timeSpent = "2:01:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:55",
-                    boss_100710 = "02:20",
-                    boss_100711 = "02:30",
-                    boss_100712 = "01:35",
-                    boss_100713 = "03:31",
-                    boss_100714 = "01:45",
-                    boss_100715 = "02:54",
-                    boss_100716 = "02:17",
-                    boss_100717 = "03:00"
-                }
-            },
- {
-                rank = 256,
-                guildName = "Ruined Blackout",
-                reportid = "1RVkNr4wHGgXYZMt",
-                timeSpent = "2:04:43",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:57",
-                    boss_100710 = "02:41",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:14",
-                    boss_100713 = "02:50",
-                    boss_100714 = "01:35",
-                    boss_100715 = "02:01",
-                    boss_100716 = "03:51",
-                    boss_100717 = "06:59"
-                }
-            },
- {
-                rank = 257,
-                guildName = "Absolutely Not A Cult",
-                reportid = "WytMZrmCJ76kFdXB",
-                timeSpent = "2:04:44",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:16",
-                    boss_100710 = "02:14",
-                    boss_100711 = "03:13",
-                    boss_100712 = "01:47",
-                    boss_100713 = "05:39",
-                    boss_100714 = "01:49",
-                    boss_100715 = "01:40",
-                    boss_100716 = "01:52",
-                    boss_100717 = "07:41"
-                }
-            },
- {
-                rank = 258,
-                guildName = "Known Unknown",
-                reportid = "bAVqwJ9p2rxTPYKk",
-                timeSpent = "2:05:50",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:07",
-                    boss_100710 = "02:24",
-                    boss_100711 = "02:43",
-                    boss_100712 = "02:10",
-                    boss_100713 = "02:59",
-                    boss_100714 = "01:53",
-                    boss_100715 = "01:46",
-                    boss_100716 = "02:12",
-                    boss_100717 = "09:30"
-                }
-            },
- {
-                rank = 259,
-                guildName = "Nak og Æd",
-                reportid = "DfwyQxnT2AdYGg98",
-                timeSpent = "2:05:58",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:24",
-                    boss_100710 = "02:21",
-                    boss_100711 = "02:12",
-                    boss_100712 = "01:30",
-                    boss_100713 = "01:55",
-                    boss_100714 = "01:26",
-                    boss_100715 = "02:03",
-                    boss_100716 = "03:10",
-                    boss_100717 = "04:39"
-                }
-            },
- {
-                rank = 260,
-                guildName = "Gypsy PUG",
-                reportid = "KQFJnyrpPj1Bbdcm",
-                timeSpent = "2:06:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:01",
-                    boss_100710 = "02:11",
-                    boss_100711 = "02:01",
-                    boss_100712 = "01:44",
-                    boss_100713 = "02:42",
-                    boss_100714 = "01:44",
-                    boss_100715 = "02:04",
-                    boss_100716 = "02:35",
-                    boss_100717 = "13:40"
-                }
-            },
- {
-                rank = 261,
-                guildName = "Tactically Challenged",
-                reportid = "m8vntwH9aWzdpc6A",
-                timeSpent = "2:07:03",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:16",
-                    boss_100710 = "02:30",
-                    boss_100711 = "02:39",
-                    boss_100712 = "02:03",
-                    boss_100713 = "03:03",
-                    boss_100714 = "02:01",
-                    boss_100715 = "03:59",
-                    boss_100716 = "03:04",
-                    boss_100717 = "07:32"
-                }
-            },
- {
-                rank = 262,
-                guildName = "ExÍled",
-                reportid = "RgKCrx1QZX89NcDm",
-                timeSpent = "2:08:37",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:15",
-                    boss_100710 = "02:50",
-                    boss_100711 = "02:34",
-                    boss_100712 = "01:46",
-                    boss_100713 = "03:08",
-                    boss_100714 = "02:02",
-                    boss_100715 = "04:08",
-                    boss_100716 = "02:29",
-                    boss_100717 = "10:28"
-                }
-            },
- {
-                rank = 263,
-                guildName = "Purgatory",
-                reportid = "cRj1FBatG2fbZmhp",
-                timeSpent = "2:08:59",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:45",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:21",
-                    boss_100712 = "01:30",
-                    boss_100713 = "02:55",
-                    boss_100714 = "01:42",
-                    boss_100715 = "03:41",
-                    boss_100716 = "01:42",
-                    boss_100717 = "09:26"
-                }
-            },
- {
-                rank = 264,
-                guildName = "eSio",
-                reportid = "YgH3FVjQLR7mvZyM",
-                timeSpent = "2:08:59",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:39",
-                    boss_100710 = "01:40",
-                    boss_100711 = "02:04",
-                    boss_100712 = "01:07",
-                    boss_100713 = "02:20",
-                    boss_100714 = "01:20",
-                    boss_100715 = "01:56",
-                    boss_100716 = "02:20",
-                    boss_100717 = "04:56"
-                }
-            },
- {
-                rank = 265,
-                guildName = "The Silverwing Clan",
-                reportid = "WBcVZw149pRY2tgK",
-                timeSpent = "2:10:25",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:38",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:13",
-                    boss_100712 = "02:00",
-                    boss_100713 = "02:52",
-                    boss_100714 = "01:35",
-                    boss_100715 = "02:21",
-                    boss_100716 = "01:57",
-                    boss_100717 = "05:10"
-                }
-            },
- {
-                rank = 266,
-                guildName = "Sigma",
-                reportid = "xmbqTczPvythQX7B",
-                timeSpent = "2:12:08",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:07",
-                    boss_100710 = "02:03",
-                    boss_100711 = "02:18",
-                    boss_100712 = "01:57",
-                    boss_100713 = "03:00",
-                    boss_100714 = "01:26",
-                    boss_100715 = "03:07",
-                    boss_100716 = "02:15",
-                    boss_100717 = "07:01"
-                }
-            },
- {
-                rank = 267,
-                guildName = "Ojcowizna",
-                reportid = "FwqxRLfXdaKcHmBA",
-                timeSpent = "2:12:10",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:50",
-                    boss_100710 = "02:04",
-                    boss_100711 = "02:33",
-                    boss_100712 = "01:54",
-                    boss_100713 = "03:44",
-                    boss_100714 = "02:00",
-                    boss_100715 = "02:37",
-                    boss_100716 = "01:52",
-                    boss_100717 = "07:39"
-                }
-            },
- {
-                rank = 268,
-                guildName = "Le Discovery Channel",
-                reportid = "vjGRpBX8z1dFNKbt",
-                timeSpent = "2:12:22",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:40",
-                    boss_100710 = "01:58",
-                    boss_100711 = "02:14",
-                    boss_100712 = "01:47",
-                    boss_100713 = "02:03",
-                    boss_100714 = "01:32",
-                    boss_100715 = "02:38",
-                    boss_100716 = "02:14",
-                    boss_100717 = "05:07"
-                }
-            },
- {
-                rank = 269,
-                guildName = "En Vrai Ça Passe",
-                reportid = "QT3yWb6zBwrkHVm9",
-                timeSpent = "2:13:17",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:49",
-                    boss_100710 = "02:50",
-                    boss_100711 = "02:35",
-                    boss_100712 = "02:01",
-                    boss_100713 = "03:12",
-                    boss_100714 = "01:41",
-                    boss_100715 = "05:00",
-                    boss_100716 = "03:10",
-                    boss_100717 = "00:34"
-                }
-            },
- {
-                rank = 270,
-                guildName = "Rider i Natten",
-                reportid = "cGwh7QmKFLR6k3Mt",
-                timeSpent = "2:13:36",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:02",
-                    boss_100710 = "01:50",
-                    boss_100711 = "02:43",
-                    boss_100712 = "01:15",
-                    boss_100713 = "02:03",
-                    boss_100714 = "01:28",
-                    boss_100715 = "01:43",
-                    boss_100716 = "01:37",
-                    boss_100717 = "06:33"
-                }
-            },
- {
-                rank = 271,
-                guildName = "Salted Coffee",
-                reportid = "GJ27PLFp1VgkW9M8",
-                timeSpent = "2:17:19",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:34",
-                    boss_100710 = "02:09",
-                    boss_100711 = "02:25",
-                    boss_100712 = "01:19",
-                    boss_100713 = "02:58",
-                    boss_100714 = "01:31",
-                    boss_100715 = "02:17",
-                    boss_100716 = "02:20",
-                    boss_100717 = "11:42"
-                }
-            },
- {
-                rank = 272,
-                guildName = "BOOMERSTRATS",
-                reportid = "hgVZrkxDWMXn2vz9",
-                timeSpent = "2:17:37",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:45",
-                    boss_100710 = "02:01",
-                    boss_100711 = "02:37",
-                    boss_100712 = "01:09",
-                    boss_100713 = "01:47",
-                    boss_100714 = "01:21",
-                    boss_100715 = "03:03",
-                    boss_100716 = "01:44",
-                    boss_100717 = "01:09"
-                }
-            },
- {
-                rank = 273,
-                guildName = "Legion",
-                reportid = "xAzcV7RhXLjQK2gT",
-                timeSpent = "2:18:04",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:25",
-                    boss_100710 = "01:32",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:31",
-                    boss_100713 = "01:41",
-                    boss_100714 = "01:13",
-                    boss_100715 = "02:10",
-                    boss_100716 = "01:25",
-                    boss_100717 = "05:22"
-                }
-            },
- {
-                rank = 274,
-                guildName = "Bastion Boys",
-                reportid = "FG9bMDBNKzJTYgcf",
-                timeSpent = "2:18:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:29",
-                    boss_100710 = "02:04",
-                    boss_100711 = "03:32",
-                    boss_100712 = "02:03",
-                    boss_100713 = "03:53",
-                    boss_100714 = "01:58",
-                    boss_100715 = "02:38",
-                    boss_100716 = "02:55",
-                    boss_100717 = "05:38"
-                }
-            },
- {
-                rank = 275,
-                guildName = "Soulbound",
-                reportid = "ZyF3xYhTwvjW4MHC",
-                timeSpent = "2:20:29",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:07",
-                    boss_100710 = "02:56",
-                    boss_100711 = "02:55",
-                    boss_100712 = "02:25",
-                    boss_100713 = "03:44",
-                    boss_100714 = "02:05",
-                    boss_100715 = "03:37",
-                    boss_100716 = "02:22",
-                    boss_100717 = "08:36"
-                }
-            },
- {
-                rank = 276,
-                guildName = "Flame for Fame",
-                reportid = "x4Q2z9p7MkgaDKwb",
-                timeSpent = "2:21:06",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "03:02",
-                    boss_100710 = "02:15",
-                    boss_100711 = "02:15",
-                    boss_100712 = "01:34",
-                    boss_100713 = "03:53",
-                    boss_100714 = "01:39",
-                    boss_100715 = "02:17",
-                    boss_100716 = "03:43",
-                    boss_100717 = "06:55"
-                }
-            },
- {
-                rank = 277,
-                guildName = "k im pulling",
-                reportid = "t1ZbKH4Ck7GPf2nr",
-                timeSpent = "2:24:56",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:52",
-                    boss_100710 = "02:00",
-                    boss_100711 = "02:35",
-                    boss_100712 = "01:23",
-                    boss_100713 = "02:41",
-                    boss_100714 = "01:42",
-                    boss_100715 = "02:57",
-                    boss_100716 = "02:01",
-                    boss_100717 = "09:00"
-                }
-            },
- {
-                rank = 278,
-                guildName = "Savage Squad",
-                reportid = "MGwaq8y4zCW6jPLJ",
-                timeSpent = "2:26:05",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:18",
-                    boss_100710 = "01:59",
-                    boss_100711 = "02:25",
-                    boss_100712 = "01:30",
-                    boss_100713 = "03:08",
-                    boss_100714 = "01:36",
-                    boss_100715 = "02:08",
-                    boss_100716 = "02:46",
-                    boss_100717 = "06:52"
-                }
-            },
- {
-                rank = 279,
-                guildName = "Dorkwind",
-                reportid = "r4Ddg6kbGL3PNyCm",
-                timeSpent = "2:30:55",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "03:53",
-                    boss_100710 = "02:20",
-                    boss_100711 = "02:24",
-                    boss_100712 = "01:53",
-                    boss_100713 = "02:59",
-                    boss_100714 = "01:56",
-                    boss_100715 = "03:14",
-                    boss_100716 = "02:17",
-                    boss_100717 = "07:41"
-                }
-            },
- {
-                rank = 280,
-                guildName = "GOKU",
-                reportid = "8QPhxNzcKMyaTCDL",
-                timeSpent = "2:32:36",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:18",
-                    boss_100710 = "02:34",
-                    boss_100711 = "03:48",
-                    boss_100712 = "01:33",
-                    boss_100713 = "02:52",
-                    boss_100714 = "01:53",
-                    boss_100715 = "03:48",
-                    boss_100716 = "02:27",
-                    boss_100717 = "08:24"
-                }
-            },
- {
-                rank = 281,
-                guildName = "Exordium",
-                reportid = "gYTCA6tKp2NHr43f",
-                timeSpent = "2:33:21",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:44",
-                    boss_100710 = "02:24",
-                    boss_100711 = "02:46",
-                    boss_100712 = "01:48",
-                    boss_100713 = "05:17",
-                    boss_100714 = "02:07",
-                    boss_100715 = "03:20",
-                    boss_100716 = "03:36",
-                    boss_100717 = "07:51"
-                }
-            },
- {
-                rank = 282,
-                guildName = "Fryslagg",
-                reportid = "HLMNPazt87WG6mrA",
-                timeSpent = "2:33:57",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:30",
-                    boss_100710 = "02:48",
-                    boss_100711 = "03:15",
-                    boss_100712 = "02:02",
-                    boss_100713 = "04:09",
-                    boss_100714 = "02:02",
-                    boss_100715 = "04:09",
-                    boss_100716 = "01:12",
-                    boss_100717 = "11:56"
-                }
-            },
- {
-                rank = 283,
-                guildName = "Degens and Dragons",
-                reportid = "FxN87r1kwRLy4MhX",
-                timeSpent = "2:47:29",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:38",
-                    boss_100710 = "02:38",
-                    boss_100711 = "02:58",
-                    boss_100712 = "02:22",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:55",
-                    boss_100715 = "03:54",
-                    boss_100716 = "05:48",
-                    boss_100717 = "01:02"
-                }
-            },
- {
-                rank = 284,
-                guildName = "MADDOGS",
-                reportid = "fhKqrA87WzMntCpY",
-                timeSpent = "3:00:42",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:56",
-                    boss_100710 = "02:37",
-                    boss_100711 = "04:07",
-                    boss_100712 = "01:55",
-                    boss_100713 = "03:29",
-                    boss_100714 = "01:50",
-                    boss_100715 = "02:49",
-                    boss_100716 = "02:17",
-                    boss_100717 = "05:08"
-                }
-            },
- {
-                rank = 285,
-                guildName = "D R A M A",
-                reportid = "yJRGck1XzFBZNpqA",
-                timeSpent = "3:22:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:18",
-                    boss_100710 = "02:19",
-                    boss_100711 = "02:17",
-                    boss_100712 = "02:40",
-                    boss_100713 = "04:11",
-                    boss_100714 = "01:48",
-                    boss_100715 = "04:26",
-                    boss_100716 = "02:09",
-                    boss_100717 = "04:30"
-                }
-            },
- {
-                rank = 286,
-                guildName = "Just Pull SOD",
-                reportid = "wyDfzqBxjCGm9Rhc",
-                timeSpent = "3:31:00",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:46",
-                    boss_100710 = "01:53",
-                    boss_100711 = "02:32",
-                    boss_100712 = "01:53",
-                    boss_100713 = "03:15",
-                    boss_100714 = "01:42",
-                    boss_100715 = "04:00",
-                    boss_100716 = "02:16",
-                    boss_100717 = "05:40"
-                }
-            },
- {
-                rank = 287,
-                guildName = "forced fun",
-                reportid = "v3KM4n87hRZyxGNV",
-                timeSpent = "3:35:15",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "02:51",
-                    boss_100710 = "03:12",
-                    boss_100711 = "03:04",
-                    boss_100712 = "02:19",
-                    boss_100713 = "08:31",
-                    boss_100714 = "02:08",
-                    boss_100715 = "04:21",
-                    boss_100716 = "04:26",
-                    boss_100717 = "08:36"
-                }
-            },
- {
-                rank = 288,
-                guildName = "A B TRE",
-                reportid = "JLj1KvNxfHw8aD9X",
-                timeSpent = "3:38:52",
-                servername = "livingflame",
-                region = "eu",
-                times = {
-                    boss_100585 = "01:38",
-                    boss_100710 = "02:30",
-                    boss_100711 = "01:56",
-                    boss_100712 = "01:24",
-                    boss_100713 = "03:23",
-                    boss_100714 = "01:23",
-                    boss_100715 = "02:06",
-                    boss_100716 = "01:50",
-                    boss_100717 = "00:29"
+                g = "Btribe",
+                r = "eu",
+                s =  "living flame",
+                id = "v8Yph9C3gFAJ42fx",
+                ts = "37:53",
+                t = {
+                    b_585 = "62",
+                    b_586 = "63",
+                    b_587 = "71",
+                    b_588 = "43",
+                    b_589 = "72",
+                    b_590 = "56",
+                    b_591 = "48",
+                    b_592 = "56",
+                    b_717 = "211"
+                }
+            },
+ {
+                g = "Pirelli",
+                r = "eu",
+                s =  "living flame",
+                id = "rWBK8fzhwMAyFJGR",
+                ts = "39:41",
+                t = {
+                    b_585 = "79",
+                    b_586 = "74",
+                    b_587 = "84",
+                    b_588 = "51",
+                    b_589 = "89",
+                    b_590 = "71",
+                    b_591 = "57",
+                    b_592 = "74",
+                    b_717 = "227"
+                }
+            },
+ {
+                g = "Fas",
+                r = "eu",
+                s =  "living flame",
+                id = "KCMBwGtLcNy1dJA2",
+                ts = "43:45",
+                t = {
+                    b_585 = "68",
+                    b_586 = "68",
+                    b_587 = "69",
+                    b_588 = "47",
+                    b_589 = "105",
+                    b_590 = "62",
+                    b_591 = "47",
+                    b_592 = "63",
+                    b_717 = "230"
+                }
+            },
+ {
+                g = "WoodWard SoD",
+                r = "eu",
+                s =  "living flame",
+                id = "tAFp8Q2cDZwbfM7r",
+                ts = "45:13",
+                t = {
+                    b_585 = "89",
+                    b_586 = "102",
+                    b_587 = "115",
+                    b_588 = "71",
+                    b_589 = "144",
+                    b_590 = "88",
+                    b_591 = "122",
+                    b_592 = "95",
+                    b_717 = "266"
+                }
+            },
+ {
+                g = "Praxis",
+                r = "eu",
+                s =  "living flame",
+                id = "dRW38jJfbBhqcpYN",
+                ts = "45:22",
+                t = {
+                    b_585 = "75",
+                    b_586 = "84",
+                    b_587 = "78",
+                    b_588 = "53",
+                    b_589 = "127",
+                    b_590 = "65",
+                    b_591 = "65",
+                    b_592 = "65",
+                    b_717 = "243"
+                }
+            },
+ {
+                g = "Inselverbot",
+                r = "eu",
+                s =  "living flame",
+                id = "WvxCFy3PV9KbfDHj",
+                ts = "48:42",
+                t = {
+                    b_585 = "68",
+                    b_586 = "74",
+                    b_587 = "80",
+                    b_588 = "47",
+                    b_589 = "76",
+                    b_590 = "52",
+                    b_591 = "57",
+                    b_592 = "56",
+                    b_717 = "219"
+                }
+            },
+ {
+                g = "cba",
+                r = "eu",
+                s =  "living flame",
+                id = "JH6dVPLpcqvKaDnx",
+                ts = "49:21",
+                t = {
+                    b_585 = "64",
+                    b_586 = "59",
+                    b_587 = "68",
+                    b_588 = "38",
+                    b_589 = "84",
+                    b_590 = "46",
+                    b_591 = "51",
+                    b_592 = "50",
+                    b_717 = "46"
+                }
+            },
+ {
+                g = "Innuendo",
+                r = "eu",
+                s =  "living flame",
+                id = "CXmPMpYrTRVb3xhF",
+                ts = "49:55",
+                t = {
+                    b_585 = "88",
+                    b_586 = "87",
+                    b_587 = "91",
+                    b_588 = "58",
+                    b_589 = "115",
+                    b_590 = "66",
+                    b_591 = "80",
+                    b_592 = "72",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "we are bad",
+                r = "eu",
+                s =  "living flame",
+                id = "twgXLq7y8NrQZB1G",
+                ts = "51:58",
+                t = {
+                    b_585 = "71",
+                    b_586 = "131",
+                    b_587 = "77",
+                    b_588 = "57",
+                    b_589 = "118",
+                    b_590 = "61",
+                    b_591 = "57",
+                    b_592 = "74",
+                    b_717 = "383"
+                }
+            },
+ {
+                g = "Gasstation PUG",
+                r = "eu",
+                s =  "living flame",
+                id = "bRNcBXQ4CHmq7FxK",
+                ts = "54:23",
+                t = {
+                    b_585 = "83",
+                    b_586 = "92",
+                    b_587 = "105",
+                    b_588 = "58",
+                    b_589 = "138",
+                    b_590 = "71",
+                    b_591 = "75",
+                    b_592 = "82",
+                    b_717 = "258"
+                }
+            },
+ {
+                g = "Infamous",
+                r = "eu",
+                s =  "living flame",
+                id = "NRMxXArq6dkgy4G9",
+                ts = "54:44",
+                t = {
+                    b_585 = "99",
+                    b_586 = "113",
+                    b_587 = "103",
+                    b_588 = "85",
+                    b_589 = "142",
+                    b_590 = "88",
+                    b_591 = "75",
+                    b_592 = "96",
+                    b_717 = "276"
+                }
+            },
+ {
+                g = "Fake Fresh",
+                r = "eu",
+                s =  "living flame",
+                id = "4ZvAVNGgkcKwXxJ1",
+                ts = "55:39",
+                t = {
+                    b_585 = "109",
+                    b_586 = "105",
+                    b_587 = "133",
+                    b_588 = "77",
+                    b_589 = "197",
+                    b_590 = "96",
+                    b_591 = "102",
+                    b_592 = "110",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "Almost Famous",
+                r = "eu",
+                s =  "living flame",
+                id = "H8BFqLPQCntMgWrZ",
+                ts = "57:01",
+                t = {
+                    b_585 = "84",
+                    b_586 = "81",
+                    b_587 = "95",
+                    b_588 = "58",
+                    b_589 = "168",
+                    b_590 = "69",
+                    b_591 = "61",
+                    b_592 = "72",
+                    b_717 = "266"
+                }
+            },
+ {
+                g = "the BENIS firm",
+                r = "eu",
+                s =  "living flame",
+                id = "7TAYPpzwRD93y8aZ",
+                ts = "57:43",
+                t = {
+                    b_585 = "108",
+                    b_586 = "84",
+                    b_587 = "90",
+                    b_588 = "58",
+                    b_589 = "105",
+                    b_590 = "73",
+                    b_591 = "60",
+                    b_592 = "81",
+                    b_717 = "316"
+                }
+            },
+ {
+                g = "Two [FR]",
+                r = "eu",
+                s =  "living flame",
+                id = "bWfrDmyapcgjBxG3",
+                ts = "58:00",
+                t = {
+                    b_585 = "75",
+                    b_586 = "85",
+                    b_587 = "101",
+                    b_588 = "57",
+                    b_589 = "97",
+                    b_590 = "63",
+                    b_591 = "64",
+                    b_592 = "77",
+                    b_717 = "242"
+                }
+            },
+ {
+                g = "Blaster Pug LivingFlame",
+                r = "eu",
+                s =  "living flame",
+                id = "hKMBPALY8TtfGnJc",
+                ts = "58:31",
+                t = {
+                    b_585 = "96",
+                    b_586 = "100",
+                    b_587 = "102",
+                    b_588 = "63",
+                    b_589 = "133",
+                    b_590 = "92",
+                    b_591 = "92",
+                    b_592 = "92",
+                    b_717 = "252"
+                }
+            },
+ {
+                g = "GoldenRoll SOD",
+                r = "eu",
+                s =  "living flame",
+                id = "NvnAwMqPjzxaH2RX",
+                ts = "58:50",
+                t = {
+                    b_585 = "167",
+                    b_586 = "108",
+                    b_587 = "114",
+                    b_588 = "74",
+                    b_589 = "129",
+                    b_590 = "94",
+                    b_591 = "103",
+                    b_592 = "100",
+                    b_717 = "305"
+                }
+            },
+ {
+                g = "Blackbeard",
+                r = "eu",
+                s =  "living flame",
+                id = "vpaD9TR3j7MQG6nx",
+                ts = "59:20",
+                t = {
+                    b_585 = "87",
+                    b_586 = "87",
+                    b_587 = "99",
+                    b_588 = "58",
+                    b_589 = "173",
+                    b_590 = "74",
+                    b_591 = "88",
+                    b_592 = "78",
+                    b_717 = "288"
+                }
+            },
+ {
+                g = "Dice",
+                r = "eu",
+                s =  "living flame",
+                id = "1pfZKgWVbDGBJyh8",
+                ts = "59:53",
+                t = {
+                    b_585 = "84",
+                    b_586 = "97",
+                    b_587 = "99",
+                    b_588 = "58",
+                    b_589 = "104",
+                    b_590 = "73",
+                    b_591 = "89",
+                    b_592 = "80",
+                    b_717 = "262"
+                }
+            },
+ {
+                g = "Parse Attack",
+                r = "eu",
+                s =  "living flame",
+                id = "7BT1KfPygpGAWZNt",
+                ts = "1:00:5",
+                t = {
+                    b_585 = "74",
+                    b_586 = "87",
+                    b_587 = "84",
+                    b_588 = "58",
+                    b_589 = "135",
+                    b_590 = "63",
+                    b_591 = "60",
+                    b_592 = "74",
+                    b_717 = "255"
+                }
+            },
+ {
+                g = "FOMO",
+                r = "eu",
+                s =  "living flame",
+                id = "hAqnzrgyTD4cW6jp",
+                ts = "1:00:12",
+                t = {
+                    b_585 = "91",
+                    b_586 = "95",
+                    b_587 = "112",
+                    b_588 = "72",
+                    b_589 = "144",
+                    b_590 = "78",
+                    b_591 = "130",
+                    b_592 = "90",
+                    b_717 = "326"
+                }
+            },
+ {
+                g = "Lattjo Lajban",
+                r = "eu",
+                s =  "living flame",
+                id = "yVDQ6bXNHmZhRtWw",
+                ts = "1:00:17",
+                t = {
+                    b_585 = "77",
+                    b_586 = "100",
+                    b_587 = "92",
+                    b_588 = "55",
+                    b_589 = "128",
+                    b_590 = "68",
+                    b_591 = "74",
+                    b_592 = "66",
+                    b_717 = "249"
+                }
+            },
+ {
+                g = "Its free",
+                r = "eu",
+                s =  "living flame",
+                id = "TZMtqwac76VJPNXp",
+                ts = "1:00:48",
+                t = {
+                    b_585 = "76",
+                    b_586 = "82",
+                    b_587 = "78",
+                    b_588 = "56",
+                    b_589 = "117",
+                    b_590 = "66",
+                    b_591 = "55",
+                    b_592 = "73",
+                    b_717 = "233"
+                }
+            },
+ {
+                g = "La Masonería",
+                r = "eu",
+                s =  "living flame",
+                id = "N4RwW89MXvqt3mbJ",
+                ts = "1:00:55",
+                t = {
+                    b_585 = "81",
+                    b_586 = "100",
+                    b_587 = "107",
+                    b_588 = "60",
+                    b_589 = "106",
+                    b_590 = "71",
+                    b_591 = "87",
+                    b_592 = "76",
+                    b_717 = "280"
+                }
+            },
+ {
+                g = "RIOT - SoD",
+                r = "eu",
+                s =  "living flame",
+                id = "2gr8h9pcDwq1tWBx",
+                ts = "1:01:10",
+                t = {
+                    b_585 = "96",
+                    b_586 = "79",
+                    b_587 = "88",
+                    b_588 = "59",
+                    b_589 = "134",
+                    b_590 = "67",
+                    b_591 = "64",
+                    b_592 = "74",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Damaged Minds",
+                r = "eu",
+                s =  "living flame",
+                id = "ytxXNVHBkmhnYdvz",
+                ts = "1:01:25",
+                t = {
+                    b_585 = "71",
+                    b_586 = "82",
+                    b_587 = "125",
+                    b_588 = "48",
+                    b_589 = "109",
+                    b_590 = "64",
+                    b_591 = "60",
+                    b_592 = "75",
+                    b_717 = "264"
+                }
+            },
+ {
+                g = "Iron Edge",
+                r = "eu",
+                s =  "living flame",
+                id = "pmHYrZLBQwDgzFMx",
+                ts = "1:01:46",
+                t = {
+                    b_585 = "103",
+                    b_586 = "95",
+                    b_587 = "120",
+                    b_588 = "67",
+                    b_589 = "146",
+                    b_590 = "75",
+                    b_591 = "77",
+                    b_592 = "83",
+                    b_717 = "322"
+                }
+            },
+ {
+                g = "Vinnare i vänskap",
+                r = "eu",
+                s =  "living flame",
+                id = "L7pz8FRqjPMJvwhb",
+                ts = "1:01:57",
+                t = {
+                    b_585 = "73",
+                    b_586 = "80",
+                    b_587 = "93",
+                    b_588 = "51",
+                    b_589 = "104",
+                    b_590 = "71",
+                    b_591 = "58",
+                    b_592 = "78",
+                    b_717 = "239"
+                }
+            },
+ {
+                g = "Tem Plak",
+                r = "eu",
+                s =  "living flame",
+                id = "KDT9dxaHJWBFcMR4",
+                ts = "1:02:08",
+                t = {
+                    b_585 = "75",
+                    b_586 = "97",
+                    b_587 = "103",
+                    b_588 = "53",
+                    b_589 = "121",
+                    b_590 = "77",
+                    b_591 = "84",
+                    b_592 = "73",
+                    b_717 = "262"
+                }
+            },
+ {
+                g = "Sold Out PUG",
+                r = "eu",
+                s =  "living flame",
+                id = "HqVcfRXJk8PTv2Bj",
+                ts = "1:02:15",
+                t = {
+                    b_585 = "101",
+                    b_586 = "110",
+                    b_587 = "122",
+                    b_588 = "68",
+                    b_589 = "129",
+                    b_590 = "82",
+                    b_591 = "68",
+                    b_592 = "87",
+                    b_717 = "297"
+                }
+            },
+ {
+                g = "Escape from Paradise",
+                r = "eu",
+                s =  "living flame",
+                id = "4wdnrD2xvB9gJAjV",
+                ts = "1:02:25",
+                t = {
+                    b_585 = "92",
+                    b_586 = "95",
+                    b_587 = "93",
+                    b_588 = "73",
+                    b_589 = "238",
+                    b_590 = "76",
+                    b_591 = "79",
+                    b_592 = "96",
+                    b_717 = "406"
+                }
+            },
+ {
+                g = "Luxe",
+                r = "eu",
+                s =  "living flame",
+                id = "yxZCkFYXnVMAc3Q9",
+                ts = "1:03:27",
+                t = {
+                    b_585 = "64",
+                    b_586 = "68",
+                    b_587 = "75",
+                    b_588 = "45",
+                    b_589 = "103",
+                    b_590 = "54",
+                    b_591 = "52",
+                    b_592 = "65",
+                    b_717 = "246"
+                }
+            },
+ {
+                g = "Team Languste",
+                r = "eu",
+                s =  "living flame",
+                id = "NPa32htfzYvrMcX4",
+                ts = "1:04:27",
+                t = {
+                    b_585 = "78",
+                    b_586 = "81",
+                    b_587 = "82",
+                    b_588 = "56",
+                    b_589 = "95",
+                    b_590 = "72",
+                    b_591 = "74",
+                    b_592 = "75",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Der blutige Pfad - SoD",
+                r = "eu",
+                s =  "living flame",
+                id = "LgZpG2j7K9wVWNhT",
+                ts = "1:04:32",
+                t = {
+                    b_585 = "114",
+                    b_586 = "87",
+                    b_587 = "97",
+                    b_588 = "59",
+                    b_589 = "170",
+                    b_590 = "75",
+                    b_591 = "100",
+                    b_592 = "80",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Kappa",
+                r = "eu",
+                s =  "living flame",
+                id = "p8b6K9fGPkjMncxw",
+                ts = "1:04:34",
+                t = {
+                    b_585 = "91",
+                    b_586 = "102",
+                    b_587 = "130",
+                    b_588 = "76",
+                    b_589 = "152",
+                    b_590 = "83",
+                    b_591 = "142",
+                    b_592 = "86",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "LG pugz",
+                r = "eu",
+                s =  "living flame",
+                id = "RayqHF21L8gkmZ6T",
+                ts = "1:05:15",
+                t = {
+                    b_585 = "82",
+                    b_586 = "90",
+                    b_587 = "93",
+                    b_588 = "58",
+                    b_589 = "116",
+                    b_590 = "77",
+                    b_591 = "83",
+                    b_592 = "74",
+                    b_717 = "250"
+                }
+            },
+ {
+                g = "HOOLIGANS PuG",
+                r = "eu",
+                s =  "living flame",
+                id = "hfb1Gr8wxYkjZLWv",
+                ts = "1:05:47",
+                t = {
+                    b_585 = "77",
+                    b_586 = "98",
+                    b_587 = "102",
+                    b_588 = "64",
+                    b_589 = "185",
+                    b_590 = "80",
+                    b_591 = "92",
+                    b_592 = "95",
+                    b_717 = "275"
+                }
+            },
+ {
+                g = "Singularity",
+                r = "eu",
+                s =  "living flame",
+                id = "F1Q9ZbCVBG8pKv2T",
+                ts = "1:05:48",
+                t = {
+                    b_585 = "75",
+                    b_586 = "85",
+                    b_587 = "102",
+                    b_588 = "59",
+                    b_589 = "152",
+                    b_590 = "71",
+                    b_591 = "68",
+                    b_592 = "82",
+                    b_717 = "273"
+                }
+            },
+ {
+                g = "Диктаторы Just pull",
+                r = "eu",
+                s =  "living flame",
+                id = "kndw71rYmJpxbQGC",
+                ts = "1:05:54",
+                t = {
+                    b_585 = "95",
+                    b_586 = "84",
+                    b_587 = "102",
+                    b_588 = "59",
+                    b_589 = "113",
+                    b_590 = "77",
+                    b_591 = "80",
+                    b_592 = "79",
+                    b_717 = "250"
+                }
+            },
+ {
+                g = "no soup",
+                r = "eu",
+                s =  "living flame",
+                id = "LyZpJ1nYjFQ24zvx",
+                ts = "1:06:01",
+                t = {
+                    b_585 = "84",
+                    b_586 = "81",
+                    b_587 = "93",
+                    b_588 = "57",
+                    b_589 = "173",
+                    b_590 = "61",
+                    b_591 = "66",
+                    b_592 = "73",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "NO GNOMO",
+                r = "eu",
+                s =  "living flame",
+                id = "92cYWb1HjTCXMn7t",
+                ts = "1:06:04",
+                t = {
+                    b_585 = "96",
+                    b_586 = "103",
+                    b_587 = "113",
+                    b_588 = "65",
+                    b_589 = "123",
+                    b_590 = "83",
+                    b_591 = "123",
+                    b_592 = "100",
+                    b_717 = "302"
+                }
+            },
+ {
+                g = "<AVV> PUG",
+                r = "eu",
+                s =  "living flame",
+                id = "w6TfjktAD1BNpRKG",
+                ts = "1:06:07",
+                t = {
+                    b_585 = "96",
+                    b_586 = "100",
+                    b_587 = "110",
+                    b_588 = "58",
+                    b_589 = "153",
+                    b_590 = "71",
+                    b_591 = "67",
+                    b_592 = "84",
+                    b_717 = "268"
+                }
+            },
+ {
+                g = "Crucial",
+                r = "eu",
+                s =  "living flame",
+                id = "6TfjZaDb1QHqtMnd",
+                ts = "1:06:17",
+                t = {
+                    b_585 = "70",
+                    b_586 = "84",
+                    b_587 = "82",
+                    b_588 = "54",
+                    b_589 = "105",
+                    b_590 = "64",
+                    b_591 = "61",
+                    b_592 = "65",
+                    b_717 = "241"
+                }
+            },
+ {
+                g = "SADDLE MY DONKEY",
+                r = "eu",
+                s =  "living flame",
+                id = "VaRgvdCLPn3j19hH",
+                ts = "1:06:48",
+                t = {
+                    b_585 = "99",
+                    b_586 = "105",
+                    b_587 = "108",
+                    b_588 = "73",
+                    b_589 = "124",
+                    b_590 = "86",
+                    b_591 = "132",
+                    b_592 = "92",
+                    b_717 = "329"
+                }
+            },
+ {
+                g = "Déjà vu",
+                r = "eu",
+                s =  "living flame",
+                id = "CG7baWg8dfL91qcx",
+                ts = "1:07:18",
+                t = {
+                    b_585 = "111",
+                    b_586 = "108",
+                    b_587 = "109",
+                    b_588 = "79",
+                    b_589 = "170",
+                    b_590 = "73",
+                    b_591 = "126",
+                    b_592 = "80",
+                    b_717 = "251"
+                }
+            },
+ {
+                g = "Low Profile",
+                r = "eu",
+                s =  "living flame",
+                id = "HmrLBkZGDgFzNpYb",
+                ts = "1:07:26",
+                t = {
+                    b_585 = "87",
+                    b_586 = "89",
+                    b_587 = "94",
+                    b_588 = "53",
+                    b_589 = "141",
+                    b_590 = "65",
+                    b_591 = "62",
+                    b_592 = "77",
+                    b_717 = "262"
+                }
+            },
+ {
+                g = "WaRe",
+                r = "eu",
+                s =  "living flame",
+                id = "W7BRhKwkAdZmbQNF",
+                ts = "1:07:35",
+                t = {
+                    b_585 = "76",
+                    b_586 = "92",
+                    b_587 = "92",
+                    b_588 = "54",
+                    b_589 = "121",
+                    b_590 = "68",
+                    b_591 = "83",
+                    b_592 = "81",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "AI PUGs",
+                r = "eu",
+                s =  "living flame",
+                id = "1cA93TYzdPhqHFrJ",
+                ts = "1:08:40",
+                t = {
+                    b_585 = "73",
+                    b_586 = "87",
+                    b_587 = "104",
+                    b_588 = "66",
+                    b_589 = "98",
+                    b_590 = "67",
+                    b_591 = "60",
+                    b_592 = "75",
+                    b_717 = "233"
+                }
+            },
+ {
+                g = "Gob Unit",
+                r = "eu",
+                s =  "living flame",
+                id = "drLKGxJ1bC8ZR3Nn",
+                ts = "1:09:07",
+                t = {
+                    b_585 = "100",
+                    b_586 = "114",
+                    b_587 = "119",
+                    b_588 = "78",
+                    b_589 = "122",
+                    b_590 = "87",
+                    b_591 = "171",
+                    b_592 = "99",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "SALZIG",
+                r = "eu",
+                s =  "living flame",
+                id = "zpvgJx3ZRWcwXYn8",
+                ts = "1:09:17",
+                t = {
+                    b_585 = "89",
+                    b_586 = "81",
+                    b_587 = "98",
+                    b_588 = "59",
+                    b_589 = "149",
+                    b_590 = "76",
+                    b_591 = "64",
+                    b_592 = "78",
+                    b_717 = "263"
+                }
+            },
+ {
+                g = "MM",
+                r = "eu",
+                s =  "living flame",
+                id = "Fry7Ghj8CvapfX4R",
+                ts = "1:09:33",
+                t = {
+                    b_585 = "82",
+                    b_586 = "94",
+                    b_587 = "104",
+                    b_588 = "62",
+                    b_589 = "102",
+                    b_590 = "76",
+                    b_591 = "75",
+                    b_592 = "95",
+                    b_717 = "287"
+                }
+            },
+ {
+                g = "Legacy Of The dAWN (LF)",
+                r = "eu",
+                s =  "living flame",
+                id = "WRBPywhCb4rpQGvn",
+                ts = "1:09:48",
+                t = {
+                    b_585 = "127",
+                    b_586 = "105",
+                    b_587 = "106",
+                    b_588 = "64",
+                    b_589 = "136",
+                    b_590 = "85",
+                    b_591 = "82",
+                    b_592 = "88",
+                    b_717 = "319"
+                }
+            },
+ {
+                g = "Dóminous",
+                r = "eu",
+                s =  "living flame",
+                id = "GbY2ZdNmv9FHPCtT",
+                ts = "1:09:57",
+                t = {
+                    b_585 = "114",
+                    b_586 = "134",
+                    b_587 = "115",
+                    b_588 = "81",
+                    b_589 = "165",
+                    b_590 = "84",
+                    b_591 = "113",
+                    b_592 = "92",
+                    b_717 = "364"
+                }
+            },
+ {
+                g = "Dark Circle Pug",
+                r = "eu",
+                s =  "living flame",
+                id = "3nQvLpf1CDqbcr8H",
+                ts = "1:09:59",
+                t = {
+                    b_585 = "115",
+                    b_586 = "108",
+                    b_587 = "125",
+                    b_588 = "79",
+                    b_589 = "195",
+                    b_590 = "87",
+                    b_591 = "120",
+                    b_592 = "144",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "Sugus de Piña",
+                r = "eu",
+                s =  "living flame",
+                id = "68jxWwvpPAfdM7VK",
+                ts = "1:10:15",
+                t = {
+                    b_585 = "104",
+                    b_586 = "114",
+                    b_587 = "112",
+                    b_588 = "84",
+                    b_589 = "112",
+                    b_590 = "95",
+                    b_591 = "81",
+                    b_592 = "103",
+                    b_717 = "266"
+                }
+            },
+ {
+                g = "Team Træls",
+                r = "eu",
+                s =  "living flame",
+                id = "CQ3kjHXrb2RdTYxp",
+                ts = "1:10:55",
+                t = {
+                    b_585 = "83",
+                    b_586 = "85",
+                    b_587 = "104",
+                    b_588 = "62",
+                    b_589 = "121",
+                    b_590 = "66",
+                    b_591 = "152",
+                    b_592 = "74",
+                    b_717 = "310"
+                }
+            },
+ {
+                g = "Vanilla Vibes",
+                r = "eu",
+                s =  "living flame",
+                id = "M41j2PfhFZtGVxXv",
+                ts = "1:10:55",
+                t = {
+                    b_585 = "91",
+                    b_586 = "103",
+                    b_587 = "123",
+                    b_588 = "73",
+                    b_589 = "104",
+                    b_590 = "88",
+                    b_591 = "97",
+                    b_592 = "102",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "SWAV",
+                r = "eu",
+                s =  "living flame",
+                id = "tBfcQYC1bj2VrzyA",
+                ts = "1:11:09",
+                t = {
+                    b_585 = "72",
+                    b_586 = "77",
+                    b_587 = "93",
+                    b_588 = "68",
+                    b_589 = "133",
+                    b_590 = "66",
+                    b_591 = "95",
+                    b_592 = "78",
+                    b_717 = "333"
+                }
+            },
+ {
+                g = "Exode",
+                r = "eu",
+                s =  "living flame",
+                id = "91ZxGVqB4kfv2CMw",
+                ts = "1:11:15",
+                t = {
+                    b_585 = "81",
+                    b_586 = "95",
+                    b_587 = "98",
+                    b_588 = "57",
+                    b_589 = "130",
+                    b_590 = "68",
+                    b_591 = "87",
+                    b_592 = "89",
+                    b_717 = "293"
+                }
+            },
+ {
+                g = "Fællesskabet",
+                r = "eu",
+                s =  "living flame",
+                id = "RV9Hr43TbPtQxkaB",
+                ts = "1:11:20",
+                t = {
+                    b_585 = "62",
+                    b_586 = "82",
+                    b_587 = "83",
+                    b_588 = "56",
+                    b_589 = "140",
+                    b_590 = "56",
+                    b_591 = "86",
+                    b_592 = "64",
+                    b_717 = "252"
+                }
+            },
+ {
+                g = "Shâmeless",
+                r = "eu",
+                s =  "living flame",
+                id = "6DfYGvb1Rh7BkaMN",
+                ts = "1:11:28",
+                t = {
+                    b_585 = "77",
+                    b_586 = "97",
+                    b_587 = "94",
+                    b_588 = "54",
+                    b_589 = "116",
+                    b_590 = "73",
+                    b_591 = "70",
+                    b_592 = "72",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "KKR",
+                r = "eu",
+                s =  "living flame",
+                id = "C3vpbz7j4mfBdZTR",
+                ts = "1:11:38",
+                t = {
+                    b_585 = "115",
+                    b_586 = "134",
+                    b_587 = "133",
+                    b_588 = "81",
+                    b_589 = "188",
+                    b_590 = "100",
+                    b_591 = "95",
+                    b_592 = "98",
+                    b_717 = "385"
+                }
+            },
+ {
+                g = "facility management",
+                r = "eu",
+                s =  "living flame",
+                id = "kfNa6AzWRc7mrLw9",
+                ts = "1:12:06",
+                t = {
+                    b_585 = "84",
+                    b_586 = "85",
+                    b_587 = "85",
+                    b_588 = "57",
+                    b_589 = "79",
+                    b_590 = "69",
+                    b_591 = "62",
+                    b_592 = "75",
+                    b_717 = "255"
+                }
+            },
+ {
+                g = "Headhunter",
+                r = "eu",
+                s =  "living flame",
+                id = "q9xfyA2GjtkLvwgD",
+                ts = "1:12:25",
+                t = {
+                    b_585 = "96",
+                    b_586 = "111",
+                    b_587 = "123",
+                    b_588 = "84",
+                    b_589 = "157",
+                    b_590 = "103",
+                    b_591 = "139",
+                    b_592 = "108",
+                    b_717 = "426"
+                }
+            },
+ {
+                g = "Huomen vai Tänää",
+                r = "eu",
+                s =  "living flame",
+                id = "Lq1TvVbhtwmR639Q",
+                ts = "1:13:01",
+                t = {
+                    b_585 = "95",
+                    b_586 = "106",
+                    b_587 = "108",
+                    b_588 = "80",
+                    b_589 = "170",
+                    b_590 = "91",
+                    b_591 = "76",
+                    b_592 = "101",
+                    b_717 = "322"
+                }
+            },
+ {
+                g = "Seven Sins OG",
+                r = "eu",
+                s =  "living flame",
+                id = "hNy8rad13vb9GzBM",
+                ts = "1:13:18",
+                t = {
+                    b_585 = "117",
+                    b_586 = "103",
+                    b_587 = "118",
+                    b_588 = "79",
+                    b_589 = "134",
+                    b_590 = "87",
+                    b_591 = "170",
+                    b_592 = "127",
+                    b_717 = "387"
+                }
+            },
+ {
+                g = "GoldenRoll SOD 2",
+                r = "eu",
+                s =  "living flame",
+                id = "x32a8KVjP7mWJypq",
+                ts = "1:13:28",
+                t = {
+                    b_585 = "112",
+                    b_586 = "128",
+                    b_587 = "139",
+                    b_588 = "103",
+                    b_589 = "194",
+                    b_590 = "113",
+                    b_591 = "202",
+                    b_592 = "125",
+                    b_717 = "524"
+                }
+            },
+ {
+                g = "Inevitable",
+                r = "eu",
+                s =  "living flame",
+                id = "6XVC7j4MLtRHgBnW",
+                ts = "1:14:16",
+                t = {
+                    b_585 = "120",
+                    b_586 = "105",
+                    b_587 = "127",
+                    b_588 = "76",
+                    b_589 = "151",
+                    b_590 = "92",
+                    b_591 = "162",
+                    b_592 = "111",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "R i o t",
+                r = "eu",
+                s =  "living flame",
+                id = "MkFxwWdKmgRAzvPh",
+                ts = "1:14:31",
+                t = {
+                    b_585 = "112",
+                    b_586 = "119",
+                    b_587 = "129",
+                    b_588 = "75",
+                    b_589 = "177",
+                    b_590 = "84",
+                    b_591 = "126",
+                    b_592 = "101",
+                    b_717 = "396"
+                }
+            },
+ {
+                g = "E D ODII",
+                r = "eu",
+                s =  "living flame",
+                id = "D7ZrHpaktyWKxqw8",
+                ts = "1:14:50",
+                t = {
+                    b_585 = "112",
+                    b_586 = "111",
+                    b_587 = "122",
+                    b_588 = "80",
+                    b_589 = "127",
+                    b_590 = "89",
+                    b_591 = "106",
+                    b_592 = "100",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "SoD Norge",
+                r = "eu",
+                s =  "living flame",
+                id = "PqKAH4RbZgz3cr97",
+                ts = "1:14:55",
+                t = {
+                    b_585 = "103",
+                    b_586 = "103",
+                    b_587 = "116",
+                    b_588 = "76",
+                    b_589 = "130",
+                    b_590 = "93",
+                    b_591 = "95",
+                    b_592 = "101",
+                    b_717 = "297"
+                }
+            },
+ {
+                g = "Radiant",
+                r = "eu",
+                s =  "living flame",
+                id = "LDjnPqm2d1af3wNB",
+                ts = "1:14:59",
+                t = {
+                    b_585 = "107",
+                    b_586 = "128",
+                    b_587 = "106",
+                    b_588 = "73",
+                    b_589 = "142",
+                    b_590 = "82",
+                    b_591 = "123",
+                    b_592 = "90",
+                    b_717 = "436"
+                }
+            },
+ {
+                g = "On Top",
+                r = "eu",
+                s =  "living flame",
+                id = "QHfkR8CwZXncz4da",
+                ts = "1:15:28",
+                t = {
+                    b_585 = "69",
+                    b_586 = "77",
+                    b_587 = "88",
+                    b_588 = "48",
+                    b_589 = "113",
+                    b_590 = "60",
+                    b_591 = "53",
+                    b_592 = "65",
+                    b_717 = "290"
+                }
+            },
+ {
+                g = "Cult of the Lamb",
+                r = "eu",
+                s =  "living flame",
+                id = "KhcqA76btG2aXjP3",
+                ts = "1:15:37",
+                t = {
+                    b_585 = "135",
+                    b_586 = "89",
+                    b_587 = "100",
+                    b_588 = "67",
+                    b_589 = "113",
+                    b_590 = "89",
+                    b_591 = "121",
+                    b_592 = "92",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Den Danske Metode",
+                r = "eu",
+                s =  "living flame",
+                id = "dgm1J3yDLzHCtwYb",
+                ts = "1:16:15",
+                t = {
+                    b_585 = "85",
+                    b_586 = "98",
+                    b_587 = "112",
+                    b_588 = "60",
+                    b_589 = "196",
+                    b_590 = "78",
+                    b_591 = "77",
+                    b_592 = "82",
+                    b_717 = "350"
+                }
+            },
+ {
+                g = "Beast mode pugs",
+                r = "eu",
+                s =  "living flame",
+                id = "XNYfgAWDPBtnrVc8",
+                ts = "1:16:17",
+                t = {
+                    b_585 = "74",
+                    b_586 = "82",
+                    b_587 = "99",
+                    b_588 = "52",
+                    b_589 = "102",
+                    b_590 = "69",
+                    b_591 = "54",
+                    b_592 = "71",
+                    b_717 = "239"
+                }
+            },
+ {
+                g = "Drumroll",
+                r = "eu",
+                s =  "living flame",
+                id = "NwchVFP2DXyxLg6p",
+                ts = "1:16:26",
+                t = {
+                    b_585 = "81",
+                    b_586 = "103",
+                    b_587 = "122",
+                    b_588 = "63",
+                    b_589 = "186",
+                    b_590 = "74",
+                    b_591 = "104",
+                    b_592 = "81",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "Brennendes Pech",
+                r = "eu",
+                s =  "living flame",
+                id = "W2YcXxCNAFhK7R8b",
+                ts = "1:16:29",
+                t = {
+                    b_585 = "90",
+                    b_586 = "113",
+                    b_587 = "113",
+                    b_588 = "75",
+                    b_589 = "127",
+                    b_590 = "75",
+                    b_591 = "102",
+                    b_592 = "106",
+                    b_717 = "404"
+                }
+            },
+ {
+                g = "Brutality",
+                r = "eu",
+                s =  "living flame",
+                id = "HfCZNMk8aRthyBg3",
+                ts = "1:16:49",
+                t = {
+                    b_585 = "106",
+                    b_586 = "110",
+                    b_587 = "119",
+                    b_588 = "72",
+                    b_589 = "161",
+                    b_590 = "78",
+                    b_591 = "75",
+                    b_592 = "102",
+                    b_717 = "370"
+                }
+            },
+ {
+                g = "bReach SoD",
+                r = "eu",
+                s =  "living flame",
+                id = "JLapnbw1WR6YkAPV",
+                ts = "1:17:03",
+                t = {
+                    b_585 = "86",
+                    b_586 = "87",
+                    b_587 = "103",
+                    b_588 = "56",
+                    b_589 = "90",
+                    b_590 = "75",
+                    b_591 = "89",
+                    b_592 = "87",
+                    b_717 = "295"
+                }
+            },
+ {
+                g = "CHOPA PUG",
+                r = "eu",
+                s =  "living flame",
+                id = "hZQXHYDP2dBxatAw",
+                ts = "1:17:20",
+                t = {
+                    b_585 = "91",
+                    b_586 = "98",
+                    b_587 = "111",
+                    b_588 = "63",
+                    b_589 = "156",
+                    b_590 = "78",
+                    b_591 = "99",
+                    b_592 = "81",
+                    b_717 = "263"
+                }
+            },
+ {
+                g = "Stayhigh ohne Hose",
+                r = "eu",
+                s =  "living flame",
+                id = "2gpfmNzx8kQ4cFKL",
+                ts = "1:17:22",
+                t = {
+                    b_585 = "91",
+                    b_586 = "100",
+                    b_587 = "97",
+                    b_588 = "61",
+                    b_589 = "128",
+                    b_590 = "74",
+                    b_591 = "112",
+                    b_592 = "81",
+                    b_717 = "356"
+                }
+            },
+ {
+                g = "HT",
+                r = "eu",
+                s =  "living flame",
+                id = "D3Tjdy8cNB4YnzLQ",
+                ts = "1:17:24",
+                t = {
+                    b_585 = "121",
+                    b_586 = "103",
+                    b_587 = "122",
+                    b_588 = "77",
+                    b_589 = "178",
+                    b_590 = "81",
+                    b_591 = "112",
+                    b_592 = "94",
+                    b_717 = "315"
+                }
+            },
+ {
+                g = "Very Special Forces",
+                r = "eu",
+                s =  "living flame",
+                id = "chzbq1X2VnDYgrap",
+                ts = "1:17:30",
+                t = {
+                    b_585 = "81",
+                    b_586 = "92",
+                    b_587 = "119",
+                    b_588 = "67",
+                    b_589 = "139",
+                    b_590 = "77",
+                    b_591 = "62",
+                    b_592 = "82",
+                    b_717 = "251"
+                }
+            },
+ {
+                g = "Serenity Germany",
+                r = "eu",
+                s =  "living flame",
+                id = "AcGDPQT9nMm72tag",
+                ts = "1:18:05",
+                t = {
+                    b_585 = "100",
+                    b_586 = "116",
+                    b_587 = "143",
+                    b_588 = "74",
+                    b_589 = "178",
+                    b_590 = "89",
+                    b_591 = "128",
+                    b_592 = "98",
+                    b_717 = "352"
+                }
+            },
+ {
+                g = "Guilde",
+                r = "eu",
+                s =  "living flame",
+                id = "rC4nwQ2YKyz7jcPM",
+                ts = "1:18:20",
+                t = {
+                    b_585 = "92",
+                    b_586 = "97",
+                    b_587 = "131",
+                    b_588 = "58",
+                    b_589 = "131",
+                    b_590 = "61",
+                    b_591 = "59",
+                    b_592 = "70",
+                    b_717 = "331"
+                }
+            },
+ {
+                g = "Team Gray Parsers",
+                r = "eu",
+                s =  "living flame",
+                id = "D2n1HKa9xqzyLWjb",
+                ts = "1:18:24",
+                t = {
+                    b_585 = "93",
+                    b_586 = "97",
+                    b_587 = "141",
+                    b_588 = "78",
+                    b_589 = "104",
+                    b_590 = "80",
+                    b_591 = "106",
+                    b_592 = "101",
+                    b_717 = "278"
+                }
+            },
+ {
+                g = "Imperiet",
+                r = "eu",
+                s =  "living flame",
+                id = "4wNnKbAamgfMzVP8",
+                ts = "1:19:02",
+                t = {
+                    b_585 = "146",
+                    b_586 = "113",
+                    b_587 = "114",
+                    b_588 = "69",
+                    b_589 = "142",
+                    b_590 = "89",
+                    b_591 = "103",
+                    b_592 = "87",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "Mirage",
+                r = "eu",
+                s =  "living flame",
+                id = "y2w14kH9Z7GAngXq",
+                ts = "1:19:02",
+                t = {
+                    b_585 = "87",
+                    b_586 = "89",
+                    b_587 = "91",
+                    b_588 = "62",
+                    b_589 = "126",
+                    b_590 = "72",
+                    b_591 = "77",
+                    b_592 = "86",
+                    b_717 = "332"
+                }
+            },
+ {
+                g = "Huddel",
+                r = "eu",
+                s =  "living flame",
+                id = "CrF6PzAcYXpH49Bt",
+                ts = "1:19:04",
+                t = {
+                    b_585 = "105",
+                    b_586 = "102",
+                    b_587 = "146",
+                    b_588 = "88",
+                    b_589 = "137",
+                    b_590 = "90",
+                    b_591 = "137",
+                    b_592 = "128",
+                    b_717 = "343"
+                }
+            },
+ {
+                g = "obscure_sod",
+                r = "eu",
+                s =  "living flame",
+                id = "Jtz3DXvamBTchx8N",
+                ts = "1:19:20",
+                t = {
+                    b_585 = "109",
+                    b_586 = "114",
+                    b_587 = "121",
+                    b_588 = "77",
+                    b_589 = "126",
+                    b_590 = "104",
+                    b_591 = "82",
+                    b_592 = "125",
+                    b_717 = "285"
+                }
+            },
+ {
+                g = "just wait",
+                r = "eu",
+                s =  "living flame",
+                id = "M42mYwV7AchdDTH8",
+                ts = "1:19:32",
+                t = {
+                    b_585 = "83",
+                    b_586 = "95",
+                    b_587 = "105",
+                    b_588 = "69",
+                    b_589 = "152",
+                    b_590 = "77",
+                    b_591 = "104",
+                    b_592 = "95",
+                    b_717 = "271"
+                }
+            },
+ {
+                g = "Bloodbath and Beyond",
+                r = "eu",
+                s =  "living flame",
+                id = "Q9Jb6yRvHrpwLjVh",
+                ts = "1:19:34",
+                t = {
+                    b_585 = "96",
+                    b_586 = "98",
+                    b_587 = "110",
+                    b_588 = "71",
+                    b_589 = "97",
+                    b_590 = "94",
+                    b_591 = "79",
+                    b_592 = "101",
+                    b_717 = "317"
+                }
+            },
+ {
+                g = "still unlucky",
+                r = "eu",
+                s =  "living flame",
+                id = "ZN7Vz1cqT8rAawpn",
+                ts = "1:19:40",
+                t = {
+                    b_585 = "94",
+                    b_586 = "92",
+                    b_587 = "108",
+                    b_588 = "74",
+                    b_589 = "155",
+                    b_590 = "77",
+                    b_591 = "68",
+                    b_592 = "82",
+                    b_717 = "238"
+                }
+            },
+ {
+                g = "Kvalm",
+                r = "eu",
+                s =  "living flame",
+                id = "HrtqjRDpCFaXWGZh",
+                ts = "1:19:43",
+                t = {
+                    b_585 = "92",
+                    b_586 = "107",
+                    b_587 = "102",
+                    b_588 = "64",
+                    b_589 = "133",
+                    b_590 = "80",
+                    b_591 = "78",
+                    b_592 = "96",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Sure Buddy",
+                r = "eu",
+                s =  "living flame",
+                id = "FMrqfdwNbH3P7Lth",
+                ts = "1:19:56",
+                t = {
+                    b_585 = "96",
+                    b_586 = "92",
+                    b_587 = "111",
+                    b_588 = "64",
+                    b_589 = "144",
+                    b_590 = "90",
+                    b_591 = "101",
+                    b_592 = "98",
+                    b_717 = "303"
+                }
+            },
+ {
+                g = "Bring Your Best",
+                r = "eu",
+                s =  "living flame",
+                id = "hL9wz3QGKJtvHxmM",
+                ts = "1:19:58",
+                t = {
+                    b_585 = "78",
+                    b_586 = "83",
+                    b_587 = "88",
+                    b_588 = "53",
+                    b_589 = "109",
+                    b_590 = "75",
+                    b_591 = "63",
+                    b_592 = "82",
+                    b_717 = "302"
+                }
+            },
+ {
+                g = "Sweaty Casuals",
+                r = "eu",
+                s =  "living flame",
+                id = "PgGDHYrjWpwNcRtf",
+                ts = "1:20:05",
+                t = {
+                    b_585 = "114",
+                    b_586 = "144",
+                    b_587 = "156",
+                    b_588 = "97",
+                    b_589 = "161",
+                    b_590 = "118",
+                    b_591 = "114",
+                    b_592 = "123",
+                    b_717 = "402"
+                }
+            },
+ {
+                g = "Bethleblem",
+                r = "eu",
+                s =  "living flame",
+                id = "JpxtWHbVrZ4kz86D",
+                ts = "1:20:10",
+                t = {
+                    b_585 = "91",
+                    b_586 = "105",
+                    b_587 = "108",
+                    b_588 = "67",
+                    b_589 = "160",
+                    b_590 = "79",
+                    b_591 = "78",
+                    b_592 = "101",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "No Drama Lama",
+                r = "eu",
+                s =  "living flame",
+                id = "vqLdKxWcXwp6VzBj",
+                ts = "1:20:14",
+                t = {
+                    b_585 = "85",
+                    b_586 = "100",
+                    b_587 = "110",
+                    b_588 = "62",
+                    b_589 = "139",
+                    b_590 = "80",
+                    b_591 = "95",
+                    b_592 = "83",
+                    b_717 = "244"
+                }
+            },
+ {
+                g = "u n l u c k y",
+                r = "eu",
+                s =  "living flame",
+                id = "nqxVmcMgYbXKBwtG",
+                ts = "1:20:22",
+                t = {
+                    b_585 = "84",
+                    b_586 = "90",
+                    b_587 = "83",
+                    b_588 = "55",
+                    b_589 = "117",
+                    b_590 = "69",
+                    b_591 = "66",
+                    b_592 = "78",
+                    b_717 = "48"
+                }
+            },
+ {
+                g = "The Unmakers",
+                r = "eu",
+                s =  "living flame",
+                id = "tJwZK8369razHFW1",
+                ts = "1:20:22",
+                t = {
+                    b_585 = "101",
+                    b_586 = "121",
+                    b_587 = "116",
+                    b_588 = "92",
+                    b_589 = "132",
+                    b_590 = "84",
+                    b_591 = "84",
+                    b_592 = "89",
+                    b_717 = "358"
+                }
+            },
+ {
+                g = "toads",
+                r = "eu",
+                s =  "living flame",
+                id = "8ZPqFVMXHDN6nvbC",
+                ts = "1:20:23",
+                t = {
+                    b_585 = "95",
+                    b_586 = "100",
+                    b_587 = "120",
+                    b_588 = "77",
+                    b_589 = "162",
+                    b_590 = "87",
+                    b_591 = "93",
+                    b_592 = "92",
+                    b_717 = "361"
+                }
+            },
+ {
+                g = "Moved",
+                r = "eu",
+                s =  "living flame",
+                id = "NXGnCD3k8mwv91Qg",
+                ts = "1:20:26",
+                t = {
+                    b_585 = "70",
+                    b_586 = "87",
+                    b_587 = "87",
+                    b_588 = "45",
+                    b_589 = "161",
+                    b_590 = "62",
+                    b_591 = "54",
+                    b_592 = "67",
+                    b_717 = "276"
+                }
+            },
+ {
+                g = "Unwealthy Homeless Men",
+                r = "eu",
+                s =  "living flame",
+                id = "WYTaQ1HpRhtL9x2j",
+                ts = "1:20:29",
+                t = {
+                    b_585 = "125",
+                    b_586 = "106",
+                    b_587 = "146",
+                    b_588 = "119",
+                    b_589 = "232",
+                    b_590 = "113",
+                    b_591 = "170",
+                    b_592 = "139",
+                    b_717 = "394"
+                }
+            },
+ {
+                g = "Warsong Milkmen",
+                r = "eu",
+                s =  "living flame",
+                id = "h23TQwGdyXKNVfnc",
+                ts = "1:20:42",
+                t = {
+                    b_585 = "93",
+                    b_586 = "105",
+                    b_587 = "106",
+                    b_588 = "67",
+                    b_589 = "176",
+                    b_590 = "83",
+                    b_591 = "80",
+                    b_592 = "87",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "ZØMBIES",
+                r = "eu",
+                s =  "living flame",
+                id = "fCkgwRjWt8vpd4aT",
+                ts = "1:20:57",
+                t = {
+                    b_585 = "81",
+                    b_586 = "98",
+                    b_587 = "84",
+                    b_588 = "58",
+                    b_589 = "108",
+                    b_590 = "64",
+                    b_591 = "76",
+                    b_592 = "76",
+                    b_717 = "240"
+                }
+            },
+ {
+                g = "Trys Milijonai",
+                r = "eu",
+                s =  "living flame",
+                id = "N3DyjkAz7YdZabLW",
+                ts = "1:20:58",
+                t = {
+                    b_585 = "82",
+                    b_586 = "92",
+                    b_587 = "100",
+                    b_588 = "63",
+                    b_589 = "133",
+                    b_590 = "78",
+                    b_591 = "78",
+                    b_592 = "97",
+                    b_717 = "253"
+                }
+            },
+ {
+                g = "AMANDLA",
+                r = "eu",
+                s =  "living flame",
+                id = "J7RaAKTFkBYLt1zj",
+                ts = "1:21:09",
+                t = {
+                    b_585 = "64",
+                    b_586 = "68",
+                    b_587 = "74",
+                    b_588 = "36",
+                    b_589 = "134",
+                    b_590 = "55",
+                    b_591 = "47",
+                    b_592 = "60",
+                    b_717 = "222"
+                }
+            },
+ {
+                g = "keep pulling",
+                r = "eu",
+                s =  "living flame",
+                id = "Kg1bjaJBD8zwv63X",
+                ts = "1:21:16",
+                t = {
+                    b_585 = "105",
+                    b_586 = "89",
+                    b_587 = "104",
+                    b_588 = "57",
+                    b_589 = "109",
+                    b_590 = "73",
+                    b_591 = "97",
+                    b_592 = "83",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "dogesmile",
+                r = "eu",
+                s =  "living flame",
+                id = "T2hn3qG7DtmPYvj9",
+                ts = "1:21:23",
+                t = {
+                    b_585 = "135",
+                    b_586 = "110",
+                    b_587 = "112",
+                    b_588 = "73",
+                    b_589 = "118",
+                    b_590 = "80",
+                    b_591 = "133",
+                    b_592 = "100",
+                    b_717 = "341"
+                }
+            },
+ {
+                g = "Gilded Gauntlet",
+                r = "eu",
+                s =  "living flame",
+                id = "Vf43RDPLQxmnwr81",
+                ts = "1:21:24",
+                t = {
+                    b_585 = "97",
+                    b_586 = "97",
+                    b_587 = "114",
+                    b_588 = "72",
+                    b_589 = "169",
+                    b_590 = "89",
+                    b_591 = "80",
+                    b_592 = "103",
+                    b_717 = "484"
+                }
+            },
+ {
+                g = "Nightshift",
+                r = "eu",
+                s =  "living flame",
+                id = "yALQP7kcKtgRHhXf",
+                ts = "1:21:41",
+                t = {
+                    b_585 = "76",
+                    b_586 = "79",
+                    b_587 = "99",
+                    b_588 = "55",
+                    b_589 = "118",
+                    b_590 = "66",
+                    b_591 = "60",
+                    b_592 = "82",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "High Heaven",
+                r = "eu",
+                s =  "living flame",
+                id = "BXA6aJV7DqHvhNkp",
+                ts = "1:21:50",
+                t = {
+                    b_585 = "147",
+                    b_586 = "118",
+                    b_587 = "115",
+                    b_588 = "86",
+                    b_589 = "150",
+                    b_590 = "85",
+                    b_591 = "130",
+                    b_592 = "134",
+                    b_717 = "380"
+                }
+            },
+ {
+                g = "LootHorde SOD",
+                r = "eu",
+                s =  "living flame",
+                id = "GVzK9Zdg4HTb6yPk",
+                ts = "1:22:03",
+                t = {
+                    b_585 = "95",
+                    b_586 = "106",
+                    b_587 = "117",
+                    b_588 = "71",
+                    b_589 = "256",
+                    b_590 = "100",
+                    b_591 = "101",
+                    b_592 = "102",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "Kovakuori",
+                r = "eu",
+                s =  "living flame",
+                id = "pDZw1qAvcL8WN9ax",
+                ts = "1:22:24",
+                t = {
+                    b_585 = "81",
+                    b_586 = "90",
+                    b_587 = "86",
+                    b_588 = "59",
+                    b_589 = "95",
+                    b_590 = "65",
+                    b_591 = "100",
+                    b_592 = "82",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "Im not Sure",
+                r = "eu",
+                s =  "living flame",
+                id = "1RmXQwC8BfaD3Mj9",
+                ts = "1:22:30",
+                t = {
+                    b_585 = "83",
+                    b_586 = "87",
+                    b_587 = "88",
+                    b_588 = "76",
+                    b_589 = "87",
+                    b_590 = "60",
+                    b_591 = "59",
+                    b_592 = "75",
+                    b_717 = "266"
+                }
+            },
+ {
+                g = "R O I D S",
+                r = "eu",
+                s =  "living flame",
+                id = "zxv4FMRGh6b9JZcp",
+                ts = "1:22:31",
+                t = {
+                    b_585 = "95",
+                    b_586 = "118",
+                    b_587 = "104",
+                    b_588 = "67",
+                    b_589 = "132",
+                    b_590 = "75",
+                    b_591 = "124",
+                    b_592 = "79",
+                    b_717 = "299"
+                }
+            },
+ {
+                g = "Revolver Redux",
+                r = "eu",
+                s =  "living flame",
+                id = "4F8pnQXzCAwbgLWj",
+                ts = "1:22:34",
+                t = {
+                    b_585 = "96",
+                    b_586 = "103",
+                    b_587 = "107",
+                    b_588 = "71",
+                    b_589 = "138",
+                    b_590 = "81",
+                    b_591 = "114",
+                    b_592 = "90",
+                    b_717 = "389"
+                }
+            },
+ {
+                g = "Hegemony",
+                r = "eu",
+                s =  "living flame",
+                id = "h4LGFkpRWd2DcMbN",
+                ts = "1:22:45",
+                t = {
+                    b_585 = "85",
+                    b_586 = "105",
+                    b_587 = "111",
+                    b_588 = "72",
+                    b_589 = "125",
+                    b_590 = "82",
+                    b_591 = "120",
+                    b_592 = "96",
+                    b_717 = "278"
+                }
+            },
+ {
+                g = "STAND BACK IM A DOCTOR",
+                r = "eu",
+                s =  "living flame",
+                id = "M2xpVavChQfq4mJD",
+                ts = "1:22:45",
+                t = {
+                    b_585 = "105",
+                    b_586 = "119",
+                    b_587 = "136",
+                    b_588 = "87",
+                    b_589 = "112",
+                    b_590 = "90",
+                    b_591 = "119",
+                    b_592 = "108",
+                    b_717 = "408"
+                }
+            },
+ {
+                g = "Reforged",
+                r = "eu",
+                s =  "living flame",
+                id = "kxHjfY1hA4KbzV6c",
+                ts = "1:22:50",
+                t = {
+                    b_585 = "94",
+                    b_586 = "100",
+                    b_587 = "107",
+                    b_588 = "66",
+                    b_589 = "109",
+                    b_590 = "77",
+                    b_591 = "110",
+                    b_592 = "79",
+                    b_717 = "279"
+                }
+            },
+ {
+                g = "Eyes Closed",
+                r = "eu",
+                s =  "living flame",
+                id = "4m8trqak2ZzMf6A7",
+                ts = "1:23:01",
+                t = {
+                    b_585 = "96",
+                    b_586 = "108",
+                    b_587 = "127",
+                    b_588 = "68",
+                    b_589 = "144",
+                    b_590 = "92",
+                    b_591 = "142",
+                    b_592 = "105",
+                    b_717 = "344"
+                }
+            },
+ {
+                g = "macht DRUCK",
+                r = "eu",
+                s =  "living flame",
+                id = "hRpfnKJx4FcrVg9P",
+                ts = "1:23:22",
+                t = {
+                    b_585 = "105",
+                    b_586 = "114",
+                    b_587 = "129",
+                    b_588 = "83",
+                    b_589 = "120",
+                    b_590 = "99",
+                    b_591 = "137",
+                    b_592 = "116",
+                    b_717 = "335"
+                }
+            },
+ {
+                g = "Arkanum",
+                r = "eu",
+                s =  "living flame",
+                id = "A6kNKDh398vbLWPy",
+                ts = "1:24:00",
+                t = {
+                    b_585 = "96",
+                    b_586 = "89",
+                    b_587 = "109",
+                    b_588 = "75",
+                    b_589 = "104",
+                    b_590 = "76",
+                    b_591 = "96",
+                    b_592 = "75",
+                    b_717 = "357"
+                }
+            },
+ {
+                g = "Nordavind",
+                r = "eu",
+                s =  "living flame",
+                id = "ZxQHCjGAmqwdNKMz",
+                ts = "1:24:48",
+                t = {
+                    b_585 = "119",
+                    b_586 = "121",
+                    b_587 = "144",
+                    b_588 = "76",
+                    b_589 = "180",
+                    b_590 = "87",
+                    b_591 = "124",
+                    b_592 = "144",
+                    b_717 = "310"
+                }
+            },
+ {
+                g = "Amisia",
+                r = "eu",
+                s =  "living flame",
+                id = "vFj6XRphZ4KQ2ry8",
+                ts = "1:24:59",
+                t = {
+                    b_585 = "103",
+                    b_586 = "124",
+                    b_587 = "126",
+                    b_588 = "71",
+                    b_589 = "121",
+                    b_590 = "90",
+                    b_591 = "110",
+                    b_592 = "97",
+                    b_717 = "262"
+                }
+            },
+ {
+                g = "Endstation",
+                r = "eu",
+                s =  "living flame",
+                id = "ncKRDF6MgNWjQCXz",
+                ts = "1:25:05",
+                t = {
+                    b_585 = "93",
+                    b_586 = "103",
+                    b_587 = "121",
+                    b_588 = "59",
+                    b_589 = "124",
+                    b_590 = "70",
+                    b_591 = "86",
+                    b_592 = "84",
+                    b_717 = "255"
+                }
+            },
+ {
+                g = "Nihilum",
+                r = "eu",
+                s =  "living flame",
+                id = "hJZFT63rL8mxp7Bv",
+                ts = "1:25:05",
+                t = {
+                    b_585 = "90",
+                    b_586 = "103",
+                    b_587 = "110",
+                    b_588 = "67",
+                    b_589 = "148",
+                    b_590 = "75",
+                    b_591 = "127",
+                    b_592 = "82",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Concede",
+                r = "eu",
+                s =  "living flame",
+                id = "XP9hB1FbT3Jqx7dw",
+                ts = "1:25:13",
+                t = {
+                    b_585 = "86",
+                    b_586 = "92",
+                    b_587 = "35",
+                    b_588 = "66",
+                    b_589 = "140",
+                    b_590 = "72",
+                    b_591 = "80",
+                    b_592 = "79",
+                    b_717 = "363"
+                }
+            },
+ {
+                g = "BOOMER",
+                r = "eu",
+                s =  "living flame",
+                id = "GWhrnvmNCH3T7zf9",
+                ts = "1:25:14",
+                t = {
+                    b_585 = "108",
+                    b_586 = "111",
+                    b_587 = "116",
+                    b_588 = "70",
+                    b_589 = "199",
+                    b_590 = "95",
+                    b_591 = "63",
+                    b_592 = "107",
+                    b_717 = "470"
+                }
+            },
+ {
+                g = "UNMATCHED",
+                r = "eu",
+                s =  "living flame",
+                id = "17mdf9TJMrxQNqA3",
+                ts = "1:25:43",
+                t = {
+                    b_585 = "81",
+                    b_586 = "89",
+                    b_587 = "115",
+                    b_588 = "82",
+                    b_589 = "175",
+                    b_590 = "81",
+                    b_591 = "95",
+                    b_592 = "101",
+                    b_717 = "352"
+                }
+            },
+ {
+                g = "In Progress",
+                r = "eu",
+                s =  "living flame",
+                id = "KwAgTxdJHabV87zt",
+                ts = "1:26:06",
+                t = {
+                    b_585 = "90",
+                    b_586 = "105",
+                    b_587 = "93",
+                    b_588 = "61",
+                    b_589 = "92",
+                    b_590 = "76",
+                    b_591 = "88",
+                    b_592 = "73",
+                    b_717 = "256"
+                }
+            },
+ {
+                g = "Mölndal Centrum",
+                r = "eu",
+                s =  "living flame",
+                id = "qV8Bg9QnNLykvFrX",
+                ts = "1:26:15",
+                t = {
+                    b_585 = "127",
+                    b_586 = "116",
+                    b_587 = "114",
+                    b_588 = "84",
+                    b_589 = "228",
+                    b_590 = "82",
+                    b_591 = "141",
+                    b_592 = "100",
+                    b_717 = "335"
+                }
+            },
+ {
+                g = "Sisters",
+                r = "eu",
+                s =  "living flame",
+                id = "N2mV3xCFndpM4ahb",
+                ts = "1:26:17",
+                t = {
+                    b_585 = "91",
+                    b_586 = "113",
+                    b_587 = "126",
+                    b_588 = "76",
+                    b_589 = "130",
+                    b_590 = "80",
+                    b_591 = "102",
+                    b_592 = "85",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "Tamagotchi",
+                r = "eu",
+                s =  "living flame",
+                id = "APdbNQFrpJDKwTa4",
+                ts = "1:26:39",
+                t = {
+                    b_585 = "114",
+                    b_586 = "97",
+                    b_587 = "114",
+                    b_588 = "64",
+                    b_589 = "157",
+                    b_590 = "76",
+                    b_591 = "84",
+                    b_592 = "93",
+                    b_717 = "389"
+                }
+            },
+ {
+                g = "Exodos",
+                r = "eu",
+                s =  "living flame",
+                id = "aQJpj7YhK6d8wFgV",
+                ts = "1:26:56",
+                t = {
+                    b_585 = "91",
+                    b_586 = "97",
+                    b_587 = "125",
+                    b_588 = "72",
+                    b_589 = "140",
+                    b_590 = "77",
+                    b_591 = "124",
+                    b_592 = "88",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "Legion der Affen",
+                r = "eu",
+                s =  "living flame",
+                id = "TWFV4Hakh21jpXYy",
+                ts = "1:27:00",
+                t = {
+                    b_585 = "98",
+                    b_586 = "103",
+                    b_587 = "107",
+                    b_588 = "61",
+                    b_589 = "124",
+                    b_590 = "80",
+                    b_591 = "125",
+                    b_592 = "83",
+                    b_717 = "384"
+                }
+            },
+ {
+                g = "Kultti",
+                r = "eu",
+                s =  "living flame",
+                id = "ZF9LrTmdk72xRPyW",
+                ts = "1:27:22",
+                t = {
+                    b_585 = "155",
+                    b_586 = "123",
+                    b_587 = "129",
+                    b_588 = "94",
+                    b_589 = "145",
+                    b_590 = "104",
+                    b_591 = "149",
+                    b_592 = "112",
+                    b_717 = "469"
+                }
+            },
+ {
+                g = "<AVV>",
+                r = "eu",
+                s =  "living flame",
+                id = "vB2DaZgwf7WC8Rcp",
+                ts = "1:27:22",
+                t = {
+                    b_585 = "88",
+                    b_586 = "97",
+                    b_587 = "137",
+                    b_588 = "68",
+                    b_589 = "119",
+                    b_590 = "87",
+                    b_591 = "101",
+                    b_592 = "130",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Aww yeaah",
+                r = "eu",
+                s =  "living flame",
+                id = "KXmVYNyxf2W4Hvgr",
+                ts = "1:27:43",
+                t = {
+                    b_585 = "82",
+                    b_586 = "89",
+                    b_587 = "102",
+                    b_588 = "58",
+                    b_589 = "139",
+                    b_590 = "78",
+                    b_591 = "64",
+                    b_592 = "99",
+                    b_717 = "376"
+                }
+            },
+ {
+                g = "Fifty Fifty",
+                r = "eu",
+                s =  "living flame",
+                id = "4twFmjHv8C2BhQNk",
+                ts = "1:27:51",
+                t = {
+                    b_585 = "89",
+                    b_586 = "95",
+                    b_587 = "97",
+                    b_588 = "68",
+                    b_589 = "279",
+                    b_590 = "81",
+                    b_591 = "107",
+                    b_592 = "97",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "Ranked Rehab",
+                r = "eu",
+                s =  "living flame",
+                id = "9R24nZ3JADxGLXyC",
+                ts = "1:27:57",
+                t = {
+                    b_585 = "100",
+                    b_586 = "103",
+                    b_587 = "113",
+                    b_588 = "67",
+                    b_589 = "293",
+                    b_590 = "90",
+                    b_591 = "82",
+                    b_592 = "108",
+                    b_717 = "311"
+                }
+            },
+ {
+                g = "NVMI",
+                r = "eu",
+                s =  "living flame",
+                id = "LmBzZj6PyJt9Yvrd",
+                ts = "1:28:18",
+                t = {
+                    b_585 = "111",
+                    b_586 = "111",
+                    b_587 = "120",
+                    b_588 = "75",
+                    b_589 = "108",
+                    b_590 = "88",
+                    b_591 = "126",
+                    b_592 = "91",
+                    b_717 = "356"
+                }
+            },
+ {
+                g = "Nord",
+                r = "eu",
+                s =  "living flame",
+                id = "pafRPc3FKCJ6mxLT",
+                ts = "1:28:25",
+                t = {
+                    b_585 = "103",
+                    b_586 = "115",
+                    b_587 = "127",
+                    b_588 = "72",
+                    b_589 = "129",
+                    b_590 = "123",
+                    b_591 = "82",
+                    b_592 = "101",
+                    b_717 = "271"
+                }
+            },
+ {
+                g = "Legion",
+                r = "eu",
+                s =  "living flame",
+                id = "LKYkT891GaWZCJmD",
+                ts = "1:28:51",
+                t = {
+                    b_585 = "107",
+                    b_586 = "126",
+                    b_587 = "132",
+                    b_588 = "82",
+                    b_589 = "110",
+                    b_590 = "76",
+                    b_591 = "99",
+                    b_592 = "84",
+                    b_717 = "303"
+                }
+            },
+ {
+                g = "Lone Wolf Refugees",
+                r = "eu",
+                s =  "living flame",
+                id = "7Vpfc2WmraDyvRNk",
+                ts = "1:28:54",
+                t = {
+                    b_585 = "87",
+                    b_586 = "98",
+                    b_587 = "97",
+                    b_588 = "62",
+                    b_589 = "166",
+                    b_590 = "79",
+                    b_591 = "154",
+                    b_592 = "81",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "Tryforce",
+                r = "eu",
+                s =  "living flame",
+                id = "M1BxhD4WrQcyTwFa",
+                ts = "1:29:07",
+                t = {
+                    b_585 = "83",
+                    b_586 = "21",
+                    b_587 = "99",
+                    b_588 = "59",
+                    b_589 = "176",
+                    b_590 = "70",
+                    b_591 = "129",
+                    b_592 = "79",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Discworld",
+                r = "eu",
+                s =  "living flame",
+                id = "p9NmzhryQF8AgPLG",
+                ts = "1:29:18",
+                t = {
+                    b_585 = "92",
+                    b_586 = "118",
+                    b_587 = "124",
+                    b_588 = "70",
+                    b_589 = "155",
+                    b_590 = "79",
+                    b_591 = "97",
+                    b_592 = "91",
+                    b_717 = "319"
+                }
+            },
+ {
+                g = "Distillery",
+                r = "eu",
+                s =  "living flame",
+                id = "4wB1tWTg7KGJQNpv",
+                ts = "1:29:52",
+                t = {
+                    b_585 = "101",
+                    b_586 = "111",
+                    b_587 = "116",
+                    b_588 = "87",
+                    b_589 = "145",
+                    b_590 = "100",
+                    b_591 = "190",
+                    b_592 = "103",
+                    b_717 = "431"
+                }
+            },
+ {
+                g = "Temporalis",
+                r = "eu",
+                s =  "living flame",
+                id = "nvq398Pbpg62Nadw",
+                ts = "1:30:03",
+                t = {
+                    b_585 = "83",
+                    b_586 = "118",
+                    b_587 = "129",
+                    b_588 = "69",
+                    b_589 = "144",
+                    b_590 = "81",
+                    b_591 = "80",
+                    b_592 = "103",
+                    b_717 = "403"
+                }
+            },
+ {
+                g = "Chocolate Milk",
+                r = "eu",
+                s =  "living flame",
+                id = "PVvrC2TMcL8y9zm7",
+                ts = "1:30:11",
+                t = {
+                    b_585 = "88",
+                    b_586 = "110",
+                    b_587 = "120",
+                    b_588 = "70",
+                    b_589 = "165",
+                    b_590 = "75",
+                    b_591 = "127",
+                    b_592 = "91",
+                    b_717 = "276"
+                }
+            },
+ {
+                g = "The Onsen",
+                r = "eu",
+                s =  "living flame",
+                id = "N4kc8yPA2nz79mMx",
+                ts = "1:30:12",
+                t = {
+                    b_585 = "89",
+                    b_586 = "100",
+                    b_587 = "108",
+                    b_588 = "72",
+                    b_589 = "136",
+                    b_590 = "81",
+                    b_591 = "91",
+                    b_592 = "83",
+                    b_717 = "35"
+                }
+            },
+ {
+                g = "Warborn",
+                r = "eu",
+                s =  "living flame",
+                id = "gDWJTPjhvmNKyF7b",
+                ts = "1:30:14",
+                t = {
+                    b_585 = "102",
+                    b_586 = "121",
+                    b_587 = "130",
+                    b_588 = "74",
+                    b_589 = "133",
+                    b_590 = "84",
+                    b_591 = "111",
+                    b_592 = "93",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "SoDumb",
+                r = "eu",
+                s =  "living flame",
+                id = "BLZRxFqCrjhw7f4Y",
+                ts = "1:30:16",
+                t = {
+                    b_585 = "102",
+                    b_586 = "118",
+                    b_587 = "106",
+                    b_588 = "81",
+                    b_589 = "129",
+                    b_590 = "91",
+                    b_591 = "93",
+                    b_592 = "93",
+                    b_717 = "302"
+                }
+            },
+ {
+                g = "The Might of Menethil",
+                r = "eu",
+                s =  "living flame",
+                id = "Hdf8VQXY3D7KaA4Z",
+                ts = "1:30:29",
+                t = {
+                    b_585 = "165",
+                    b_586 = "121",
+                    b_587 = "106",
+                    b_588 = "75",
+                    b_589 = "173",
+                    b_590 = "96",
+                    b_591 = "112",
+                    b_592 = "111",
+                    b_717 = "397"
+                }
+            },
+ {
+                g = "Lårvikens Hjältar",
+                r = "eu",
+                s =  "living flame",
+                id = "AXRaLtG8HQ2dCKWh",
+                ts = "1:30:29",
+                t = {
+                    b_585 = "93",
+                    b_586 = "113",
+                    b_587 = "110",
+                    b_588 = "75",
+                    b_589 = "146",
+                    b_590 = "95",
+                    b_591 = "145",
+                    b_592 = "110",
+                    b_717 = "391"
+                }
+            },
+ {
+                g = "En Vrai Ça Passe",
+                r = "eu",
+                s =  "living flame",
+                id = "cQ4kBwy3d1tRhAC9",
+                ts = "1:30:33",
+                t = {
+                    b_585 = "90",
+                    b_586 = "110",
+                    b_587 = "150",
+                    b_588 = "102",
+                    b_589 = "335",
+                    b_590 = "79",
+                    b_591 = "170",
+                    b_592 = "99",
+                    b_717 = "332"
+                }
+            },
+ {
+                g = "Cruel Empire",
+                r = "eu",
+                s =  "living flame",
+                id = "VcDCLfWQNA89J7K2",
+                ts = "1:30:34",
+                t = {
+                    b_585 = "89",
+                    b_586 = "110",
+                    b_587 = "113",
+                    b_588 = "69",
+                    b_589 = "127",
+                    b_590 = "81",
+                    b_591 = "91",
+                    b_592 = "101",
+                    b_717 = "299"
+                }
+            },
+ {
+                g = "Angular",
+                r = "eu",
+                s =  "living flame",
+                id = "4RykMnQWHchPp8LB",
+                ts = "1:30:35",
+                t = {
+                    b_585 = "88",
+                    b_586 = "110",
+                    b_587 = "134",
+                    b_588 = "80",
+                    b_589 = "145",
+                    b_590 = "78",
+                    b_591 = "109",
+                    b_592 = "105",
+                    b_717 = "424"
+                }
+            },
+ {
+                g = "Salz Im Rucksack",
+                r = "eu",
+                s =  "living flame",
+                id = "H6tbBWAfGPv4dRF9",
+                ts = "1:30:38",
+                t = {
+                    b_585 = "106",
+                    b_586 = "110",
+                    b_587 = "133",
+                    b_588 = "68",
+                    b_589 = "118",
+                    b_590 = "88",
+                    b_591 = "80",
+                    b_592 = "93",
+                    b_717 = "93"
+                }
+            },
+ {
+                g = "PUZZLE",
+                r = "eu",
+                s =  "living flame",
+                id = "hyCMbdzpZ1naBV72",
+                ts = "1:30:39",
+                t = {
+                    b_585 = "145",
+                    b_586 = "124",
+                    b_587 = "138",
+                    b_588 = "114",
+                    b_589 = "313",
+                    b_590 = "105",
+                    b_591 = "158",
+                    b_592 = "123",
+                    b_717 = "464"
+                }
+            },
+ {
+                g = "La Jungle",
+                r = "eu",
+                s =  "living flame",
+                id = "YvKVwfqrDAPBdb8k",
+                ts = "1:31:05",
+                t = {
+                    b_585 = "104",
+                    b_586 = "118",
+                    b_587 = "149",
+                    b_588 = "78",
+                    b_589 = "179",
+                    b_590 = "91",
+                    b_591 = "167",
+                    b_592 = "125",
+                    b_717 = "493"
+                }
+            },
+ {
+                g = "This Loot is Rigged",
+                r = "eu",
+                s =  "living flame",
+                id = "F3RkZALQXcqwNzar",
+                ts = "1:31:08",
+                t = {
+                    b_585 = "137",
+                    b_586 = "113",
+                    b_587 = "128",
+                    b_588 = "82",
+                    b_589 = "178",
+                    b_590 = "90",
+                    b_591 = "163",
+                    b_592 = "105",
+                    b_717 = "471"
+                }
+            },
+ {
+                g = "Last Chance",
+                r = "eu",
+                s =  "living flame",
+                id = "LaT3Rqc7Zgn6bhCj",
+                ts = "1:31:18",
+                t = {
+                    b_585 = "116",
+                    b_586 = "129",
+                    b_587 = "133",
+                    b_588 = "95",
+                    b_589 = "207",
+                    b_590 = "97",
+                    b_591 = "155",
+                    b_592 = "109",
+                    b_717 = "422"
+                }
+            },
+ {
+                g = "Ironjoke's pugs",
+                r = "eu",
+                s =  "living flame",
+                id = "XNqkYBxhzaTPj3JQ",
+                ts = "1:31:19",
+                t = {
+                    b_585 = "102",
+                    b_586 = "100",
+                    b_587 = "121",
+                    b_588 = "82",
+                    b_589 = "154",
+                    b_590 = "95",
+                    b_591 = "177",
+                    b_592 = "105",
+                    b_717 = "405"
+                }
+            },
+ {
+                g = "Simple Minds",
+                r = "eu",
+                s =  "living flame",
+                id = "V9mJQHdxD8XnMtgR",
+                ts = "1:31:57",
+                t = {
+                    b_585 = "155",
+                    b_586 = "121",
+                    b_587 = "120",
+                    b_588 = "71",
+                    b_589 = "127",
+                    b_590 = "84",
+                    b_591 = "94",
+                    b_592 = "94",
+                    b_717 = "302"
+                }
+            },
+ {
+                g = "Elysium",
+                r = "eu",
+                s =  "living flame",
+                id = "trpxqa84TkLFP1Gn",
+                ts = "1:32:02",
+                t = {
+                    b_585 = "134",
+                    b_586 = "112",
+                    b_587 = "143",
+                    b_588 = "78",
+                    b_589 = "132",
+                    b_590 = "92",
+                    b_591 = "116",
+                    b_592 = "93",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "padinko",
+                r = "eu",
+                s =  "living flame",
+                id = "b6AKLzCyDTWadn3t",
+                ts = "1:32:04",
+                t = {
+                    b_585 = "125",
+                    b_586 = "108",
+                    b_587 = "127",
+                    b_588 = "83",
+                    b_589 = "179",
+                    b_590 = "92",
+                    b_591 = "127",
+                    b_592 = "99",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "Defiled",
+                r = "eu",
+                s =  "living flame",
+                id = "C8bZcx1L6QVANtkX",
+                ts = "1:32:06",
+                t = {
+                    b_585 = "98",
+                    b_586 = "134",
+                    b_587 = "120",
+                    b_588 = "79",
+                    b_589 = "150",
+                    b_590 = "155",
+                    b_591 = "153",
+                    b_592 = "113",
+                    b_717 = "331"
+                }
+            },
+ {
+                g = "VULTURES",
+                r = "eu",
+                s =  "living flame",
+                id = "TzZkgDxMbYNqGcLm",
+                ts = "1:32:37",
+                t = {
+                    b_585 = "90",
+                    b_586 = "137",
+                    b_587 = "121",
+                    b_588 = "69",
+                    b_589 = "92",
+                    b_590 = "74",
+                    b_591 = "105",
+                    b_592 = "101",
+                    b_717 = "281"
+                }
+            },
+ {
+                g = "Unnamed",
+                r = "eu",
+                s =  "living flame",
+                id = "nr4hMPNQ1w2DYjmW",
+                ts = "1:33:08",
+                t = {
+                    b_585 = "72",
+                    b_586 = "90",
+                    b_587 = "89",
+                    b_588 = "69",
+                    b_589 = "159",
+                    b_590 = "67",
+                    b_591 = "112",
+                    b_592 = "74",
+                    b_717 = "321"
+                }
+            },
+ {
+                g = "Gammal och horde",
+                r = "eu",
+                s =  "living flame",
+                id = "8DJRLTGxB1Knqagw",
+                ts = "1:33:18",
+                t = {
+                    b_585 = "122",
+                    b_586 = "148",
+                    b_587 = "148",
+                    b_588 = "112",
+                    b_589 = "186",
+                    b_590 = "118",
+                    b_591 = "202",
+                    b_592 = "182",
+                    b_717 = "398"
+                }
+            },
+ {
+                g = "Fixed - Gwiezdna Flota",
+                r = "eu",
+                s =  "living flame",
+                id = "T8hbmL7My9NQKGHp",
+                ts = "1:33:27",
+                t = {
+                    b_585 = "92",
+                    b_586 = "110",
+                    b_587 = "130",
+                    b_588 = "64",
+                    b_589 = "116",
+                    b_590 = "99",
+                    b_591 = "97",
+                    b_592 = "86",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "Epica",
+                r = "eu",
+                s =  "living flame",
+                id = "RQaP4gGnq1K98Fyw",
+                ts = "1:33:31",
+                t = {
+                    b_585 = "113",
+                    b_586 = "170",
+                    b_587 = "124",
+                    b_588 = "88",
+                    b_589 = "198",
+                    b_590 = "97",
+                    b_591 = "113",
+                    b_592 = "126",
+                    b_717 = "452"
+                }
+            },
+ {
+                g = "Captain Morgans Revenge",
+                r = "eu",
+                s =  "living flame",
+                id = "6Yt3aMRD18Kgm2rJ",
+                ts = "1:33:55",
+                t = {
+                    b_585 = "136",
+                    b_586 = "116",
+                    b_587 = "130",
+                    b_588 = "64",
+                    b_589 = "268",
+                    b_590 = "82",
+                    b_591 = "90",
+                    b_592 = "91",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "From The Darkness",
+                r = "eu",
+                s =  "living flame",
+                id = "cDdq9nNwXaACT4kf",
+                ts = "1:34:09",
+                t = {
+                    b_585 = "94",
+                    b_586 = "93",
+                    b_587 = "111",
+                    b_588 = "63",
+                    b_589 = "132",
+                    b_590 = "76",
+                    b_591 = "68",
+                    b_592 = "83",
+                    b_717 = "69"
+                }
+            },
+ {
+                g = "Organic Wine Club",
+                r = "eu",
+                s =  "living flame",
+                id = "4bj2d3KvAZFWzm6x",
+                ts = "1:34:41",
+                t = {
+                    b_585 = "100",
+                    b_586 = "113",
+                    b_587 = "117",
+                    b_588 = "75",
+                    b_589 = "150",
+                    b_590 = "90",
+                    b_591 = "103",
+                    b_592 = "98",
+                    b_717 = "380"
+                }
+            },
+ {
+                g = "Remedy",
+                r = "eu",
+                s =  "living flame",
+                id = "m6VCR2cYZ9nwPz7L",
+                ts = "1:34:55",
+                t = {
+                    b_585 = "96",
+                    b_586 = "126",
+                    b_587 = "117",
+                    b_588 = "81",
+                    b_589 = "125",
+                    b_590 = "86",
+                    b_591 = "138",
+                    b_592 = "108",
+                    b_717 = "402"
+                }
+            },
+ {
+                g = "BOOMERSTRATS",
+                r = "eu",
+                s =  "living flame",
+                id = "x3Fhfwj1q4HDQ62L",
+                ts = "1:35:05",
+                t = {
+                    b_585 = "114",
+                    b_586 = "136",
+                    b_587 = "147",
+                    b_588 = "80",
+                    b_589 = "143",
+                    b_590 = "92",
+                    b_591 = "152",
+                    b_592 = "114",
+                    b_717 = "569"
+                }
+            },
+ {
+                g = "Sulfuras",
+                r = "eu",
+                s =  "living flame",
+                id = "NG2YjTLwzmBxAfCJ",
+                ts = "1:35:13",
+                t = {
+                    b_585 = "120",
+                    b_586 = "93",
+                    b_587 = "124",
+                    b_588 = "75",
+                    b_589 = "149",
+                    b_590 = "77",
+                    b_591 = "103",
+                    b_592 = "97",
+                    b_717 = "59"
+                }
+            },
+ {
+                g = "Lagerfeld",
+                r = "eu",
+                s =  "living flame",
+                id = "FqvmHP94Qt3T6rhw",
+                ts = "1:35:14",
+                t = {
+                    b_585 = "94",
+                    b_586 = "106",
+                    b_587 = "134",
+                    b_588 = "64",
+                    b_589 = "172",
+                    b_590 = "81",
+                    b_591 = "95",
+                    b_592 = "87",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "Lumens",
+                r = "eu",
+                s =  "living flame",
+                id = "PW6rhRxtDcZ9wMk3",
+                ts = "1:35:27",
+                t = {
+                    b_585 = "123",
+                    b_586 = "93",
+                    b_587 = "109",
+                    b_588 = "61",
+                    b_589 = "108",
+                    b_590 = "71",
+                    b_591 = "95",
+                    b_592 = "81",
+                    b_717 = "341"
+                }
+            },
+ {
+                g = "Evil Eye",
+                r = "eu",
+                s =  "living flame",
+                id = "m1pj6gJqc2TH9VCY",
+                ts = "1:35:35",
+                t = {
+                    b_585 = "147",
+                    b_586 = "140",
+                    b_587 = "124",
+                    b_588 = "85",
+                    b_589 = "156",
+                    b_590 = "97",
+                    b_591 = "160",
+                    b_592 = "110",
+                    b_717 = "354"
+                }
+            },
+ {
+                g = "Tatta United",
+                r = "eu",
+                s =  "living flame",
+                id = "4kZxJAH9GqjCrVDm",
+                ts = "1:35:36",
+                t = {
+                    b_585 = "99",
+                    b_586 = "103",
+                    b_587 = "118",
+                    b_588 = "91",
+                    b_589 = "170",
+                    b_590 = "88",
+                    b_591 = "157",
+                    b_592 = "139",
+                    b_717 = "346"
+                }
+            },
+ {
+                g = "Conquest",
+                r = "eu",
+                s =  "living flame",
+                id = "FxfRT8jXBVdqhW3M",
+                ts = "1:35:38",
+                t = {
+                    b_585 = "102",
+                    b_586 = "100",
+                    b_587 = "116",
+                    b_588 = "81",
+                    b_589 = "163",
+                    b_590 = "98",
+                    b_591 = "168",
+                    b_592 = "102",
+                    b_717 = "453"
+                }
+            },
+ {
+                g = "Ace",
+                r = "eu",
+                s =  "living flame",
+                id = "6bLcmYQF7TyPAr4f",
+                ts = "1:35:38",
+                t = {
+                    b_585 = "164",
+                    b_586 = "134",
+                    b_587 = "147",
+                    b_588 = "84",
+                    b_589 = "212",
+                    b_590 = "92",
+                    b_591 = "131",
+                    b_592 = "97",
+                    b_717 = "366"
+                }
+            },
+ {
+                g = "Slackstreet Boys",
+                r = "eu",
+                s =  "living flame",
+                id = "2Hv3Qn1LZYJVNqf6",
+                ts = "1:35:39",
+                t = {
+                    b_585 = "116",
+                    b_586 = "119",
+                    b_587 = "136",
+                    b_588 = "93",
+                    b_589 = "133",
+                    b_590 = "84",
+                    b_591 = "211",
+                    b_592 = "108",
+                    b_717 = "326"
+                }
+            },
+ {
+                g = "Beast Mode",
+                r = "eu",
+                s =  "living flame",
+                id = "ybA7WY4Vrz6ZqK8w",
+                ts = "1:35:39",
+                t = {
+                    b_585 = "98",
+                    b_586 = "103",
+                    b_587 = "123",
+                    b_588 = "66",
+                    b_589 = "149",
+                    b_590 = "89",
+                    b_591 = "79",
+                    b_592 = "117",
+                    b_717 = "283"
+                }
+            },
+ {
+                g = "recht nett",
+                r = "eu",
+                s =  "living flame",
+                id = "cYyJ8HbgrdCFBxAR",
+                ts = "1:35:43",
+                t = {
+                    b_585 = "97",
+                    b_586 = "108",
+                    b_587 = "100",
+                    b_588 = "78",
+                    b_589 = "113",
+                    b_590 = "82",
+                    b_591 = "201",
+                    b_592 = "112",
+                    b_717 = "383"
+                }
+            },
+ {
+                g = "Intruders",
+                r = "eu",
+                s =  "living flame",
+                id = "D9zqfk1NFLV26Zna",
+                ts = "1:35:44",
+                t = {
+                    b_585 = "83",
+                    b_586 = "97",
+                    b_587 = "108",
+                    b_588 = "68",
+                    b_589 = "149",
+                    b_590 = "84",
+                    b_591 = "102",
+                    b_592 = "96",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "SOD IT",
+                r = "eu",
+                s =  "living flame",
+                id = "XnaWvwLzjbTfVRJg",
+                ts = "1:35:47",
+                t = {
+                    b_585 = "134",
+                    b_586 = "95",
+                    b_587 = "103",
+                    b_588 = "71",
+                    b_589 = "105",
+                    b_590 = "69",
+                    b_591 = "93",
+                    b_592 = "77",
+                    b_717 = "285"
+                }
+            },
+ {
+                g = "Made in Germany",
+                r = "eu",
+                s =  "living flame",
+                id = "VrN3DMPgcpt9T7Kn",
+                ts = "1:36:16",
+                t = {
+                    b_585 = "112",
+                    b_586 = "113",
+                    b_587 = "136",
+                    b_588 = "91",
+                    b_589 = "174",
+                    b_590 = "97",
+                    b_591 = "129",
+                    b_592 = "118",
+                    b_717 = "382"
+                }
+            },
+ {
+                g = "Almost Skilled",
+                r = "eu",
+                s =  "living flame",
+                id = "WQw7jkVgzZNHm9aG",
+                ts = "1:36:54",
+                t = {
+                    b_585 = "110",
+                    b_586 = "119",
+                    b_587 = "137",
+                    b_588 = "79",
+                    b_589 = "148",
+                    b_590 = "92",
+                    b_591 = "128",
+                    b_592 = "109",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "NOR",
+                r = "eu",
+                s =  "living flame",
+                id = "ZHXa8Bh1RWfjMcJF",
+                ts = "1:37:13",
+                t = {
+                    b_585 = "113",
+                    b_586 = "119",
+                    b_587 = "148",
+                    b_588 = "84",
+                    b_589 = "161",
+                    b_590 = "87",
+                    b_591 = "123",
+                    b_592 = "105",
+                    b_717 = "354"
+                }
+            },
+ {
+                g = "Special Needs",
+                r = "eu",
+                s =  "living flame",
+                id = "2QrRvcNJWbFhVqpd",
+                ts = "1:37:15",
+                t = {
+                    b_585 = "79",
+                    b_586 = "100",
+                    b_587 = "109",
+                    b_588 = "60",
+                    b_589 = "135",
+                    b_590 = "71",
+                    b_591 = "67",
+                    b_592 = "89",
+                    b_717 = "345"
+                }
+            },
+ {
+                g = "Senior Gentlemen's CLub",
+                r = "eu",
+                s =  "living flame",
+                id = "x2zFXgmyHjrtZBN9",
+                ts = "1:37:30",
+                t = {
+                    b_585 = "104",
+                    b_586 = "105",
+                    b_587 = "125",
+                    b_588 = "79",
+                    b_589 = "171",
+                    b_590 = "83",
+                    b_591 = "137",
+                    b_592 = "113",
+                    b_717 = "407"
+                }
+            },
+ {
+                g = "HORSEGIRLS",
+                r = "eu",
+                s =  "living flame",
+                id = "7tLTxG2JmZ1wKjHR",
+                ts = "1:37:43",
+                t = {
+                    b_585 = "94",
+                    b_586 = "116",
+                    b_587 = "145",
+                    b_588 = "102",
+                    b_589 = "172",
+                    b_590 = "103",
+                    b_591 = "138",
+                    b_592 = "110",
+                    b_717 = "147"
+                }
+            },
+ {
+                g = "The French Baguette",
+                r = "eu",
+                s =  "living flame",
+                id = "8A6QPvMHTCDjd9xg",
+                ts = "1:37:57",
+                t = {
+                    b_585 = "98",
+                    b_586 = "123",
+                    b_587 = "111",
+                    b_588 = "79",
+                    b_589 = "187",
+                    b_590 = "81",
+                    b_591 = "108",
+                    b_592 = "106",
+                    b_717 = "394"
+                }
+            },
+ {
+                g = "Shaved Legs",
+                r = "eu",
+                s =  "living flame",
+                id = "aYrK7qzvDNJCjncf",
+                ts = "1:38:03",
+                t = {
+                    b_585 = "106",
+                    b_586 = "119",
+                    b_587 = "122",
+                    b_588 = "77",
+                    b_589 = "167",
+                    b_590 = "87",
+                    b_591 = "123",
+                    b_592 = "125",
+                    b_717 = "74"
+                }
+            },
+ {
+                g = "Hidden",
+                r = "eu",
+                s =  "living flame",
+                id = "bP6K7dqjnTpJmkvw",
+                ts = "1:38:11",
+                t = {
+                    b_585 = "100",
+                    b_586 = "98",
+                    b_587 = "117",
+                    b_588 = "80",
+                    b_589 = "171",
+                    b_590 = "82",
+                    b_591 = "169",
+                    b_592 = "103",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "AUF",
+                r = "eu",
+                s =  "living flame",
+                id = "Z8CyHhf62FVXarz1",
+                ts = "1:39:01",
+                t = {
+                    b_585 = "77",
+                    b_586 = "90",
+                    b_587 = "99",
+                    b_588 = "51",
+                    b_589 = "127",
+                    b_590 = "74",
+                    b_591 = "64",
+                    b_592 = "80",
+                    b_717 = "98"
+                }
+            },
+ {
+                g = "Rider i Natten",
+                r = "eu",
+                s =  "living flame",
+                id = "PZMGDLm588QfkwVF",
+                ts = "1:39:02",
+                t = {
+                    b_585 = "86",
+                    b_586 = "90",
+                    b_587 = "95",
+                    b_588 = "60",
+                    b_589 = "124",
+                    b_590 = "67",
+                    b_591 = "72",
+                    b_592 = "85",
+                    b_717 = "372"
+                }
+            },
+ {
+                g = "Guilden",
+                r = "eu",
+                s =  "living flame",
+                id = "pFbaRC7X9gNTHDPG",
+                ts = "1:39:05",
+                t = {
+                    b_585 = "92",
+                    b_586 = "119",
+                    b_587 = "130",
+                    b_588 = "67",
+                    b_589 = "172",
+                    b_590 = "79",
+                    b_591 = "144",
+                    b_592 = "81",
+                    b_717 = "278"
+                }
+            },
+ {
+                g = "Keepers",
+                r = "eu",
+                s =  "living flame",
+                id = "n34fxFVP6NABzmdZ",
+                ts = "1:39:06",
+                t = {
+                    b_585 = "128",
+                    b_586 = "102",
+                    b_587 = "112",
+                    b_588 = "72",
+                    b_589 = "157",
+                    b_590 = "89",
+                    b_591 = "114",
+                    b_592 = "131",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "Svazáci",
+                r = "eu",
+                s =  "living flame",
+                id = "VRPF6QcnGkZ72Kmf",
+                ts = "1:39:07",
+                t = {
+                    b_585 = "100",
+                    b_586 = "123",
+                    b_587 = "128",
+                    b_588 = "75",
+                    b_589 = "231",
+                    b_590 = "85",
+                    b_591 = "138",
+                    b_592 = "131",
+                    b_717 = "422"
+                }
+            },
+ {
+                g = "Die grauen Schwerter",
+                r = "eu",
+                s =  "living flame",
+                id = "p4br2MNPyfWdkZnq",
+                ts = "1:39:13",
+                t = {
+                    b_585 = "98",
+                    b_586 = "119",
+                    b_587 = "117",
+                    b_588 = "82",
+                    b_589 = "136",
+                    b_590 = "85",
+                    b_591 = "314",
+                    b_592 = "99",
+                    b_717 = "267"
+                }
+            },
+ {
+                g = "Relentless",
+                r = "eu",
+                s =  "living flame",
+                id = "ag1XfA8B29yz6rn4",
+                ts = "1:39:17",
+                t = {
+                    b_585 = "132",
+                    b_586 = "124",
+                    b_587 = "122",
+                    b_588 = "77",
+                    b_589 = "112",
+                    b_590 = "91",
+                    b_591 = "129",
+                    b_592 = "120",
+                    b_717 = "445"
+                }
+            },
+ {
+                g = "NRV",
+                r = "eu",
+                s =  "living flame",
+                id = "jYx74XNJQThqmaR9",
+                ts = "1:39:31",
+                t = {
+                    b_585 = "96",
+                    b_586 = "115",
+                    b_587 = "123",
+                    b_588 = "82",
+                    b_589 = "129",
+                    b_590 = "76",
+                    b_591 = "112",
+                    b_592 = "103",
+                    b_717 = "348"
+                }
+            },
+ {
+                g = "Blackrock Sun",
+                r = "eu",
+                s =  "living flame",
+                id = "kAWPnzLxFMjcZK6t",
+                ts = "1:39:42",
+                t = {
+                    b_585 = "106",
+                    b_586 = "118",
+                    b_587 = "140",
+                    b_588 = "95",
+                    b_589 = "165",
+                    b_590 = "107",
+                    b_591 = "148",
+                    b_592 = "172",
+                    b_717 = "439"
+                }
+            },
+ {
+                g = "Parsenal",
+                r = "eu",
+                s =  "living flame",
+                id = "rFmn6Xgf7CQW34cb",
+                ts = "1:40:00",
+                t = {
+                    b_585 = "126",
+                    b_586 = "98",
+                    b_587 = "108",
+                    b_588 = "61",
+                    b_589 = "148",
+                    b_590 = "74",
+                    b_591 = "76",
+                    b_592 = "104",
+                    b_717 = "335"
+                }
+            },
+ {
+                g = "Boo",
+                r = "eu",
+                s =  "living flame",
+                id = "Kw9taRxJP2g8ZC3A",
+                ts = "1:40:12",
+                t = {
+                    b_585 = "145",
+                    b_586 = "114",
+                    b_587 = "128",
+                    b_588 = "85",
+                    b_589 = "206",
+                    b_590 = "99",
+                    b_591 = "152",
+                    b_592 = "103",
+                    b_717 = "362"
+                }
+            },
+ {
+                g = "d o g",
+                r = "eu",
+                s =  "living flame",
+                id = "493VcWqrhGYgLCNp",
+                ts = "1:40:17",
+                t = {
+                    b_585 = "122",
+                    b_586 = "100",
+                    b_587 = "134",
+                    b_588 = "68",
+                    b_589 = "150",
+                    b_590 = "83",
+                    b_591 = "79",
+                    b_592 = "93",
+                    b_717 = "311"
+                }
+            },
+ {
+                g = "Wintermaw",
+                r = "eu",
+                s =  "living flame",
+                id = "8NxQ96zf1BnytdYb",
+                ts = "1:40:26",
+                t = {
+                    b_585 = "94",
+                    b_586 = "110",
+                    b_587 = "116",
+                    b_588 = "71",
+                    b_589 = "157",
+                    b_590 = "81",
+                    b_591 = "113",
+                    b_592 = "89",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "FRENCH SOD",
+                r = "eu",
+                s =  "living flame",
+                id = "cBaMZpNPY6WQD2dn",
+                ts = "1:40:38",
+                t = {
+                    b_585 = "91",
+                    b_586 = "89",
+                    b_587 = "104",
+                    b_588 = "65",
+                    b_589 = "21",
+                    b_590 = "83",
+                    b_591 = "103",
+                    b_592 = "103",
+                    b_717 = "384"
+                }
+            },
+ {
+                g = "Ctrl Alt Defeat",
+                r = "eu",
+                s =  "living flame",
+                id = "7DmvfVgYK3HbXBLy",
+                ts = "1:41:04",
+                t = {
+                    b_585 = "98",
+                    b_586 = "118",
+                    b_587 = "126",
+                    b_588 = "74",
+                    b_589 = "144",
+                    b_590 = "84",
+                    b_591 = "192",
+                    b_592 = "149",
+                    b_717 = "410"
+                }
+            },
+ {
+                g = "Vibing",
+                r = "eu",
+                s =  "living flame",
+                id = "xXt7Pr369cgLk2qB",
+                ts = "1:41:12",
+                t = {
+                    b_585 = "106",
+                    b_586 = "89",
+                    b_587 = "98",
+                    b_588 = "62",
+                    b_589 = "158",
+                    b_590 = "73",
+                    b_591 = "156",
+                    b_592 = "83",
+                    b_717 = "305"
+                }
+            },
+ {
+                g = "Epicentre",
+                r = "eu",
+                s =  "living flame",
+                id = "pj1XhPYGbxVaKFcL",
+                ts = "1:41:28",
+                t = {
+                    b_585 = "117",
+                    b_586 = "106",
+                    b_587 = "105",
+                    b_588 = "78",
+                    b_589 = "174",
+                    b_590 = "84",
+                    b_591 = "126",
+                    b_592 = "105",
+                    b_717 = "317"
+                }
+            },
+ {
+                g = "eye wash station",
+                r = "eu",
+                s =  "living flame",
+                id = "h9YGvwyxWQ3ZAab4",
+                ts = "1:41:40",
+                t = {
+                    b_585 = "154",
+                    b_586 = "148",
+                    b_587 = "162",
+                    b_588 = "101",
+                    b_589 = "313",
+                    b_590 = "118",
+                    b_591 = "217",
+                    b_592 = "145",
+                    b_717 = "474"
+                }
+            },
+ {
+                g = "Dorkwind",
+                r = "eu",
+                s =  "living flame",
+                id = "Nk2AhQx19fbc8dKY",
+                ts = "1:41:54",
+                t = {
+                    b_585 = "132",
+                    b_586 = "97",
+                    b_587 = "116",
+                    b_588 = "71",
+                    b_589 = "167",
+                    b_590 = "82",
+                    b_591 = "123",
+                    b_592 = "140",
+                    b_717 = "387"
+                }
+            },
+ {
+                g = "Les gens du Jardin",
+                r = "eu",
+                s =  "living flame",
+                id = "zaTkQPVFywv139jH",
+                ts = "1:42:11",
+                t = {
+                    b_585 = "102",
+                    b_586 = "149",
+                    b_587 = "136",
+                    b_588 = "89",
+                    b_589 = "170",
+                    b_590 = "109",
+                    b_591 = "202",
+                    b_592 = "128",
+                    b_717 = "452"
+                }
+            },
+ {
+                g = "Regeringen",
+                r = "eu",
+                s =  "living flame",
+                id = "n3dtHwDgcpRx7CZy",
+                ts = "1:42:22",
+                t = {
+                    b_585 = "97",
+                    b_586 = "124",
+                    b_587 = "134",
+                    b_588 = "70",
+                    b_589 = "201",
+                    b_590 = "87",
+                    b_591 = "155",
+                    b_592 = "94",
+                    b_717 = "396"
+                }
+            },
+ {
+                g = "Divine Brotherhood",
+                r = "eu",
+                s =  "living flame",
+                id = "8ZMAh2Cgcq9pxvR7",
+                ts = "1:42:38",
+                t = {
+                    b_585 = "95",
+                    b_586 = "97",
+                    b_587 = "150",
+                    b_588 = "89",
+                    b_589 = "176",
+                    b_590 = "78",
+                    b_591 = "122",
+                    b_592 = "114",
+                    b_717 = "390"
+                }
+            },
+ {
+                g = "Four Inches Buffed",
+                r = "eu",
+                s =  "living flame",
+                id = "ngFXmcAW71xKkJyM",
+                ts = "1:42:58",
+                t = {
+                    b_585 = "107",
+                    b_586 = "98",
+                    b_587 = "159",
+                    b_588 = "69",
+                    b_589 = "128",
+                    b_590 = "69",
+                    b_591 = "123",
+                    b_592 = "101",
+                    b_717 = "351"
+                }
+            },
+ {
+                g = "B E R S E R K",
+                r = "eu",
+                s =  "living flame",
+                id = "Y4BNb7vcdATz2D8g",
+                ts = "1:43:00",
+                t = {
+                    b_585 = "108",
+                    b_586 = "140",
+                    b_587 = "137",
+                    b_588 = "99",
+                    b_589 = "197",
+                    b_590 = "109",
+                    b_591 = "105",
+                    b_592 = "123",
+                    b_717 = "406"
+                }
+            },
+ {
+                g = "Slaughtercult",
+                r = "eu",
+                s =  "living flame",
+                id = "Rm1Py6CpdrVtHNMX",
+                ts = "1:44:31",
+                t = {
+                    b_585 = "101",
+                    b_586 = "97",
+                    b_587 = "109",
+                    b_588 = "71",
+                    b_589 = "129",
+                    b_590 = "88",
+                    b_591 = "140",
+                    b_592 = "106",
+                    b_717 = "443"
+                }
+            },
+ {
+                g = "AoE",
+                r = "eu",
+                s =  "living flame",
+                id = "mxcZw937rG2TaRvH",
+                ts = "1:44:39",
+                t = {
+                    b_585 = "88",
+                    b_586 = "102",
+                    b_587 = "133",
+                    b_588 = "99",
+                    b_589 = "139",
+                    b_590 = "71",
+                    b_591 = "163",
+                    b_592 = "92",
+                    b_717 = "327"
+                }
+            },
+ {
+                g = "The Old Guard",
+                r = "eu",
+                s =  "living flame",
+                id = "gd7C3VWYB6m1RFyn",
+                ts = "1:44:46",
+                t = {
+                    b_585 = "132",
+                    b_586 = "124",
+                    b_587 = "152",
+                    b_588 = "92",
+                    b_589 = "177",
+                    b_590 = "93",
+                    b_591 = "200",
+                    b_592 = "145",
+                    b_717 = "397"
+                }
+            },
+ {
+                g = "Hammer Of Witches",
+                r = "eu",
+                s =  "living flame",
+                id = "zhgarnJQtP3KFRkC",
+                ts = "1:45:06",
+                t = {
+                    b_585 = "108",
+                    b_586 = "100",
+                    b_587 = "141",
+                    b_588 = "79",
+                    b_589 = "144",
+                    b_590 = "82",
+                    b_591 = "98",
+                    b_592 = "109",
+                    b_717 = "334"
+                }
+            },
+ {
+                g = "Easy Street",
+                r = "eu",
+                s =  "living flame",
+                id = "WY7GXBNJw6hkjQmv",
+                ts = "1:45:14",
+                t = {
+                    b_585 = "151",
+                    b_586 = "129",
+                    b_587 = "134",
+                    b_588 = "90",
+                    b_589 = "182",
+                    b_590 = "92",
+                    b_591 = "166",
+                    b_592 = "132",
+                    b_717 = "362"
+                }
+            },
+ {
+                g = "Somnium",
+                r = "eu",
+                s =  "living flame",
+                id = "qjJKFfkPzx4M7Bb1",
+                ts = "1:45:28",
+                t = {
+                    b_585 = "98",
+                    b_586 = "92",
+                    b_587 = "100",
+                    b_588 = "59",
+                    b_589 = "175",
+                    b_590 = "77",
+                    b_591 = "95",
+                    b_592 = "100",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Not Ashen",
+                r = "eu",
+                s =  "living flame",
+                id = "cJCP1Q74A2HWwqYd",
+                ts = "1:45:30",
+                t = {
+                    b_585 = "116",
+                    b_586 = "148",
+                    b_587 = "180",
+                    b_588 = "116",
+                    b_589 = "235",
+                    b_590 = "97",
+                    b_591 = "134",
+                    b_592 = "127",
+                    b_717 = "503"
+                }
+            },
+ {
+                g = "dane",
+                r = "eu",
+                s =  "living flame",
+                id = "wCb9L1VJ7cPRy3tq",
+                ts = "1:45:34",
+                t = {
+                    b_585 = "118",
+                    b_586 = "116",
+                    b_587 = "139",
+                    b_588 = "80",
+                    b_589 = "114",
+                    b_590 = "103",
+                    b_591 = "249",
+                    b_592 = "163",
+                    b_717 = "429"
+                }
+            },
+ {
+                g = "Kebab",
+                r = "eu",
+                s =  "living flame",
+                id = "hyCGTD13Nkvn2AWB",
+                ts = "1:45:43",
+                t = {
+                    b_585 = "103",
+                    b_586 = "126",
+                    b_587 = "113",
+                    b_588 = "89",
+                    b_589 = "145",
+                    b_590 = "98",
+                    b_591 = "132",
+                    b_592 = "102",
+                    b_717 = "327"
+                }
+            },
+ {
+                g = "Frost Paws",
+                r = "eu",
+                s =  "living flame",
+                id = "xfCnJ2PptXVKrh4B",
+                ts = "1:46:07",
+                t = {
+                    b_585 = "104",
+                    b_586 = "153",
+                    b_587 = "123",
+                    b_588 = "72",
+                    b_589 = "149",
+                    b_590 = "89",
+                    b_591 = "142",
+                    b_592 = "104",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Upplandia",
+                r = "eu",
+                s =  "living flame",
+                id = "zyd8TrbjAgQ2aPFW",
+                ts = "1:46:21",
+                t = {
+                    b_585 = "81",
+                    b_586 = "98",
+                    b_587 = "112",
+                    b_588 = "60",
+                    b_589 = "127",
+                    b_590 = "80",
+                    b_591 = "100",
+                    b_592 = "84",
+                    b_717 = "55"
+                }
+            },
+ {
+                g = "Kader 3",
+                r = "eu",
+                s =  "living flame",
+                id = "89Q6B3qCRdhFM1rp",
+                ts = "1:46:41",
+                t = {
+                    b_585 = "116",
+                    b_586 = "150",
+                    b_587 = "149",
+                    b_588 = "78",
+                    b_589 = "177",
+                    b_590 = "105",
+                    b_591 = "118",
+                    b_592 = "116",
+                    b_717 = "480"
+                }
+            },
+ {
+                g = "Parseship",
+                r = "eu",
+                s =  "living flame",
+                id = "8dqPRbV46LvABMpT",
+                ts = "1:47:30",
+                t = {
+                    b_585 = "105",
+                    b_586 = "102",
+                    b_587 = "112",
+                    b_588 = "67",
+                    b_589 = "113",
+                    b_590 = "88",
+                    b_591 = "92",
+                    b_592 = "101",
+                    b_717 = "312"
+                }
+            },
+ {
+                g = "Light of Shadow",
+                r = "eu",
+                s =  "living flame",
+                id = "VTgFnL8tRvC74wpJ",
+                ts = "1:47:32",
+                t = {
+                    b_585 = "96",
+                    b_586 = "110",
+                    b_587 = "109",
+                    b_588 = "65",
+                    b_589 = "149",
+                    b_590 = "76",
+                    b_591 = "91",
+                    b_592 = "107",
+                    b_717 = "287"
+                }
+            },
+ {
+                g = "Grand Theft Kod0",
+                r = "eu",
+                s =  "living flame",
+                id = "6DbaKk1PgNB4hHRy",
+                ts = "1:47:39",
+                t = {
+                    b_585 = "110",
+                    b_586 = "119",
+                    b_587 = "164",
+                    b_588 = "86",
+                    b_589 = "256",
+                    b_590 = "94",
+                    b_591 = "97",
+                    b_592 = "104",
+                    b_717 = "450"
+                }
+            },
+ {
+                g = "Flame for Fame",
+                r = "eu",
+                s =  "living flame",
+                id = "pAwG7H91QVZYr3F2",
+                ts = "1:48:05",
+                t = {
+                    b_585 = "129",
+                    b_586 = "126",
+                    b_587 = "135",
+                    b_588 = "92",
+                    b_589 = "174",
+                    b_590 = "96",
+                    b_591 = "151",
+                    b_592 = "115",
+                    b_717 = "529"
+                }
+            },
+ {
+                g = "Everlasting Vendetta",
+                r = "eu",
+                s =  "living flame",
+                id = "MW62gPGLZxz3Q8Ht",
+                ts = "1:48:16",
+                t = {
+                    b_585 = "113",
+                    b_586 = "158",
+                    b_587 = "130",
+                    b_588 = "95",
+                    b_589 = "158",
+                    b_590 = "88",
+                    b_591 = "135",
+                    b_592 = "96",
+                    b_717 = "332"
+                }
+            },
+ {
+                g = "adults in denial",
+                r = "eu",
+                s =  "living flame",
+                id = "wfQdWx9B6thbkmYZ",
+                ts = "1:48:30",
+                t = {
+                    b_585 = "122",
+                    b_586 = "123",
+                    b_587 = "140",
+                    b_588 = "98",
+                    b_589 = "155",
+                    b_590 = "115",
+                    b_591 = "159",
+                    b_592 = "131",
+                    b_717 = "441"
+                }
+            },
+ {
+                g = "AFK Bier holen",
+                r = "eu",
+                s =  "living flame",
+                id = "X1qRcYGhKTNC7zZv",
+                ts = "1:48:37",
+                t = {
+                    b_585 = "130",
+                    b_586 = "116",
+                    b_587 = "127",
+                    b_588 = "90",
+                    b_589 = "143",
+                    b_590 = "89",
+                    b_591 = "122",
+                    b_592 = "103",
+                    b_717 = "408"
+                }
+            },
+ {
+                g = "PlankGas",
+                r = "eu",
+                s =  "living flame",
+                id = "x4XzBy8MD6waHqR1",
+                ts = "1:48:43",
+                t = {
+                    b_585 = "149",
+                    b_586 = "126",
+                    b_587 = "128",
+                    b_588 = "85",
+                    b_589 = "128",
+                    b_590 = "93",
+                    b_591 = "181",
+                    b_592 = "108",
+                    b_717 = "420"
+                }
+            },
+ {
+                g = "Legenden der Allianz",
+                r = "eu",
+                s =  "living flame",
+                id = "h4ZBDT6yYn8bwa3r",
+                ts = "1:48:44",
+                t = {
+                    b_585 = "156",
+                    b_586 = "178",
+                    b_587 = "147",
+                    b_588 = "114",
+                    b_589 = "140",
+                    b_590 = "113",
+                    b_591 = "172",
+                    b_592 = "116",
+                    b_717 = "411"
+                }
+            },
+ {
+                g = "Monkey Madness",
+                r = "eu",
+                s =  "living flame",
+                id = "FdcqnmBgyHz974r1",
+                ts = "1:50:21",
+                t = {
+                    b_585 = "128",
+                    b_586 = "110",
+                    b_587 = "104",
+                    b_588 = "85",
+                    b_589 = "236",
+                    b_590 = "78",
+                    b_591 = "100",
+                    b_592 = "135",
+                    b_717 = "295"
+                }
+            },
+ {
+                g = "Ruthless",
+                r = "eu",
+                s =  "living flame",
+                id = "BptLK36Avd4FCTJY",
+                ts = "1:50:23",
+                t = {
+                    b_585 = "96",
+                    b_586 = "111",
+                    b_587 = "116",
+                    b_588 = "68",
+                    b_589 = "144",
+                    b_590 = "81",
+                    b_591 = "111",
+                    b_592 = "84",
+                    b_717 = "305"
+                }
+            },
+ {
+                g = "Frontline",
+                r = "eu",
+                s =  "living flame",
+                id = "cG87fVBWYytnQTjC",
+                ts = "1:50:32",
+                t = {
+                    b_585 = "159",
+                    b_586 = "132",
+                    b_587 = "134",
+                    b_588 = "88",
+                    b_589 = "192",
+                    b_590 = "95",
+                    b_591 = "158",
+                    b_592 = "103",
+                    b_717 = "415"
+                }
+            },
+ {
+                g = "REDSTAR",
+                r = "eu",
+                s =  "living flame",
+                id = "WC8wQMyrnAtkVvqz",
+                ts = "1:50:45",
+                t = {
+                    b_585 = "149",
+                    b_586 = "126",
+                    b_587 = "135",
+                    b_588 = "79",
+                    b_589 = "137",
+                    b_590 = "87",
+                    b_591 = "163",
+                    b_592 = "124",
+                    b_717 = "458"
+                }
+            },
+ {
+                g = "The Silver Hand",
+                r = "eu",
+                s =  "living flame",
+                id = "jtpA6Lwb1NJFrHkK",
+                ts = "1:51:02",
+                t = {
+                    b_585 = "100",
+                    b_586 = "114",
+                    b_587 = "110",
+                    b_588 = "75",
+                    b_589 = "121",
+                    b_590 = "109",
+                    b_591 = "141",
+                    b_592 = "92",
+                    b_717 = "422"
+                }
+            },
+ {
+                g = "Nordic Legion",
+                r = "eu",
+                s =  "living flame",
+                id = "89xB7VM2fwqgpd1G",
+                ts = "1:51:24",
+                t = {
+                    b_585 = "133",
+                    b_586 = "149",
+                    b_587 = "136",
+                    b_588 = "101",
+                    b_589 = "212",
+                    b_590 = "90",
+                    b_591 = "123",
+                    b_592 = "97",
+                    b_717 = "438"
+                }
+            },
+ {
+                g = "MOON GANG",
+                r = "eu",
+                s =  "living flame",
+                id = "H7Cq9xZDJWpKFcva",
+                ts = "1:51:27",
+                t = {
+                    b_585 = "97",
+                    b_586 = "124",
+                    b_587 = "123",
+                    b_588 = "77",
+                    b_589 = "170",
+                    b_590 = "84",
+                    b_591 = "131",
+                    b_592 = "88",
+                    b_717 = "42"
+                }
+            },
+ {
+                g = "BajerBanden",
+                r = "eu",
+                s =  "living flame",
+                id = "231xrXcfFCaQ9nwz",
+                ts = "1:52:26",
+                t = {
+                    b_585 = "107",
+                    b_586 = "139",
+                    b_587 = "128",
+                    b_588 = "118",
+                    b_589 = "120",
+                    b_590 = "93",
+                    b_591 = "160",
+                    b_592 = "98",
+                    b_717 = "361"
+                }
+            },
+ {
+                g = "Drengene fra Ungoro",
+                r = "eu",
+                s =  "living flame",
+                id = "XLK6PkHNp3vDFJGt",
+                ts = "1:53:26",
+                t = {
+                    b_585 = "99",
+                    b_586 = "113",
+                    b_587 = "119",
+                    b_588 = "77",
+                    b_589 = "133",
+                    b_590 = "92",
+                    b_591 = "145",
+                    b_592 = "101",
+                    b_717 = "32"
+                }
+            },
+ {
+                g = "Saattue",
+                r = "eu",
+                s =  "living flame",
+                id = "qFc71ZMyQ2vHbjp4",
+                ts = "1:53:51",
+                t = {
+                    b_585 = "142",
+                    b_586 = "150",
+                    b_587 = "124",
+                    b_588 = "86",
+                    b_589 = "166",
+                    b_590 = "93",
+                    b_591 = "194",
+                    b_592 = "101",
+                    b_717 = "333"
+                }
+            },
+ {
+                g = "Silver Elite",
+                r = "eu",
+                s =  "living flame",
+                id = "2TCx6cmhf8pjL94k",
+                ts = "1:53:58",
+                t = {
+                    b_585 = "94",
+                    b_586 = "116",
+                    b_587 = "145",
+                    b_588 = "75",
+                    b_589 = "195",
+                    b_590 = "82",
+                    b_591 = "75",
+                    b_592 = "99",
+                    b_717 = "403"
+                }
+            },
+ {
+                g = "WASH YER BACK",
+                r = "eu",
+                s =  "living flame",
+                id = "LbDGyJR98gfAxN6H",
+                ts = "1:54:06",
+                t = {
+                    b_585 = "94",
+                    b_586 = "116",
+                    b_587 = "145",
+                    b_588 = "75",
+                    b_589 = "195",
+                    b_590 = "82",
+                    b_591 = "75",
+                    b_592 = "99",
+                    b_717 = "403"
+                }
+            },
+ {
+                g = "FLAMINGOSWINGERS",
+                r = "eu",
+                s =  "living flame",
+                id = "7v3GaJwzpbmfrVtj",
+                ts = "1:54:22",
+                t = {
+                    b_585 = "131",
+                    b_586 = "155",
+                    b_587 = "163",
+                    b_588 = "105",
+                    b_589 = "125",
+                    b_590 = "116",
+                    b_591 = "127",
+                    b_592 = "155",
+                    b_717 = "558"
+                }
+            },
+ {
+                g = "BRO",
+                r = "eu",
+                s =  "living flame",
+                id = "QtZVTPYKxMkD84Np",
+                ts = "1:54:30",
+                t = {
+                    b_585 = "101",
+                    b_586 = "103",
+                    b_587 = "129",
+                    b_588 = "72",
+                    b_589 = "175",
+                    b_590 = "87",
+                    b_591 = "98",
+                    b_592 = "108",
+                    b_717 = "414"
+                }
+            },
+ {
+                g = "MAD",
+                r = "eu",
+                s =  "living flame",
+                id = "Ywf3LjgxhMR2k8rP",
+                ts = "1:55:11",
+                t = {
+                    b_585 = "92",
+                    b_586 = "106",
+                    b_587 = "130",
+                    b_588 = "112",
+                    b_589 = "178",
+                    b_590 = "104",
+                    b_591 = "168",
+                    b_592 = "104",
+                    b_717 = "583"
+                }
+            },
+ {
+                g = "DAYDREAM",
+                r = "eu",
+                s =  "living flame",
+                id = "R6431DXzrg2nbZWh",
+                ts = "1:55:19",
+                t = {
+                    b_585 = "91",
+                    b_586 = "126",
+                    b_587 = "131",
+                    b_588 = "80",
+                    b_589 = "121",
+                    b_590 = "89",
+                    b_591 = "130",
+                    b_592 = "95",
+                    b_717 = "333"
+                }
+            },
+ {
+                g = "Attain it",
+                r = "eu",
+                s =  "living flame",
+                id = "8YdraHzJPAqDhgmy",
+                ts = "1:56:22",
+                t = {
+                    b_585 = "160",
+                    b_586 = "129",
+                    b_587 = "168",
+                    b_588 = "103",
+                    b_589 = "172",
+                    b_590 = "101",
+                    b_591 = "154",
+                    b_592 = "138",
+                    b_717 = "463"
+                }
+            },
+ {
+                g = "sod off",
+                r = "eu",
+                s =  "living flame",
+                id = "BXFgAtvGLT4mZJK9",
+                ts = "1:57:43",
+                t = {
+                    b_585 = "122",
+                    b_586 = "149",
+                    b_587 = "142",
+                    b_588 = "106",
+                    b_589 = "157",
+                    b_590 = "105",
+                    b_591 = "205",
+                    b_592 = "109",
+                    b_717 = "316"
+                }
+            },
+ {
+                g = "Systembolaget Raid 2",
+                r = "eu",
+                s =  "living flame",
+                id = "RzGmFTjyhbftLKrC",
+                ts = "1:58:47",
+                t = {
+                    b_585 = "134",
+                    b_586 = "166",
+                    b_587 = "147",
+                    b_588 = "90",
+                    b_589 = "171",
+                    b_590 = "85",
+                    b_591 = "158",
+                    b_592 = "105",
+                    b_717 = "483"
+                }
+            },
+ {
+                g = "Selskap",
+                r = "eu",
+                s =  "living flame",
+                id = "7QpvHaCmM2zwqrcy",
+                ts = "1:58:52",
+                t = {
+                    b_585 = "101",
+                    b_586 = "139",
+                    b_587 = "138",
+                    b_588 = "72",
+                    b_589 = "181",
+                    b_590 = "94",
+                    b_591 = "122",
+                    b_592 = "141",
+                    b_717 = "401"
+                }
+            },
+ {
+                g = "xoxo",
+                r = "eu",
+                s =  "living flame",
+                id = "Z7ztn9CBMgyYjH8h",
+                ts = "1:59:39",
+                t = {
+                    b_585 = "232",
+                    b_586 = "161",
+                    b_587 = "176",
+                    b_588 = "103",
+                    b_589 = "148",
+                    b_590 = "117",
+                    b_591 = "187",
+                    b_592 = "394",
+                    b_717 = "435"
+                }
+            },
+ {
+                g = "BarrensFM",
+                r = "eu",
+                s =  "living flame",
+                id = "yV9Tx17YJjmvGqpd",
+                ts = "2:00:48",
+                t = {
+                    b_585 = "103",
+                    b_586 = "124",
+                    b_587 = "120",
+                    b_588 = "83",
+                    b_589 = "154",
+                    b_590 = "93",
+                    b_591 = "135",
+                    b_592 = "119",
+                    b_717 = "526"
+                }
+            },
+ {
+                g = "Ruined Blackout",
+                r = "eu",
+                s =  "living flame",
+                id = "cfMq6nJC2ZNPTHDB",
+                ts = "2:01:12",
+                t = {
+                    b_585 = "111",
+                    b_586 = "118",
+                    b_587 = "146",
+                    b_588 = "89",
+                    b_589 = "222",
+                    b_590 = "94",
+                    b_591 = "148",
+                    b_592 = "102",
+                    b_717 = "402"
+                }
+            },
+ {
+                g = "LAUMA",
+                r = "eu",
+                s =  "living flame",
+                id = "rMCcBDagtyj47qV1",
+                ts = "2:01:13",
+                t = {
+                    b_585 = "96",
+                    b_586 = "123",
+                    b_587 = "155",
+                    b_588 = "111",
+                    b_589 = "172",
+                    b_590 = "93",
+                    b_591 = "128",
+                    b_592 = "105",
+                    b_717 = "477"
+                }
+            },
+ {
+                g = "DOWNTIME",
+                r = "eu",
+                s =  "living flame",
+                id = "NgXGAtchJ6YWbRZf",
+                ts = "2:01:13",
+                t = {
+                    b_585 = "112",
+                    b_586 = "131",
+                    b_587 = "166",
+                    b_588 = "90",
+                    b_589 = "220",
+                    b_590 = "99",
+                    b_591 = "198",
+                    b_592 = "188",
+                    b_717 = "639"
+                }
+            },
+ {
+                g = "Raid at Night",
+                r = "eu",
+                s =  "living flame",
+                id = "pMdGm9JhLYk8Kt1x",
+                ts = "2:01:24",
+                t = {
+                    b_585 = "106",
+                    b_586 = "119",
+                    b_587 = "120",
+                    b_588 = "70",
+                    b_589 = "114",
+                    b_590 = "82",
+                    b_591 = "126",
+                    b_592 = "78",
+                    b_717 = "339"
+                }
+            },
+ {
+                g = "Phoenix",
+                r = "eu",
+                s =  "living flame",
+                id = "TxcFWtdaQfm691bz",
+                ts = "2:01:50",
+                t = {
+                    b_585 = "115",
+                    b_586 = "140",
+                    b_587 = "150",
+                    b_588 = "95",
+                    b_589 = "211",
+                    b_590 = "105",
+                    b_591 = "174",
+                    b_592 = "137",
+                    b_717 = "180"
+                }
+            },
+ {
+                g = "Absolutely Not A Cult",
+                r = "eu",
+                s =  "living flame",
+                id = "WytMZrmCJ76kFdXB",
+                ts = "2:04:44",
+                t = {
+                    b_585 = "136",
+                    b_586 = "134",
+                    b_587 = "193",
+                    b_588 = "107",
+                    b_589 = "339",
+                    b_590 = "109",
+                    b_591 = "100",
+                    b_592 = "112",
+                    b_717 = "461"
+                }
+            },
+ {
+                g = "Known Unknown",
+                r = "eu",
+                s =  "living flame",
+                id = "bAVqwJ9p2rxTPYKk",
+                ts = "2:05:50",
+                t = {
+                    b_585 = "127",
+                    b_586 = "144",
+                    b_587 = "163",
+                    b_588 = "130",
+                    b_589 = "179",
+                    b_590 = "113",
+                    b_591 = "106",
+                    b_592 = "132",
+                    b_717 = "570"
+                }
+            },
+ {
+                g = "Nak og Æd",
+                r = "eu",
+                s =  "living flame",
+                id = "DfwyQxnT2AdYGg98",
+                ts = "2:05:58",
+                t = {
+                    b_585 = "84",
+                    b_586 = "141",
+                    b_587 = "132",
+                    b_588 = "90",
+                    b_589 = "115",
+                    b_590 = "86",
+                    b_591 = "123",
+                    b_592 = "190",
+                    b_717 = "279"
+                }
+            },
+ {
+                g = "Gypsy PUG",
+                r = "eu",
+                s =  "living flame",
+                id = "KQFJnyrpPj1Bbdcm",
+                ts = "2:06:55",
+                t = {
+                    b_585 = "121",
+                    b_586 = "131",
+                    b_587 = "121",
+                    b_588 = "104",
+                    b_589 = "162",
+                    b_590 = "104",
+                    b_591 = "124",
+                    b_592 = "155",
+                    b_717 = "820"
+                }
+            },
+ {
+                g = "Tactically Challenged",
+                r = "eu",
+                s =  "living flame",
+                id = "m8vntwH9aWzdpc6A",
+                ts = "2:07:03",
+                t = {
+                    b_585 = "136",
+                    b_586 = "150",
+                    b_587 = "159",
+                    b_588 = "123",
+                    b_589 = "183",
+                    b_590 = "121",
+                    b_591 = "239",
+                    b_592 = "184",
+                    b_717 = "452"
+                }
+            },
+ {
+                g = "ExÍled",
+                r = "eu",
+                s =  "living flame",
+                id = "RgKCrx1QZX89NcDm",
+                ts = "2:08:37",
+                t = {
+                    b_585 = "135",
+                    b_586 = "170",
+                    b_587 = "154",
+                    b_588 = "106",
+                    b_589 = "188",
+                    b_590 = "122",
+                    b_591 = "248",
+                    b_592 = "149",
+                    b_717 = "628"
+                }
+            },
+ {
+                g = "Purgatory",
+                r = "eu",
+                s =  "living flame",
+                id = "cRj1FBatG2fbZmhp",
+                ts = "2:08:59",
+                t = {
+                    b_585 = "105",
+                    b_586 = "119",
+                    b_587 = "141",
+                    b_588 = "90",
+                    b_589 = "175",
+                    b_590 = "102",
+                    b_591 = "221",
+                    b_592 = "102",
+                    b_717 = "566"
+                }
+            },
+ {
+                g = "eSio",
+                r = "eu",
+                s =  "living flame",
+                id = "YgH3FVjQLR7mvZyM",
+                ts = "2:08:59",
+                t = {
+                    b_585 = "99",
+                    b_586 = "100",
+                    b_587 = "124",
+                    b_588 = "67",
+                    b_589 = "140",
+                    b_590 = "80",
+                    b_591 = "116",
+                    b_592 = "140",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "The Silverwing Clan",
+                r = "eu",
+                s =  "living flame",
+                id = "WBcVZw149pRY2tgK",
+                ts = "2:10:25",
+                t = {
+                    b_585 = "158",
+                    b_586 = "119",
+                    b_587 = "133",
+                    b_588 = "120",
+                    b_589 = "172",
+                    b_590 = "95",
+                    b_591 = "141",
+                    b_592 = "117",
+                    b_717 = "310"
+                }
+            },
+ {
+                g = "Sigma",
+                r = "eu",
+                s =  "living flame",
+                id = "xmbqTczPvythQX7B",
+                ts = "2:12:08",
+                t = {
+                    b_585 = "127",
+                    b_586 = "123",
+                    b_587 = "138",
+                    b_588 = "117",
+                    b_589 = "180",
+                    b_590 = "86",
+                    b_591 = "187",
+                    b_592 = "135",
+                    b_717 = "421"
+                }
+            },
+ {
+                g = "Ojcowizna",
+                r = "eu",
+                s =  "living flame",
+                id = "FwqxRLfXdaKcHmBA",
+                ts = "2:12:10",
+                t = {
+                    b_585 = "110",
+                    b_586 = "124",
+                    b_587 = "153",
+                    b_588 = "114",
+                    b_589 = "224",
+                    b_590 = "120",
+                    b_591 = "157",
+                    b_592 = "112",
+                    b_717 = "459"
+                }
+            },
+ {
+                g = "Le Discovery Channel",
+                r = "eu",
+                s =  "living flame",
+                id = "vjGRpBX8z1dFNKbt",
+                ts = "2:12:22",
+                t = {
+                    b_585 = "100",
+                    b_586 = "118",
+                    b_587 = "134",
+                    b_588 = "107",
+                    b_589 = "123",
+                    b_590 = "92",
+                    b_591 = "158",
+                    b_592 = "134",
+                    b_717 = "307"
+                }
+            },
+ {
+                g = "Salted Coffee",
+                r = "eu",
+                s =  "living flame",
+                id = "GJ27PLFp1VgkW9M8",
+                ts = "2:17:19",
+                t = {
+                    b_585 = "94",
+                    b_586 = "129",
+                    b_587 = "145",
+                    b_588 = "79",
+                    b_589 = "178",
+                    b_590 = "91",
+                    b_591 = "137",
+                    b_592 = "140",
+                    b_717 = "702"
+                }
+            },
+ {
+                g = "Bastion Boys",
+                r = "eu",
+                s =  "living flame",
+                id = "FG9bMDBNKzJTYgcf",
+                ts = "2:18:15",
+                t = {
+                    b_585 = "149",
+                    b_586 = "124",
+                    b_587 = "212",
+                    b_588 = "123",
+                    b_589 = "233",
+                    b_590 = "118",
+                    b_591 = "158",
+                    b_592 = "175",
+                    b_717 = "338"
+                }
+            },
+ {
+                g = "No Direction",
+                r = "eu",
+                s =  "living flame",
+                id = "rNLXAFba681KBMth",
+                ts = "2:20:24",
+                t = {
+                    b_585 = "118",
+                    b_586 = "134",
+                    b_587 = "154",
+                    b_588 = "92",
+                    b_589 = "140",
+                    b_590 = "116",
+                    b_591 = "74",
+                    b_592 = "233",
+                    b_717 = "658"
+                }
+            },
+ {
+                g = "Soulbound",
+                r = "eu",
+                s =  "living flame",
+                id = "ZyF3xYhTwvjW4MHC",
+                ts = "2:20:29",
+                t = {
+                    b_585 = "127",
+                    b_586 = "176",
+                    b_587 = "175",
+                    b_588 = "145",
+                    b_589 = "224",
+                    b_590 = "125",
+                    b_591 = "217",
+                    b_592 = "142",
+                    b_717 = "516"
+                }
+            },
+ {
+                g = "k im pulling",
+                r = "eu",
+                s =  "living flame",
+                id = "t1ZbKH4Ck7GPf2nr",
+                ts = "2:24:56",
+                t = {
+                    b_585 = "112",
+                    b_586 = "120",
+                    b_587 = "155",
+                    b_588 = "83",
+                    b_589 = "161",
+                    b_590 = "102",
+                    b_591 = "177",
+                    b_592 = "121",
+                    b_717 = "540"
+                }
+            },
+ {
+                g = "Savage Squad",
+                r = "eu",
+                s =  "living flame",
+                id = "MGwaq8y4zCW6jPLJ",
+                ts = "2:26:05",
+                t = {
+                    b_585 = "138",
+                    b_586 = "119",
+                    b_587 = "145",
+                    b_588 = "90",
+                    b_589 = "188",
+                    b_590 = "96",
+                    b_591 = "128",
+                    b_592 = "166",
+                    b_717 = "412"
+                }
+            },
+ {
+                g = "GOKU",
+                r = "eu",
+                s =  "living flame",
+                id = "8QPhxNzcKMyaTCDL",
+                ts = "2:32:36",
+                t = {
+                    b_585 = "138",
+                    b_586 = "154",
+                    b_587 = "228",
+                    b_588 = "93",
+                    b_589 = "172",
+                    b_590 = "113",
+                    b_591 = "228",
+                    b_592 = "147",
+                    b_717 = "504"
+                }
+            },
+ {
+                g = "Exordium",
+                r = "eu",
+                s =  "living flame",
+                id = "gYTCA6tKp2NHr43f",
+                ts = "2:33:21",
+                t = {
+                    b_585 = "164",
+                    b_586 = "144",
+                    b_587 = "166",
+                    b_588 = "108",
+                    b_589 = "317",
+                    b_590 = "127",
+                    b_591 = "200",
+                    b_592 = "216",
+                    b_717 = "471"
+                }
+            },
+ {
+                g = "Fryslagg",
+                r = "eu",
+                s =  "living flame",
+                id = "HLMNPazt87WG6mrA",
+                ts = "2:33:57",
+                t = {
+                    b_585 = "150",
+                    b_586 = "168",
+                    b_587 = "195",
+                    b_588 = "122",
+                    b_589 = "249",
+                    b_590 = "122",
+                    b_591 = "249",
+                    b_592 = "72",
+                    b_717 = "592"
+                }
+            },
+ {
+                g = "Crimson Eclipse",
+                r = "eu",
+                s =  "living flame",
+                id = "kNFC7TpJMGBA9nRQ",
+                ts = "2:44:11",
+                t = {
+                    b_585 = "139",
+                    b_586 = "150",
+                    b_587 = "188",
+                    b_588 = "116",
+                    b_589 = "200",
+                    b_590 = "95",
+                    b_591 = "196",
+                    b_592 = "178",
+                    b_717 = "357"
+                }
+            },
+ {
+                g = "Degens and Dragons",
+                r = "eu",
+                s =  "living flame",
+                id = "FxN87r1kwRLy4MhX",
+                ts = "2:47:29",
+                t = {
+                    b_585 = "158",
+                    b_586 = "158",
+                    b_587 = "178",
+                    b_588 = "142",
+                    b_589 = "195",
+                    b_590 = "115",
+                    b_591 = "234",
+                    b_592 = "348",
+                    b_717 = "62"
+                }
+            },
+ {
+                g = "MADDOGS",
+                r = "eu",
+                s =  "living flame",
+                id = "fhKqrA87WzMntCpY",
+                ts = "3:00:42",
+                t = {
+                    b_585 = "176",
+                    b_586 = "157",
+                    b_587 = "247",
+                    b_588 = "115",
+                    b_589 = "209",
+                    b_590 = "110",
+                    b_591 = "169",
+                    b_592 = "137",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "Bubbelkoppen",
+                r = "eu",
+                s =  "living flame",
+                id = "GYk3ntVfRPNKh9gb",
+                ts = "3:11:06",
+                t = {
+                    b_585 = "99",
+                    b_586 = "121",
+                    b_587 = "133",
+                    b_588 = "85",
+                    b_589 = "31",
+                    b_590 = "91",
+                    b_591 = "94",
+                    b_592 = "114",
+                    b_717 = "151"
+                }
+            },
+ {
+                g = "D R A M A",
+                r = "eu",
+                s =  "living flame",
+                id = "yJRGck1XzFBZNpqA",
+                ts = "3:22:15",
+                t = {
+                    b_585 = "138",
+                    b_586 = "139",
+                    b_587 = "137",
+                    b_588 = "160",
+                    b_589 = "251",
+                    b_590 = "108",
+                    b_591 = "266",
+                    b_592 = "129",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Just Pull SOD",
+                r = "eu",
+                s =  "living flame",
+                id = "wyDfzqBxjCGm9Rhc",
+                ts = "3:31:00",
+                t = {
+                    b_585 = "106",
+                    b_586 = "113",
+                    b_587 = "152",
+                    b_588 = "113",
+                    b_589 = "195",
+                    b_590 = "102",
+                    b_591 = "240",
+                    b_592 = "136",
+                    b_717 = "340"
+                }
+            },
+ {
+                g = "forced fun",
+                r = "eu",
+                s =  "living flame",
+                id = "v3KM4n87hRZyxGNV",
+                ts = "3:35:15",
+                t = {
+                    b_585 = "171",
+                    b_586 = "192",
+                    b_587 = "184",
+                    b_588 = "139",
+                    b_589 = "511",
+                    b_590 = "128",
+                    b_591 = "261",
+                    b_592 = "266",
+                    b_717 = "516"
+                }
+            },
+ {
+                g = "A B TRE",
+                r = "eu",
+                s =  "living flame",
+                id = "JLj1KvNxfHw8aD9X",
+                ts = "3:38:52",
+                t = {
+                    b_585 = "98",
+                    b_586 = "150",
+                    b_587 = "116",
+                    b_588 = "84",
+                    b_589 = "203",
+                    b_590 = "83",
+                    b_591 = "126",
+                    b_592 = "110",
+                    b_717 = "29"
+                }
+            },
+ {
+                g = "Filthy Rich Landlords",
+                r = "eu",
+                s =  "lone wolf",
+                id = "H8r6G7h9NfA3TB2q",
+                ts = "1:09:09",
+                t = {
+                    b_585 = "102",
+                    b_586 = "110",
+                    b_587 = "137",
+                    b_588 = "88",
+                    b_589 = "172",
+                    b_590 = "93",
+                    b_591 = "132",
+                    b_592 = "108",
+                    b_717 = "279"
+                }
+            },
+ {
+                g = "No Pull Timer",
+                r = "eu",
+                s =  "lone wolf",
+                id = "MaWVY79tGnNZ64jC",
+                ts = "1:14:26",
+                t = {
+                    b_585 = "86",
+                    b_586 = "90",
+                    b_587 = "115",
+                    b_588 = "60",
+                    b_589 = "178",
+                    b_590 = "72",
+                    b_591 = "88",
+                    b_592 = "80",
+                    b_717 = "257"
+                }
+            },
+ {
+                g = "Fangs of Fenris",
+                r = "eu",
+                s =  "lone wolf",
+                id = "7cPB9TAJyqwVDGaY",
+                ts = "1:20:13",
+                t = {
+                    b_585 = "94",
+                    b_586 = "113",
+                    b_587 = "116",
+                    b_588 = "79",
+                    b_589 = "177",
+                    b_590 = "93",
+                    b_591 = "214",
+                    b_592 = "100",
+                    b_717 = "273"
+                }
+            },
+ {
+                g = "Rookie Numbers",
+                r = "eu",
+                s =  "lone wolf",
+                id = "XpCGFyY1jThVwmHZ",
+                ts = "1:20:13",
+                t = {
+                    b_585 = "94",
+                    b_586 = "90",
+                    b_587 = "113",
+                    b_588 = "65",
+                    b_589 = "155",
+                    b_590 = "71",
+                    b_591 = "67",
+                    b_592 = "89",
+                    b_717 = "264"
+                }
+            },
+ {
+                g = "HODOR",
+                r = "eu",
+                s =  "lone wolf",
+                id = "j7vG9byVY4RrL21n",
+                ts = "1:24:29",
+                t = {
+                    b_585 = "103",
+                    b_586 = "110",
+                    b_587 = "113",
+                    b_588 = "81",
+                    b_589 = "123",
+                    b_590 = "86",
+                    b_591 = "91",
+                    b_592 = "102",
+                    b_717 = "317"
+                }
+            },
+ {
+                g = "Bängalos",
+                r = "eu",
+                s =  "lone wolf",
+                id = "cxXvypZG2WBrAPqN",
+                ts = "1:25:06",
+                t = {
+                    b_585 = "114",
+                    b_586 = "135",
+                    b_587 = "126",
+                    b_588 = "106",
+                    b_589 = "190",
+                    b_590 = "115",
+                    b_591 = "129",
+                    b_592 = "112",
+                    b_717 = "418"
+                }
+            },
+ {
+                g = "Good Dogs",
+                r = "eu",
+                s =  "lone wolf",
+                id = "pqVBmK6ZWHJfa4bj",
+                ts = "1:27:19",
+                t = {
+                    b_585 = "117",
+                    b_586 = "123",
+                    b_587 = "124",
+                    b_588 = "84",
+                    b_589 = "178",
+                    b_590 = "109",
+                    b_591 = "127",
+                    b_592 = "139",
+                    b_717 = "422"
+                }
+            },
+ {
+                g = "There and Back Again",
+                r = "eu",
+                s =  "lone wolf",
+                id = "4Cr6zxay2wgt3A9Y",
+                ts = "1:30:41",
+                t = {
+                    b_585 = "93",
+                    b_586 = "124",
+                    b_587 = "129",
+                    b_588 = "81",
+                    b_589 = "160",
+                    b_590 = "82",
+                    b_591 = "102",
+                    b_592 = "101",
+                    b_717 = "349"
+                }
+            },
+ {
+                g = "Sangre",
+                r = "eu",
+                s =  "lone wolf",
+                id = "d8MKJhHQwtBRzvbq",
+                ts = "1:31:22",
+                t = {
+                    b_585 = "166",
+                    b_586 = "116",
+                    b_587 = "143",
+                    b_588 = "83",
+                    b_589 = "133",
+                    b_590 = "105",
+                    b_591 = "188",
+                    b_592 = "128",
+                    b_717 = "437"
+                }
+            },
+ {
+                g = "Whisky Tango Foxtrot",
+                r = "eu",
+                s =  "lone wolf",
+                id = "ftp9Pz4HWK76ARLJ",
+                ts = "1:31:59",
+                t = {
+                    b_585 = "96",
+                    b_586 = "108",
+                    b_587 = "185",
+                    b_588 = "75",
+                    b_589 = "120",
+                    b_590 = "93",
+                    b_591 = "99",
+                    b_592 = "98",
+                    b_717 = "260"
+                }
+            },
+ {
+                g = "Vanilla Sky",
+                r = "eu",
+                s =  "lone wolf",
+                id = "1PrC8AX3WfNmDLB7",
+                ts = "1:32:04",
+                t = {
+                    b_585 = "99",
+                    b_586 = "108",
+                    b_587 = "96",
+                    b_588 = "70",
+                    b_589 = "129",
+                    b_590 = "71",
+                    b_591 = "55",
+                    b_592 = "75",
+                    b_717 = "364"
+                }
+            },
+ {
+                g = "Expendables",
+                r = "eu",
+                s =  "lone wolf",
+                id = "y7HbhYCLA1TfKPBv",
+                ts = "1:36:45",
+                t = {
+                    b_585 = "104",
+                    b_586 = "124",
+                    b_587 = "118",
+                    b_588 = "78",
+                    b_589 = "102",
+                    b_590 = "78",
+                    b_591 = "137",
+                    b_592 = "110",
+                    b_717 = "321"
+                }
+            },
+ {
+                g = "Colluders",
+                r = "eu",
+                s =  "lone wolf",
+                id = "zGHKT2vyZXpW31NC",
+                ts = "1:37:18",
+                t = {
+                    b_585 = "115",
+                    b_586 = "121",
+                    b_587 = "123",
+                    b_588 = "83",
+                    b_589 = "158",
+                    b_590 = "86",
+                    b_591 = "132",
+                    b_592 = "101",
+                    b_717 = "303"
+                }
+            },
+ {
+                g = "Childhood",
+                r = "eu",
+                s =  "lone wolf",
+                id = "yYknKcdL2fWDapBb",
+                ts = "1:39:09",
+                t = {
+                    b_585 = "116",
+                    b_586 = "113",
+                    b_587 = "100",
+                    b_588 = "74",
+                    b_589 = "134",
+                    b_590 = "87",
+                    b_591 = "136",
+                    b_592 = "110",
+                    b_717 = "316"
+                }
+            },
+ {
+                g = "Nichts Cthun",
+                r = "eu",
+                s =  "lone wolf",
+                id = "CrZTbBQKWNdDwzqn",
+                ts = "1:39:29",
+                t = {
+                    b_585 = "136",
+                    b_586 = "123",
+                    b_587 = "95",
+                    b_588 = "74",
+                    b_589 = "202",
+                    b_590 = "78",
+                    b_591 = "62",
+                    b_592 = "88",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "Repair Costs Rising",
+                r = "eu",
+                s =  "lone wolf",
+                id = "ymYQtKJrk9gXxn7j",
+                ts = "1:39:33",
+                t = {
+                    b_585 = "116",
+                    b_586 = "92",
+                    b_587 = "110",
+                    b_588 = "64",
+                    b_589 = "117",
+                    b_590 = "81",
+                    b_591 = "140",
+                    b_592 = "76",
+                    b_717 = "253"
+                }
+            },
+ {
+                g = "Insane Asylum",
+                r = "eu",
+                s =  "lone wolf",
+                id = "dL382aVJRYr94vGq",
+                ts = "1:41:24",
+                t = {
+                    b_585 = "122",
+                    b_586 = "121",
+                    b_587 = "136",
+                    b_588 = "98",
+                    b_589 = "114",
+                    b_590 = "124",
+                    b_591 = "122",
+                    b_592 = "137",
+                    b_717 = "470"
+                }
+            },
+ {
+                g = "Godlike",
+                r = "eu",
+                s =  "lone wolf",
+                id = "dFGj2KLgQBCb4HT9",
+                ts = "1:42:03",
+                t = {
+                    b_585 = "116",
+                    b_586 = "116",
+                    b_587 = "135",
+                    b_588 = "90",
+                    b_589 = "135",
+                    b_590 = "102",
+                    b_591 = "165",
+                    b_592 = "105",
+                    b_717 = "378"
+                }
+            },
+ {
+                g = "Focus",
+                r = "eu",
+                s =  "lone wolf",
+                id = "xBdbHRLzCF9PWM7k",
+                ts = "1:46:01",
+                t = {
+                    b_585 = "101",
+                    b_586 = "107",
+                    b_587 = "139",
+                    b_588 = "90",
+                    b_589 = "148",
+                    b_590 = "96",
+                    b_591 = "129",
+                    b_592 = "115",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "LOL",
+                r = "eu",
+                s =  "lone wolf",
+                id = "mKnwbPrJhX7C1qxZ",
+                ts = "1:48:50",
+                t = {
+                    b_585 = "134",
+                    b_586 = "148",
+                    b_587 = "138",
+                    b_588 = "108",
+                    b_589 = "228",
+                    b_590 = "102",
+                    b_591 = "176",
+                    b_592 = "174",
+                    b_717 = "411"
+                }
+            },
+ {
+                g = "Ulvene",
+                r = "eu",
+                s =  "lone wolf",
+                id = "HTbXvpmVDQLqzNJw",
+                ts = "1:53:10",
+                t = {
+                    b_585 = "206",
+                    b_586 = "152",
+                    b_587 = "183",
+                    b_588 = "113",
+                    b_589 = "66",
+                    b_590 = "100",
+                    b_591 = "166",
+                    b_592 = "116",
+                    b_717 = "401"
+                }
+            },
+ {
+                g = "Vision",
+                r = "eu",
+                s =  "lone wolf",
+                id = "ampArcvtKVbCYPx2",
+                ts = "1:59:27",
+                t = {
+                    b_585 = "105",
+                    b_586 = "127",
+                    b_587 = "141",
+                    b_588 = "84",
+                    b_589 = "184",
+                    b_590 = "100",
+                    b_591 = "107",
+                    b_592 = "121",
+                    b_717 = "179"
+                }
+            },
+ {
+                g = "SFO",
+                r = "eu",
+                s =  "lone wolf",
+                id = "TZ4bwR7nKJGYmdhL",
+                ts = "2:00:58",
+                t = {
+                    b_585 = "154",
+                    b_586 = "142",
+                    b_587 = "144",
+                    b_588 = "98",
+                    b_589 = "161",
+                    b_590 = "113",
+                    b_591 = "160",
+                    b_592 = "120",
+                    b_717 = "450"
+                }
+            },
+ {
+                g = "Architects",
+                r = "eu",
+                s =  "lone wolf",
+                id = "NFRDBVPHxn6LW3y9",
+                ts = "2:02:14",
+                t = {
+                    b_585 = "163",
+                    b_586 = "136",
+                    b_587 = "130",
+                    b_588 = "95",
+                    b_589 = "150",
+                    b_590 = "88",
+                    b_591 = "151",
+                    b_592 = "114",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "Wheaten Tail",
+                r = "eu",
+                s =  "lone wolf",
+                id = "nLtZgHxVWYwpDB3b",
+                ts = "2:04:58",
+                t = {
+                    b_585 = "130",
+                    b_586 = "150",
+                    b_587 = "168",
+                    b_588 = "89",
+                    b_589 = "158",
+                    b_590 = "93",
+                    b_591 = "144",
+                    b_592 = "100",
+                    b_717 = "67"
+                }
+            },
+ {
+                g = "Exiled",
+                r = "eu",
+                s =  "lone wolf",
+                id = "jfga4Jh7CXxyvzRT",
+                ts = "2:08:00",
+                t = {
+                    b_585 = "135",
+                    b_586 = "170",
+                    b_587 = "154",
+                    b_588 = "106",
+                    b_589 = "188",
+                    b_590 = "122",
+                    b_591 = "248",
+                    b_592 = "149",
+                    b_717 = "628"
+                }
+            },
+ {
+                g = "UnKnown",
+                r = "eu",
+                s =  "lone wolf",
+                id = "7RNFQDA2KyqVw4nc",
+                ts = "2:10:36",
+                t = {
+                    b_585 = "148",
+                    b_586 = "136",
+                    b_587 = "182",
+                    b_588 = "89",
+                    b_589 = "213",
+                    b_590 = "102",
+                    b_591 = "131",
+                    b_592 = "110",
+                    b_717 = "20"
+                }
+            },
+ {
+                g = "Knights of Eternity",
+                r = "eu",
+                s =  "lone wolf",
+                id = "LAzJW4kP6Q9NByGK",
+                ts = "2:10:38",
+                t = {
+                    b_585 = "148",
+                    b_586 = "136",
+                    b_587 = "182",
+                    b_588 = "89",
+                    b_589 = "213",
+                    b_590 = "102",
+                    b_591 = "131",
+                    b_592 = "110",
+                    b_717 = "25"
+                }
+            },
+ {
+                g = "Warfare",
+                r = "eu",
+                s =  "lone wolf",
+                id = "FXnTprB6Qcyv7ZRx",
+                ts = "2:12:14",
+                t = {
+                    b_585 = "139",
+                    b_586 = "197",
+                    b_587 = "288",
+                    b_588 = "135",
+                    b_589 = "217",
+                    b_590 = "159",
+                    b_591 = "116",
+                    b_592 = "177",
+                    b_717 = "666"
+                }
+            },
+ {
+                g = "Ctrl Over Alt",
+                r = "eu",
+                s =  "lone wolf",
+                id = "k3wMHmcD7QrjBbVT",
+                ts = "2:23:27",
+                t = {
+                    b_585 = "103",
+                    b_586 = "111",
+                    b_587 = "138",
+                    b_588 = "82",
+                    b_589 = "160",
+                    b_590 = "76",
+                    b_591 = "120",
+                    b_592 = "102",
+                    b_717 = "549"
+                }
+            },
+ {
+                g = "Cossacks",
+                r = "eu",
+                s =  "lone wolf",
+                id = "JbhVp8jAMX6vwN9n",
+                ts = "2:27:11",
+                t = {
+                    b_585 = "138",
+                    b_586 = "149",
+                    b_587 = "154",
+                    b_588 = "90",
+                    b_589 = "141",
+                    b_590 = "103",
+                    b_591 = "164",
+                    b_592 = "144",
+                    b_717 = "446"
+                }
+            },
+ {
+                g = "Zen",
+                r = "eu",
+                s =  "lone wolf",
+                id = "WwCDhKJ48rRT2xt7",
+                ts = "2:29:50",
+                t = {
+                    b_585 = "99",
+                    b_586 = "111",
+                    b_587 = "124",
+                    b_588 = "182",
+                    b_589 = "189",
+                    b_590 = "80",
+                    b_591 = "195",
+                    b_592 = "97",
+                    b_717 = "512"
+                }
+            },
+ {
+                g = "Czech Slavs",
+                r = "eu",
+                s =  "lone wolf",
+                id = "r8nqMFWRcT72ptzb",
+                ts = "2:43:32",
+                t = {
+                    b_585 = "108",
+                    b_586 = "134",
+                    b_587 = "146",
+                    b_588 = "118",
+                    b_589 = "183",
+                    b_590 = "107",
+                    b_591 = "197",
+                    b_592 = "121",
+                    b_717 = "248"
+                }
+            },
+ {
+                g = "Gruvan",
+                r = "eu",
+                s =  "lone wolf",
+                id = "pxtyrZgMcz8A9GdK",
+                ts = "3:14:45",
+                t = {
+                    b_585 = "139",
+                    b_586 = "162",
+                    b_587 = "168",
+                    b_588 = "129",
+                    b_589 = "266",
+                    b_590 = "111",
+                    b_591 = "85",
+                    b_592 = "153",
+                    b_717 = "122"
+                }
+            },
+ {
+                g = "Inselverbot",
+                r = "eu",
+                s =  "lone wolf",
+                id = "ZXMTzhL2N3BtKx9k",
+                ts = "3:26:02",
+                t = {
+                    b_585 = "110",
+                    b_586 = "118",
+                    b_587 = "112",
+                    b_588 = "139",
+                    b_589 = "162",
+                    b_590 = "84",
+                    b_591 = "160",
+                    b_592 = "113",
+                    b_717 = "230"
+                }
+            },
+ {
+                g = "Dinolovers",
+                r = "eu",
+                s =  "lone wolf",
+                id = "wK69YWXcjbZfVr4C",
+                ts = "3:36:29",
+                t = {
+                    b_585 = "113",
+                    b_586 = "128",
+                    b_587 = "161",
+                    b_588 = "157",
+                    b_589 = "140",
+                    b_590 = "94",
+                    b_591 = "265",
+                    b_592 = "142",
+                    b_717 = "214"
+                }
+            },
+ {
+                g = "TIME TO SHINE",
+                r = "eu",
+                s =  "wild growth",
+                id = "ARr8a3yg1DvLtbJC",
+                ts = "41:25",
+                t = {
+                    b_585 = "84",
+                    b_586 = "91",
+                    b_587 = "83",
+                    b_588 = "58",
+                    b_589 = "88",
+                    b_590 = "63",
+                    b_591 = "63",
+                    b_592 = "73",
+                    b_717 = "253"
+                }
+            },
+ {
+                g = "Booty Bay Yacht Club",
+                r = "eu",
+                s =  "wild growth",
+                id = "amLftWxYZXgp3Hv6",
+                ts = "55:13",
+                t = {
+                    b_585 = "80",
+                    b_586 = "97",
+                    b_587 = "111",
+                    b_588 = "67",
+                    b_589 = "144",
+                    b_590 = "72",
+                    b_591 = "76",
+                    b_592 = "80",
+                    b_717 = "274"
+                }
+            },
+ {
+                g = "SOD OFF",
+                r = "eu",
+                s =  "wild growth",
+                id = "CwzAxNp41atmrc9J",
+                ts = "56:59",
+                t = {
+                    b_585 = "49",
+                    b_586 = "60",
+                    b_587 = "57",
+                    b_588 = "35",
+                    b_589 = "95",
+                    b_590 = "48",
+                    b_591 = "53",
+                    b_592 = "49",
+                    b_717 = "250"
+                }
+            },
+ {
+                g = "Relapse",
+                r = "eu",
+                s =  "wild growth",
+                id = "NqzWRFtBZpbwhLc4",
+                ts = "1:00:7",
+                t = {
+                    b_585 = "85",
+                    b_586 = "84",
+                    b_587 = "106",
+                    b_588 = "62",
+                    b_589 = "139",
+                    b_590 = "78",
+                    b_591 = "63",
+                    b_592 = "99",
+                    b_717 = "261"
+                }
+            },
+ {
+                g = "Irae AoD",
+                r = "eu",
+                s =  "wild growth",
+                id = "wm4acXDRYK6M2JrC",
+                ts = "1:00:41",
+                t = {
+                    b_585 = "77",
+                    b_586 = "79",
+                    b_587 = "89",
+                    b_588 = "51",
+                    b_589 = "93",
+                    b_590 = "66",
+                    b_591 = "57",
+                    b_592 = "75",
+                    b_717 = "235"
+                }
+            },
+ {
+                g = "Enigmatic",
+                r = "eu",
+                s =  "wild growth",
+                id = "GAZ7XtL8b4QdBrPH",
+                ts = "1:00:52",
+                t = {
+                    b_585 = "99",
+                    b_586 = "93",
+                    b_587 = "106",
+                    b_588 = "79",
+                    b_589 = "107",
+                    b_590 = "92",
+                    b_591 = "97",
+                    b_592 = "75",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "XXIV",
+                r = "eu",
+                s =  "wild growth",
+                id = "BbjkGTcP8RNvCdzF",
+                ts = "1:02:37",
+                t = {
+                    b_585 = "94",
+                    b_586 = "84",
+                    b_587 = "85",
+                    b_588 = "53",
+                    b_589 = "79",
+                    b_590 = "65",
+                    b_591 = "59",
+                    b_592 = "71",
+                    b_717 = "243"
+                }
+            },
+ {
+                g = "DiscoverDeezNuts",
+                r = "eu",
+                s =  "wild growth",
+                id = "B6QrWkjR2P4xCy1g",
+                ts = "1:03:13",
+                t = {
+                    b_585 = "111",
+                    b_586 = "105",
+                    b_587 = "123",
+                    b_588 = "70",
+                    b_589 = "138",
+                    b_590 = "87",
+                    b_591 = "117",
+                    b_592 = "93",
+                    b_717 = "282"
+                }
+            },
+ {
+                g = "Endstation Biberpuff",
+                r = "eu",
+                s =  "wild growth",
+                id = "8XQkMVzydxGLDChP",
+                ts = "1:05:51",
+                t = {
+                    b_585 = "88",
+                    b_586 = "100",
+                    b_587 = "102",
+                    b_588 = "59",
+                    b_589 = "170",
+                    b_590 = "71",
+                    b_591 = "71",
+                    b_592 = "86",
+                    b_717 = "245"
+                }
+            },
+ {
+                g = "Affenjungs Inc",
+                r = "eu",
+                s =  "wild growth",
+                id = "V8Xy1DPRLWbrBtjc",
+                ts = "1:07:35",
+                t = {
+                    b_585 = "85",
+                    b_586 = "96",
+                    b_587 = "124",
+                    b_588 = "59",
+                    b_589 = "112",
+                    b_590 = "76",
+                    b_591 = "77",
+                    b_592 = "80",
+                    b_717 = "348"
+                }
+            },
+ {
+                g = "Discover Deez",
+                r = "eu",
+                s =  "wild growth",
+                id = "xfGkC3JcHNrRDTqX",
+                ts = "1:07:52",
+                t = {
+                    b_585 = "74",
+                    b_586 = "77",
+                    b_587 = "73",
+                    b_588 = "43",
+                    b_589 = "87",
+                    b_590 = "59",
+                    b_591 = "58",
+                    b_592 = "67",
+                    b_717 = "244"
+                }
+            },
+ {
+                g = "Peter's Pugs",
+                r = "eu",
+                s =  "wild growth",
+                id = "YtXPhrn6cKMzNjG3",
+                ts = "1:07:58",
+                t = {
+                    b_585 = "77",
+                    b_586 = "94",
+                    b_587 = "92",
+                    b_588 = "58",
+                    b_589 = "134",
+                    b_590 = "70",
+                    b_591 = "77",
+                    b_592 = "77",
+                    b_717 = "319"
+                }
+            },
+ {
+                g = "Cute",
+                r = "eu",
+                s =  "wild growth",
+                id = "pBNF9kCtqbHMvZT7",
+                ts = "1:08:02",
+                t = {
+                    b_585 = "93",
+                    b_586 = "106",
+                    b_587 = "112",
+                    b_588 = "65",
+                    b_589 = "174",
+                    b_590 = "74",
+                    b_591 = "93",
+                    b_592 = "80",
+                    b_717 = "310"
+                }
+            },
+ {
+                g = "platzhalter",
+                r = "eu",
+                s =  "wild growth",
+                id = "qP38rbdAzNBgC9v6",
+                ts = "1:09:40",
+                t = {
+                    b_585 = "105",
+                    b_586 = "113",
+                    b_587 = "121",
+                    b_588 = "73",
+                    b_589 = "127",
+                    b_590 = "86",
+                    b_591 = "97",
+                    b_592 = "87",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Nightlife SoD",
+                r = "eu",
+                s =  "wild growth",
+                id = "yD2wvqrQ9LNHFVxg",
+                ts = "1:11:18",
+                t = {
+                    b_585 = "80",
+                    b_586 = "82",
+                    b_587 = "106",
+                    b_588 = "52",
+                    b_589 = "142",
+                    b_590 = "68",
+                    b_591 = "83",
+                    b_592 = "77",
+                    b_717 = "250"
+                }
+            },
+ {
+                g = "Nussbaum",
+                r = "eu",
+                s =  "wild growth",
+                id = "1VyLB4a8xZnJRwPp",
+                ts = "1:11:26",
+                t = {
+                    b_585 = "99",
+                    b_586 = "90",
+                    b_587 = "92",
+                    b_588 = "61",
+                    b_589 = "130",
+                    b_590 = "73",
+                    b_591 = "94",
+                    b_592 = "82",
+                    b_717 = "279"
+                }
+            },
+ {
+                g = "Backstab Club",
+                r = "eu",
+                s =  "wild growth",
+                id = "Cxamnjh71XpLJ6Ht",
+                ts = "1:12:20",
+                t = {
+                    b_585 = "74",
+                    b_586 = "89",
+                    b_587 = "103",
+                    b_588 = "56",
+                    b_589 = "117",
+                    b_590 = "74",
+                    b_591 = "79",
+                    b_592 = "97",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "Squirrel Squad",
+                r = "eu",
+                s =  "wild growth",
+                id = "kVWj9MvrbHZa38fm",
+                ts = "1:12:22",
+                t = {
+                    b_585 = "86",
+                    b_586 = "103",
+                    b_587 = "113",
+                    b_588 = "66",
+                    b_589 = "102",
+                    b_590 = "72",
+                    b_591 = "71",
+                    b_592 = "83",
+                    b_717 = "232"
+                }
+            },
+ {
+                g = "Genuine",
+                r = "eu",
+                s =  "wild growth",
+                id = "YJ9p6FTDR2XhACvb",
+                ts = "1:12:54",
+                t = {
+                    b_585 = "112",
+                    b_586 = "94",
+                    b_587 = "93",
+                    b_588 = "60",
+                    b_589 = "130",
+                    b_590 = "70",
+                    b_591 = "84",
+                    b_592 = "75",
+                    b_717 = "252"
+                }
+            },
+ {
+                g = "Lava Lash",
+                r = "eu",
+                s =  "wild growth",
+                id = "PMpJk86dxcr7na3Y",
+                ts = "1:13:16",
+                t = {
+                    b_585 = "106",
+                    b_586 = "97",
+                    b_587 = "104",
+                    b_588 = "56",
+                    b_589 = "125",
+                    b_590 = "72",
+                    b_591 = "80",
+                    b_592 = "85",
+                    b_717 = "244"
+                }
+            },
+ {
+                g = "The Great Danes",
+                r = "eu",
+                s =  "wild growth",
+                id = "PDHFca9A6Bd3vg2x",
+                ts = "1:13:18",
+                t = {
+                    b_585 = "85",
+                    b_586 = "99",
+                    b_587 = "117",
+                    b_588 = "67",
+                    b_589 = "149",
+                    b_590 = "83",
+                    b_591 = "90",
+                    b_592 = "102",
+                    b_717 = "298"
+                }
+            },
+ {
+                g = "Hele vole kde mám loot",
+                r = "eu",
+                s =  "wild growth",
+                id = "zdb9rp4aH2Bx8Qwj",
+                ts = "1:13:43",
+                t = {
+                    b_585 = "101",
+                    b_586 = "82",
+                    b_587 = "90",
+                    b_588 = "50",
+                    b_589 = "102",
+                    b_590 = "64",
+                    b_591 = "69",
+                    b_592 = "64",
+                    b_717 = "230"
+                }
+            },
+ {
+                g = "Synced",
+                r = "eu",
+                s =  "wild growth",
+                id = "KDJ9X8GgdjBzk132",
+                ts = "1:14:07",
+                t = {
+                    b_585 = "122",
+                    b_586 = "128",
+                    b_587 = "127",
+                    b_588 = "78",
+                    b_589 = "204",
+                    b_590 = "100",
+                    b_591 = "135",
+                    b_592 = "111",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "Undercity Plumbers",
+                r = "eu",
+                s =  "wild growth",
+                id = "X3gtFGkhvJwRaMz7",
+                ts = "1:14:12",
+                t = {
+                    b_585 = "108",
+                    b_586 = "118",
+                    b_587 = "118",
+                    b_588 = "85",
+                    b_589 = "167",
+                    b_590 = "88",
+                    b_591 = "207",
+                    b_592 = "121",
+                    b_717 = "359"
+                }
+            },
+ {
+                g = "Ninjapartio",
+                r = "eu",
+                s =  "wild growth",
+                id = "tqy91Rv7F4JLKmWH",
+                ts = "1:15:37",
+                t = {
+                    b_585 = "95",
+                    b_586 = "110",
+                    b_587 = "107",
+                    b_588 = "72",
+                    b_589 = "244",
+                    b_590 = "82",
+                    b_591 = "69",
+                    b_592 = "103",
+                    b_717 = "280"
+                }
+            },
+ {
+                g = "nein Spaß",
+                r = "eu",
+                s =  "wild growth",
+                id = "awgWJ38cQ4Bp6hvX",
+                ts = "1:15:42",
+                t = {
+                    b_585 = "89",
+                    b_586 = "89",
+                    b_587 = "102",
+                    b_588 = "61",
+                    b_589 = "161",
+                    b_590 = "76",
+                    b_591 = "68",
+                    b_592 = "100",
+                    b_717 = "287"
+                }
+            },
+ {
+                g = "Zugriff",
+                r = "eu",
+                s =  "wild growth",
+                id = "amnkxwQRLrYfpjXh",
+                ts = "1:16:07",
+                t = {
+                    b_585 = "106",
+                    b_586 = "118",
+                    b_587 = "116",
+                    b_588 = "74",
+                    b_589 = "132",
+                    b_590 = "93",
+                    b_591 = "81",
+                    b_592 = "101",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "F R O G S",
+                r = "eu",
+                s =  "wild growth",
+                id = "KnzmVDhPJRjMbYcN",
+                ts = "1:17:37",
+                t = {
+                    b_585 = "85",
+                    b_586 = "93",
+                    b_587 = "101",
+                    b_588 = "70",
+                    b_589 = "94",
+                    b_590 = "63",
+                    b_591 = "93",
+                    b_592 = "94",
+                    b_717 = "337"
+                }
+            },
+ {
+                g = "Relic Hunters",
+                r = "eu",
+                s =  "wild growth",
+                id = "GHgv7mQr9c8Fhz1D",
+                ts = "1:18:02",
+                t = {
+                    b_585 = "79",
+                    b_586 = "92",
+                    b_587 = "110",
+                    b_588 = "61",
+                    b_589 = "143",
+                    b_590 = "70",
+                    b_591 = "65",
+                    b_592 = "79",
+                    b_717 = "263"
+                }
+            },
+ {
+                g = "Vuxendagis",
+                r = "eu",
+                s =  "wild growth",
+                id = "yDTgq9vbaZpk1XVR",
+                ts = "1:18:49",
+                t = {
+                    b_585 = "95",
+                    b_586 = "86",
+                    b_587 = "102",
+                    b_588 = "65",
+                    b_589 = "117",
+                    b_590 = "72",
+                    b_591 = "87",
+                    b_592 = "87",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Shadowsmiters",
+                r = "eu",
+                s =  "wild growth",
+                id = "YJRz6ChVdXbFTyZp",
+                ts = "1:20:16",
+                t = {
+                    b_585 = "97",
+                    b_586 = "129",
+                    b_587 = "132",
+                    b_588 = "75",
+                    b_589 = "145",
+                    b_590 = "76",
+                    b_591 = "114",
+                    b_592 = "96",
+                    b_717 = "371"
+                }
+            },
+ {
+                g = "PLACEHOLDERS",
+                r = "eu",
+                s =  "wild growth",
+                id = "qwBj8AyCYxnhKR4z",
+                ts = "1:20:38",
+                t = {
+                    b_585 = "98",
+                    b_586 = "106",
+                    b_587 = "116",
+                    b_588 = "68",
+                    b_589 = "105",
+                    b_590 = "82",
+                    b_591 = "95",
+                    b_592 = "91",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "Good old times",
+                r = "eu",
+                s =  "wild growth",
+                id = "kvDftmRXGh9wKpC2",
+                ts = "1:20:46",
+                t = {
+                    b_585 = "90",
+                    b_586 = "87",
+                    b_587 = "104",
+                    b_588 = "63",
+                    b_589 = "129",
+                    b_590 = "78",
+                    b_591 = "88",
+                    b_592 = "78",
+                    b_717 = "59"
+                }
+            },
+ {
+                g = "Knights of viagar",
+                r = "eu",
+                s =  "wild growth",
+                id = "C1fGJr2z7T3nmDjw",
+                ts = "1:20:58",
+                t = {
+                    b_585 = "92",
+                    b_586 = "95",
+                    b_587 = "105",
+                    b_588 = "68",
+                    b_589 = "125",
+                    b_590 = "82",
+                    b_591 = "114",
+                    b_592 = "90",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "Nussbaum PUG",
+                r = "eu",
+                s =  "wild growth",
+                id = "W4g3C2NMXVkxBprR",
+                ts = "1:20:58",
+                t = {
+                    b_585 = "92",
+                    b_586 = "95",
+                    b_587 = "105",
+                    b_588 = "68",
+                    b_589 = "125",
+                    b_590 = "82",
+                    b_591 = "114",
+                    b_592 = "90",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "goated",
+                r = "eu",
+                s =  "wild growth",
+                id = "t4jwv7brhFzApYH8",
+                ts = "1:21:33",
+                t = {
+                    b_585 = "112",
+                    b_586 = "102",
+                    b_587 = "96",
+                    b_588 = "60",
+                    b_589 = "118",
+                    b_590 = "81",
+                    b_591 = "92",
+                    b_592 = "81",
+                    b_717 = "338"
+                }
+            },
+ {
+                g = "Spongy Morel",
+                r = "eu",
+                s =  "wild growth",
+                id = "jpY2hzLnQgZ8NtTJ",
+                ts = "1:22:22",
+                t = {
+                    b_585 = "134",
+                    b_586 = "95",
+                    b_587 = "96",
+                    b_588 = "58",
+                    b_589 = "97",
+                    b_590 = "69",
+                    b_591 = "108",
+                    b_592 = "80",
+                    b_717 = "267"
+                }
+            },
+ {
+                g = "Pari Pelikaljaa",
+                r = "eu",
+                s =  "wild growth",
+                id = "dTj3Yng6VN8myR4a",
+                ts = "1:23:29",
+                t = {
+                    b_585 = "91",
+                    b_586 = "110",
+                    b_587 = "114",
+                    b_588 = "63",
+                    b_589 = "159",
+                    b_590 = "74",
+                    b_591 = "86",
+                    b_592 = "94",
+                    b_717 = "380"
+                }
+            },
+ {
+                g = "Fjell",
+                r = "eu",
+                s =  "wild growth",
+                id = "Jxhv6ZrVRf3qnLTj",
+                ts = "1:24:01",
+                t = {
+                    b_585 = "116",
+                    b_586 = "92",
+                    b_587 = "94",
+                    b_588 = "66",
+                    b_589 = "105",
+                    b_590 = "82",
+                    b_591 = "97",
+                    b_592 = "93",
+                    b_717 = "280"
+                }
+            },
+ {
+                g = "Quick and Dirty PUG",
+                r = "eu",
+                s =  "wild growth",
+                id = "6mzpAdcK7vMtBF2Z",
+                ts = "1:24:01",
+                t = {
+                    b_585 = "116",
+                    b_586 = "92",
+                    b_587 = "94",
+                    b_588 = "66",
+                    b_589 = "105",
+                    b_590 = "82",
+                    b_591 = "97",
+                    b_592 = "93",
+                    b_717 = "280"
+                }
+            },
+ {
+                g = "Aegis",
+                r = "eu",
+                s =  "wild growth",
+                id = "HN1fD9GRMPBbQ42q",
+                ts = "1:24:28",
+                t = {
+                    b_585 = "109",
+                    b_586 = "108",
+                    b_587 = "135",
+                    b_588 = "76",
+                    b_589 = "140",
+                    b_590 = "99",
+                    b_591 = "109",
+                    b_592 = "88",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "Wipe Club",
+                r = "eu",
+                s =  "wild growth",
+                id = "L8Rj2XP7mdMJAfZ3",
+                ts = "1:24:51",
+                t = {
+                    b_585 = "85",
+                    b_586 = "76",
+                    b_587 = "85",
+                    b_588 = "42",
+                    b_589 = "91",
+                    b_590 = "53",
+                    b_591 = "76",
+                    b_592 = "53",
+                    b_717 = "250"
+                }
+            },
+ {
+                g = "Nordic Society",
+                r = "eu",
+                s =  "wild growth",
+                id = "cqAgvkrRFQT6haJD",
+                ts = "1:25:15",
+                t = {
+                    b_585 = "94",
+                    b_586 = "102",
+                    b_587 = "119",
+                    b_588 = "79",
+                    b_589 = "161",
+                    b_590 = "83",
+                    b_591 = "85",
+                    b_592 = "96",
+                    b_717 = "290"
+                }
+            },
+ {
+                g = "Domain Expansion",
+                r = "eu",
+                s =  "wild growth",
+                id = "2KZNTqmtyDacJBA1",
+                ts = "1:25:53",
+                t = {
+                    b_585 = "88",
+                    b_586 = "110",
+                    b_587 = "102",
+                    b_588 = "65",
+                    b_589 = "174",
+                    b_590 = "87",
+                    b_591 = "129",
+                    b_592 = "80",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "German Crusaders",
+                r = "eu",
+                s =  "wild growth",
+                id = "jCZRFB6DdXgcLMJp",
+                ts = "1:25:56",
+                t = {
+                    b_585 = "99",
+                    b_586 = "108",
+                    b_587 = "108",
+                    b_588 = "76",
+                    b_589 = "129",
+                    b_590 = "77",
+                    b_591 = "125",
+                    b_592 = "84",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Legenden der Horde",
+                r = "eu",
+                s =  "wild growth",
+                id = "YWVn8vzgfkRhbrKj",
+                ts = "1:26:25",
+                t = {
+                    b_585 = "97",
+                    b_586 = "85",
+                    b_587 = "82",
+                    b_588 = "47",
+                    b_589 = "98",
+                    b_590 = "60",
+                    b_591 = "91",
+                    b_592 = "68",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "Fun runs",
+                r = "eu",
+                s =  "wild growth",
+                id = "v9d1y7fLKDHRVaXQ",
+                ts = "1:26:53",
+                t = {
+                    b_585 = "96",
+                    b_586 = "92",
+                    b_587 = "107",
+                    b_588 = "64",
+                    b_589 = "165",
+                    b_590 = "75",
+                    b_591 = "93",
+                    b_592 = "95",
+                    b_717 = "303"
+                }
+            },
+ {
+                g = "Guacamole on fire",
+                r = "eu",
+                s =  "wild growth",
+                id = "fTza2JC6LPqMdNBA",
+                ts = "1:26:56",
+                t = {
+                    b_585 = "106",
+                    b_586 = "131",
+                    b_587 = "138",
+                    b_588 = "85",
+                    b_589 = "136",
+                    b_590 = "92",
+                    b_591 = "172",
+                    b_592 = "112",
+                    b_717 = "533"
+                }
+            },
+ {
+                g = "Grey Parse Social Club",
+                r = "eu",
+                s =  "wild growth",
+                id = "ByPHX4mvnLf2VTRg",
+                ts = "1:27:55",
+                t = {
+                    b_585 = "92",
+                    b_586 = "105",
+                    b_587 = "103",
+                    b_588 = "63",
+                    b_589 = "127",
+                    b_590 = "78",
+                    b_591 = "205",
+                    b_592 = "93",
+                    b_717 = "252"
+                }
+            },
+ {
+                g = "Nordlys",
+                r = "eu",
+                s =  "wild growth",
+                id = "HvCjrYKgJqxR9tFy",
+                ts = "1:28:20",
+                t = {
+                    b_585 = "95",
+                    b_586 = "120",
+                    b_587 = "125",
+                    b_588 = "78",
+                    b_589 = "111",
+                    b_590 = "92",
+                    b_591 = "104",
+                    b_592 = "93",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "The Breakfast Club",
+                r = "eu",
+                s =  "wild growth",
+                id = "RAcMpgyPxFn3WB7L",
+                ts = "1:28:35",
+                t = {
+                    b_585 = "130",
+                    b_586 = "100",
+                    b_587 = "133",
+                    b_588 = "84",
+                    b_589 = "170",
+                    b_590 = "105",
+                    b_591 = "122",
+                    b_592 = "115",
+                    b_717 = "434"
+                }
+            },
+ {
+                g = "YouWillNot",
+                r = "eu",
+                s =  "wild growth",
+                id = "LKmqa417gvw8ZTJc",
+                ts = "1:28:37",
+                t = {
+                    b_585 = "96",
+                    b_586 = "106",
+                    b_587 = "119",
+                    b_588 = "83",
+                    b_589 = "115",
+                    b_590 = "100",
+                    b_591 = "161",
+                    b_592 = "96",
+                    b_717 = "485"
+                }
+            },
+ {
+                g = "Wizards of the Coast",
+                r = "eu",
+                s =  "wild growth",
+                id = "YQAgCkKaZXjFJcq7",
+                ts = "1:28:56",
+                t = {
+                    b_585 = "92",
+                    b_586 = "124",
+                    b_587 = "129",
+                    b_588 = "72",
+                    b_589 = "166",
+                    b_590 = "80",
+                    b_591 = "85",
+                    b_592 = "96",
+                    b_717 = "298"
+                }
+            },
+ {
+                g = "No Fun Allowed",
+                r = "eu",
+                s =  "wild growth",
+                id = "nx9Lz8h6YVRkjGJC",
+                ts = "1:29:25",
+                t = {
+                    b_585 = "88",
+                    b_586 = "129",
+                    b_587 = "113",
+                    b_588 = "69",
+                    b_589 = "112",
+                    b_590 = "75",
+                    b_591 = "176",
+                    b_592 = "79",
+                    b_717 = "333"
+                }
+            },
+ {
+                g = "Glue Eaters",
+                r = "eu",
+                s =  "wild growth",
+                id = "mThtFfqM8QkGNP2A",
+                ts = "1:29:28",
+                t = {
+                    b_585 = "96",
+                    b_586 = "106",
+                    b_587 = "115",
+                    b_588 = "95",
+                    b_589 = "156",
+                    b_590 = "70",
+                    b_591 = "87",
+                    b_592 = "82",
+                    b_717 = "314"
+                }
+            },
+ {
+                g = "Last Chance",
+                r = "eu",
+                s =  "wild growth",
+                id = "1mDQy8wjPL4FY69a",
+                ts = "1:29:40",
+                t = {
+                    b_585 = "103",
+                    b_586 = "118",
+                    b_587 = "135",
+                    b_588 = "67",
+                    b_589 = "133",
+                    b_590 = "79",
+                    b_591 = "129",
+                    b_592 = "84",
+                    b_717 = "326"
+                }
+            },
+ {
+                g = "Silberschwert",
+                r = "eu",
+                s =  "wild growth",
+                id = "Z6JnG1R32BPqMvXj",
+                ts = "1:29:51",
+                t = {
+                    b_585 = "99",
+                    b_586 = "95",
+                    b_587 = "104",
+                    b_588 = "65",
+                    b_589 = "193",
+                    b_590 = "81",
+                    b_591 = "156",
+                    b_592 = "79",
+                    b_717 = "307"
+                }
+            },
+ {
+                g = "Nocturnus",
+                r = "eu",
+                s =  "wild growth",
+                id = "xt9cnGXCB7fQ8rw6",
+                ts = "1:30:19",
+                t = {
+                    b_585 = "106",
+                    b_586 = "114",
+                    b_587 = "135",
+                    b_588 = "86",
+                    b_589 = "143",
+                    b_590 = "90",
+                    b_591 = "136",
+                    b_592 = "100",
+                    b_717 = "346"
+                }
+            },
+ {
+                g = "Static",
+                r = "eu",
+                s =  "wild growth",
+                id = "J3pcPTzhBmdxnfRb",
+                ts = "1:30:41",
+                t = {
+                    b_585 = "81",
+                    b_586 = "106",
+                    b_587 = "108",
+                    b_588 = "69",
+                    b_589 = "95",
+                    b_590 = "73",
+                    b_591 = "101",
+                    b_592 = "112",
+                    b_717 = "251"
+                }
+            },
+ {
+                g = "Rekrutterne",
+                r = "eu",
+                s =  "wild growth",
+                id = "qn3GwMc2Bth17xvz",
+                ts = "1:31:01",
+                t = {
+                    b_585 = "89",
+                    b_586 = "121",
+                    b_587 = "173",
+                    b_588 = "81",
+                    b_589 = "139",
+                    b_590 = "103",
+                    b_591 = "129",
+                    b_592 = "103",
+                    b_717 = "642"
+                }
+            },
+ {
+                g = "Ritter des Blutschwurs",
+                r = "eu",
+                s =  "wild growth",
+                id = "a3XgM42fznYP1QrZ",
+                ts = "1:31:23",
+                t = {
+                    b_585 = "107",
+                    b_586 = "139",
+                    b_587 = "147",
+                    b_588 = "84",
+                    b_589 = "161",
+                    b_590 = "86",
+                    b_591 = "124",
+                    b_592 = "92",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "Asylum",
+                r = "eu",
+                s =  "wild growth",
+                id = "cjRMX2f46NDZFT8L",
+                ts = "1:31:40",
+                t = {
+                    b_585 = "101",
+                    b_586 = "121",
+                    b_587 = "157",
+                    b_588 = "78",
+                    b_589 = "156",
+                    b_590 = "87",
+                    b_591 = "81",
+                    b_592 = "97",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Scholars of Late Nights",
+                r = "eu",
+                s =  "wild growth",
+                id = "6nAxRT84h3BYabJP",
+                ts = "1:32:03",
+                t = {
+                    b_585 = "139",
+                    b_586 = "127",
+                    b_587 = "120",
+                    b_588 = "75",
+                    b_589 = "151",
+                    b_590 = "79",
+                    b_591 = "122",
+                    b_592 = "86",
+                    b_717 = "289"
+                }
+            },
+ {
+                g = "Nörtit",
+                r = "eu",
+                s =  "wild growth",
+                id = "W3JP8nDgyARdVFTq",
+                ts = "1:32:47",
+                t = {
+                    b_585 = "115",
+                    b_586 = "108",
+                    b_587 = "95",
+                    b_588 = "65",
+                    b_589 = "106",
+                    b_590 = "81",
+                    b_591 = "102",
+                    b_592 = "80",
+                    b_717 = "35"
+                }
+            },
+ {
+                g = "EzClap",
+                r = "eu",
+                s =  "wild growth",
+                id = "1jfHcxg6Lr2k8hJ7",
+                ts = "1:33:05",
+                t = {
+                    b_585 = "104",
+                    b_586 = "111",
+                    b_587 = "159",
+                    b_588 = "91",
+                    b_589 = "116",
+                    b_590 = "86",
+                    b_591 = "163",
+                    b_592 = "124",
+                    b_717 = "326"
+                }
+            },
+ {
+                g = "Operasjon Firkløver",
+                r = "eu",
+                s =  "wild growth",
+                id = "vXmzZ6Gbx3L9h4Cr",
+                ts = "1:33:33",
+                t = {
+                    b_585 = "114",
+                    b_586 = "116",
+                    b_587 = "113",
+                    b_588 = "87",
+                    b_589 = "160",
+                    b_590 = "83",
+                    b_591 = "102",
+                    b_592 = "108",
+                    b_717 = "298"
+                }
+            },
+ {
+                g = "Fishermans Friends",
+                r = "eu",
+                s =  "wild growth",
+                id = "XV1TtGcK4wbRC3r6",
+                ts = "1:33:49",
+                t = {
+                    b_585 = "87",
+                    b_586 = "97",
+                    b_587 = "110",
+                    b_588 = "74",
+                    b_589 = "149",
+                    b_590 = "83",
+                    b_591 = "72",
+                    b_592 = "83",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "Forty Imps",
+                r = "eu",
+                s =  "wild growth",
+                id = "zDXjCad68vpVfnrY",
+                ts = "1:33:53",
+                t = {
+                    b_585 = "91",
+                    b_586 = "98",
+                    b_587 = "86",
+                    b_588 = "57",
+                    b_589 = "130",
+                    b_590 = "67",
+                    b_591 = "60",
+                    b_592 = "72",
+                    b_717 = "238"
+                }
+            },
+ {
+                g = "Chronicle",
+                r = "eu",
+                s =  "wild growth",
+                id = "xQRWL3gPTBnqh2jp",
+                ts = "1:34:11",
+                t = {
+                    b_585 = "97",
+                    b_586 = "118",
+                    b_587 = "115",
+                    b_588 = "80",
+                    b_589 = "122",
+                    b_590 = "82",
+                    b_591 = "138",
+                    b_592 = "106",
+                    b_717 = "368"
+                }
+            },
+ {
+                g = "DEN E BIS",
+                r = "eu",
+                s =  "wild growth",
+                id = "QFdwYRybJjhVazH3",
+                ts = "1:34:13",
+                t = {
+                    b_585 = "98",
+                    b_586 = "106",
+                    b_587 = "128",
+                    b_588 = "73",
+                    b_589 = "147",
+                    b_590 = "80",
+                    b_591 = "128",
+                    b_592 = "103",
+                    b_717 = "332"
+                }
+            },
+ {
+                g = "PowerBuffNerds",
+                r = "eu",
+                s =  "wild growth",
+                id = "mLMCaQtcPH4Gh7ZN",
+                ts = "1:34:29",
+                t = {
+                    b_585 = "92",
+                    b_586 = "110",
+                    b_587 = "128",
+                    b_588 = "75",
+                    b_589 = "160",
+                    b_590 = "95",
+                    b_591 = "71",
+                    b_592 = "113",
+                    b_717 = "335"
+                }
+            },
+ {
+                g = "Unbuffed",
+                r = "eu",
+                s =  "wild growth",
+                id = "TqxZ3fh4Dj96Gmpk",
+                ts = "1:35:13",
+                t = {
+                    b_585 = "86",
+                    b_586 = "106",
+                    b_587 = "133",
+                    b_588 = "67",
+                    b_589 = "132",
+                    b_590 = "79",
+                    b_591 = "180",
+                    b_592 = "95",
+                    b_717 = "494"
+                }
+            },
+ {
+                g = "Die Gummibärenbande",
+                r = "eu",
+                s =  "wild growth",
+                id = "FpQGnyrPzgfTMWXq",
+                ts = "1:35:15",
+                t = {
+                    b_585 = "93",
+                    b_586 = "107",
+                    b_587 = "114",
+                    b_588 = "66",
+                    b_589 = "212",
+                    b_590 = "80",
+                    b_591 = "86",
+                    b_592 = "94",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "ZugZug",
+                r = "eu",
+                s =  "wild growth",
+                id = "wgDkzFm2TRjdG8Cy",
+                ts = "1:35:19",
+                t = {
+                    b_585 = "142",
+                    b_586 = "124",
+                    b_587 = "131",
+                    b_588 = "84",
+                    b_589 = "172",
+                    b_590 = "101",
+                    b_591 = "235",
+                    b_592 = "132",
+                    b_717 = "480"
+                }
+            },
+ {
+                g = "Wolfsrudel",
+                r = "eu",
+                s =  "wild growth",
+                id = "Xfb2p3VM1wQAaLzJ",
+                ts = "1:36:10",
+                t = {
+                    b_585 = "88",
+                    b_586 = "94",
+                    b_587 = "112",
+                    b_588 = "59",
+                    b_589 = "136",
+                    b_590 = "68",
+                    b_591 = "116",
+                    b_592 = "77",
+                    b_717 = "292"
+                }
+            },
+ {
+                g = "Ara Ara",
+                r = "eu",
+                s =  "wild growth",
+                id = "YFd3P8tTMnB6yZf1",
+                ts = "1:36:29",
+                t = {
+                    b_585 = "96",
+                    b_586 = "115",
+                    b_587 = "126",
+                    b_588 = "68",
+                    b_589 = "114",
+                    b_590 = "82",
+                    b_591 = "153",
+                    b_592 = "96",
+                    b_717 = "262"
+                }
+            },
+ {
+                g = "DadbodsAndHeadshots",
+                r = "eu",
+                s =  "wild growth",
+                id = "g7mYRMBAD61CGdVq",
+                ts = "1:36:30",
+                t = {
+                    b_585 = "84",
+                    b_586 = "108",
+                    b_587 = "107",
+                    b_588 = "56",
+                    b_589 = "102",
+                    b_590 = "72",
+                    b_591 = "79",
+                    b_592 = "83",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Certus Excessum",
+                r = "eu",
+                s =  "wild growth",
+                id = "AwMZyD6nxfN4g3zc",
+                ts = "1:36:33",
+                t = {
+                    b_585 = "120",
+                    b_586 = "131",
+                    b_587 = "142",
+                    b_588 = "105",
+                    b_589 = "161",
+                    b_590 = "97",
+                    b_591 = "161",
+                    b_592 = "104",
+                    b_717 = "460"
+                }
+            },
+ {
+                g = "Rapture",
+                r = "eu",
+                s =  "wild growth",
+                id = "kPzBAQDmvZ614Tbt",
+                ts = "1:37:33",
+                t = {
+                    b_585 = "96",
+                    b_586 = "92",
+                    b_587 = "109",
+                    b_588 = "57",
+                    b_589 = "129",
+                    b_590 = "73",
+                    b_591 = "73",
+                    b_592 = "83",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "Solar",
+                r = "eu",
+                s =  "wild growth",
+                id = "Vbzw1WM4dLypBnFh",
+                ts = "1:38:20",
+                t = {
+                    b_585 = "94",
+                    b_586 = "137",
+                    b_587 = "133",
+                    b_588 = "82",
+                    b_589 = "186",
+                    b_590 = "92",
+                    b_591 = "127",
+                    b_592 = "92",
+                    b_717 = "278"
+                }
+            },
+ {
+                g = "Norse",
+                r = "eu",
+                s =  "wild growth",
+                id = "r7RwCjhXWFqyvVKg",
+                ts = "1:39:13",
+                t = {
+                    b_585 = "94",
+                    b_586 = "113",
+                    b_587 = "122",
+                    b_588 = "83",
+                    b_589 = "211",
+                    b_590 = "107",
+                    b_591 = "162",
+                    b_592 = "102",
+                    b_717 = "405"
+                }
+            },
+ {
+                g = "BB PUGS",
+                r = "eu",
+                s =  "wild growth",
+                id = "VTQq637HZgmJG4kL",
+                ts = "1:39:22",
+                t = {
+                    b_585 = "115",
+                    b_586 = "165",
+                    b_587 = "148",
+                    b_588 = "94",
+                    b_589 = "188",
+                    b_590 = "105",
+                    b_591 = "189",
+                    b_592 = "139",
+                    b_717 = "445"
+                }
+            },
+ {
+                g = "Tactically Challenged",
+                r = "eu",
+                s =  "wild growth",
+                id = "gdXvPBJhWN3xa6Gw",
+                ts = "1:40:11",
+                t = {
+                    b_585 = "106",
+                    b_586 = "105",
+                    b_587 = "140",
+                    b_588 = "74",
+                    b_589 = "188",
+                    b_590 = "94",
+                    b_591 = "175",
+                    b_592 = "167",
+                    b_717 = "468"
+                }
+            },
+ {
+                g = "Ashen Revenants",
+                r = "eu",
+                s =  "wild growth",
+                id = "FJrf590mLhYMbkHj",
+                ts = "1:40:26",
+                t = {
+                    b_585 = "106",
+                    b_586 = "98",
+                    b_587 = "231",
+                    b_588 = "75",
+                    b_589 = "144",
+                    b_590 = "66",
+                    b_591 = "94",
+                    b_592 = "86",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "Bare Minimum",
+                r = "eu",
+                s =  "wild growth",
+                id = "qymYHgXaxfbRLCDM",
+                ts = "1:40:35",
+                t = {
+                    b_585 = "125",
+                    b_586 = "132",
+                    b_587 = "140",
+                    b_588 = "71",
+                    b_589 = "179",
+                    b_590 = "74",
+                    b_591 = "101",
+                    b_592 = "79",
+                    b_717 = "496"
+                }
+            },
+ {
+                g = "Mordlust Crew",
+                r = "eu",
+                s =  "wild growth",
+                id = "faB39Ng6bHPmtycL",
+                ts = "1:41:06",
+                t = {
+                    b_585 = "140",
+                    b_586 = "123",
+                    b_587 = "112",
+                    b_588 = "67",
+                    b_589 = "139",
+                    b_590 = "77",
+                    b_591 = "64",
+                    b_592 = "98",
+                    b_717 = "334"
+                }
+            },
+ {
+                g = "Thunder Bluff Steakhouse",
+                r = "eu",
+                s =  "wild growth",
+                id = "dTgNyqVA7v8QjRKJ",
+                ts = "1:41:24",
+                t = {
+                    b_585 = "161",
+                    b_586 = "142",
+                    b_587 = "156",
+                    b_588 = "97",
+                    b_589 = "190",
+                    b_590 = "107",
+                    b_591 = "174",
+                    b_592 = "138",
+                    b_717 = "601"
+                }
+            },
+ {
+                g = "Les Esprits Ravagés",
+                r = "eu",
+                s =  "wild growth",
+                id = "HJm4WQ9TXwFD6NBL",
+                ts = "1:42:22",
+                t = {
+                    b_585 = "119",
+                    b_586 = "116",
+                    b_587 = "111",
+                    b_588 = "80",
+                    b_589 = "108",
+                    b_590 = "88",
+                    b_591 = "97",
+                    b_592 = "101",
+                    b_717 = "396"
+                }
+            },
+ {
+                g = "Onyfans",
+                r = "eu",
+                s =  "wild growth",
+                id = "LVmfr1KYwZN3q7vh",
+                ts = "1:42:32",
+                t = {
+                    b_585 = "173",
+                    b_586 = "115",
+                    b_587 = "120",
+                    b_588 = "88",
+                    b_589 = "141",
+                    b_590 = "86",
+                    b_591 = "131",
+                    b_592 = "99",
+                    b_717 = "363"
+                }
+            },
+ {
+                g = "gamerz",
+                r = "eu",
+                s =  "wild growth",
+                id = "aRDVtC1Jc4jnXkyP",
+                ts = "1:42:58",
+                t = {
+                    b_585 = "94",
+                    b_586 = "106",
+                    b_587 = "146",
+                    b_588 = "87",
+                    b_589 = "138",
+                    b_590 = "81",
+                    b_591 = "88",
+                    b_592 = "92",
+                    b_717 = "353"
+                }
+            },
+ {
+                g = "Madhouse",
+                r = "eu",
+                s =  "wild growth",
+                id = "2rR7VpHFbx8TyqYP",
+                ts = "1:43:59",
+                t = {
+                    b_585 = "94",
+                    b_586 = "92",
+                    b_587 = "119",
+                    b_588 = "68",
+                    b_589 = "110",
+                    b_590 = "75",
+                    b_591 = "96",
+                    b_592 = "86",
+                    b_717 = "260"
+                }
+            },
+ {
+                g = "Epische Chaoten",
+                r = "eu",
+                s =  "wild growth",
+                id = "Xb1ZVYdKAG9Mypjk",
+                ts = "1:44:13",
+                t = {
+                    b_585 = "151",
+                    b_586 = "126",
+                    b_587 = "116",
+                    b_588 = "99",
+                    b_589 = "131",
+                    b_590 = "91",
+                    b_591 = "159",
+                    b_592 = "103",
+                    b_717 = "577"
+                }
+            },
+ {
+                g = "Without Limits",
+                r = "eu",
+                s =  "wild growth",
+                id = "Z87gjpBRf4rVmXvN",
+                ts = "1:44:27",
+                t = {
+                    b_585 = "126",
+                    b_586 = "147",
+                    b_587 = "131",
+                    b_588 = "83",
+                    b_589 = "158",
+                    b_590 = "99",
+                    b_591 = "127",
+                    b_592 = "125",
+                    b_717 = "465"
+                }
+            },
+ {
+                g = "Nepotism",
+                r = "eu",
+                s =  "wild growth",
+                id = "3qTknC7QyRG8FYdg",
+                ts = "1:44:38",
+                t = {
+                    b_585 = "106",
+                    b_586 = "110",
+                    b_587 = "120",
+                    b_588 = "71",
+                    b_589 = "156",
+                    b_590 = "86",
+                    b_591 = "131",
+                    b_592 = "98",
+                    b_717 = "533"
+                }
+            },
+ {
+                g = "Le Bar à Chats",
+                r = "eu",
+                s =  "wild growth",
+                id = "7AhrwdJftxbWPj92",
+                ts = "1:44:42",
+                t = {
+                    b_585 = "92",
+                    b_586 = "114",
+                    b_587 = "113",
+                    b_588 = "81",
+                    b_589 = "138",
+                    b_590 = "76",
+                    b_591 = "91",
+                    b_592 = "95",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "Balance",
+                r = "eu",
+                s =  "wild growth",
+                id = "Pg8V1hJ7kXjmwGt2",
+                ts = "1:44:55",
+                t = {
+                    b_585 = "113",
+                    b_586 = "137",
+                    b_587 = "169",
+                    b_588 = "93",
+                    b_589 = "145",
+                    b_590 = "97",
+                    b_591 = "129",
+                    b_592 = "111",
+                    b_717 = "457"
+                }
+            },
+ {
+                g = "Phoenix",
+                r = "eu",
+                s =  "wild growth",
+                id = "ALmgDPfzJQ89K6Mw",
+                ts = "1:45:08",
+                t = {
+                    b_585 = "116",
+                    b_586 = "143",
+                    b_587 = "155",
+                    b_588 = "103",
+                    b_589 = "135",
+                    b_590 = "95",
+                    b_591 = "161",
+                    b_592 = "194",
+                    b_717 = "426"
+                }
+            },
+ {
+                g = "Nástrandir",
+                r = "eu",
+                s =  "wild growth",
+                id = "CV97cLdXrNRWpYgA",
+                ts = "1:45:50",
+                t = {
+                    b_585 = "126",
+                    b_586 = "126",
+                    b_587 = "188",
+                    b_588 = "94",
+                    b_589 = "210",
+                    b_590 = "100",
+                    b_591 = "232",
+                    b_592 = "131",
+                    b_717 = "506"
+                }
+            },
+ {
+                g = "Thunder Killer Strength",
+                r = "eu",
+                s =  "wild growth",
+                id = "WjYvTCbhmLtD4wGy",
+                ts = "1:46:52",
+                t = {
+                    b_585 = "92",
+                    b_586 = "93",
+                    b_587 = "113",
+                    b_588 = "94",
+                    b_589 = "134",
+                    b_590 = "115",
+                    b_591 = "89",
+                    b_592 = "102",
+                    b_717 = "430"
+                }
+            },
+ {
+                g = "Pandion Knights",
+                r = "eu",
+                s =  "wild growth",
+                id = "B3dxtckF7QvzZJAR",
+                ts = "1:47:22",
+                t = {
+                    b_585 = "93",
+                    b_586 = "108",
+                    b_587 = "102",
+                    b_588 = "53",
+                    b_589 = "133",
+                    b_590 = "69",
+                    b_591 = "99",
+                    b_592 = "93",
+                    b_717 = "339"
+                }
+            },
+ {
+                g = "Cruisaders",
+                r = "eu",
+                s =  "wild growth",
+                id = "p7d2D6ryYaAqRfJX",
+                ts = "1:47:35",
+                t = {
+                    b_585 = "139",
+                    b_586 = "125",
+                    b_587 = "116",
+                    b_588 = "81",
+                    b_589 = "179",
+                    b_590 = "83",
+                    b_591 = "132",
+                    b_592 = "104",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "renegades",
+                r = "eu",
+                s =  "wild growth",
+                id = "ymNq3t6KYJCxLXcR",
+                ts = "1:48:09",
+                t = {
+                    b_585 = "148",
+                    b_586 = "114",
+                    b_587 = "131",
+                    b_588 = "87",
+                    b_589 = "134",
+                    b_590 = "94",
+                    b_591 = "218",
+                    b_592 = "105",
+                    b_717 = "551"
+                }
+            },
+ {
+                g = "Wir nehmen Kerze",
+                r = "eu",
+                s =  "wild growth",
+                id = "cQPYkjBTxCMqgWFr",
+                ts = "1:48:49",
+                t = {
+                    b_585 = "151",
+                    b_586 = "123",
+                    b_587 = "129",
+                    b_588 = "84",
+                    b_589 = "143",
+                    b_590 = "90",
+                    b_591 = "191",
+                    b_592 = "114",
+                    b_717 = "520"
+                }
+            },
+ {
+                g = "Wertgegenstandskumpanen",
+                r = "eu",
+                s =  "wild growth",
+                id = "RCVQYjfgqMyX1bBm",
+                ts = "1:49:00",
+                t = {
+                    b_585 = "101",
+                    b_586 = "139",
+                    b_587 = "135",
+                    b_588 = "79",
+                    b_589 = "169",
+                    b_590 = "88",
+                    b_591 = "172",
+                    b_592 = "107",
+                    b_717 = "425"
+                }
+            },
+ {
+                g = "Barrio Sésamo",
+                r = "eu",
+                s =  "wild growth",
+                id = "73kXQzwLZrDNjgK2",
+                ts = "1:49:44",
+                t = {
+                    b_585 = "96",
+                    b_586 = "124",
+                    b_587 = "131",
+                    b_588 = "89",
+                    b_589 = "188",
+                    b_590 = "95",
+                    b_591 = "175",
+                    b_592 = "98",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "Warchiefs Call",
+                r = "eu",
+                s =  "wild growth",
+                id = "4axbLTgK9CWdrmHt",
+                ts = "1:50:01",
+                t = {
+                    b_585 = "171",
+                    b_586 = "157",
+                    b_587 = "175",
+                    b_588 = "115",
+                    b_589 = "175",
+                    b_590 = "109",
+                    b_591 = "193",
+                    b_592 = "135",
+                    b_717 = "494"
+                }
+            },
+ {
+                g = "Klassenkameraden",
+                r = "eu",
+                s =  "wild growth",
+                id = "db3WGVA18PN2fLRt",
+                ts = "1:50:01",
+                t = {
+                    b_585 = "192",
+                    b_586 = "123",
+                    b_587 = "157",
+                    b_588 = "102",
+                    b_589 = "134",
+                    b_590 = "94",
+                    b_591 = "156",
+                    b_592 = "177",
+                    b_717 = "476"
+                }
+            },
+ {
+                g = "Rush",
+                r = "eu",
+                s =  "wild growth",
+                id = "2RNvHPnZAXF74ycC",
+                ts = "1:50:47",
+                t = {
+                    b_585 = "106",
+                    b_586 = "147",
+                    b_587 = "186",
+                    b_588 = "120",
+                    b_589 = "139",
+                    b_590 = "87",
+                    b_591 = "163",
+                    b_592 = "112",
+                    b_717 = "407"
+                }
+            },
+ {
+                g = "Effect",
+                r = "eu",
+                s =  "wild growth",
+                id = "KxgyCAv6J4mfXcwk",
+                ts = "1:51:06",
+                t = {
+                    b_585 = "126",
+                    b_586 = "101",
+                    b_587 = "112",
+                    b_588 = "71",
+                    b_589 = "116",
+                    b_590 = "83",
+                    b_591 = "97",
+                    b_592 = "103",
+                    b_717 = "293"
+                }
+            },
+ {
+                g = "Hordisch by Nature",
+                r = "eu",
+                s =  "wild growth",
+                id = "8gJBd4fFVC6hRLjZ",
+                ts = "1:52:14",
+                t = {
+                    b_585 = "80",
+                    b_586 = "92",
+                    b_587 = "87",
+                    b_588 = "56",
+                    b_589 = "118",
+                    b_590 = "59",
+                    b_591 = "59",
+                    b_592 = "76",
+                    b_717 = "285"
+                }
+            },
+ {
+                g = "Buddies",
+                r = "eu",
+                s =  "wild growth",
+                id = "kjpcHZC7yzdDwgar",
+                ts = "1:53:23",
+                t = {
+                    b_585 = "94",
+                    b_586 = "118",
+                    b_587 = "174",
+                    b_588 = "107",
+                    b_589 = "244",
+                    b_590 = "91",
+                    b_591 = "170",
+                    b_592 = "110",
+                    b_717 = "370"
+                }
+            },
+ {
+                g = "Lotus Pug",
+                r = "eu",
+                s =  "wild growth",
+                id = "89NwArXzRgj6WJdC",
+                ts = "1:54:18",
+                t = {
+                    b_585 = "92",
+                    b_586 = "123",
+                    b_587 = "161",
+                    b_588 = "84",
+                    b_589 = "181",
+                    b_590 = "96",
+                    b_591 = "191",
+                    b_592 = "246",
+                    b_717 = "566"
+                }
+            },
+ {
+                g = "Bierkeller",
+                r = "eu",
+                s =  "wild growth",
+                id = "P1fDmYMV8ah4gBwj",
+                ts = "1:54:26",
+                t = {
+                    b_585 = "228",
+                    b_586 = "134",
+                    b_587 = "131",
+                    b_588 = "88",
+                    b_589 = "127",
+                    b_590 = "93",
+                    b_591 = "166",
+                    b_592 = "134",
+                    b_717 = "546"
+                }
+            },
+ {
+                g = "The Emerald Dream",
+                r = "eu",
+                s =  "wild growth",
+                id = "WfCQqRgrpy8LBY1b",
+                ts = "1:54:29",
+                t = {
+                    b_585 = "93",
+                    b_586 = "113",
+                    b_587 = "99",
+                    b_588 = "80",
+                    b_589 = "149",
+                    b_590 = "77",
+                    b_591 = "168",
+                    b_592 = "87",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Elwynn Ice Cream Truck",
+                r = "eu",
+                s =  "wild growth",
+                id = "BqmWM6n8aVdZP3Fx",
+                ts = "1:55:05",
+                t = {
+                    b_585 = "119",
+                    b_586 = "118",
+                    b_587 = "141",
+                    b_588 = "101",
+                    b_589 = "142",
+                    b_590 = "94",
+                    b_591 = "114",
+                    b_592 = "141",
+                    b_717 = "268"
+                }
+            },
+ {
+                g = "Supreme",
+                r = "eu",
+                s =  "wild growth",
+                id = "NjxgY9H2ZC3f61AP",
+                ts = "1:56:20",
+                t = {
+                    b_585 = "108",
+                    b_586 = "128",
+                    b_587 = "135",
+                    b_588 = "88",
+                    b_589 = "180",
+                    b_590 = "114",
+                    b_591 = "156",
+                    b_592 = "129",
+                    b_717 = "444"
+                }
+            },
+ {
+                g = "Hidden Realm LISC Team",
+                r = "eu",
+                s =  "wild growth",
+                id = "NcTykt3DrRgzdq4Z",
+                ts = "1:57:32",
+                t = {
+                    b_585 = "110",
+                    b_586 = "132",
+                    b_587 = "110",
+                    b_588 = "88",
+                    b_589 = "109",
+                    b_590 = "84",
+                    b_591 = "137",
+                    b_592 = "105",
+                    b_717 = "388"
+                }
+            },
+ {
+                g = "Taunt",
+                r = "eu",
+                s =  "wild growth",
+                id = "d94KADr12Tb7tPzp",
+                ts = "1:57:38",
+                t = {
+                    b_585 = "155",
+                    b_586 = "126",
+                    b_587 = "123",
+                    b_588 = "102",
+                    b_589 = "28",
+                    b_590 = "94",
+                    b_591 = "176",
+                    b_592 = "114",
+                    b_717 = "383"
+                }
+            },
+ {
+                g = "Fathers Flock",
+                r = "eu",
+                s =  "wild growth",
+                id = "vRW4bpMXzAnrd9aJ",
+                ts = "1:58:06",
+                t = {
+                    b_585 = "127",
+                    b_586 = "171",
+                    b_587 = "154",
+                    b_588 = "110",
+                    b_589 = "236",
+                    b_590 = "105",
+                    b_591 = "144",
+                    b_592 = "113",
+                    b_717 = "531"
+                }
+            },
+ {
+                g = "Scrubs",
+                r = "eu",
+                s =  "wild growth",
+                id = "RhfBVyNLZ3qXQa9p",
+                ts = "1:59:10",
+                t = {
+                    b_585 = "126",
+                    b_586 = "360",
+                    b_587 = "240",
+                    b_588 = "134",
+                    b_589 = "198",
+                    b_590 = "119",
+                    b_591 = "94",
+                    b_592 = "175",
+                    b_717 = "529"
+                }
+            },
+ {
+                g = "Mutiny",
+                r = "eu",
+                s =  "wild growth",
+                id = "zPFJDgY9HdKhRGZp",
+                ts = "2:02:02",
+                t = {
+                    b_585 = "108",
+                    b_586 = "125",
+                    b_587 = "131",
+                    b_588 = "95",
+                    b_589 = "177",
+                    b_590 = "101",
+                    b_591 = "83",
+                    b_592 = "164",
+                    b_717 = "411"
+                }
+            },
+ {
+                g = "Midnight Sun Order",
+                r = "eu",
+                s =  "wild growth",
+                id = "qJLcwtBF7CWaAGxM",
+                ts = "2:02:34",
+                t = {
+                    b_585 = "107",
+                    b_586 = "123",
+                    b_587 = "140",
+                    b_588 = "118",
+                    b_589 = "153",
+                    b_590 = "94",
+                    b_591 = "195",
+                    b_592 = "128",
+                    b_717 = "35"
+                }
+            },
+ {
+                g = "Synergy Inc",
+                r = "eu",
+                s =  "wild growth",
+                id = "4PtC2nTa7HmYAZbp",
+                ts = "2:02:35",
+                t = {
+                    b_585 = "105",
+                    b_586 = "149",
+                    b_587 = "152",
+                    b_588 = "86",
+                    b_589 = "134",
+                    b_590 = "93",
+                    b_591 = "279",
+                    b_592 = "110",
+                    b_717 = "418"
+                }
+            },
+ {
+                g = "The Invincibles",
+                r = "eu",
+                s =  "wild growth",
+                id = "DVBtKrTLqA1QWnCx",
+                ts = "2:03:23",
+                t = {
+                    b_585 = "124",
+                    b_586 = "128",
+                    b_587 = "146",
+                    b_588 = "88",
+                    b_589 = "198",
+                    b_590 = "80",
+                    b_591 = "205",
+                    b_592 = "100",
+                    b_717 = "532"
+                }
+            },
+ {
+                g = "Screamworks",
+                r = "eu",
+                s =  "wild growth",
+                id = "nkqMwCZBLThPt4Gr",
+                ts = "2:04:14",
+                t = {
+                    b_585 = "136",
+                    b_586 = "118",
+                    b_587 = "145",
+                    b_588 = "78",
+                    b_589 = "170",
+                    b_590 = "84",
+                    b_591 = "134",
+                    b_592 = "116",
+                    b_717 = "30"
+                }
+            },
+ {
+                g = "Swedish-Alliance",
+                r = "eu",
+                s =  "wild growth",
+                id = "QdzTbm4cLqjRnBpy",
+                ts = "2:07:09",
+                t = {
+                    b_585 = "149",
+                    b_586 = "158",
+                    b_587 = "162",
+                    b_588 = "152",
+                    b_589 = "167",
+                    b_590 = "90",
+                    b_591 = "177",
+                    b_592 = "126",
+                    b_717 = "693"
+                }
+            },
+ {
+                g = "Infamous",
+                r = "eu",
+                s =  "wild growth",
+                id = "jPrmYCqwpxcv37hG",
+                ts = "2:08:36",
+                t = {
+                    b_585 = "171",
+                    b_586 = "145",
+                    b_587 = "167",
+                    b_588 = "97",
+                    b_589 = "224",
+                    b_590 = "113",
+                    b_591 = "257",
+                    b_592 = "148",
+                    b_717 = "498"
+                }
+            },
+ {
+                g = "La Última Alianza",
+                r = "eu",
+                s =  "wild growth",
+                id = "qzgpw2D6cTbNJxV8",
+                ts = "2:09:33",
+                t = {
+                    b_585 = "110",
+                    b_586 = "119",
+                    b_587 = "116",
+                    b_588 = "71",
+                    b_589 = "199",
+                    b_590 = "77",
+                    b_591 = "199",
+                    b_592 = "141",
+                    b_717 = "504"
+                }
+            },
+ {
+                g = "Minuit",
+                r = "eu",
+                s =  "wild growth",
+                id = "GazVnMHcPq6RpfAF",
+                ts = "2:09:34",
+                t = {
+                    b_585 = "123",
+                    b_586 = "144",
+                    b_587 = "159",
+                    b_588 = "120",
+                    b_589 = "219",
+                    b_590 = "110",
+                    b_591 = "187",
+                    b_592 = "148",
+                    b_717 = "614"
+                }
+            },
+ {
+                g = "Bitte nicht Füttern",
+                r = "eu",
+                s =  "wild growth",
+                id = "pXBA4FH7nbgQTNG1",
+                ts = "2:11:02",
+                t = {
+                    b_585 = "147",
+                    b_586 = "129",
+                    b_587 = "255",
+                    b_588 = "138",
+                    b_589 = "182",
+                    b_590 = "94",
+                    b_591 = "233",
+                    b_592 = "119",
+                    b_717 = "449"
+                }
+            },
+ {
+                g = "Gnomeregang",
+                r = "eu",
+                s =  "wild growth",
+                id = "pGL1KwFjVmRaxWCd",
+                ts = "2:19:02",
+                t = {
+                    b_585 = "124",
+                    b_586 = "144",
+                    b_587 = "155",
+                    b_588 = "117",
+                    b_589 = "188",
+                    b_590 = "135",
+                    b_591 = "167",
+                    b_592 = "115",
+                    b_717 = "337"
+                }
+            },
+ {
+                g = "Tentative",
+                r = "eu",
+                s =  "wild growth",
+                id = "QvCT3pGj4MAWyKFm",
+                ts = "2:19:30",
+                t = {
+                    b_585 = "110",
+                    b_586 = "132",
+                    b_587 = "127",
+                    b_588 = "109",
+                    b_589 = "131",
+                    b_590 = "97",
+                    b_591 = "149",
+                    b_592 = "108",
+                    b_717 = "495"
+                }
+            },
+ {
+                g = "La Taverne du Renard",
+                r = "eu",
+                s =  "wild growth",
+                id = "zh31CWr8qKHXwGfc",
+                ts = "2:21:04",
+                t = {
+                    b_585 = "99",
+                    b_586 = "142",
+                    b_587 = "81",
+                    b_588 = "104",
+                    b_589 = "176",
+                    b_590 = "98",
+                    b_591 = "154",
+                    b_592 = "100",
+                    b_717 = "341"
+                }
+            },
+ {
+                g = "The Scarlet Lodge",
+                r = "eu",
+                s =  "wild growth",
+                id = "ryT1qhD4mAbX6HRY",
+                ts = "2:21:32",
+                t = {
+                    b_585 = "90",
+                    b_586 = "106",
+                    b_587 = "123",
+                    b_588 = "77",
+                    b_589 = "310",
+                    b_590 = "83",
+                    b_591 = "127",
+                    b_592 = "131",
+                    b_717 = "428"
+                }
+            },
+ {
+                g = "Discovery Channel",
+                r = "eu",
+                s =  "wild growth",
+                id = "D8pW7tCZrwyXmANk",
+                ts = "2:21:34",
+                t = {
+                    b_585 = "219",
+                    b_586 = "171",
+                    b_587 = "332",
+                    b_588 = "115",
+                    b_589 = "206",
+                    b_590 = "120",
+                    b_591 = "419",
+                    b_592 = "137",
+                    b_717 = "544"
+                }
+            },
+ {
+                g = "Blood Axes",
+                r = "eu",
+                s =  "wild growth",
+                id = "q8932j1PaXGdKhc4",
+                ts = "2:22:51",
+                t = {
+                    b_585 = "146",
+                    b_586 = "170",
+                    b_587 = "169",
+                    b_588 = "163",
+                    b_589 = "361",
+                    b_590 = "116",
+                    b_591 = "168",
+                    b_592 = "226",
+                    b_717 = "461"
+                }
+            },
+ {
+                g = "Touch of Winter",
+                r = "eu",
+                s =  "wild growth",
+                id = "Ya1TNpgtvhZmbJ7n",
+                ts = "2:24:09",
+                t = {
+                    b_585 = "183",
+                    b_586 = "116",
+                    b_587 = "135",
+                    b_588 = "69",
+                    b_589 = "142",
+                    b_590 = "90",
+                    b_591 = "137",
+                    b_592 = "135",
+                    b_717 = "473"
+                }
+            },
+ {
+                g = "Elysion",
+                r = "eu",
+                s =  "wild growth",
+                id = "jawG2vxXTYk4frhd",
+                ts = "2:25:35",
+                t = {
+                    b_585 = "105",
+                    b_586 = "123",
+                    b_587 = "158",
+                    b_588 = "85",
+                    b_589 = "196",
+                    b_590 = "94",
+                    b_591 = "175",
+                    b_592 = "134",
+                    b_717 = "609"
+                }
+            },
+ {
+                g = "contineo",
+                r = "eu",
+                s =  "wild growth",
+                id = "NW7dCbynvwfD982B",
+                ts = "2:30:35",
+                t = {
+                    b_585 = "124",
+                    b_586 = "127",
+                    b_587 = "142",
+                    b_588 = "94",
+                    b_589 = "154",
+                    b_590 = "97",
+                    b_591 = "310",
+                    b_592 = "129",
+                    b_717 = "55"
+                }
+            },
+ {
+                g = "Furbolg Lair Enthusiasts",
+                r = "eu",
+                s =  "wild growth",
+                id = "QAgytBrw2Zmq6bLk",
+                ts = "2:44:04",
+                t = {
+                    b_585 = "144",
+                    b_586 = "212",
+                    b_587 = "217",
+                    b_588 = "143",
+                    b_589 = "187",
+                    b_590 = "138",
+                    b_591 = "305",
+                    b_592 = "192",
+                    b_717 = "694"
+                }
+            },
+ {
+                g = "The Iron Ring",
+                r = "eu",
+                s =  "wild growth",
+                id = "xgWRb46TNq1Bt2Gc",
+                ts = "2:45:54",
+                t = {
+                    b_585 = "103",
+                    b_586 = "105",
+                    b_587 = "141",
+                    b_588 = "71",
+                    b_589 = "170",
+                    b_590 = "85",
+                    b_591 = "127",
+                    b_592 = "89",
+                    b_717 = "781"
+                }
+            },
+ {
+                g = "Mild Growth",
+                r = "eu",
+                s =  "wild growth",
+                id = "qcZfdkp2DVLa8hQR",
+                ts = "2:48:23",
+                t = {
+                    b_585 = "119",
+                    b_586 = "145",
+                    b_587 = "163",
+                    b_588 = "120",
+                    b_589 = "204",
+                    b_590 = "110",
+                    b_591 = "264",
+                    b_592 = "131",
+                    b_717 = "621"
+                }
+            },
+ {
+                g = "Nomads",
+                r = "eu",
+                s =  "wild growth",
+                id = "4mHQMcPzLVgR2bNd",
+                ts = "2:49:02",
+                t = {
+                    b_585 = "114",
+                    b_586 = "113",
+                    b_587 = "141",
+                    b_588 = "85",
+                    b_589 = "451",
+                    b_590 = "100",
+                    b_591 = "156",
+                    b_592 = "175",
+                    b_717 = "548"
+                }
+            },
+ {
+                g = "Papírnictví",
+                r = "eu",
+                s =  "wild growth",
+                id = "YTyfMLA7Qb2qakXZ",
+                ts = "2:54:08",
+                t = {
+                    b_585 = "98",
+                    b_586 = "126",
+                    b_587 = "162",
+                    b_588 = "91",
+                    b_589 = "121",
+                    b_590 = "101",
+                    b_591 = "341",
+                    b_592 = "129",
+                    b_717 = "24"
+                }
+            },
+ {
+                g = "Moonwell Poolparty",
+                r = "eu",
+                s =  "wild growth",
+                id = "R4CgJGWA3PraFhMB",
+                ts = "2:57:13",
+                t = {
+                    b_585 = "168",
+                    b_586 = "194",
+                    b_587 = "222",
+                    b_588 = "134",
+                    b_589 = "112",
+                    b_590 = "82",
+                    b_591 = "208",
+                    b_592 = "155",
+                    b_717 = "658"
+                }
+            },
+ {
+                g = "Okay",
+                r = "eu",
+                s =  "wild growth",
+                id = "4bWz3VdjyA9CMZx6",
+                ts = "2:59:18",
+                t = {
+                    b_585 = "150",
+                    b_586 = "179",
+                    b_587 = "216",
+                    b_588 = "169",
+                    b_589 = "505",
+                    b_590 = "126",
+                    b_591 = "432",
+                    b_592 = "240",
+                    b_717 = "635"
+                }
+            },
+ {
+                g = "Salvation",
+                r = "eu",
+                s =  "wild growth",
+                id = "C1fq6FwT2ApvQhPZ",
+                ts = "3:05:42",
+                t = {
+                    b_585 = "106",
+                    b_586 = "144",
+                    b_587 = "163",
+                    b_588 = "129",
+                    b_589 = "254",
+                    b_590 = "91",
+                    b_591 = "187",
+                    b_592 = "120",
+                    b_717 = "604"
+                }
+            },
+ {
+                g = "Iron Will",
+                r = "eu",
+                s =  "wild growth",
+                id = "t3y2B4YjWRx1pgHr",
+                ts = "3:26:06",
+                t = {
+                    b_585 = "235",
+                    b_586 = "174",
+                    b_587 = "157",
+                    b_588 = "140",
+                    b_589 = "226",
+                    b_590 = "136",
+                    b_591 = "203",
+                    b_592 = "163",
+                    b_717 = "396"
+                }
+            },
+ {
+                g = "ripbozo",
+                r = "us",
+                s =  "crusader strike",
+                id = "ZFzLCVXRKn72M8GH",
+                ts = "36:05",
+                t = {
+                    b_585 = "63",
+                    b_586 = "74",
+                    b_587 = "77",
+                    b_588 = "46",
+                    b_589 = "88",
+                    b_590 = "56",
+                    b_591 = "63",
+                    b_592 = "55",
+                    b_717 = "243"
+                }
+            },
+ {
+                g = "No Escape - Hurricane!!!",
+                r = "us",
+                s =  "crusader strike",
+                id = "ZLBrbWQvh4nkcfHT",
+                ts = "38:45",
+                t = {
+                    b_585 = "69",
+                    b_586 = "89",
+                    b_587 = "80",
+                    b_588 = "50",
+                    b_589 = "98",
+                    b_590 = "58",
+                    b_591 = "48",
+                    b_592 = "53",
+                    b_717 = "218"
+                }
+            },
+ {
+                g = "No Escape",
+                r = "us",
+                s =  "crusader strike",
+                id = "a9KwFN7THGcf6thQ",
+                ts = "45:58",
+                t = {
+                    b_585 = "71",
+                    b_586 = "81",
+                    b_587 = "85",
+                    b_588 = "59",
+                    b_589 = "113",
+                    b_590 = "56",
+                    b_591 = "88",
+                    b_592 = "56",
+                    b_717 = "229"
+                }
+            },
+ {
+                g = "South Park Elementary",
+                r = "us",
+                s =  "crusader strike",
+                id = "NkHAPv3WK8TDLqyF",
+                ts = "53:35",
+                t = {
+                    b_585 = "99",
+                    b_586 = "127",
+                    b_587 = "106",
+                    b_588 = "88",
+                    b_589 = "178",
+                    b_590 = "81",
+                    b_591 = "104",
+                    b_592 = "88",
+                    b_717 = "339"
+                }
+            },
+ {
+                g = "Clover Club",
+                r = "us",
+                s =  "crusader strike",
+                id = "LNc8gGBC9yV2rKZz",
+                ts = "58:30",
+                t = {
+                    b_585 = "82",
+                    b_586 = "103",
+                    b_587 = "103",
+                    b_588 = "64",
+                    b_589 = "115",
+                    b_590 = "72",
+                    b_591 = "78",
+                    b_592 = "74",
+                    b_717 = "257"
+                }
+            },
+ {
+                g = "Grey Parse Gang",
+                r = "us",
+                s =  "crusader strike",
+                id = "KLjagTPpv8HJZ9hk",
+                ts = "58:42",
+                t = {
+                    b_585 = "73",
+                    b_586 = "85",
+                    b_587 = "82",
+                    b_588 = "53",
+                    b_589 = "127",
+                    b_590 = "62",
+                    b_591 = "59",
+                    b_592 = "76",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "how many",
+                r = "us",
+                s =  "crusader strike",
+                id = "bqzVjyTDgZt3KG6k",
+                ts = "1:01:34",
+                t = {
+                    b_585 = "98",
+                    b_586 = "92",
+                    b_587 = "106",
+                    b_588 = "88",
+                    b_589 = "130",
+                    b_590 = "80",
+                    b_591 = "82",
+                    b_592 = "83",
+                    b_717 = "267"
+                }
+            },
+ {
+                g = "Bread LLC",
+                r = "us",
+                s =  "crusader strike",
+                id = "xt2TGn9yvjrHB6FV",
+                ts = "1:02:58",
+                t = {
+                    b_585 = "88",
+                    b_586 = "95",
+                    b_587 = "117",
+                    b_588 = "61",
+                    b_589 = "81",
+                    b_590 = "73",
+                    b_591 = "73",
+                    b_592 = "75",
+                    b_717 = "266"
+                }
+            },
+ {
+                g = "hotnspicy",
+                r = "us",
+                s =  "crusader strike",
+                id = "xRBhXV8gLqbTK2yr",
+                ts = "1:03:56",
+                t = {
+                    b_585 = "115",
+                    b_586 = "110",
+                    b_587 = "113",
+                    b_588 = "70",
+                    b_589 = "155",
+                    b_590 = "89",
+                    b_591 = "120",
+                    b_592 = "102",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "Elysium OCE",
+                r = "us",
+                s =  "crusader strike",
+                id = "FDY4K7BpMxnrNgbd",
+                ts = "1:04:03",
+                t = {
+                    b_585 = "99",
+                    b_586 = "72",
+                    b_587 = "84",
+                    b_588 = "54",
+                    b_589 = "80",
+                    b_590 = "58",
+                    b_591 = "78",
+                    b_592 = "61",
+                    b_717 = "236"
+                }
+            },
+ {
+                g = "Degenerates",
+                r = "us",
+                s =  "crusader strike",
+                id = "8PgqyJb3rjZXRmcA",
+                ts = "1:05:10",
+                t = {
+                    b_585 = "90",
+                    b_586 = "92",
+                    b_587 = "145",
+                    b_588 = "68",
+                    b_589 = "138",
+                    b_590 = "86",
+                    b_591 = "80",
+                    b_592 = "93",
+                    b_717 = "261"
+                }
+            },
+ {
+                g = "SPEEDRUN PUGS",
+                r = "us",
+                s =  "crusader strike",
+                id = "dW9QgP3rHYwpZN28",
+                ts = "1:05:38",
+                t = {
+                    b_585 = "90",
+                    b_586 = "94",
+                    b_587 = "99",
+                    b_588 = "64",
+                    b_589 = "163",
+                    b_590 = "71",
+                    b_591 = "93",
+                    b_592 = "85",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "WoF",
+                r = "us",
+                s =  "crusader strike",
+                id = "w2qpzJAFa1jkYWKG",
+                ts = "1:05:47",
+                t = {
+                    b_585 = "100",
+                    b_586 = "106",
+                    b_587 = "117",
+                    b_588 = "78",
+                    b_589 = "131",
+                    b_590 = "93",
+                    b_591 = "74",
+                    b_592 = "88",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "Checkmate",
+                r = "us",
+                s =  "crusader strike",
+                id = "yM2DY1b7ZVrgztNX",
+                ts = "1:05:53",
+                t = {
+                    b_585 = "80",
+                    b_586 = "105",
+                    b_587 = "117",
+                    b_588 = "64",
+                    b_589 = "132",
+                    b_590 = "70",
+                    b_591 = "88",
+                    b_592 = "70",
+                    b_717 = "257"
+                }
+            },
+ {
+                g = "noted oce",
+                r = "us",
+                s =  "crusader strike",
+                id = "bw6JAFHmyLzdknqN",
+                ts = "1:06:32",
+                t = {
+                    b_585 = "100",
+                    b_586 = "95",
+                    b_587 = "98",
+                    b_588 = "67",
+                    b_589 = "134",
+                    b_590 = "79",
+                    b_591 = "81",
+                    b_592 = "84",
+                    b_717 = "275"
+                }
+            },
+ {
+                g = "Betrayed",
+                r = "us",
+                s =  "crusader strike",
+                id = "b3FBrZXNfMckQRTq",
+                ts = "1:06:57",
+                t = {
+                    b_585 = "73",
+                    b_586 = "69",
+                    b_587 = "77",
+                    b_588 = "43",
+                    b_589 = "116",
+                    b_590 = "59",
+                    b_591 = "52",
+                    b_592 = "56",
+                    b_717 = "213"
+                }
+            },
+ {
+                g = "noted",
+                r = "us",
+                s =  "crusader strike",
+                id = "1aQxMWZhtjNVnGvz",
+                ts = "1:07:08",
+                t = {
+                    b_585 = "74",
+                    b_586 = "106",
+                    b_587 = "125",
+                    b_588 = "76",
+                    b_589 = "102",
+                    b_590 = "89",
+                    b_591 = "84",
+                    b_592 = "99",
+                    b_717 = "25"
+                }
+            },
+ {
+                g = "mid",
+                r = "us",
+                s =  "crusader strike",
+                id = "v36QjLWXFcmbyfgh",
+                ts = "1:07:19",
+                t = {
+                    b_585 = "79",
+                    b_586 = "113",
+                    b_587 = "92",
+                    b_588 = "61",
+                    b_589 = "91",
+                    b_590 = "68",
+                    b_591 = "176",
+                    b_592 = "73",
+                    b_717 = "234"
+                }
+            },
+ {
+                g = "Saturday",
+                r = "us",
+                s =  "crusader strike",
+                id = "JFfw3Y1yKaxztXBT",
+                ts = "1:08:57",
+                t = {
+                    b_585 = "90",
+                    b_586 = "82",
+                    b_587 = "90",
+                    b_588 = "56",
+                    b_589 = "104",
+                    b_590 = "61",
+                    b_591 = "64",
+                    b_592 = "70",
+                    b_717 = "239"
+                }
+            },
+ {
+                g = "SF",
+                r = "us",
+                s =  "crusader strike",
+                id = "YcbxXFv7PtzKa1dg",
+                ts = "1:10:13",
+                t = {
+                    b_585 = "92",
+                    b_586 = "82",
+                    b_587 = "98",
+                    b_588 = "66",
+                    b_589 = "180",
+                    b_590 = "85",
+                    b_591 = "81",
+                    b_592 = "88",
+                    b_717 = "267"
+                }
+            },
+ {
+                g = "STACKED",
+                r = "us",
+                s =  "crusader strike",
+                id = "QL9btYxX8c1TKFn3",
+                ts = "1:10:14",
+                t = {
+                    b_585 = "80",
+                    b_586 = "89",
+                    b_587 = "100",
+                    b_588 = "50",
+                    b_589 = "103",
+                    b_590 = "61",
+                    b_591 = "56",
+                    b_592 = "68",
+                    b_717 = "274"
+                }
+            },
+ {
+                g = "BIS Friends",
+                r = "us",
+                s =  "crusader strike",
+                id = "nhrJAdj6wz3v1VNp",
+                ts = "1:10:19",
+                t = {
+                    b_585 = "64",
+                    b_586 = "76",
+                    b_587 = "89",
+                    b_588 = "58",
+                    b_589 = "99",
+                    b_590 = "68",
+                    b_591 = "84",
+                    b_592 = "70",
+                    b_717 = "234"
+                }
+            },
+ {
+                g = "Puff Puff Parse",
+                r = "us",
+                s =  "crusader strike",
+                id = "Kd6Qx3Xz7cWRCFAa",
+                ts = "1:10:41",
+                t = {
+                    b_585 = "95",
+                    b_586 = "92",
+                    b_587 = "122",
+                    b_588 = "60",
+                    b_589 = "158",
+                    b_590 = "82",
+                    b_591 = "82",
+                    b_592 = "89",
+                    b_717 = "289"
+                }
+            },
+ {
+                g = "Lions Share",
+                r = "us",
+                s =  "crusader strike",
+                id = "M9bpjTCJyYHX7wzx",
+                ts = "1:10:55",
+                t = {
+                    b_585 = "86",
+                    b_586 = "93",
+                    b_587 = "129",
+                    b_588 = "62",
+                    b_589 = "171",
+                    b_590 = "85",
+                    b_591 = "98",
+                    b_592 = "99",
+                    b_717 = "271"
+                }
+            },
+ {
+                g = "GulchTrotters",
+                r = "us",
+                s =  "crusader strike",
+                id = "pH16R4NzqFvMnBfh",
+                ts = "1:12:24",
+                t = {
+                    b_585 = "113",
+                    b_586 = "113",
+                    b_587 = "100",
+                    b_588 = "63",
+                    b_589 = "151",
+                    b_590 = "80",
+                    b_591 = "99",
+                    b_592 = "98",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Look Alive",
+                r = "us",
+                s =  "crusader strike",
+                id = "7xt6PgcNrkqzmWXh",
+                ts = "1:12:36",
+                t = {
+                    b_585 = "74",
+                    b_586 = "79",
+                    b_587 = "94",
+                    b_588 = "53",
+                    b_589 = "105",
+                    b_590 = "70",
+                    b_591 = "63",
+                    b_592 = "75",
+                    b_717 = "254"
+                }
+            },
+ {
+                g = "Strictly Business",
+                r = "us",
+                s =  "crusader strike",
+                id = "1mBzGcJKXv9g2kaH",
+                ts = "1:13:11",
+                t = {
+                    b_585 = "110",
+                    b_586 = "119",
+                    b_587 = "139",
+                    b_588 = "88",
+                    b_589 = "166",
+                    b_590 = "107",
+                    b_591 = "109",
+                    b_592 = "112",
+                    b_717 = "390"
+                }
+            },
+ {
+                g = "Goomba Goon Gang",
+                r = "us",
+                s =  "crusader strike",
+                id = "Wth3V8aDQHJjFb9P",
+                ts = "1:13:48",
+                t = {
+                    b_585 = "96",
+                    b_586 = "115",
+                    b_587 = "120",
+                    b_588 = "77",
+                    b_589 = "128",
+                    b_590 = "74",
+                    b_591 = "135",
+                    b_592 = "89",
+                    b_717 = "328"
+                }
+            },
+ {
+                g = "Living Flamers",
+                r = "us",
+                s =  "crusader strike",
+                id = "TAjkqW7zRVCfMmnh",
+                ts = "1:14:14",
+                t = {
+                    b_585 = "113",
+                    b_586 = "77",
+                    b_587 = "103",
+                    b_588 = "48",
+                    b_589 = "113",
+                    b_590 = "67",
+                    b_591 = "62",
+                    b_592 = "70",
+                    b_717 = "253"
+                }
+            },
+ {
+                g = "Peachy",
+                r = "us",
+                s =  "crusader strike",
+                id = "6Pp2qCyJFa1c78Wn",
+                ts = "1:14:57",
+                t = {
+                    b_585 = "69",
+                    b_586 = "69",
+                    b_587 = "97",
+                    b_588 = "49",
+                    b_589 = "119",
+                    b_590 = "55",
+                    b_591 = "55",
+                    b_592 = "58",
+                    b_717 = "261"
+                }
+            },
+ {
+                g = "Legendary Incompetence",
+                r = "us",
+                s =  "crusader strike",
+                id = "j768JkNRmv3pbwt1",
+                ts = "1:15:38",
+                t = {
+                    b_585 = "108",
+                    b_586 = "132",
+                    b_587 = "133",
+                    b_588 = "79",
+                    b_589 = "164",
+                    b_590 = "100",
+                    b_591 = "150",
+                    b_592 = "110",
+                    b_717 = "351"
+                }
+            },
+ {
+                g = "Dad",
+                r = "us",
+                s =  "crusader strike",
+                id = "qcdmZwtArCvY7jQD",
+                ts = "1:15:44",
+                t = {
+                    b_585 = "82",
+                    b_586 = "90",
+                    b_587 = "91",
+                    b_588 = "59",
+                    b_589 = "127",
+                    b_590 = "75",
+                    b_591 = "89",
+                    b_592 = "80",
+                    b_717 = "371"
+                }
+            },
+ {
+                g = "raw",
+                r = "us",
+                s =  "crusader strike",
+                id = "z8DLkYXwvr9gbCFp",
+                ts = "1:15:56",
+                t = {
+                    b_585 = "83",
+                    b_586 = "95",
+                    b_587 = "95",
+                    b_588 = "62",
+                    b_589 = "120",
+                    b_590 = "72",
+                    b_591 = "123",
+                    b_592 = "82",
+                    b_717 = "335"
+                }
+            },
+ {
+                g = "Raiding Rainbow",
+                r = "us",
+                s =  "crusader strike",
+                id = "BP6xgk498dJHfhYr",
+                ts = "1:16:07",
+                t = {
+                    b_585 = "88",
+                    b_586 = "87",
+                    b_587 = "89",
+                    b_588 = "71",
+                    b_589 = "108",
+                    b_590 = "67",
+                    b_591 = "111",
+                    b_592 = "75",
+                    b_717 = "242"
+                }
+            },
+ {
+                g = "Valhalla OCE Hodur",
+                r = "us",
+                s =  "crusader strike",
+                id = "F81gKpWbJPmM2LVG",
+                ts = "1:16:30",
+                t = {
+                    b_585 = "110",
+                    b_586 = "124",
+                    b_587 = "133",
+                    b_588 = "86",
+                    b_589 = "128",
+                    b_590 = "95",
+                    b_591 = "127",
+                    b_592 = "101",
+                    b_717 = "474"
+                }
+            },
+ {
+                g = "Lisan al Gaib",
+                r = "us",
+                s =  "crusader strike",
+                id = "PYgB7DaK1XGH3cdT",
+                ts = "1:17:29",
+                t = {
+                    b_585 = "82",
+                    b_586 = "89",
+                    b_587 = "104",
+                    b_588 = "62",
+                    b_589 = "116",
+                    b_590 = "85",
+                    b_591 = "75",
+                    b_592 = "79",
+                    b_717 = "290"
+                }
+            },
+ {
+                g = "goated",
+                r = "us",
+                s =  "crusader strike",
+                id = "FyDc9nv72M6BjG8V",
+                ts = "1:17:29",
+                t = {
+                    b_585 = "83",
+                    b_586 = "94",
+                    b_587 = "102",
+                    b_588 = "66",
+                    b_589 = "164",
+                    b_590 = "81",
+                    b_591 = "97",
+                    b_592 = "95",
+                    b_717 = "275"
+                }
+            },
+ {
+                g = "Midnight Hardstop",
+                r = "us",
+                s =  "crusader strike",
+                id = "t176pMrgcwJC93xj",
+                ts = "1:17:34",
+                t = {
+                    b_585 = "94",
+                    b_586 = "110",
+                    b_587 = "117",
+                    b_588 = "84",
+                    b_589 = "143",
+                    b_590 = "78",
+                    b_591 = "101",
+                    b_592 = "96",
+                    b_717 = "282"
+                }
+            },
+ {
+                g = "Lifted",
+                r = "us",
+                s =  "crusader strike",
+                id = "9ag7kbqBtZx1Tj2V",
+                ts = "1:17:48",
+                t = {
+                    b_585 = "72",
+                    b_586 = "79",
+                    b_587 = "96",
+                    b_588 = "62",
+                    b_589 = "148",
+                    b_590 = "64",
+                    b_591 = "57",
+                    b_592 = "73",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "dingus brigade",
+                r = "us",
+                s =  "crusader strike",
+                id = "fRdYP7LM1zmkcJxp",
+                ts = "1:18:14",
+                t = {
+                    b_585 = "108",
+                    b_586 = "107",
+                    b_587 = "123",
+                    b_588 = "71",
+                    b_589 = "129",
+                    b_590 = "78",
+                    b_591 = "106",
+                    b_592 = "93",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "GOB MOB",
+                r = "us",
+                s =  "crusader strike",
+                id = "yhFgL8TN4jQwGX6W",
+                ts = "1:18:26",
+                t = {
+                    b_585 = "88",
+                    b_586 = "89",
+                    b_587 = "92",
+                    b_588 = "59",
+                    b_589 = "126",
+                    b_590 = "71",
+                    b_591 = "79",
+                    b_592 = "75",
+                    b_717 = "293"
+                }
+            },
+ {
+                g = "Domice",
+                r = "us",
+                s =  "crusader strike",
+                id = "brqJ93gj7NA8xRMZ",
+                ts = "1:18:37",
+                t = {
+                    b_585 = "92",
+                    b_586 = "100",
+                    b_587 = "108",
+                    b_588 = "56",
+                    b_589 = "93",
+                    b_590 = "69",
+                    b_591 = "63",
+                    b_592 = "110",
+                    b_717 = "430"
+                }
+            },
+ {
+                g = "Popping Cooldowns",
+                r = "us",
+                s =  "crusader strike",
+                id = "x9Z8hgGRTfbDBn1Q",
+                ts = "1:19:17",
+                t = {
+                    b_585 = "84",
+                    b_586 = "104",
+                    b_587 = "95",
+                    b_588 = "60",
+                    b_589 = "104",
+                    b_590 = "75",
+                    b_591 = "100",
+                    b_592 = "104",
+                    b_717 = "337"
+                }
+            },
+ {
+                g = "After Dark",
+                r = "us",
+                s =  "crusader strike",
+                id = "Fhypv96JqC3kt1GA",
+                ts = "1:19:41",
+                t = {
+                    b_585 = "95",
+                    b_586 = "82",
+                    b_587 = "101",
+                    b_588 = "57",
+                    b_589 = "122",
+                    b_590 = "68",
+                    b_591 = "67",
+                    b_592 = "83",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "Raid Logged Out",
+                r = "us",
+                s =  "crusader strike",
+                id = "VpchRjTt4k3KqHL1",
+                ts = "1:19:56",
+                t = {
+                    b_585 = "120",
+                    b_586 = "101",
+                    b_587 = "115",
+                    b_588 = "62",
+                    b_589 = "128",
+                    b_590 = "75",
+                    b_591 = "102",
+                    b_592 = "84",
+                    b_717 = "273"
+                }
+            },
+ {
+                g = "Gondor Calls For Raid",
+                r = "us",
+                s =  "crusader strike",
+                id = "NJy8gVxnhAwGf4YW",
+                ts = "1:20:04",
+                t = {
+                    b_585 = "84",
+                    b_586 = "92",
+                    b_587 = "85",
+                    b_588 = "52",
+                    b_589 = "135",
+                    b_590 = "68",
+                    b_591 = "93",
+                    b_592 = "80",
+                    b_717 = "313"
+                }
+            },
+ {
+                g = "Echoes of Lordaeron",
+                r = "us",
+                s =  "crusader strike",
+                id = "XqG6fVTtD4MwknpB",
+                ts = "1:20:13",
+                t = {
+                    b_585 = "100",
+                    b_586 = "111",
+                    b_587 = "112",
+                    b_588 = "65",
+                    b_589 = "144",
+                    b_590 = "90",
+                    b_591 = "80",
+                    b_592 = "106",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Guerrilla Warfare",
+                r = "us",
+                s =  "crusader strike",
+                id = "DWxGHFKAZ63fn9Mv",
+                ts = "1:20:38",
+                t = {
+                    b_585 = "124",
+                    b_586 = "102",
+                    b_587 = "119",
+                    b_588 = "101",
+                    b_589 = "138",
+                    b_590 = "94",
+                    b_591 = "132",
+                    b_592 = "106",
+                    b_717 = "369"
+                }
+            },
+ {
+                g = "Titans of War",
+                r = "us",
+                s =  "crusader strike",
+                id = "gpTfKa1cxVJjvk3h",
+                ts = "1:20:46",
+                t = {
+                    b_585 = "148",
+                    b_586 = "108",
+                    b_587 = "121",
+                    b_588 = "91",
+                    b_589 = "162",
+                    b_590 = "98",
+                    b_591 = "224",
+                    b_592 = "111",
+                    b_717 = "348"
+                }
+            },
+ {
+                g = "DOOM",
+                r = "us",
+                s =  "crusader strike",
+                id = "yYGMxqJ2XgV4nRTW",
+                ts = "1:21:23",
+                t = {
+                    b_585 = "126",
+                    b_586 = "102",
+                    b_587 = "122",
+                    b_588 = "88",
+                    b_589 = "149",
+                    b_590 = "72",
+                    b_591 = "124",
+                    b_592 = "89",
+                    b_717 = "297"
+                }
+            },
+ {
+                g = "Molten Crab Cakes",
+                r = "us",
+                s =  "crusader strike",
+                id = "3xcgCFzW1DXL7rPp",
+                ts = "1:22:00",
+                t = {
+                    b_585 = "94",
+                    b_586 = "113",
+                    b_587 = "116",
+                    b_588 = "72",
+                    b_589 = "109",
+                    b_590 = "74",
+                    b_591 = "132",
+                    b_592 = "83",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Prestige",
+                r = "us",
+                s =  "crusader strike",
+                id = "NXYK1Pja43TdmqWZ",
+                ts = "1:22:10",
+                t = {
+                    b_585 = "97",
+                    b_586 = "110",
+                    b_587 = "132",
+                    b_588 = "70",
+                    b_589 = "225",
+                    b_590 = "80",
+                    b_591 = "99",
+                    b_592 = "107",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "Retail Dev Team",
+                r = "us",
+                s =  "crusader strike",
+                id = "wNxzym4KTvpLhjdV",
+                ts = "1:22:13",
+                t = {
+                    b_585 = "97",
+                    b_586 = "109",
+                    b_587 = "143",
+                    b_588 = "75",
+                    b_589 = "174",
+                    b_590 = "88",
+                    b_591 = "125",
+                    b_592 = "98",
+                    b_717 = "394"
+                }
+            },
+ {
+                g = "Four Loktar",
+                r = "us",
+                s =  "crusader strike",
+                id = "hXrLTmBxMK6G2dFQ",
+                ts = "1:22:23",
+                t = {
+                    b_585 = "105",
+                    b_586 = "111",
+                    b_587 = "103",
+                    b_588 = "75",
+                    b_589 = "122",
+                    b_590 = "80",
+                    b_591 = "105",
+                    b_592 = "97",
+                    b_717 = "411"
+                }
+            },
+ {
+                g = "WE WIPE FOR FUN",
+                r = "us",
+                s =  "crusader strike",
+                id = "rgCFyJ8TqwKZ4Dh9",
+                ts = "1:22:36",
+                t = {
+                    b_585 = "83",
+                    b_586 = "94",
+                    b_587 = "91",
+                    b_588 = "48",
+                    b_589 = "55",
+                    b_590 = "70",
+                    b_591 = "178",
+                    b_592 = "72",
+                    b_717 = "337"
+                }
+            },
+ {
+                g = "Boys Club - SOD",
+                r = "us",
+                s =  "crusader strike",
+                id = "YmPF9LXbNcKB4Ckd",
+                ts = "1:22:50",
+                t = {
+                    b_585 = "109",
+                    b_586 = "119",
+                    b_587 = "123",
+                    b_588 = "88",
+                    b_589 = "118",
+                    b_590 = "95",
+                    b_591 = "103",
+                    b_592 = "99",
+                    b_717 = "292"
+                }
+            },
+ {
+                g = "Let Me Ask My Wife",
+                r = "us",
+                s =  "crusader strike",
+                id = "qdaXn7DwTQgRFZkL",
+                ts = "1:23:05",
+                t = {
+                    b_585 = "140",
+                    b_586 = "108",
+                    b_587 = "110",
+                    b_588 = "86",
+                    b_589 = "164",
+                    b_590 = "86",
+                    b_591 = "167",
+                    b_592 = "97",
+                    b_717 = "288"
+                }
+            },
+ {
+                g = "AshenvaleAutonomousZone",
+                r = "us",
+                s =  "crusader strike",
+                id = "8rh3QJMpcLVTFazy",
+                ts = "1:23:13",
+                t = {
+                    b_585 = "89",
+                    b_586 = "98",
+                    b_587 = "95",
+                    b_588 = "59",
+                    b_589 = "135",
+                    b_590 = "80",
+                    b_591 = "65",
+                    b_592 = "79",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "For Da Boys",
+                r = "us",
+                s =  "crusader strike",
+                id = "94MDjpyHWcCJZxkK",
+                ts = "1:23:46",
+                t = {
+                    b_585 = "95",
+                    b_586 = "93",
+                    b_587 = "139",
+                    b_588 = "63",
+                    b_589 = "128",
+                    b_590 = "77",
+                    b_591 = "82",
+                    b_592 = "91",
+                    b_717 = "396"
+                }
+            },
+ {
+                g = "Drunk N Jaded",
+                r = "us",
+                s =  "crusader strike",
+                id = "D3jXawrf8tQAnpgM",
+                ts = "1:23:51",
+                t = {
+                    b_585 = "91",
+                    b_586 = "119",
+                    b_587 = "116",
+                    b_588 = "61",
+                    b_589 = "137",
+                    b_590 = "74",
+                    b_591 = "97",
+                    b_592 = "83",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Gone to Ship",
+                r = "us",
+                s =  "crusader strike",
+                id = "42j6dV9Dz7CXfwrc",
+                ts = "1:24:20",
+                t = {
+                    b_585 = "154",
+                    b_586 = "111",
+                    b_587 = "137",
+                    b_588 = "84",
+                    b_589 = "148",
+                    b_590 = "89",
+                    b_591 = "120",
+                    b_592 = "111",
+                    b_717 = "403"
+                }
+            },
+ {
+                g = "Never Lucky",
+                r = "us",
+                s =  "crusader strike",
+                id = "wTyaPndNxVZhKk4r",
+                ts = "1:24:26",
+                t = {
+                    b_585 = "108",
+                    b_586 = "89",
+                    b_587 = "112",
+                    b_588 = "67",
+                    b_589 = "110",
+                    b_590 = "79",
+                    b_591 = "97",
+                    b_592 = "92",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "Only Friends",
+                r = "us",
+                s =  "crusader strike",
+                id = "jNFAwGpqYP6QJzBV",
+                ts = "1:24:32",
+                t = {
+                    b_585 = "96",
+                    b_586 = "92",
+                    b_587 = "124",
+                    b_588 = "79",
+                    b_589 = "107",
+                    b_590 = "79",
+                    b_591 = "78",
+                    b_592 = "87",
+                    b_717 = "333"
+                }
+            },
+ {
+                g = "Rally Rally Rally",
+                r = "us",
+                s =  "crusader strike",
+                id = "VtdF83zamcY4JwZn",
+                ts = "1:25:40",
+                t = {
+                    b_585 = "78",
+                    b_586 = "84",
+                    b_587 = "103",
+                    b_588 = "58",
+                    b_589 = "141",
+                    b_590 = "71",
+                    b_591 = "69",
+                    b_592 = "91",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "Team Cream",
+                r = "us",
+                s =  "crusader strike",
+                id = "NnhwPbfQraqcHxV8",
+                ts = "1:25:40",
+                t = {
+                    b_585 = "90",
+                    b_586 = "121",
+                    b_587 = "127",
+                    b_588 = "89",
+                    b_589 = "114",
+                    b_590 = "88",
+                    b_591 = "100",
+                    b_592 = "95",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "HR",
+                r = "us",
+                s =  "crusader strike",
+                id = "7WX9LatfVjYcBpK8",
+                ts = "1:25:45",
+                t = {
+                    b_585 = "89",
+                    b_586 = "97",
+                    b_587 = "120",
+                    b_588 = "60",
+                    b_589 = "144",
+                    b_590 = "69",
+                    b_591 = "100",
+                    b_592 = "78",
+                    b_717 = "245"
+                }
+            },
+ {
+                g = "Myth",
+                r = "us",
+                s =  "crusader strike",
+                id = "g7WjnhHzBTtvZK6A",
+                ts = "1:25:55",
+                t = {
+                    b_585 = "122",
+                    b_586 = "126",
+                    b_587 = "134",
+                    b_588 = "75",
+                    b_589 = "144",
+                    b_590 = "86",
+                    b_591 = "123",
+                    b_592 = "103",
+                    b_717 = "321"
+                }
+            },
+ {
+                g = "High Regards",
+                r = "us",
+                s =  "crusader strike",
+                id = "FTzv1WwX8PGfB3x7",
+                ts = "1:26:31",
+                t = {
+                    b_585 = "79",
+                    b_586 = "87",
+                    b_587 = "103",
+                    b_588 = "54",
+                    b_589 = "131",
+                    b_590 = "72",
+                    b_591 = "81",
+                    b_592 = "79",
+                    b_717 = "371"
+                }
+            },
+ {
+                g = "Goblins Gone Wild",
+                r = "us",
+                s =  "crusader strike",
+                id = "h7pgFmXQ2qwM8Wx4",
+                ts = "1:26:41",
+                t = {
+                    b_585 = "79",
+                    b_586 = "92",
+                    b_587 = "93",
+                    b_588 = "58",
+                    b_589 = "113",
+                    b_590 = "62",
+                    b_591 = "94",
+                    b_592 = "76",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Ashes",
+                r = "us",
+                s =  "crusader strike",
+                id = "Vk4QMrHKnYGW8Bpv",
+                ts = "1:26:54",
+                t = {
+                    b_585 = "86",
+                    b_586 = "82",
+                    b_587 = "105",
+                    b_588 = "60",
+                    b_589 = "150",
+                    b_590 = "75",
+                    b_591 = "61",
+                    b_592 = "95",
+                    b_717 = "306"
+                }
+            },
+ {
+                g = "SCIENCE",
+                r = "us",
+                s =  "crusader strike",
+                id = "QztnhX17fa6xATrm",
+                ts = "1:27:16",
+                t = {
+                    b_585 = "89",
+                    b_586 = "92",
+                    b_587 = "113",
+                    b_588 = "74",
+                    b_589 = "228",
+                    b_590 = "75",
+                    b_591 = "88",
+                    b_592 = "80",
+                    b_717 = "287"
+                }
+            },
+ {
+                g = "Twilight Raiders",
+                r = "us",
+                s =  "crusader strike",
+                id = "b3XHz7hyFdfjGL2m",
+                ts = "1:27:18",
+                t = {
+                    b_585 = "94",
+                    b_586 = "113",
+                    b_587 = "119",
+                    b_588 = "101",
+                    b_589 = "119",
+                    b_590 = "85",
+                    b_591 = "128",
+                    b_592 = "145",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "Ninja by Proxy",
+                r = "us",
+                s =  "crusader strike",
+                id = "kYC6D42Z3FfmHbAJ",
+                ts = "1:27:19",
+                t = {
+                    b_585 = "100",
+                    b_586 = "125",
+                    b_587 = "116",
+                    b_588 = "67",
+                    b_589 = "150",
+                    b_590 = "70",
+                    b_591 = "107",
+                    b_592 = "81",
+                    b_717 = "257"
+                }
+            },
+ {
+                g = "Classically Trained",
+                r = "us",
+                s =  "crusader strike",
+                id = "fQGgaNzvxqFPDXZ2",
+                ts = "1:27:24",
+                t = {
+                    b_585 = "71",
+                    b_586 = "82",
+                    b_587 = "93",
+                    b_588 = "58",
+                    b_589 = "117",
+                    b_590 = "71",
+                    b_591 = "75",
+                    b_592 = "93",
+                    b_717 = "238"
+                }
+            },
+ {
+                g = "The Cousins",
+                r = "us",
+                s =  "crusader strike",
+                id = "ntAYXBaTmQDvc4R1",
+                ts = "1:27:41",
+                t = {
+                    b_585 = "95",
+                    b_586 = "114",
+                    b_587 = "113",
+                    b_588 = "65",
+                    b_589 = "130",
+                    b_590 = "77",
+                    b_591 = "131",
+                    b_592 = "90",
+                    b_717 = "258"
+                }
+            },
+ {
+                g = "ZhouLiuTuan",
+                r = "us",
+                s =  "crusader strike",
+                id = "gwH87aFxK23tRmfh",
+                ts = "1:27:48",
+                t = {
+                    b_585 = "76",
+                    b_586 = "115",
+                    b_587 = "110",
+                    b_588 = "57",
+                    b_589 = "120",
+                    b_590 = "87",
+                    b_591 = "89",
+                    b_592 = "89",
+                    b_717 = "471"
+                }
+            },
+ {
+                g = "sure",
+                r = "us",
+                s =  "crusader strike",
+                id = "7WctHgNZkrp2Ra8G",
+                ts = "1:27:55",
+                t = {
+                    b_585 = "88",
+                    b_586 = "87",
+                    b_587 = "90",
+                    b_588 = "54",
+                    b_589 = "118",
+                    b_590 = "66",
+                    b_591 = "61",
+                    b_592 = "82",
+                    b_717 = "265"
+                }
+            },
+ {
+                g = "Aquatic Anglers Union",
+                r = "us",
+                s =  "crusader strike",
+                id = "Lpr7Q8tVdZ1M9xPv",
+                ts = "1:28:05",
+                t = {
+                    b_585 = "87",
+                    b_586 = "103",
+                    b_587 = "117",
+                    b_588 = "61",
+                    b_589 = "120",
+                    b_590 = "73",
+                    b_591 = "64",
+                    b_592 = "95",
+                    b_717 = "312"
+                }
+            },
+ {
+                g = "Brain Damage",
+                r = "us",
+                s =  "crusader strike",
+                id = "zHfm6GTwM7vgKWqp",
+                ts = "1:28:06",
+                t = {
+                    b_585 = "136",
+                    b_586 = "121",
+                    b_587 = "143",
+                    b_588 = "81",
+                    b_589 = "145",
+                    b_590 = "91",
+                    b_591 = "159",
+                    b_592 = "96",
+                    b_717 = "344"
+                }
+            },
+ {
+                g = "Tantrum",
+                r = "us",
+                s =  "crusader strike",
+                id = "RtpzyaLwTmAFb6XJ",
+                ts = "1:28:10",
+                t = {
+                    b_585 = "95",
+                    b_586 = "84",
+                    b_587 = "100",
+                    b_588 = "56",
+                    b_589 = "115",
+                    b_590 = "73",
+                    b_591 = "63",
+                    b_592 = "102",
+                    b_717 = "253"
+                }
+            },
+ {
+                g = "Waffle House FightClub",
+                r = "us",
+                s =  "crusader strike",
+                id = "7Lycm6GzTvK4FjbA",
+                ts = "1:28:12",
+                t = {
+                    b_585 = "129",
+                    b_586 = "105",
+                    b_587 = "107",
+                    b_588 = "65",
+                    b_589 = "98",
+                    b_590 = "81",
+                    b_591 = "63",
+                    b_592 = "86",
+                    b_717 = "290"
+                }
+            },
+ {
+                g = "Mutiny",
+                r = "us",
+                s =  "crusader strike",
+                id = "7wc4kjbKH2ApfTZV",
+                ts = "1:28:22",
+                t = {
+                    b_585 = "94",
+                    b_586 = "98",
+                    b_587 = "108",
+                    b_588 = "61",
+                    b_589 = "108",
+                    b_590 = "77",
+                    b_591 = "68",
+                    b_592 = "75",
+                    b_717 = "275"
+                }
+            },
+ {
+                g = "Potato Doesnt Afraid",
+                r = "us",
+                s =  "crusader strike",
+                id = "1fL6kWDXYxAHPnJp",
+                ts = "1:28:45",
+                t = {
+                    b_585 = "83",
+                    b_586 = "79",
+                    b_587 = "99",
+                    b_588 = "64",
+                    b_589 = "143",
+                    b_590 = "69",
+                    b_591 = "65",
+                    b_592 = "77",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "Le choix du président",
+                r = "us",
+                s =  "crusader strike",
+                id = "pxWkgaAH6mrhVqL7",
+                ts = "1:28:48",
+                t = {
+                    b_585 = "106",
+                    b_586 = "126",
+                    b_587 = "123",
+                    b_588 = "74",
+                    b_589 = "134",
+                    b_590 = "97",
+                    b_591 = "147",
+                    b_592 = "95",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "BWC",
+                r = "us",
+                s =  "crusader strike",
+                id = "qnbgATxRZjkKpFcw",
+                ts = "1:28:50",
+                t = {
+                    b_585 = "120",
+                    b_586 = "118",
+                    b_587 = "128",
+                    b_588 = "82",
+                    b_589 = "141",
+                    b_590 = "95",
+                    b_591 = "151",
+                    b_592 = "121",
+                    b_717 = "290"
+                }
+            },
+ {
+                g = "Corporate",
+                r = "us",
+                s =  "crusader strike",
+                id = "JNTpKxymjFBM3dbn",
+                ts = "1:28:53",
+                t = {
+                    b_585 = "103",
+                    b_586 = "113",
+                    b_587 = "114",
+                    b_588 = "70",
+                    b_589 = "145",
+                    b_590 = "76",
+                    b_591 = "126",
+                    b_592 = "84",
+                    b_717 = "312"
+                }
+            },
+ {
+                g = "TriadCS",
+                r = "us",
+                s =  "crusader strike",
+                id = "3kQrPThftDdACqM1",
+                ts = "1:29:00",
+                t = {
+                    b_585 = "112",
+                    b_586 = "147",
+                    b_587 = "119",
+                    b_588 = "78",
+                    b_589 = "202",
+                    b_590 = "96",
+                    b_591 = "145",
+                    b_592 = "93",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "Nuclear",
+                r = "us",
+                s =  "crusader strike",
+                id = "GhvDM1Pf3t6LdgbW",
+                ts = "1:29:01",
+                t = {
+                    b_585 = "90",
+                    b_586 = "98",
+                    b_587 = "106",
+                    b_588 = "61",
+                    b_589 = "125",
+                    b_590 = "75",
+                    b_591 = "85",
+                    b_592 = "83",
+                    b_717 = "281"
+                }
+            },
+ {
+                g = "Blue Team",
+                r = "us",
+                s =  "crusader strike",
+                id = "ZVJAQC34dmK9DNhf",
+                ts = "1:29:16",
+                t = {
+                    b_585 = "104",
+                    b_586 = "121",
+                    b_587 = "137",
+                    b_588 = "80",
+                    b_589 = "140",
+                    b_590 = "89",
+                    b_591 = "172",
+                    b_592 = "104",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Stronghold",
+                r = "us",
+                s =  "crusader strike",
+                id = "fctjqkQ9d12pbCwh",
+                ts = "1:29:16",
+                t = {
+                    b_585 = "104",
+                    b_586 = "121",
+                    b_587 = "137",
+                    b_588 = "80",
+                    b_589 = "140",
+                    b_590 = "89",
+                    b_591 = "172",
+                    b_592 = "104",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Tropical Fish Café - Hogsuckers",
+                r = "us",
+                s =  "crusader strike",
+                id = "wzLk73JPDBxQ9Ctm",
+                ts = "1:29:30",
+                t = {
+                    b_585 = "118",
+                    b_586 = "137",
+                    b_587 = "157",
+                    b_588 = "100",
+                    b_589 = "162",
+                    b_590 = "114",
+                    b_591 = "188",
+                    b_592 = "115",
+                    b_717 = "472"
+                }
+            },
+ {
+                g = "IB",
+                r = "us",
+                s =  "crusader strike",
+                id = "bvKz8ZWLmjrcpFnJ",
+                ts = "1:29:42",
+                t = {
+                    b_585 = "84",
+                    b_586 = "90",
+                    b_587 = "88",
+                    b_588 = "56",
+                    b_589 = "264",
+                    b_590 = "70",
+                    b_591 = "67",
+                    b_592 = "75",
+                    b_717 = "349"
+                }
+            },
+ {
+                g = "GOONlES",
+                r = "us",
+                s =  "crusader strike",
+                id = "RYtynpVAfZXzLqB1",
+                ts = "1:29:59",
+                t = {
+                    b_585 = "95",
+                    b_586 = "113",
+                    b_587 = "127",
+                    b_588 = "81",
+                    b_589 = "135",
+                    b_590 = "84",
+                    b_591 = "151",
+                    b_592 = "99",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "yapplebees",
+                r = "us",
+                s =  "crusader strike",
+                id = "VCXgNapm2PQz7DZ1",
+                ts = "1:30:16",
+                t = {
+                    b_585 = "93",
+                    b_586 = "99",
+                    b_587 = "113",
+                    b_588 = "54",
+                    b_589 = "109",
+                    b_590 = "66",
+                    b_591 = "87",
+                    b_592 = "97",
+                    b_717 = "278"
+                }
+            },
+ {
+                g = "Twenty Four Seven",
+                r = "us",
+                s =  "crusader strike",
+                id = "9gZaFp3WQmYzLwtR",
+                ts = "1:30:22",
+                t = {
+                    b_585 = "99",
+                    b_586 = "123",
+                    b_587 = "123",
+                    b_588 = "83",
+                    b_589 = "133",
+                    b_590 = "86",
+                    b_591 = "129",
+                    b_592 = "88",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "Chur",
+                r = "us",
+                s =  "crusader strike",
+                id = "FpyG4vmP2KhxgftB",
+                ts = "1:30:43",
+                t = {
+                    b_585 = "76",
+                    b_586 = "103",
+                    b_587 = "106",
+                    b_588 = "88",
+                    b_589 = "146",
+                    b_590 = "68",
+                    b_591 = "107",
+                    b_592 = "78",
+                    b_717 = "274"
+                }
+            },
+ {
+                g = "Can I Pet That Dawg",
+                r = "us",
+                s =  "crusader strike",
+                id = "Rhv92yB6QtAPwfcr",
+                ts = "1:30:47",
+                t = {
+                    b_585 = "102",
+                    b_586 = "97",
+                    b_587 = "95",
+                    b_588 = "66",
+                    b_589 = "106",
+                    b_590 = "89",
+                    b_591 = "100",
+                    b_592 = "79",
+                    b_717 = "322"
+                }
+            },
+ {
+                g = "NOPE",
+                r = "us",
+                s =  "crusader strike",
+                id = "npcF9CT63tYGkBwK",
+                ts = "1:30:57",
+                t = {
+                    b_585 = "89",
+                    b_586 = "149",
+                    b_587 = "110",
+                    b_588 = "91",
+                    b_589 = "261",
+                    b_590 = "90",
+                    b_591 = "134",
+                    b_592 = "94",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Half Logic",
+                r = "us",
+                s =  "crusader strike",
+                id = "z2671XakyhLCDrHN",
+                ts = "1:31:02",
+                t = {
+                    b_585 = "75",
+                    b_586 = "79",
+                    b_587 = "129",
+                    b_588 = "53",
+                    b_589 = "98",
+                    b_590 = "60",
+                    b_591 = "67",
+                    b_592 = "75",
+                    b_717 = "235"
+                }
+            },
+ {
+                g = "sundress backshots",
+                r = "us",
+                s =  "crusader strike",
+                id = "3RTH6y2YGNcqkvwQ",
+                ts = "1:31:10",
+                t = {
+                    b_585 = "117",
+                    b_586 = "139",
+                    b_587 = "135",
+                    b_588 = "90",
+                    b_589 = "183",
+                    b_590 = "97",
+                    b_591 = "231",
+                    b_592 = "110",
+                    b_717 = "413"
+                }
+            },
+ {
+                g = "why",
+                r = "us",
+                s =  "crusader strike",
+                id = "DfBpt3PN1ryz2MFK",
+                ts = "1:31:10",
+                t = {
+                    b_585 = "101",
+                    b_586 = "113",
+                    b_587 = "141",
+                    b_588 = "86",
+                    b_589 = "148",
+                    b_590 = "93",
+                    b_591 = "84",
+                    b_592 = "109",
+                    b_717 = "388"
+                }
+            },
+ {
+                g = "N e x u s",
+                r = "us",
+                s =  "crusader strike",
+                id = "6fT7kwRgFnP2pYNV",
+                ts = "1:31:18",
+                t = {
+                    b_585 = "106",
+                    b_586 = "107",
+                    b_587 = "117",
+                    b_588 = "84",
+                    b_589 = "104",
+                    b_590 = "76",
+                    b_591 = "172",
+                    b_592 = "95",
+                    b_717 = "287"
+                }
+            },
+ {
+                g = "Sweat Equity",
+                r = "us",
+                s =  "crusader strike",
+                id = "JKyq8mRhB32WkYnZ",
+                ts = "1:31:43",
+                t = {
+                    b_585 = "103",
+                    b_586 = "110",
+                    b_587 = "126",
+                    b_588 = "78",
+                    b_589 = "138",
+                    b_590 = "83",
+                    b_591 = "79",
+                    b_592 = "100",
+                    b_717 = "351"
+                }
+            },
+ {
+                g = "SoD Saviors",
+                r = "us",
+                s =  "crusader strike",
+                id = "bmrXRJQCkMVNBpTZ",
+                ts = "1:32:16",
+                t = {
+                    b_585 = "103",
+                    b_586 = "113",
+                    b_587 = "139",
+                    b_588 = "77",
+                    b_589 = "168",
+                    b_590 = "92",
+                    b_591 = "199",
+                    b_592 = "109",
+                    b_717 = "494"
+                }
+            },
+ {
+                g = "Blackwater",
+                r = "us",
+                s =  "crusader strike",
+                id = "FYLd98CnXJhv7D1g",
+                ts = "1:32:21",
+                t = {
+                    b_585 = "110",
+                    b_586 = "141",
+                    b_587 = "125",
+                    b_588 = "91",
+                    b_589 = "146",
+                    b_590 = "96",
+                    b_591 = "88",
+                    b_592 = "94",
+                    b_717 = "429"
+                }
+            },
+ {
+                g = "Dragon Punchers",
+                r = "us",
+                s =  "crusader strike",
+                id = "xgMYqaLmhbPX9cNp",
+                ts = "1:32:44",
+                t = {
+                    b_585 = "87",
+                    b_586 = "100",
+                    b_587 = "101",
+                    b_588 = "62",
+                    b_589 = "186",
+                    b_590 = "79",
+                    b_591 = "128",
+                    b_592 = "89",
+                    b_717 = "363"
+                }
+            },
+ {
+                g = "Discovery Monkeys",
+                r = "us",
+                s =  "crusader strike",
+                id = "8BNtmhFkxwvg7GDP",
+                ts = "1:33:01",
+                t = {
+                    b_585 = "79",
+                    b_586 = "77",
+                    b_587 = "85",
+                    b_588 = "51",
+                    b_589 = "69",
+                    b_590 = "53",
+                    b_591 = "54",
+                    b_592 = "52",
+                    b_717 = "268"
+                }
+            },
+ {
+                g = "Disorderly",
+                r = "us",
+                s =  "crusader strike",
+                id = "hWnH31XCbZjpYadL",
+                ts = "1:33:06",
+                t = {
+                    b_585 = "93",
+                    b_586 = "97",
+                    b_587 = "105",
+                    b_588 = "64",
+                    b_589 = "163",
+                    b_590 = "83",
+                    b_591 = "80",
+                    b_592 = "109",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "No Drama Mamas",
+                r = "us",
+                s =  "crusader strike",
+                id = "NvFAt19JC6rjakwY",
+                ts = "1:33:25",
+                t = {
+                    b_585 = "93",
+                    b_586 = "115",
+                    b_587 = "100",
+                    b_588 = "68",
+                    b_589 = "140",
+                    b_590 = "73",
+                    b_591 = "85",
+                    b_592 = "79",
+                    b_717 = "316"
+                }
+            },
+ {
+                g = "Z Fighters",
+                r = "us",
+                s =  "crusader strike",
+                id = "Q8r7q1dpNTyMGCJv",
+                ts = "1:34:00",
+                t = {
+                    b_585 = "90",
+                    b_586 = "87",
+                    b_587 = "91",
+                    b_588 = "76",
+                    b_589 = "115",
+                    b_590 = "72",
+                    b_591 = "97",
+                    b_592 = "77",
+                    b_717 = "292"
+                }
+            },
+ {
+                g = "AFTERS",
+                r = "us",
+                s =  "crusader strike",
+                id = "9WBQA2gCFKHn7hP8",
+                ts = "1:34:29",
+                t = {
+                    b_585 = "90",
+                    b_586 = "98",
+                    b_587 = "110",
+                    b_588 = "60",
+                    b_589 = "151",
+                    b_590 = "168",
+                    b_591 = "97",
+                    b_592 = "81",
+                    b_717 = "315"
+                }
+            },
+ {
+                g = "streets",
+                r = "us",
+                s =  "crusader strike",
+                id = "rHgWLPFXdZnkAQhV",
+                ts = "1:34:50",
+                t = {
+                    b_585 = "93",
+                    b_586 = "126",
+                    b_587 = "166",
+                    b_588 = "80",
+                    b_589 = "127",
+                    b_590 = "79",
+                    b_591 = "98",
+                    b_592 = "98",
+                    b_717 = "285"
+                }
+            },
+ {
+                g = "S A L T",
+                r = "us",
+                s =  "crusader strike",
+                id = "rYJm4GWZ1nkPbzKt",
+                ts = "1:34:57",
+                t = {
+                    b_585 = "91",
+                    b_586 = "100",
+                    b_587 = "108",
+                    b_588 = "68",
+                    b_589 = "150",
+                    b_590 = "76",
+                    b_591 = "142",
+                    b_592 = "99",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "FTier",
+                r = "us",
+                s =  "crusader strike",
+                id = "DW4YBGpdztRCLVAf",
+                ts = "1:35:03",
+                t = {
+                    b_585 = "112",
+                    b_586 = "111",
+                    b_587 = "117",
+                    b_588 = "68",
+                    b_589 = "135",
+                    b_590 = "80",
+                    b_591 = "112",
+                    b_592 = "93",
+                    b_717 = "357"
+                }
+            },
+ {
+                g = "Westfall Park Rangers",
+                r = "us",
+                s =  "crusader strike",
+                id = "KVjWyDnxcXRQYLmf",
+                ts = "1:35:05",
+                t = {
+                    b_585 = "126",
+                    b_586 = "139",
+                    b_587 = "125",
+                    b_588 = "69",
+                    b_589 = "116",
+                    b_590 = "76",
+                    b_591 = "125",
+                    b_592 = "82",
+                    b_717 = "279"
+                }
+            },
+ {
+                g = "OLD BUT GOLD",
+                r = "us",
+                s =  "crusader strike",
+                id = "f4W2HhTwVqvrAmFP",
+                ts = "1:35:13",
+                t = {
+                    b_585 = "98",
+                    b_586 = "121",
+                    b_587 = "196",
+                    b_588 = "78",
+                    b_589 = "218",
+                    b_590 = "93",
+                    b_591 = "119",
+                    b_592 = "144",
+                    b_717 = "343"
+                }
+            },
+ {
+                g = "WASTEMANS",
+                r = "us",
+                s =  "crusader strike",
+                id = "32WdMCfRKTFmHajb",
+                ts = "1:35:15",
+                t = {
+                    b_585 = "98",
+                    b_586 = "98",
+                    b_587 = "141",
+                    b_588 = "70",
+                    b_589 = "211",
+                    b_590 = "81",
+                    b_591 = "115",
+                    b_592 = "89",
+                    b_717 = "287"
+                }
+            },
+ {
+                g = "You Think You Do",
+                r = "us",
+                s =  "crusader strike",
+                id = "wBat3v6k7WhCQbzA",
+                ts = "1:35:16",
+                t = {
+                    b_585 = "96",
+                    b_586 = "108",
+                    b_587 = "139",
+                    b_588 = "74",
+                    b_589 = "179",
+                    b_590 = "85",
+                    b_591 = "178",
+                    b_592 = "140",
+                    b_717 = "403"
+                }
+            },
+ {
+                g = "Standards",
+                r = "us",
+                s =  "crusader strike",
+                id = "YV6cMZGAta8pd9DJ",
+                ts = "1:35:38",
+                t = {
+                    b_585 = "58",
+                    b_586 = "73",
+                    b_587 = "65",
+                    b_588 = "44",
+                    b_589 = "109",
+                    b_590 = "50",
+                    b_591 = "40",
+                    b_592 = "53",
+                    b_717 = "167"
+                }
+            },
+ {
+                g = "Broken Toys",
+                r = "us",
+                s =  "crusader strike",
+                id = "qtvyNhZJKLj87Wdn",
+                ts = "1:35:53",
+                t = {
+                    b_585 = "98",
+                    b_586 = "107",
+                    b_587 = "96",
+                    b_588 = "63",
+                    b_589 = "103",
+                    b_590 = "67",
+                    b_591 = "62",
+                    b_592 = "73",
+                    b_717 = "288"
+                }
+            },
+ {
+                g = "Lagging Behind",
+                r = "us",
+                s =  "crusader strike",
+                id = "CthRTDkxzy8nqjHw",
+                ts = "1:35:58",
+                t = {
+                    b_585 = "110",
+                    b_586 = "116",
+                    b_587 = "126",
+                    b_588 = "88",
+                    b_589 = "134",
+                    b_590 = "104",
+                    b_591 = "152",
+                    b_592 = "101",
+                    b_717 = "314"
+                }
+            },
+ {
+                g = "Valhalla OCE",
+                r = "us",
+                s =  "crusader strike",
+                id = "xMvhn2JFRdy98wa4",
+                ts = "1:36:07",
+                t = {
+                    b_585 = "148",
+                    b_586 = "103",
+                    b_587 = "155",
+                    b_588 = "86",
+                    b_589 = "115",
+                    b_590 = "76",
+                    b_591 = "146",
+                    b_592 = "101",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "Esoteric",
+                r = "us",
+                s =  "crusader strike",
+                id = "4G3pV7FqkvMhZacY",
+                ts = "1:36:10",
+                t = {
+                    b_585 = "110",
+                    b_586 = "102",
+                    b_587 = "110",
+                    b_588 = "74",
+                    b_589 = "116",
+                    b_590 = "79",
+                    b_591 = "100",
+                    b_592 = "105",
+                    b_717 = "381"
+                }
+            },
+ {
+                g = "Pallet Town",
+                r = "us",
+                s =  "crusader strike",
+                id = "MArbDQxRgKVkyGTj",
+                ts = "1:36:14",
+                t = {
+                    b_585 = "94",
+                    b_586 = "109",
+                    b_587 = "109",
+                    b_588 = "79",
+                    b_589 = "134",
+                    b_590 = "93",
+                    b_591 = "113",
+                    b_592 = "68",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "Wholesome Adventure Club",
+                r = "us",
+                s =  "crusader strike",
+                id = "kKynAPYqtrNL28T4",
+                ts = "1:36:38",
+                t = {
+                    b_585 = "91",
+                    b_586 = "97",
+                    b_587 = "119",
+                    b_588 = "75",
+                    b_589 = "150",
+                    b_590 = "73",
+                    b_591 = "74",
+                    b_592 = "90",
+                    b_717 = "46"
+                }
+            },
+ {
+                g = "Invoke",
+                r = "us",
+                s =  "crusader strike",
+                id = "hZvc3Gr9YpjaFJg2",
+                ts = "1:36:45",
+                t = {
+                    b_585 = "109",
+                    b_586 = "123",
+                    b_587 = "134",
+                    b_588 = "91",
+                    b_589 = "127",
+                    b_590 = "100",
+                    b_591 = "166",
+                    b_592 = "110",
+                    b_717 = "388"
+                }
+            },
+ {
+                g = "FDS - Blood Raiders",
+                r = "us",
+                s =  "crusader strike",
+                id = "N9KFPnm3zkYxgB2a",
+                ts = "1:37:01",
+                t = {
+                    b_585 = "152",
+                    b_586 = "121",
+                    b_587 = "145",
+                    b_588 = "87",
+                    b_589 = "145",
+                    b_590 = "121",
+                    b_591 = "90",
+                    b_592 = "106",
+                    b_717 = "400"
+                }
+            },
+ {
+                g = "RFB",
+                r = "us",
+                s =  "crusader strike",
+                id = "2pKvXF3mLyNPnJa4",
+                ts = "1:37:01",
+                t = {
+                    b_585 = "123",
+                    b_586 = "140",
+                    b_587 = "116",
+                    b_588 = "81",
+                    b_589 = "179",
+                    b_590 = "98",
+                    b_591 = "128",
+                    b_592 = "133",
+                    b_717 = "379"
+                }
+            },
+ {
+                g = "EGGZ",
+                r = "us",
+                s =  "crusader strike",
+                id = "fLN7y4VwFm3KnGkz",
+                ts = "1:37:22",
+                t = {
+                    b_585 = "97",
+                    b_586 = "134",
+                    b_587 = "136",
+                    b_588 = "77",
+                    b_589 = "196",
+                    b_590 = "58",
+                    b_591 = "118",
+                    b_592 = "109",
+                    b_717 = "300"
+                }
+            },
+ {
+                g = "Uncensored",
+                r = "us",
+                s =  "crusader strike",
+                id = "CwDcFbgRHJqk14nf",
+                ts = "1:37:31",
+                t = {
+                    b_585 = "142",
+                    b_586 = "123",
+                    b_587 = "117",
+                    b_588 = "81",
+                    b_589 = "177",
+                    b_590 = "102",
+                    b_591 = "123",
+                    b_592 = "100",
+                    b_717 = "391"
+                }
+            },
+ {
+                g = "Phantom x Troupe",
+                r = "us",
+                s =  "crusader strike",
+                id = "qCx2MVNKjknZTv6z",
+                ts = "1:37:31",
+                t = {
+                    b_585 = "83",
+                    b_586 = "113",
+                    b_587 = "96",
+                    b_588 = "70",
+                    b_589 = "131",
+                    b_590 = "82",
+                    b_591 = "111",
+                    b_592 = "79",
+                    b_717 = "264"
+                }
+            },
+ {
+                g = "PISSERS",
+                r = "us",
+                s =  "crusader strike",
+                id = "B1zJQRdCmL4TVkac",
+                ts = "1:37:48",
+                t = {
+                    b_585 = "97",
+                    b_586 = "100",
+                    b_587 = "116",
+                    b_588 = "71",
+                    b_589 = "148",
+                    b_590 = "82",
+                    b_591 = "97",
+                    b_592 = "88",
+                    b_717 = "391"
+                }
+            },
+ {
+                g = "BuiltHordeTough",
+                r = "us",
+                s =  "crusader strike",
+                id = "b4AcKnv7TxLfMtqH",
+                ts = "1:39:04",
+                t = {
+                    b_585 = "149",
+                    b_586 = "105",
+                    b_587 = "116",
+                    b_588 = "79",
+                    b_589 = "106",
+                    b_590 = "88",
+                    b_591 = "164",
+                    b_592 = "102",
+                    b_717 = "420"
+                }
+            },
+ {
+                g = "Dominus",
+                r = "us",
+                s =  "crusader strike",
+                id = "6mNxyAnwJHTfdX81",
+                ts = "1:39:44",
+                t = {
+                    b_585 = "101",
+                    b_586 = "101",
+                    b_587 = "148",
+                    b_588 = "79",
+                    b_589 = "120",
+                    b_590 = "83",
+                    b_591 = "87",
+                    b_592 = "111",
+                    b_717 = "390"
+                }
+            },
+ {
+                g = "Lit Factory",
+                r = "us",
+                s =  "crusader strike",
+                id = "3DhyFPRC1afNHGAY",
+                ts = "1:39:58",
+                t = {
+                    b_585 = "102",
+                    b_586 = "97",
+                    b_587 = "91",
+                    b_588 = "57",
+                    b_589 = "115",
+                    b_590 = "67",
+                    b_591 = "64",
+                    b_592 = "82",
+                    b_717 = "317"
+                }
+            },
+ {
+                g = "Zug Dealers",
+                r = "us",
+                s =  "crusader strike",
+                id = "1mckQCnG98V43yhJ",
+                ts = "1:39:59",
+                t = {
+                    b_585 = "70",
+                    b_586 = "76",
+                    b_587 = "86",
+                    b_588 = "55",
+                    b_589 = "105",
+                    b_590 = "72",
+                    b_591 = "60",
+                    b_592 = "69",
+                    b_717 = "292"
+                }
+            },
+ {
+                g = "BuffMe",
+                r = "us",
+                s =  "crusader strike",
+                id = "ZR71BMKJmbA9F8tN",
+                ts = "1:40:08",
+                t = {
+                    b_585 = "89",
+                    b_586 = "106",
+                    b_587 = "92",
+                    b_588 = "76",
+                    b_589 = "199",
+                    b_590 = "77",
+                    b_591 = "63",
+                    b_592 = "80",
+                    b_717 = "354"
+                }
+            },
+ {
+                g = "Blazed Goats",
+                r = "us",
+                s =  "crusader strike",
+                id = "DcJGHP7ndpRTwaFy",
+                ts = "1:40:13",
+                t = {
+                    b_585 = "87",
+                    b_586 = "97",
+                    b_587 = "119",
+                    b_588 = "64",
+                    b_589 = "156",
+                    b_590 = "76",
+                    b_591 = "99",
+                    b_592 = "80",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Carebears",
+                r = "us",
+                s =  "crusader strike",
+                id = "WKj8CmPqH4A2yd1D",
+                ts = "1:40:21",
+                t = {
+                    b_585 = "178",
+                    b_586 = "154",
+                    b_587 = "160",
+                    b_588 = "129",
+                    b_589 = "187",
+                    b_590 = "118",
+                    b_591 = "161",
+                    b_592 = "133",
+                    b_717 = "527"
+                }
+            },
+ {
+                g = "Fully Torqued",
+                r = "us",
+                s =  "crusader strike",
+                id = "wKjLZdkbCqXYN6Bf",
+                ts = "1:41:16",
+                t = {
+                    b_585 = "120",
+                    b_586 = "111",
+                    b_587 = "168",
+                    b_588 = "89",
+                    b_589 = "225",
+                    b_590 = "111",
+                    b_591 = "102",
+                    b_592 = "131",
+                    b_717 = "398"
+                }
+            },
+ {
+                g = "on gob",
+                r = "us",
+                s =  "crusader strike",
+                id = "cVBkPKvDdCwrhfp1",
+                ts = "1:41:17",
+                t = {
+                    b_585 = "149",
+                    b_586 = "123",
+                    b_587 = "141",
+                    b_588 = "98",
+                    b_589 = "199",
+                    b_590 = "97",
+                    b_591 = "132",
+                    b_592 = "113",
+                    b_717 = "556"
+                }
+            },
+ {
+                g = "MAGA Logs",
+                r = "us",
+                s =  "crusader strike",
+                id = "na9XVWDvdrAhcKw3",
+                ts = "1:41:20",
+                t = {
+                    b_585 = "103",
+                    b_586 = "98",
+                    b_587 = "152",
+                    b_588 = "131",
+                    b_589 = "125",
+                    b_590 = "82",
+                    b_591 = "93",
+                    b_592 = "98",
+                    b_717 = "327"
+                }
+            },
+ {
+                g = "sAeM FieT",
+                r = "us",
+                s =  "crusader strike",
+                id = "T9rV3BpJc28jZnbh",
+                ts = "1:41:38",
+                t = {
+                    b_585 = "87",
+                    b_586 = "115",
+                    b_587 = "143",
+                    b_588 = "68",
+                    b_589 = "134",
+                    b_590 = "77",
+                    b_591 = "89",
+                    b_592 = "90",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Kaizen",
+                r = "us",
+                s =  "crusader strike",
+                id = "L8TZJxaz2mpwVqyX",
+                ts = "1:41:54",
+                t = {
+                    b_585 = "93",
+                    b_586 = "116",
+                    b_587 = "103",
+                    b_588 = "66",
+                    b_589 = "54",
+                    b_590 = "82",
+                    b_591 = "171",
+                    b_592 = "87",
+                    b_717 = "393"
+                }
+            },
+ {
+                g = "The Guard",
+                r = "us",
+                s =  "crusader strike",
+                id = "MWF6dfDcRTX4yKnr",
+                ts = "1:41:57",
+                t = {
+                    b_585 = "125",
+                    b_586 = "132",
+                    b_587 = "150",
+                    b_588 = "104",
+                    b_589 = "142",
+                    b_590 = "108",
+                    b_591 = "147",
+                    b_592 = "111",
+                    b_717 = "469"
+                }
+            },
+ {
+                g = "shut up you idiot",
+                r = "us",
+                s =  "crusader strike",
+                id = "x1d4DYB3JqnyLkGc",
+                ts = "1:42:05",
+                t = {
+                    b_585 = "109",
+                    b_586 = "124",
+                    b_587 = "119",
+                    b_588 = "76",
+                    b_589 = "158",
+                    b_590 = "90",
+                    b_591 = "100",
+                    b_592 = "112",
+                    b_717 = "304"
+                }
+            },
+ {
+                g = "Bedroom Parsers",
+                r = "us",
+                s =  "crusader strike",
+                id = "M9wYpaCfv84zkVRG",
+                ts = "1:42:24",
+                t = {
+                    b_585 = "88",
+                    b_586 = "103",
+                    b_587 = "120",
+                    b_588 = "67",
+                    b_589 = "183",
+                    b_590 = "83",
+                    b_591 = "94",
+                    b_592 = "119",
+                    b_717 = "462"
+                }
+            },
+ {
+                g = "Ryan Gosling in Drive",
+                r = "us",
+                s =  "crusader strike",
+                id = "qFX9TYWCmbLtGDr7",
+                ts = "1:42:26",
+                t = {
+                    b_585 = "92",
+                    b_586 = "113",
+                    b_587 = "117",
+                    b_588 = "72",
+                    b_589 = "116",
+                    b_590 = "86",
+                    b_591 = "75",
+                    b_592 = "89",
+                    b_717 = "269"
+                }
+            },
+ {
+                g = "Sigma Male Gosling Types",
+                r = "us",
+                s =  "crusader strike",
+                id = "kB8FfzXMamK76Y2y",
+                ts = "1:43:12",
+                t = {
+                    b_585 = "132",
+                    b_586 = "142",
+                    b_587 = "155",
+                    b_588 = "136",
+                    b_589 = "172",
+                    b_590 = "98",
+                    b_591 = "105",
+                    b_592 = "114",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "Providentia",
+                r = "us",
+                s =  "crusader strike",
+                id = "Bhd7CGMZqxDzp9XN",
+                ts = "1:43:13",
+                t = {
+                    b_585 = "108",
+                    b_586 = "107",
+                    b_587 = "108",
+                    b_588 = "84",
+                    b_589 = "138",
+                    b_590 = "79",
+                    b_591 = "104",
+                    b_592 = "85",
+                    b_717 = "277"
+                }
+            },
+ {
+                g = "THE MILK",
+                r = "us",
+                s =  "crusader strike",
+                id = "hvqR1VwXHNTxpkyd",
+                ts = "1:43:26",
+                t = {
+                    b_585 = "84",
+                    b_586 = "100",
+                    b_587 = "122",
+                    b_588 = "74",
+                    b_589 = "107",
+                    b_590 = "76",
+                    b_591 = "105",
+                    b_592 = "85",
+                    b_717 = "127"
+                }
+            },
+ {
+                g = "Havok",
+                r = "us",
+                s =  "crusader strike",
+                id = "9ZBWtaG3Yj1cCdmn",
+                ts = "1:43:27",
+                t = {
+                    b_585 = "106",
+                    b_586 = "121",
+                    b_587 = "137",
+                    b_588 = "106",
+                    b_589 = "146",
+                    b_590 = "89",
+                    b_591 = "180",
+                    b_592 = "164",
+                    b_717 = "433"
+                }
+            },
+ {
+                g = "Secret Pumper Guild",
+                r = "us",
+                s =  "crusader strike",
+                id = "2zqkNtyrcwf8nWXZ",
+                ts = "1:43:32",
+                t = {
+                    b_585 = "111",
+                    b_586 = "116",
+                    b_587 = "151",
+                    b_588 = "84",
+                    b_589 = "177",
+                    b_590 = "88",
+                    b_591 = "119",
+                    b_592 = "106",
+                    b_717 = "58"
+                }
+            },
+ {
+                g = "Mithril Mafia",
+                r = "us",
+                s =  "crusader strike",
+                id = "Bjq6YatW7hPgdKRf",
+                ts = "1:43:40",
+                t = {
+                    b_585 = "97",
+                    b_586 = "141",
+                    b_587 = "131",
+                    b_588 = "68",
+                    b_589 = "128",
+                    b_590 = "88",
+                    b_591 = "102",
+                    b_592 = "103",
+                    b_717 = "408"
+                }
+            },
+ {
+                g = "Legalize Nuclear Bombs",
+                r = "us",
+                s =  "crusader strike",
+                id = "7mJQh8fADc9ZPxVK",
+                ts = "1:43:47",
+                t = {
+                    b_585 = "147",
+                    b_586 = "116",
+                    b_587 = "136",
+                    b_588 = "81",
+                    b_589 = "225",
+                    b_590 = "100",
+                    b_591 = "109",
+                    b_592 = "102",
+                    b_717 = "432"
+                }
+            },
+ {
+                g = "Dang I Like Frogs",
+                r = "us",
+                s =  "crusader strike",
+                id = "BfXjz2NhgAmDd1nF",
+                ts = "1:43:49",
+                t = {
+                    b_585 = "116",
+                    b_586 = "114",
+                    b_587 = "131",
+                    b_588 = "123",
+                    b_589 = "129",
+                    b_590 = "99",
+                    b_591 = "181",
+                    b_592 = "111",
+                    b_717 = "457"
+                }
+            },
+ {
+                g = "BRM Border Patrol",
+                r = "us",
+                s =  "crusader strike",
+                id = "vybF4VhrqJRwNPg6",
+                ts = "1:44:21",
+                t = {
+                    b_585 = "112",
+                    b_586 = "142",
+                    b_587 = "124",
+                    b_588 = "103",
+                    b_589 = "155",
+                    b_590 = "91",
+                    b_591 = "108",
+                    b_592 = "108",
+                    b_717 = "302"
+                }
+            },
+ {
+                g = "New Orc City",
+                r = "us",
+                s =  "crusader strike",
+                id = "kV9n7C8Qyd4gwRJq",
+                ts = "1:44:50",
+                t = {
+                    b_585 = "103",
+                    b_586 = "128",
+                    b_587 = "140",
+                    b_588 = "87",
+                    b_589 = "127",
+                    b_590 = "94",
+                    b_591 = "141",
+                    b_592 = "128",
+                    b_717 = "639"
+                }
+            },
+ {
+                g = "Gulch Trotters",
+                r = "us",
+                s =  "crusader strike",
+                id = "LKYzQcAqtRPdgxrv",
+                ts = "1:44:52",
+                t = {
+                    b_585 = "112",
+                    b_586 = "116",
+                    b_587 = "120",
+                    b_588 = "89",
+                    b_589 = "119",
+                    b_590 = "93",
+                    b_591 = "151",
+                    b_592 = "99",
+                    b_717 = "372"
+                }
+            },
+ {
+                g = "ULTRA MAINS",
+                r = "us",
+                s =  "crusader strike",
+                id = "LQqc7tm6YbTkDh4n",
+                ts = "1:44:55",
+                t = {
+                    b_585 = "78",
+                    b_586 = "93",
+                    b_587 = "113",
+                    b_588 = "59",
+                    b_589 = "116",
+                    b_590 = "79",
+                    b_591 = "93",
+                    b_592 = "92",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "Game Science",
+                r = "us",
+                s =  "crusader strike",
+                id = "3gqRDpJPWjandzhX",
+                ts = "1:45:10",
+                t = {
+                    b_585 = "93",
+                    b_586 = "110",
+                    b_587 = "110",
+                    b_588 = "71",
+                    b_589 = "134",
+                    b_590 = "74",
+                    b_591 = "96",
+                    b_592 = "111",
+                    b_717 = "329"
+                }
+            },
+ {
+                g = "Bushido",
+                r = "us",
+                s =  "crusader strike",
+                id = "DKLjMTbX42ka3FqB",
+                ts = "1:45:24",
+                t = {
+                    b_585 = "91",
+                    b_586 = "129",
+                    b_587 = "118",
+                    b_588 = "72",
+                    b_589 = "119",
+                    b_590 = "83",
+                    b_591 = "81",
+                    b_592 = "111",
+                    b_717 = "446"
+                }
+            },
+ {
+                g = "Gang of Baggers",
+                r = "us",
+                s =  "crusader strike",
+                id = "yqGZNRD24CwgLfvX",
+                ts = "1:45:39",
+                t = {
+                    b_585 = "99",
+                    b_586 = "108",
+                    b_587 = "103",
+                    b_588 = "86",
+                    b_589 = "129",
+                    b_590 = "83",
+                    b_591 = "96",
+                    b_592 = "96",
+                    b_717 = "32"
+                }
+            },
+ {
+                g = "Second Mains",
+                r = "us",
+                s =  "crusader strike",
+                id = "Mj3n6VGRZHYKhQTk",
+                ts = "1:45:43",
+                t = {
+                    b_585 = "126",
+                    b_586 = "147",
+                    b_587 = "165",
+                    b_588 = "107",
+                    b_589 = "182",
+                    b_590 = "122",
+                    b_591 = "220",
+                    b_592 = "163",
+                    b_717 = "485"
+                }
+            },
+ {
+                g = "Aggroholics",
+                r = "us",
+                s =  "crusader strike",
+                id = "fkhWrbwX7BF4v3nH",
+                ts = "1:46:00",
+                t = {
+                    b_585 = "85",
+                    b_586 = "74",
+                    b_587 = "101",
+                    b_588 = "51",
+                    b_589 = "87",
+                    b_590 = "62",
+                    b_591 = "64",
+                    b_592 = "71",
+                    b_717 = "295"
+                }
+            },
+ {
+                g = "Revenant",
+                r = "us",
+                s =  "crusader strike",
+                id = "Fjp2yBZT3rChGfn4",
+                ts = "1:46:02",
+                t = {
+                    b_585 = "116",
+                    b_586 = "106",
+                    b_587 = "112",
+                    b_588 = "66",
+                    b_589 = "103",
+                    b_590 = "79",
+                    b_591 = "137",
+                    b_592 = "93",
+                    b_717 = "49"
+                }
+            },
+ {
+                g = "HordeRonin",
+                r = "us",
+                s =  "crusader strike",
+                id = "ayDHwAt8nT69ZvNB",
+                ts = "1:46:07",
+                t = {
+                    b_585 = "125",
+                    b_586 = "113",
+                    b_587 = "126",
+                    b_588 = "89",
+                    b_589 = "120",
+                    b_590 = "96",
+                    b_591 = "142",
+                    b_592 = "103",
+                    b_717 = "517"
+                }
+            },
+ {
+                g = "Label's Ghastly Crew",
+                r = "us",
+                s =  "crusader strike",
+                id = "xFPm1hkjQYBaNbZV",
+                ts = "1:46:09",
+                t = {
+                    b_585 = "111",
+                    b_586 = "111",
+                    b_587 = "120",
+                    b_588 = "92",
+                    b_589 = "123",
+                    b_590 = "91",
+                    b_591 = "100",
+                    b_592 = "126",
+                    b_717 = "381"
+                }
+            },
+ {
+                g = "Chosen",
+                r = "us",
+                s =  "crusader strike",
+                id = "brnQvzTB7WxF3JMt",
+                ts = "1:46:10",
+                t = {
+                    b_585 = "111",
+                    b_586 = "111",
+                    b_587 = "120",
+                    b_588 = "92",
+                    b_589 = "123",
+                    b_590 = "91",
+                    b_591 = "100",
+                    b_592 = "126",
+                    b_717 = "381"
+                }
+            },
+ {
+                g = "Imminent",
+                r = "us",
+                s =  "crusader strike",
+                id = "nfJRbpyGL3jChw9d",
+                ts = "1:46:28",
+                t = {
+                    b_585 = "89",
+                    b_586 = "108",
+                    b_587 = "118",
+                    b_588 = "73",
+                    b_589 = "183",
+                    b_590 = "83",
+                    b_591 = "89",
+                    b_592 = "107",
+                    b_717 = "509"
+                }
+            },
+ {
+                g = "Disband",
+                r = "us",
+                s =  "crusader strike",
+                id = "zJyPGHWh6F7Tkmaj",
+                ts = "1:47:23",
+                t = {
+                    b_585 = "78",
+                    b_586 = "98",
+                    b_587 = "93",
+                    b_588 = "60",
+                    b_589 = "142",
+                    b_590 = "74",
+                    b_591 = "62",
+                    b_592 = "87",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "Hotfix Crusader Strike",
+                r = "us",
+                s =  "crusader strike",
+                id = "CFfy4cnz2JtqXZLA",
+                ts = "1:47:54",
+                t = {
+                    b_585 = "122",
+                    b_586 = "123",
+                    b_587 = "129",
+                    b_588 = "77",
+                    b_589 = "149",
+                    b_590 = "81",
+                    b_591 = "123",
+                    b_592 = "103",
+                    b_717 = "342"
+                }
+            },
+ {
+                g = "John Deere",
+                r = "us",
+                s =  "crusader strike",
+                id = "thxNndpbDyr4Kk3M",
+                ts = "1:48:28",
+                t = {
+                    b_585 = "117",
+                    b_586 = "148",
+                    b_587 = "143",
+                    b_588 = "114",
+                    b_589 = "317",
+                    b_590 = "94",
+                    b_591 = "277",
+                    b_592 = "115",
+                    b_717 = "439"
+                }
+            },
+ {
+                g = "Tribe",
+                r = "us",
+                s =  "crusader strike",
+                id = "VpdfLtQ1JnXkzTYa",
+                ts = "1:48:39",
+                t = {
+                    b_585 = "105",
+                    b_586 = "132",
+                    b_587 = "160",
+                    b_588 = "86",
+                    b_589 = "208",
+                    b_590 = "105",
+                    b_591 = "166",
+                    b_592 = "110",
+                    b_717 = "484"
+                }
+            },
+ {
+                g = "whatever",
+                r = "us",
+                s =  "crusader strike",
+                id = "6bPjngrLYpc2X4QD",
+                ts = "1:48:40",
+                t = {
+                    b_585 = "185",
+                    b_586 = "122",
+                    b_587 = "143",
+                    b_588 = "98",
+                    b_589 = "224",
+                    b_590 = "92",
+                    b_591 = "144",
+                    b_592 = "103",
+                    b_717 = "392"
+                }
+            },
+ {
+                g = "Defias",
+                r = "us",
+                s =  "crusader strike",
+                id = "a41JGrHVQDhyxTjg",
+                ts = "1:48:48",
+                t = {
+                    b_585 = "122",
+                    b_586 = "121",
+                    b_587 = "140",
+                    b_588 = "92",
+                    b_589 = "147",
+                    b_590 = "85",
+                    b_591 = "100",
+                    b_592 = "91",
+                    b_717 = "281"
+                }
+            },
+ {
+                g = "Crankers",
+                r = "us",
+                s =  "crusader strike",
+                id = "ctRmr9J590jLvKwq",
+                ts = "1:49:00",
+                t = {
+                    b_585 = "100",
+                    b_586 = "124",
+                    b_587 = "140",
+                    b_588 = "91",
+                    b_589 = "148",
+                    b_590 = "102",
+                    b_591 = "162",
+                    b_592 = "111",
+                    b_717 = "517"
+                }
+            },
+ {
+                g = "RESET",
+                r = "us",
+                s =  "crusader strike",
+                id = "1X6rQFhCxZpjbTvR",
+                ts = "1:49:02",
+                t = {
+                    b_585 = "123",
+                    b_586 = "110",
+                    b_587 = "120",
+                    b_588 = "80",
+                    b_589 = "126",
+                    b_590 = "92",
+                    b_591 = "95",
+                    b_592 = "104",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "Sanity",
+                r = "us",
+                s =  "crusader strike",
+                id = "B6nkWT7gCpVHwPMJ",
+                ts = "1:49:23",
+                t = {
+                    b_585 = "152",
+                    b_586 = "128",
+                    b_587 = "142",
+                    b_588 = "96",
+                    b_589 = "176",
+                    b_590 = "100",
+                    b_591 = "253",
+                    b_592 = "124",
+                    b_717 = "407"
+                }
+            },
+ {
+                g = "Hammer and Leaf",
+                r = "us",
+                s =  "crusader strike",
+                id = "GM3Vh2J4R8Y9KbA6",
+                ts = "1:49:27",
+                t = {
+                    b_585 = "164",
+                    b_586 = "116",
+                    b_587 = "132",
+                    b_588 = "112",
+                    b_589 = "129",
+                    b_590 = "93",
+                    b_591 = "223",
+                    b_592 = "132",
+                    b_717 = "499"
+                }
+            },
+ {
+                g = "<Whatevers Clever>",
+                r = "us",
+                s =  "crusader strike",
+                id = "X9kAKP2Zdb6zY8Nx",
+                ts = "1:49:39",
+                t = {
+                    b_585 = "98",
+                    b_586 = "113",
+                    b_587 = "130",
+                    b_588 = "105",
+                    b_589 = "177",
+                    b_590 = "99",
+                    b_591 = "158",
+                    b_592 = "124",
+                    b_717 = "461"
+                }
+            },
+ {
+                g = "Ropetown",
+                r = "us",
+                s =  "crusader strike",
+                id = "79DNhLxCymdX3Zf1",
+                ts = "1:50:04",
+                t = {
+                    b_585 = "138",
+                    b_586 = "131",
+                    b_587 = "157",
+                    b_588 = "118",
+                    b_589 = "184",
+                    b_590 = "118",
+                    b_591 = "205",
+                    b_592 = "127",
+                    b_717 = "499"
+                }
+            },
+ {
+                g = "Severance",
+                r = "us",
+                s =  "crusader strike",
+                id = "znKB2H6QNWJmj1Lb",
+                ts = "1:50:09",
+                t = {
+                    b_585 = "149",
+                    b_586 = "119",
+                    b_587 = "139",
+                    b_588 = "74",
+                    b_589 = "169",
+                    b_590 = "90",
+                    b_591 = "171",
+                    b_592 = "131",
+                    b_717 = "500"
+                }
+            },
+ {
+                g = "<Snakes on a Bayou>",
+                r = "us",
+                s =  "crusader strike",
+                id = "c7QgW92L13pqYb4P",
+                ts = "1:50:37",
+                t = {
+                    b_585 = "123",
+                    b_586 = "123",
+                    b_587 = "149",
+                    b_588 = "103",
+                    b_589 = "197",
+                    b_590 = "104",
+                    b_591 = "237",
+                    b_592 = "127",
+                    b_717 = "450"
+                }
+            },
+ {
+                g = "LoFi",
+                r = "us",
+                s =  "crusader strike",
+                id = "pdLfxRAwvJzV2HjC",
+                ts = "1:50:41",
+                t = {
+                    b_585 = "191",
+                    b_586 = "202",
+                    b_587 = "170",
+                    b_588 = "120",
+                    b_589 = "264",
+                    b_590 = "116",
+                    b_591 = "148",
+                    b_592 = "112",
+                    b_717 = "444"
+                }
+            },
+ {
+                g = "Violet",
+                r = "us",
+                s =  "crusader strike",
+                id = "xh2j38vFJmW4nXgd",
+                ts = "1:50:43",
+                t = {
+                    b_585 = "96",
+                    b_586 = "98",
+                    b_587 = "102",
+                    b_588 = "70",
+                    b_589 = "179",
+                    b_590 = "95",
+                    b_591 = "132",
+                    b_592 = "87",
+                    b_717 = "307"
+                }
+            },
+ {
+                g = "Boboland",
+                r = "us",
+                s =  "crusader strike",
+                id = "CaTzkXbvVjPwhJ8D",
+                ts = "1:50:47",
+                t = {
+                    b_585 = "95",
+                    b_586 = "123",
+                    b_587 = "110",
+                    b_588 = "84",
+                    b_589 = "133",
+                    b_590 = "86",
+                    b_591 = "109",
+                    b_592 = "104",
+                    b_717 = "24"
+                }
+            },
+ {
+                g = "Ony Fans",
+                r = "us",
+                s =  "crusader strike",
+                id = "BGTj9NAbraXdt3xJ",
+                ts = "1:50:48",
+                t = {
+                    b_585 = "102",
+                    b_586 = "116",
+                    b_587 = "117",
+                    b_588 = "83",
+                    b_589 = "101",
+                    b_590 = "81",
+                    b_591 = "79",
+                    b_592 = "93",
+                    b_717 = "285"
+                }
+            },
+ {
+                g = "happy to be here",
+                r = "us",
+                s =  "crusader strike",
+                id = "R21xGYtDH46Zpm3r",
+                ts = "1:51:06",
+                t = {
+                    b_585 = "132",
+                    b_586 = "160",
+                    b_587 = "165",
+                    b_588 = "102",
+                    b_589 = "176",
+                    b_590 = "101",
+                    b_591 = "197",
+                    b_592 = "136",
+                    b_717 = "479"
+                }
+            },
+ {
+                g = "THICC",
+                r = "us",
+                s =  "crusader strike",
+                id = "pwgaPk8HTzR39Lcm",
+                ts = "1:51:36",
+                t = {
+                    b_585 = "110",
+                    b_586 = "132",
+                    b_587 = "127",
+                    b_588 = "91",
+                    b_589 = "191",
+                    b_590 = "122",
+                    b_591 = "195",
+                    b_592 = "109",
+                    b_717 = "289"
+                }
+            },
+ {
+                g = "Unboon and Goon",
+                r = "us",
+                s =  "crusader strike",
+                id = "NDVhmZQGLf8rxCjv",
+                ts = "1:51:50",
+                t = {
+                    b_585 = "121",
+                    b_586 = "139",
+                    b_587 = "121",
+                    b_588 = "89",
+                    b_589 = "167",
+                    b_590 = "93",
+                    b_591 = "183",
+                    b_592 = "105",
+                    b_717 = "36"
+                }
+            },
+ {
+                g = "The Flat Azeroth Society",
+                r = "us",
+                s =  "crusader strike",
+                id = "gNJjCdLZ32tmyBaR",
+                ts = "1:52:14",
+                t = {
+                    b_585 = "124",
+                    b_586 = "116",
+                    b_587 = "173",
+                    b_588 = "118",
+                    b_589 = "279",
+                    b_590 = "106",
+                    b_591 = "167",
+                    b_592 = "120",
+                    b_717 = "443"
+                }
+            },
+ {
+                g = "Warstomp",
+                r = "us",
+                s =  "crusader strike",
+                id = "4rHaDhMp7Xt1zk23",
+                ts = "1:52:33",
+                t = {
+                    b_585 = "145",
+                    b_586 = "147",
+                    b_587 = "137",
+                    b_588 = "92",
+                    b_589 = "133",
+                    b_590 = "98",
+                    b_591 = "140",
+                    b_592 = "134",
+                    b_717 = "432"
+                }
+            },
+ {
+                g = "Omen Gaming",
+                r = "us",
+                s =  "crusader strike",
+                id = "mkPKMRYZFAaJtg1y",
+                ts = "1:52:35",
+                t = {
+                    b_585 = "121",
+                    b_586 = "119",
+                    b_587 = "147",
+                    b_588 = "115",
+                    b_589 = "225",
+                    b_590 = "84",
+                    b_591 = "82",
+                    b_592 = "142",
+                    b_717 = "459"
+                }
+            },
+ {
+                g = "Mon/Weds",
+                r = "us",
+                s =  "crusader strike",
+                id = "TqJ7BdCVxjMFG4NQ",
+                ts = "1:52:44",
+                t = {
+                    b_585 = "107",
+                    b_586 = "116",
+                    b_587 = "119",
+                    b_588 = "71",
+                    b_589 = "191",
+                    b_590 = "78",
+                    b_591 = "140",
+                    b_592 = "96",
+                    b_717 = "295"
+                }
+            },
+ {
+                g = "Fusion SoD",
+                r = "us",
+                s =  "crusader strike",
+                id = "68qz31XGyhbf4Lra",
+                ts = "1:53:07",
+                t = {
+                    b_585 = "96",
+                    b_586 = "142",
+                    b_587 = "121",
+                    b_588 = "84",
+                    b_589 = "208",
+                    b_590 = "90",
+                    b_591 = "128",
+                    b_592 = "100",
+                    b_717 = "356"
+                }
+            },
+ {
+                g = "Far Horizons",
+                r = "us",
+                s =  "crusader strike",
+                id = "QMYRc4Fzt3vbpwHd",
+                ts = "1:53:18",
+                t = {
+                    b_585 = "155",
+                    b_586 = "140",
+                    b_587 = "140",
+                    b_588 = "112",
+                    b_589 = "193",
+                    b_590 = "113",
+                    b_591 = "166",
+                    b_592 = "125",
+                    b_717 = "428"
+                }
+            },
+ {
+                g = "LETS GO",
+                r = "us",
+                s =  "crusader strike",
+                id = "HRWZGCbfm8xdPpNt",
+                ts = "1:53:19",
+                t = {
+                    b_585 = "105",
+                    b_586 = "128",
+                    b_587 = "164",
+                    b_588 = "79",
+                    b_589 = "331",
+                    b_590 = "91",
+                    b_591 = "114",
+                    b_592 = "139",
+                    b_717 = "426"
+                }
+            },
+ {
+                g = "AI Generated",
+                r = "us",
+                s =  "crusader strike",
+                id = "7JZykGTYmC3X6ajf",
+                ts = "1:53:46",
+                t = {
+                    b_585 = "104",
+                    b_586 = "127",
+                    b_587 = "123",
+                    b_588 = "82",
+                    b_589 = "117",
+                    b_590 = "97",
+                    b_591 = "83",
+                    b_592 = "98",
+                    b_717 = "405"
+                }
+            },
+ {
+                g = "Dadz",
+                r = "us",
+                s =  "crusader strike",
+                id = "rAtv9FyxkqmY7GZQ",
+                ts = "1:53:50",
+                t = {
+                    b_585 = "104",
+                    b_586 = "163",
+                    b_587 = "146",
+                    b_588 = "83",
+                    b_589 = "183",
+                    b_590 = "97",
+                    b_591 = "100",
+                    b_592 = "121",
+                    b_717 = "406"
+                }
+            },
+ {
+                g = "Goldshire Goonies",
+                r = "us",
+                s =  "crusader strike",
+                id = "fyhpnH6JkgFjxGdZ",
+                ts = "1:54:01",
+                t = {
+                    b_585 = "97",
+                    b_586 = "106",
+                    b_587 = "110",
+                    b_588 = "65",
+                    b_589 = "141",
+                    b_590 = "85",
+                    b_591 = "123",
+                    b_592 = "93",
+                    b_717 = "364"
+                }
+            },
+ {
+                g = "Derivados do Jairo",
+                r = "us",
+                s =  "crusader strike",
+                id = "7pjA9fx6JV2brRPc",
+                ts = "1:54:17",
+                t = {
+                    b_585 = "113",
+                    b_586 = "118",
+                    b_587 = "137",
+                    b_588 = "77",
+                    b_589 = "149",
+                    b_590 = "93",
+                    b_591 = "126",
+                    b_592 = "101",
+                    b_717 = "325"
+                }
+            },
+ {
+                g = "REZ SICKNESS",
+                r = "us",
+                s =  "crusader strike",
+                id = "2zb81p6n7YDW4TKv",
+                ts = "1:54:18",
+                t = {
+                    b_585 = "88",
+                    b_586 = "94",
+                    b_587 = "100",
+                    b_588 = "63",
+                    b_589 = "111",
+                    b_590 = "75",
+                    b_591 = "131",
+                    b_592 = "100",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "Sorry were you questing",
+                r = "us",
+                s =  "crusader strike",
+                id = "FtNm2n9dXVjy6qhz",
+                ts = "1:54:18",
+                t = {
+                    b_585 = "139",
+                    b_586 = "126",
+                    b_587 = "125",
+                    b_588 = "80",
+                    b_589 = "200",
+                    b_590 = "88",
+                    b_591 = "140",
+                    b_592 = "101",
+                    b_717 = "375"
+                }
+            },
+ {
+                g = "U Think U Do But U Dont",
+                r = "us",
+                s =  "crusader strike",
+                id = "ZW9RcKCqvpaA3h1t",
+                ts = "1:54:31",
+                t = {
+                    b_585 = "121",
+                    b_586 = "106",
+                    b_587 = "122",
+                    b_588 = "71",
+                    b_589 = "117",
+                    b_590 = "81",
+                    b_591 = "97",
+                    b_592 = "97",
+                    b_717 = "399"
+                }
+            },
+ {
+                g = "dub dabs and dad bods",
+                r = "us",
+                s =  "crusader strike",
+                id = "2LVPX6vWDKdJhpCa",
+                ts = "1:54:51",
+                t = {
+                    b_585 = "146",
+                    b_586 = "142",
+                    b_587 = "162",
+                    b_588 = "109",
+                    b_589 = "207",
+                    b_590 = "117",
+                    b_591 = "274",
+                    b_592 = "227",
+                    b_717 = "423"
+                }
+            },
+ {
+                g = "Volume One",
+                r = "us",
+                s =  "crusader strike",
+                id = "1wWfGJnqLmHQcBCr",
+                ts = "1:56:05",
+                t = {
+                    b_585 = "157",
+                    b_586 = "129",
+                    b_587 = "133",
+                    b_588 = "104",
+                    b_589 = "199",
+                    b_590 = "89",
+                    b_591 = "139",
+                    b_592 = "103",
+                    b_717 = "390"
+                }
+            },
+ {
+                g = "Having A Blast",
+                r = "us",
+                s =  "crusader strike",
+                id = "xFTpabN374jDXKMV",
+                ts = "1:56:17",
+                t = {
+                    b_585 = "102",
+                    b_586 = "131",
+                    b_587 = "132",
+                    b_588 = "92",
+                    b_589 = "143",
+                    b_590 = "94",
+                    b_591 = "154",
+                    b_592 = "131",
+                    b_717 = "426"
+                }
+            },
+ {
+                g = "Crusade",
+                r = "us",
+                s =  "crusader strike",
+                id = "Vr4vw8KpYjfNkCXW",
+                ts = "1:56:36",
+                t = {
+                    b_585 = "120",
+                    b_586 = "173",
+                    b_587 = "147",
+                    b_588 = "131",
+                    b_589 = "162",
+                    b_590 = "144",
+                    b_591 = "225",
+                    b_592 = "137",
+                    b_717 = "633"
+                }
+            },
+ {
+                g = "Aftershock",
+                r = "us",
+                s =  "crusader strike",
+                id = "ALGRpTgwDzvhkNZx",
+                ts = "1:56:53",
+                t = {
+                    b_585 = "154",
+                    b_586 = "136",
+                    b_587 = "143",
+                    b_588 = "145",
+                    b_589 = "222",
+                    b_590 = "104",
+                    b_591 = "427",
+                    b_592 = "126",
+                    b_717 = "417"
+                }
+            },
+ {
+                g = "Ruckus",
+                r = "us",
+                s =  "crusader strike",
+                id = "HgcZdQ12MR94fJYX",
+                ts = "1:56:53",
+                t = {
+                    b_585 = "151",
+                    b_586 = "137",
+                    b_587 = "144",
+                    b_588 = "83",
+                    b_589 = "162",
+                    b_590 = "105",
+                    b_591 = "161",
+                    b_592 = "116",
+                    b_717 = "406"
+                }
+            },
+ {
+                g = "Slain",
+                r = "us",
+                s =  "crusader strike",
+                id = "avgf2R3xNLhPmkCQ",
+                ts = "1:57:39",
+                t = {
+                    b_585 = "125",
+                    b_586 = "147",
+                    b_587 = "160",
+                    b_588 = "120",
+                    b_589 = "184",
+                    b_590 = "120",
+                    b_591 = "218",
+                    b_592 = "118",
+                    b_717 = "434"
+                }
+            },
+ {
+                g = "Unhinged",
+                r = "us",
+                s =  "crusader strike",
+                id = "dvkMDwgnNacRAG64",
+                ts = "1:58:10",
+                t = {
+                    b_585 = "119",
+                    b_586 = "123",
+                    b_587 = "160",
+                    b_588 = "110",
+                    b_589 = "177",
+                    b_590 = "90",
+                    b_591 = "279",
+                    b_592 = "144",
+                    b_717 = "488"
+                }
+            },
+ {
+                g = "im out",
+                r = "us",
+                s =  "crusader strike",
+                id = "AyzRjBZtMwQ6xdpP",
+                ts = "1:58:44",
+                t = {
+                    b_585 = "112",
+                    b_586 = "106",
+                    b_587 = "130",
+                    b_588 = "70",
+                    b_589 = "133",
+                    b_590 = "82",
+                    b_591 = "108",
+                    b_592 = "98",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "Results May Vary SoD",
+                r = "us",
+                s =  "crusader strike",
+                id = "NyYhjnKZM34wAJTb",
+                ts = "1:58:51",
+                t = {
+                    b_585 = "132",
+                    b_586 = "97",
+                    b_587 = "123",
+                    b_588 = "73",
+                    b_589 = "131",
+                    b_590 = "104",
+                    b_591 = "236",
+                    b_592 = "118",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "Trias Cheese Co",
+                r = "us",
+                s =  "crusader strike",
+                id = "12TcnDtpXh4gJkFM",
+                ts = "1:59:03",
+                t = {
+                    b_585 = "159",
+                    b_586 = "116",
+                    b_587 = "149",
+                    b_588 = "84",
+                    b_589 = "220",
+                    b_590 = "89",
+                    b_591 = "88",
+                    b_592 = "99",
+                    b_717 = "295"
+                }
+            },
+ {
+                g = "Baguette Pumpers",
+                r = "us",
+                s =  "crusader strike",
+                id = "yXGx9VH6jA3wZ2Ld",
+                ts = "1:59:14",
+                t = {
+                    b_585 = "107",
+                    b_586 = "113",
+                    b_587 = "135",
+                    b_588 = "94",
+                    b_589 = "176",
+                    b_590 = "96",
+                    b_591 = "139",
+                    b_592 = "108",
+                    b_717 = "442"
+                }
+            },
+ {
+                g = "Jaggal of Jeffs",
+                r = "us",
+                s =  "crusader strike",
+                id = "FDPnwHWQyX4YxjaZ",
+                ts = "1:59:34",
+                t = {
+                    b_585 = "159",
+                    b_586 = "145",
+                    b_587 = "438",
+                    b_588 = "128",
+                    b_589 = "177",
+                    b_590 = "107",
+                    b_591 = "242",
+                    b_592 = "131",
+                    b_717 = "485"
+                }
+            },
+ {
+                g = "Lumos",
+                r = "us",
+                s =  "crusader strike",
+                id = "VxYwnT6RjGWBNKar",
+                ts = "1:59:50",
+                t = {
+                    b_585 = "109",
+                    b_586 = "125",
+                    b_587 = "167",
+                    b_588 = "94",
+                    b_589 = "221",
+                    b_590 = "101",
+                    b_591 = "212",
+                    b_592 = "109",
+                    b_717 = "428"
+                }
+            },
+ {
+                g = "rawr",
+                r = "us",
+                s =  "crusader strike",
+                id = "wKt1YX2v6VDBrQna",
+                ts = "2:00:18",
+                t = {
+                    b_585 = "208",
+                    b_586 = "118",
+                    b_587 = "130",
+                    b_588 = "91",
+                    b_589 = "125",
+                    b_590 = "96",
+                    b_591 = "166",
+                    b_592 = "107",
+                    b_717 = "422"
+                }
+            },
+ {
+                g = "Corporate (JPPs Version)",
+                r = "us",
+                s =  "crusader strike",
+                id = "gKFArGMpm62HX13P",
+                ts = "2:00:44",
+                t = {
+                    b_585 = "101",
+                    b_586 = "116",
+                    b_587 = "162",
+                    b_588 = "91",
+                    b_589 = "195",
+                    b_590 = "96",
+                    b_591 = "79",
+                    b_592 = "100",
+                    b_717 = "596"
+                }
+            },
+ {
+                g = "Restless",
+                r = "us",
+                s =  "crusader strike",
+                id = "kTjz9v47RVN6F1ZP",
+                ts = "2:01:00",
+                t = {
+                    b_585 = "113",
+                    b_586 = "121",
+                    b_587 = "149",
+                    b_588 = "93",
+                    b_589 = "136",
+                    b_590 = "107",
+                    b_591 = "154",
+                    b_592 = "129",
+                    b_717 = "383"
+                }
+            },
+ {
+                g = "Sang Real",
+                r = "us",
+                s =  "crusader strike",
+                id = "pqjvN9Q7YM1kzgdx",
+                ts = "2:01:45",
+                t = {
+                    b_585 = "111",
+                    b_586 = "154",
+                    b_587 = "128",
+                    b_588 = "108",
+                    b_589 = "189",
+                    b_590 = "105",
+                    b_591 = "204",
+                    b_592 = "107",
+                    b_717 = "466"
+                }
+            },
+ {
+                g = "Arrested Development",
+                r = "us",
+                s =  "crusader strike",
+                id = "vhb7fKk3r1Y8TtNX",
+                ts = "2:01:53",
+                t = {
+                    b_585 = "135",
+                    b_586 = "125",
+                    b_587 = "133",
+                    b_588 = "90",
+                    b_589 = "152",
+                    b_590 = "90",
+                    b_591 = "93",
+                    b_592 = "109",
+                    b_717 = "377"
+                }
+            },
+ {
+                g = "SENDIT",
+                r = "us",
+                s =  "crusader strike",
+                id = "hpMjNJHvWxL9rfkT",
+                ts = "2:01:54",
+                t = {
+                    b_585 = "114",
+                    b_586 = "119",
+                    b_587 = "128",
+                    b_588 = "86",
+                    b_589 = "165",
+                    b_590 = "100",
+                    b_591 = "234",
+                    b_592 = "109",
+                    b_717 = "330"
+                }
+            },
+ {
+                g = "Daybreak SoD",
+                r = "us",
+                s =  "crusader strike",
+                id = "Cazk27dHt64WwnBx",
+                ts = "2:02:06",
+                t = {
+                    b_585 = "94",
+                    b_586 = "92",
+                    b_587 = "131",
+                    b_588 = "104",
+                    b_589 = "142",
+                    b_590 = "70",
+                    b_591 = "140",
+                    b_592 = "83",
+                    b_717 = "308"
+                }
+            },
+ {
+                g = "TikTok",
+                r = "us",
+                s =  "crusader strike",
+                id = "pxBDNXA81r3JyvVc",
+                ts = "2:02:26",
+                t = {
+                    b_585 = "126",
+                    b_586 = "148",
+                    b_587 = "177",
+                    b_588 = "110",
+                    b_589 = "153",
+                    b_590 = "118",
+                    b_591 = "117",
+                    b_592 = "121",
+                    b_717 = "631"
+                }
+            },
+ {
+                g = "WELL MET",
+                r = "us",
+                s =  "crusader strike",
+                id = "9PkDb7mjTtFLdrQJ",
+                ts = "2:02:27",
+                t = {
+                    b_585 = "103",
+                    b_586 = "103",
+                    b_587 = "132",
+                    b_588 = "66",
+                    b_589 = "179",
+                    b_590 = "85",
+                    b_591 = "82",
+                    b_592 = "99",
+                    b_717 = "533"
+                }
+            },
+ {
+                g = "gamer",
+                r = "us",
+                s =  "crusader strike",
+                id = "qMQg19AYL4bWa2Gt",
+                ts = "2:02:35",
+                t = {
+                    b_585 = "104",
+                    b_586 = "123",
+                    b_587 = "142",
+                    b_588 = "78",
+                    b_589 = "200",
+                    b_590 = "94",
+                    b_591 = "197",
+                    b_592 = "120",
+                    b_717 = "492"
+                }
+            },
+ {
+                g = "Unjoyers",
+                r = "us",
+                s =  "crusader strike",
+                id = "fqZMBhzG6LH8wFXJ",
+                ts = "2:02:58",
+                t = {
+                    b_585 = "82",
+                    b_586 = "87",
+                    b_587 = "87",
+                    b_588 = "63",
+                    b_589 = "171",
+                    b_590 = "70",
+                    b_591 = "96",
+                    b_592 = "77",
+                    b_717 = "331"
+                }
+            },
+ {
+                g = "Gaslight",
+                r = "us",
+                s =  "crusader strike",
+                id = "tfmApr2wP8aJ967j",
+                ts = "2:03:21",
+                t = {
+                    b_585 = "116",
+                    b_586 = "134",
+                    b_587 = "133",
+                    b_588 = "121",
+                    b_589 = "178",
+                    b_590 = "109",
+                    b_591 = "252",
+                    b_592 = "122",
+                    b_717 = "559"
+                }
+            },
+ {
+                g = "Universe",
+                r = "us",
+                s =  "crusader strike",
+                id = "NdpFDBYkbVvZqRxM",
+                ts = "2:04:11",
+                t = {
+                    b_585 = "108",
+                    b_586 = "139",
+                    b_587 = "129",
+                    b_588 = "98",
+                    b_589 = "138",
+                    b_590 = "100",
+                    b_591 = "124",
+                    b_592 = "103",
+                    b_717 = "730"
+                }
+            },
+ {
+                g = "How Good",
+                r = "us",
+                s =  "crusader strike",
+                id = "X8PZ4hJyk9fbxAHm",
+                ts = "2:04:52",
+                t = {
+                    b_585 = "131",
+                    b_586 = "127",
+                    b_587 = "138",
+                    b_588 = "72",
+                    b_589 = "147",
+                    b_590 = "93",
+                    b_591 = "88",
+                    b_592 = "161",
+                    b_717 = "362"
+                }
+            },
+ {
+                g = "Wild Boyz",
+                r = "us",
+                s =  "crusader strike",
+                id = "8TWLBNCxhGYQpV7P",
+                ts = "2:05:33",
+                t = {
+                    b_585 = "137",
+                    b_586 = "147",
+                    b_587 = "152",
+                    b_588 = "125",
+                    b_589 = "259",
+                    b_590 = "138",
+                    b_591 = "171",
+                    b_592 = "140",
+                    b_717 = "413"
+                }
+            },
+ {
+                g = "Late Night Raiders",
+                r = "us",
+                s =  "crusader strike",
+                id = "yNkrGxR2ZpjMmLnt",
+                ts = "2:06:19",
+                t = {
+                    b_585 = "87",
+                    b_586 = "102",
+                    b_587 = "120",
+                    b_588 = "90",
+                    b_589 = "181",
+                    b_590 = "87",
+                    b_591 = "127",
+                    b_592 = "96",
+                    b_717 = "303"
+                }
+            },
+ {
+                g = "In SOD we trust",
+                r = "us",
+                s =  "crusader strike",
+                id = "W3MfCdPanrvKpYmA",
+                ts = "2:07:16",
+                t = {
+                    b_585 = "125",
+                    b_586 = "159",
+                    b_587 = "170",
+                    b_588 = "113",
+                    b_589 = "130",
+                    b_590 = "107",
+                    b_591 = "172",
+                    b_592 = "128",
+                    b_717 = "691"
+                }
+            },
+ {
+                g = "Deadmoon",
+                r = "us",
+                s =  "crusader strike",
+                id = "DbyhBpcrYFRnQWkP",
+                ts = "2:07:27",
+                t = {
+                    b_585 = "97",
+                    b_586 = "121",
+                    b_587 = "119",
+                    b_588 = "89",
+                    b_589 = "131",
+                    b_590 = "90",
+                    b_591 = "125",
+                    b_592 = "197",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "Phoenix Down",
+                r = "us",
+                s =  "crusader strike",
+                id = "fT3jWBQkHDdKqFAX",
+                ts = "2:08:36",
+                t = {
+                    b_585 = "140",
+                    b_586 = "148",
+                    b_587 = "204",
+                    b_588 = "117",
+                    b_589 = "141",
+                    b_590 = "98",
+                    b_591 = "156",
+                    b_592 = "149",
+                    b_717 = "677"
+                }
+            },
+ {
+                g = "Maximum Handicap",
+                r = "us",
+                s =  "crusader strike",
+                id = "7bv1apPkwnVT4FJx",
+                ts = "2:08:39",
+                t = {
+                    b_585 = "154",
+                    b_586 = "152",
+                    b_587 = "172",
+                    b_588 = "136",
+                    b_589 = "161",
+                    b_590 = "118",
+                    b_591 = "219",
+                    b_592 = "174",
+                    b_717 = "40"
+                }
+            },
+ {
+                g = "Thunder Fire",
+                r = "us",
+                s =  "crusader strike",
+                id = "cTtLRWh4DfprV37A",
+                ts = "2:09:11",
+                t = {
+                    b_585 = "122",
+                    b_586 = "139",
+                    b_587 = "162",
+                    b_588 = "105",
+                    b_589 = "198",
+                    b_590 = "109",
+                    b_591 = "157",
+                    b_592 = "136",
+                    b_717 = "429"
+                }
+            },
+ {
+                g = "Indigo",
+                r = "us",
+                s =  "crusader strike",
+                id = "JvLBQDfaNhKPytqr",
+                ts = "2:09:20",
+                t = {
+                    b_585 = "111",
+                    b_586 = "108",
+                    b_587 = "150",
+                    b_588 = "80",
+                    b_589 = "104",
+                    b_590 = "91",
+                    b_591 = "117",
+                    b_592 = "94",
+                    b_717 = "442"
+                }
+            },
+ {
+                g = "Enjoyers",
+                r = "us",
+                s =  "crusader strike",
+                id = "jrtBx8JKym1qT3Yf",
+                ts = "2:11:23",
+                t = {
+                    b_585 = "174",
+                    b_586 = "162",
+                    b_587 = "141",
+                    b_588 = "99",
+                    b_589 = "189",
+                    b_590 = "100",
+                    b_591 = "160",
+                    b_592 = "126",
+                    b_717 = "621"
+                }
+            },
+ {
+                g = "Cumin",
+                r = "us",
+                s =  "crusader strike",
+                id = "Ccj2YTNPtvymdAgx",
+                ts = "2:13:11",
+                t = {
+                    b_585 = "108",
+                    b_586 = "151",
+                    b_587 = "142",
+                    b_588 = "111",
+                    b_589 = "157",
+                    b_590 = "103",
+                    b_591 = "218",
+                    b_592 = "146",
+                    b_717 = "195"
+                }
+            },
+ {
+                g = "The Jimmys",
+                r = "us",
+                s =  "crusader strike",
+                id = "NFy8bWLKpj7zG3Dq",
+                ts = "2:13:38",
+                t = {
+                    b_585 = "108",
+                    b_586 = "144",
+                    b_587 = "166",
+                    b_588 = "119",
+                    b_589 = "150",
+                    b_590 = "102",
+                    b_591 = "157",
+                    b_592 = "173",
+                    b_717 = "370"
+                }
+            },
+ {
+                g = "Drunkin Donuts",
+                r = "us",
+                s =  "crusader strike",
+                id = "VQzJcZqryFAaY7b6",
+                ts = "2:13:40",
+                t = {
+                    b_585 = "158",
+                    b_586 = "136",
+                    b_587 = "145",
+                    b_588 = "84",
+                    b_589 = "141",
+                    b_590 = "90",
+                    b_591 = "92",
+                    b_592 = "99",
+                    b_717 = "575"
+                }
+            },
+ {
+                g = "High Ping",
+                r = "us",
+                s =  "crusader strike",
+                id = "w1yLpVK93XZqkcTa",
+                ts = "2:15:15",
+                t = {
+                    b_585 = "223",
+                    b_586 = "118",
+                    b_587 = "133",
+                    b_588 = "83",
+                    b_589 = "204",
+                    b_590 = "109",
+                    b_591 = "235",
+                    b_592 = "160",
+                    b_717 = "411"
+                }
+            },
+ {
+                g = "Season of OG",
+                r = "us",
+                s =  "crusader strike",
+                id = "cJfqBLkxvw76C2dR",
+                ts = "2:15:55",
+                t = {
+                    b_585 = "158",
+                    b_586 = "145",
+                    b_587 = "153",
+                    b_588 = "113",
+                    b_589 = "176",
+                    b_590 = "107",
+                    b_591 = "269",
+                    b_592 = "143",
+                    b_717 = "418"
+                }
+            },
+ {
+                g = "Nine Lives",
+                r = "us",
+                s =  "crusader strike",
+                id = "kM72QmdKrBynDt46",
+                ts = "2:16:41",
+                t = {
+                    b_585 = "110",
+                    b_586 = "147",
+                    b_587 = "128",
+                    b_588 = "107",
+                    b_589 = "164",
+                    b_590 = "92",
+                    b_591 = "160",
+                    b_592 = "129",
+                    b_717 = "608"
+                }
+            },
+ {
+                g = "Bamboozled1ncgty",
+                r = "us",
+                s =  "crusader strike",
+                id = "vVkm1jA9BMCphxGJ",
+                ts = "2:18:22",
+                t = {
+                    b_585 = "125",
+                    b_586 = "127",
+                    b_587 = "165",
+                    b_588 = "97",
+                    b_589 = "156",
+                    b_590 = "112",
+                    b_591 = "214",
+                    b_592 = "147",
+                    b_717 = "330"
+                }
+            },
+ {
+                g = "Lula n usa Shift",
+                r = "us",
+                s =  "crusader strike",
+                id = "grH7caCbZmFyMvfX",
+                ts = "2:19:20",
+                t = {
+                    b_585 = "123",
+                    b_586 = "111",
+                    b_587 = "113",
+                    b_588 = "72",
+                    b_589 = "181",
+                    b_590 = "76",
+                    b_591 = "124",
+                    b_592 = "145",
+                    b_717 = "279"
+                }
+            },
+ {
+                g = "Uneducated Swine",
+                r = "us",
+                s =  "crusader strike",
+                id = "cfK8JdPBTZYLMXRz",
+                ts = "2:22:19",
+                t = {
+                    b_585 = "112",
+                    b_586 = "118",
+                    b_587 = "166",
+                    b_588 = "89",
+                    b_589 = "154",
+                    b_590 = "90",
+                    b_591 = "144",
+                    b_592 = "109",
+                    b_717 = "400"
+                }
+            },
+ {
+                g = "Affect",
+                r = "us",
+                s =  "crusader strike",
+                id = "8bFMVTx9mrH3nv47",
+                ts = "2:22:27",
+                t = {
+                    b_585 = "160",
+                    b_586 = "142",
+                    b_587 = "151",
+                    b_588 = "98",
+                    b_589 = "238",
+                    b_590 = "93",
+                    b_591 = "248",
+                    b_592 = "134",
+                    b_717 = "399"
+                }
+            },
+ {
+                g = "Raised By Wolves",
+                r = "us",
+                s =  "crusader strike",
+                id = "Z82Tzka47BcDbXwt",
+                ts = "2:23:28",
+                t = {
+                    b_585 = "99",
+                    b_586 = "116",
+                    b_587 = "135",
+                    b_588 = "76",
+                    b_589 = "141",
+                    b_590 = "83",
+                    b_591 = "104",
+                    b_592 = "139",
+                    b_717 = "618"
+                }
+            },
+ {
+                g = "Council",
+                r = "us",
+                s =  "crusader strike",
+                id = "ymHRNZ2LVMBYaJvq",
+                ts = "2:27:59",
+                t = {
+                    b_585 = "415",
+                    b_586 = "163",
+                    b_587 = "157",
+                    b_588 = "127",
+                    b_589 = "269",
+                    b_590 = "106",
+                    b_591 = "210",
+                    b_592 = "145",
+                    b_717 = "561"
+                }
+            },
+ {
+                g = "Brawlers",
+                r = "us",
+                s =  "crusader strike",
+                id = "Rd93frn8pgXQNCmM",
+                ts = "2:28:01",
+                t = {
+                    b_585 = "180",
+                    b_586 = "183",
+                    b_587 = "155",
+                    b_588 = "118",
+                    b_589 = "237",
+                    b_590 = "129",
+                    b_591 = "69",
+                    b_592 = "151",
+                    b_717 = "557"
+                }
+            },
+ {
+                g = "Booty Bay Watch",
+                r = "us",
+                s =  "crusader strike",
+                id = "M6mQAjvtTN1W89rC",
+                ts = "2:28:33",
+                t = {
+                    b_585 = "130",
+                    b_586 = "152",
+                    b_587 = "190",
+                    b_588 = "107",
+                    b_589 = "157",
+                    b_590 = "104",
+                    b_591 = "176",
+                    b_592 = "142",
+                    b_717 = "556"
+                }
+            },
+ {
+                g = "Die Trying",
+                r = "us",
+                s =  "crusader strike",
+                id = "z8tLRym74q3cxNV6",
+                ts = "2:30:57",
+                t = {
+                    b_585 = "106",
+                    b_586 = "144",
+                    b_587 = "170",
+                    b_588 = "119",
+                    b_589 = "159",
+                    b_590 = "92",
+                    b_591 = "279",
+                    b_592 = "125",
+                    b_717 = "476"
+                }
+            },
+ {
+                g = "Failed Coup",
+                r = "us",
+                s =  "crusader strike",
+                id = "bTBj8VGZKpC9P3Nf",
+                ts = "2:33:15",
+                t = {
+                    b_585 = "153",
+                    b_586 = "142",
+                    b_587 = "155",
+                    b_588 = "85",
+                    b_589 = "202",
+                    b_590 = "99",
+                    b_591 = "142",
+                    b_592 = "120",
+                    b_717 = "641"
+                }
+            },
+ {
+                g = "Froggy Hat Society",
+                r = "us",
+                s =  "crusader strike",
+                id = "pqbtmdDPw4B8nWHX",
+                ts = "2:35:26",
+                t = {
+                    b_585 = "265",
+                    b_586 = "168",
+                    b_587 = "147",
+                    b_588 = "110",
+                    b_589 = "169",
+                    b_590 = "102",
+                    b_591 = "229",
+                    b_592 = "103",
+                    b_717 = "418"
+                }
+            },
+ {
+                g = "Lucid Dreams",
+                r = "us",
+                s =  "crusader strike",
+                id = "mghVqbtxf7GNJA2H",
+                ts = "2:37:25",
+                t = {
+                    b_585 = "160",
+                    b_586 = "120",
+                    b_587 = "149",
+                    b_588 = "89",
+                    b_589 = "305",
+                    b_590 = "114",
+                    b_591 = "240",
+                    b_592 = "182",
+                    b_717 = "477"
+                }
+            },
+ {
+                g = "pierats",
+                r = "us",
+                s =  "crusader strike",
+                id = "1Vhq6fx4pP2Nm8DB",
+                ts = "2:38:08",
+                t = {
+                    b_585 = "144",
+                    b_586 = "139",
+                    b_587 = "145",
+                    b_588 = "91",
+                    b_589 = "112",
+                    b_590 = "102",
+                    b_591 = "218",
+                    b_592 = "213",
+                    b_717 = "379"
+                }
+            },
+ {
+                g = "Boca de Fumo",
+                r = "us",
+                s =  "crusader strike",
+                id = "8drqgwvAhcLpz9tV",
+                ts = "2:38:35",
+                t = {
+                    b_585 = "166",
+                    b_586 = "142",
+                    b_587 = "159",
+                    b_588 = "114",
+                    b_589 = "177",
+                    b_590 = "118",
+                    b_591 = "158",
+                    b_592 = "171",
+                    b_717 = "548"
+                }
+            },
+ {
+                g = "NOETIC",
+                r = "us",
+                s =  "crusader strike",
+                id = "VtDaXwYrG3QJA9Kp",
+                ts = "2:41:15",
+                t = {
+                    b_585 = "102",
+                    b_586 = "110",
+                    b_587 = "120",
+                    b_588 = "88",
+                    b_589 = "137",
+                    b_590 = "95",
+                    b_591 = "216",
+                    b_592 = "138",
+                    b_717 = "37"
+                }
+            },
+ {
+                g = "Kronos",
+                r = "us",
+                s =  "crusader strike",
+                id = "aBTp7VA3WHXydb49",
+                ts = "2:46:42",
+                t = {
+                    b_585 = "192",
+                    b_586 = "139",
+                    b_587 = "160",
+                    b_588 = "118",
+                    b_589 = "194",
+                    b_590 = "124",
+                    b_591 = "124",
+                    b_592 = "141",
+                    b_717 = "631"
+                }
+            },
+ {
+                g = "Anarchy",
+                r = "us",
+                s =  "crusader strike",
+                id = "kg92TC3m1daXYADx",
+                ts = "2:47:19",
+                t = {
+                    b_585 = "109",
+                    b_586 = "123",
+                    b_587 = "129",
+                    b_588 = "101",
+                    b_589 = "166",
+                    b_590 = "96",
+                    b_591 = "121",
+                    b_592 = "106",
+                    b_717 = "361"
+                }
+            },
+ {
+                g = "Well Hell",
+                r = "us",
+                s =  "crusader strike",
+                id = "jD3yYHZNPTXpBz7k",
+                ts = "2:48:31",
+                t = {
+                    b_585 = "118",
+                    b_586 = "137",
+                    b_587 = "146",
+                    b_588 = "100",
+                    b_589 = "157",
+                    b_590 = "126",
+                    b_591 = "489",
+                    b_592 = "369",
+                    b_717 = "294"
+                }
+            },
+ {
+                g = "Go Cry About It",
+                r = "us",
+                s =  "crusader strike",
+                id = "wTjBYZ7A2JF6znVq",
+                ts = "2:52:45",
+                t = {
+                    b_585 = "132",
+                    b_586 = "135",
+                    b_587 = "144",
+                    b_588 = "160",
+                    b_589 = "156",
+                    b_590 = "103",
+                    b_591 = "184",
+                    b_592 = "133",
+                    b_717 = "260"
+                }
+            },
+ {
+                g = "Wolves",
+                r = "us",
+                s =  "crusader strike",
+                id = "NwhqLnGbYW17k4TV",
+                ts = "2:54:48",
+                t = {
+                    b_585 = "170",
+                    b_586 = "129",
+                    b_587 = "124",
+                    b_588 = "116",
+                    b_589 = "114",
+                    b_590 = "94",
+                    b_591 = "166",
+                    b_592 = "99",
+                    b_717 = "509"
+                }
+            },
+ {
+                g = "Spread It On",
+                r = "us",
+                s =  "crusader strike",
+                id = "69xGNHtCkXKDZRdf",
+                ts = "3:00:38",
+                t = {
+                    b_585 = "130",
+                    b_586 = "151",
+                    b_587 = "145",
+                    b_588 = "118",
+                    b_589 = "139",
+                    b_590 = "113",
+                    b_591 = "274",
+                    b_592 = "176",
+                    b_717 = "554"
+                }
+            },
+ {
+                g = "Lone Wolf Steakhouse",
+                r = "us",
+                s =  "crusader strike",
+                id = "T43zXM7aVvnwGyrZ",
+                ts = "3:02:32",
+                t = {
+                    b_585 = "102",
+                    b_586 = "108",
+                    b_587 = "208",
+                    b_588 = "120",
+                    b_589 = "175",
+                    b_590 = "122",
+                    b_591 = "79",
+                    b_592 = "259",
+                    b_717 = "188"
+                }
+            },
+ {
+                g = "BOOTY SWEAT",
+                r = "us",
+                s =  "crusader strike",
+                id = "MBf6cHZkwKRpGxFD",
+                ts = "3:03:52",
+                t = {
+                    b_585 = "121",
+                    b_586 = "140",
+                    b_587 = "170",
+                    b_588 = "126",
+                    b_589 = "150",
+                    b_590 = "105",
+                    b_591 = "245",
+                    b_592 = "140",
+                    b_717 = "463"
+                }
+            },
+ {
+                g = "M A N I F E S T",
+                r = "us",
+                s =  "crusader strike",
+                id = "2BWPTRxngQwDJXmr",
+                ts = "3:10:41",
+                t = {
+                    b_585 = "172",
+                    b_586 = "124",
+                    b_587 = "130",
+                    b_588 = "89",
+                    b_589 = "377",
+                    b_590 = "87",
+                    b_591 = "152",
+                    b_592 = "112",
+                    b_717 = "238"
+                }
+            },
+ {
+                g = "High Council",
+                r = "us",
+                s =  "crusader strike",
+                id = "qvRM4XnAP9mdQ3fJ",
+                ts = "3:13:49",
+                t = {
+                    b_585 = "111",
+                    b_586 = "157",
+                    b_587 = "160",
+                    b_588 = "122",
+                    b_589 = "150",
+                    b_590 = "107",
+                    b_591 = "180",
+                    b_592 = "140",
+                    b_717 = "674"
+                }
+            },
+ {
+                g = "Single Digit Rolls",
+                r = "us",
+                s =  "crusader strike",
+                id = "231q8LnxNfMHgVbh",
+                ts = "3:15:20",
+                t = {
+                    b_585 = "161",
+                    b_586 = "154",
+                    b_587 = "174",
+                    b_588 = "141",
+                    b_589 = "163",
+                    b_590 = "125",
+                    b_591 = "338",
+                    b_592 = "166",
+                    b_717 = "63"
+                }
+            },
+ {
+                g = "Flavor Town",
+                r = "us",
+                s =  "lone wolf",
+                id = "GRghdVn7m9T3CF6k",
+                ts = "1:14:16",
+                t = {
+                    b_585 = "86",
+                    b_586 = "97",
+                    b_587 = "105",
+                    b_588 = "66",
+                    b_589 = "101",
+                    b_590 = "73",
+                    b_591 = "131",
+                    b_592 = "83",
+                    b_717 = "284"
+                }
+            },
+ {
+                g = "temporary",
+                r = "us",
+                s =  "lone wolf",
+                id = "zQkYnRZ98AwycPXd",
+                ts = "1:19:14",
+                t = {
+                    b_585 = "76",
+                    b_586 = "81",
+                    b_587 = "110",
+                    b_588 = "48",
+                    b_589 = "76",
+                    b_590 = "56",
+                    b_591 = "51",
+                    b_592 = "61",
+                    b_717 = "248"
+                }
+            },
+ {
+                g = "Lifted",
+                r = "us",
+                s =  "lone wolf",
+                id = "7kLzYphwJT3FCRQb",
+                ts = "1:20:43",
+                t = {
+                    b_585 = "105",
+                    b_586 = "98",
+                    b_587 = "114",
+                    b_588 = "95",
+                    b_589 = "103",
+                    b_590 = "80",
+                    b_591 = "108",
+                    b_592 = "85",
+                    b_717 = "256"
+                }
+            },
+ {
+                g = "The Other Guys",
+                r = "us",
+                s =  "lone wolf",
+                id = "bzdr4vZKjca3MwQN",
+                ts = "1:34:00",
+                t = {
+                    b_585 = "114",
+                    b_586 = "140",
+                    b_587 = "139",
+                    b_588 = "104",
+                    b_589 = "117",
+                    b_590 = "99",
+                    b_591 = "238",
+                    b_592 = "114",
+                    b_717 = "391"
+                }
+            },
+ {
+                g = "GOONIES",
+                r = "us",
+                s =  "lone wolf",
+                id = "BCAR8YHz1MGapWvK",
+                ts = "1:34:15",
+                t = {
+                    b_585 = "114",
+                    b_586 = "100",
+                    b_587 = "112",
+                    b_588 = "77",
+                    b_589 = "152",
+                    b_590 = "73",
+                    b_591 = "71",
+                    b_592 = "117",
+                    b_717 = "314"
+                }
+            },
+ {
+                g = "Reign Of Gaming",
+                r = "us",
+                s =  "lone wolf",
+                id = "NRdhBG3wmyPb2YcL",
+                ts = "1:35:16",
+                t = {
+                    b_585 = "101",
+                    b_586 = "116",
+                    b_587 = "122",
+                    b_588 = "74",
+                    b_589 = "131",
+                    b_590 = "90",
+                    b_591 = "139",
+                    b_592 = "113",
+                    b_717 = "389"
+                }
+            },
+ {
+                g = "ICE",
+                r = "us",
+                s =  "lone wolf",
+                id = "12Dfrm3xwdvAJNGc",
+                ts = "1:35:45",
+                t = {
+                    b_585 = "91",
+                    b_586 = "110",
+                    b_587 = "117",
+                    b_588 = "68",
+                    b_589 = "133",
+                    b_590 = "71",
+                    b_591 = "92",
+                    b_592 = "79",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Low Expectations",
+                r = "us",
+                s =  "lone wolf",
+                id = "gGB7vbTPN9fM6hDV",
+                ts = "1:39:21",
+                t = {
+                    b_585 = "101",
+                    b_586 = "109",
+                    b_587 = "105",
+                    b_588 = "72",
+                    b_589 = "137",
+                    b_590 = "81",
+                    b_591 = "89",
+                    b_592 = "97",
+                    b_717 = "350"
+                }
+            },
+ {
+                g = "Ready To Die",
+                r = "us",
+                s =  "lone wolf",
+                id = "Qv4pfbztKdHFJjDX",
+                ts = "1:39:28",
+                t = {
+                    b_585 = "130",
+                    b_586 = "134",
+                    b_587 = "152",
+                    b_588 = "98",
+                    b_589 = "178",
+                    b_590 = "103",
+                    b_591 = "172",
+                    b_592 = "129",
+                    b_717 = "420"
+                }
+            },
+ {
+                g = "shut up you idiot",
+                r = "us",
+                s =  "lone wolf",
+                id = "C7qy9JDbYPVX2hMQ",
+                ts = "1:42:05",
+                t = {
+                    b_585 = "109",
+                    b_586 = "124",
+                    b_587 = "119",
+                    b_588 = "76",
+                    b_589 = "158",
+                    b_590 = "90",
+                    b_591 = "103",
+                    b_592 = "112",
+                    b_717 = "304"
+                }
+            },
+ {
+                g = "Shambalosis",
+                r = "us",
+                s =  "lone wolf",
+                id = "DGWwT2dkXQPy9RZb",
+                ts = "1:42:41",
+                t = {
+                    b_585 = "92",
+                    b_586 = "108",
+                    b_587 = "98",
+                    b_588 = "62",
+                    b_589 = "98",
+                    b_590 = "73",
+                    b_591 = "104",
+                    b_592 = "92",
+                    b_717 = "32"
+                }
+            },
+ {
+                g = "Late Night Crew",
+                r = "us",
+                s =  "lone wolf",
+                id = "2T7F4j1tgrHxDp9C",
+                ts = "1:43:06",
+                t = {
+                    b_585 = "88",
+                    b_586 = "87",
+                    b_587 = "128",
+                    b_588 = "74",
+                    b_589 = "189",
+                    b_590 = "86",
+                    b_591 = "113",
+                    b_592 = "101",
+                    b_717 = "481"
+                }
+            },
+ {
+                g = "Late Bloomers",
+                r = "us",
+                s =  "lone wolf",
+                id = "DNjrphqBGbmHAZMW",
+                ts = "1:47:11",
+                t = {
+                    b_585 = "93",
+                    b_586 = "106",
+                    b_587 = "105",
+                    b_588 = "55",
+                    b_589 = "211",
+                    b_590 = "72",
+                    b_591 = "102",
+                    b_592 = "74",
+                    b_717 = "312"
+                }
+            },
+ {
+                g = "Snake Dojo",
+                r = "us",
+                s =  "lone wolf",
+                id = "VjMQdLbWTpyk18HZ",
+                ts = "1:55:45",
+                t = {
+                    b_585 = "152",
+                    b_586 = "124",
+                    b_587 = "130",
+                    b_588 = "88",
+                    b_589 = "143",
+                    b_590 = "101",
+                    b_591 = "146",
+                    b_592 = "124",
+                    b_717 = "424"
+                }
+            },
+ {
+                g = "Splatt",
+                r = "us",
+                s =  "lone wolf",
+                id = "81mtMd4znxcAVGbJ",
+                ts = "1:55:58",
+                t = {
+                    b_585 = "149",
+                    b_586 = "145",
+                    b_587 = "200",
+                    b_588 = "158",
+                    b_589 = "259",
+                    b_590 = "138",
+                    b_591 = "203",
+                    b_592 = "134",
+                    b_717 = "391"
+                }
+            },
+ {
+                g = "<D v C>",
+                r = "us",
+                s =  "lone wolf",
+                id = "3BLfQwHcAyFNCKd2",
+                ts = "1:56:07",
+                t = {
+                    b_585 = "153",
+                    b_586 = "121",
+                    b_587 = "130",
+                    b_588 = "76",
+                    b_589 = "152",
+                    b_590 = "94",
+                    b_591 = "316",
+                    b_592 = "91",
+                    b_717 = "418"
+                }
+            },
+ {
+                g = "deathGrab",
+                r = "us",
+                s =  "lone wolf",
+                id = "wGVR2XQLPaWN1nf9",
+                ts = "1:57:47",
+                t = {
+                    b_585 = "133",
+                    b_586 = "146",
+                    b_587 = "145",
+                    b_588 = "93",
+                    b_589 = "190",
+                    b_590 = "116",
+                    b_591 = "359",
+                    b_592 = "116",
+                    b_717 = "466"
+                }
+            },
+ {
+                g = "BEEF",
+                r = "us",
+                s =  "lone wolf",
+                id = "Xw76Lf9CcPhFzqjx",
+                ts = "1:58:49",
+                t = {
+                    b_585 = "158",
+                    b_586 = "121",
+                    b_587 = "128",
+                    b_588 = "91",
+                    b_589 = "207",
+                    b_590 = "99",
+                    b_591 = "148",
+                    b_592 = "108",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Musubi",
+                r = "us",
+                s =  "lone wolf",
+                id = "8dqKnV6R1AB7FZmX",
+                ts = "1:59:39",
+                t = {
+                    b_585 = "262",
+                    b_586 = "141",
+                    b_587 = "139",
+                    b_588 = "107",
+                    b_589 = "137",
+                    b_590 = "102",
+                    b_591 = "236",
+                    b_592 = "135",
+                    b_717 = "743"
+                }
+            },
+ {
+                g = "Ribbit",
+                r = "us",
+                s =  "lone wolf",
+                id = "BJKWqp8Hg6tQ9vkZ",
+                ts = "2:00:15",
+                t = {
+                    b_585 = "94",
+                    b_586 = "126",
+                    b_587 = "136",
+                    b_588 = "67",
+                    b_589 = "137",
+                    b_590 = "76",
+                    b_591 = "148",
+                    b_592 = "137",
+                    b_717 = "304"
+                }
+            },
+ {
+                g = "Late Night",
+                r = "us",
+                s =  "lone wolf",
+                id = "qAvpV8BcfbQ9zG4a",
+                ts = "2:04:03",
+                t = {
+                    b_585 = "138",
+                    b_586 = "166",
+                    b_587 = "171",
+                    b_588 = "98",
+                    b_589 = "178",
+                    b_590 = "113",
+                    b_591 = "178",
+                    b_592 = "102",
+                    b_717 = "627"
+                }
+            },
+ {
+                g = "A S Y L U M",
+                r = "us",
+                s =  "lone wolf",
+                id = "dKPYV9Nmwh3DFv4x",
+                ts = "2:08:59",
+                t = {
+                    b_585 = "110",
+                    b_586 = "147",
+                    b_587 = "128",
+                    b_588 = "107",
+                    b_589 = "164",
+                    b_590 = "92",
+                    b_591 = "160",
+                    b_592 = "129",
+                    b_717 = "607"
+                }
+            },
+ {
+                g = "Drunkin Donuts",
+                r = "us",
+                s =  "lone wolf",
+                id = "LT4HtZhQjfybNG2v",
+                ts = "2:13:35",
+                t = {
+                    b_585 = "158",
+                    b_586 = "136",
+                    b_587 = "145",
+                    b_588 = "84",
+                    b_589 = "141",
+                    b_590 = "90",
+                    b_591 = "85",
+                    b_592 = "99",
+                    b_717 = "582"
+                }
+            },
+ {
+                g = "Disorder",
+                r = "us",
+                s =  "lone wolf",
+                id = "4fW9Frt1K2RHAzNB",
+                ts = "2:15:45",
+                t = {
+                    b_585 = "108",
+                    b_586 = "119",
+                    b_587 = "151",
+                    b_588 = "83",
+                    b_589 = "36",
+                    b_590 = "91",
+                    b_591 = "265",
+                    b_592 = "110",
+                    b_717 = "462"
+                }
+            },
+ {
+                g = "Throaters",
+                r = "us",
+                s =  "lone wolf",
+                id = "YxK1WRcLTH2Adn6y",
+                ts = "2:21:57",
+                t = {
+                    b_585 = "185",
+                    b_586 = "133",
+                    b_587 = "147",
+                    b_588 = "83",
+                    b_589 = "300",
+                    b_590 = "99",
+                    b_591 = "239",
+                    b_592 = "136",
+                    b_717 = "348"
+                }
+            },
+ {
+                g = "Brotherhood",
+                r = "us",
+                s =  "lone wolf",
+                id = "CjFPGQaRWL9XAp6n",
+                ts = "2:25:47",
+                t = {
+                    b_585 = "149",
+                    b_586 = "140",
+                    b_587 = "139",
+                    b_588 = "92",
+                    b_589 = "178",
+                    b_590 = "90",
+                    b_591 = "215",
+                    b_592 = "122",
+                    b_717 = "697"
+                }
+            },
+ {
+                g = "Synthesis",
+                r = "us",
+                s =  "lone wolf",
+                id = "9KwZxNn8bD4fCGkJ",
+                ts = "2:30:09",
+                t = {
+                    b_585 = "131",
+                    b_586 = "151",
+                    b_587 = "182",
+                    b_588 = "121",
+                    b_589 = "273",
+                    b_590 = "118",
+                    b_591 = "116",
+                    b_592 = "139",
+                    b_717 = "435"
+                }
+            },
+ {
+                g = "SLAP HOG CITY",
+                r = "us",
+                s =  "lone wolf",
+                id = "hFm1ygYqvr9Qjp8X",
+                ts = "2:36:42",
+                t = {
+                    b_585 = "136",
+                    b_586 = "153",
+                    b_587 = "151",
+                    b_588 = "128",
+                    b_589 = "249",
+                    b_590 = "109",
+                    b_591 = "155",
+                    b_592 = "144",
+                    b_717 = "485"
+                }
+            },
+ {
+                g = "Corporate",
+                r = "us",
+                s =  "lone wolf",
+                id = "PRaDpyHJMb1ndNkF",
+                ts = "2:44:19",
+                t = {
+                    b_585 = "91",
+                    b_586 = "133",
+                    b_587 = "118",
+                    b_588 = "85",
+                    b_589 = "296",
+                    b_590 = "89",
+                    b_591 = "242",
+                    b_592 = "101",
+                    b_717 = "467"
+                }
+            },
+ {
+                g = "H O O L I G A N S",
+                r = "us",
+                s =  "lone wolf",
+                id = "k6hBZRKz7JMnWfwX",
+                ts = "3:10:37",
+                t = {
+                    b_585 = "121",
+                    b_586 = "129",
+                    b_587 = "144",
+                    b_588 = "171",
+                    b_589 = "263",
+                    b_590 = "102",
+                    b_591 = "141",
+                    b_592 = "131",
+                    b_717 = "352"
+                }
+            },
+ {
+                g = "Kissin The Gnomies Gnite",
+                r = "us",
+                s =  "lone wolf",
+                id = "bp8qjTyN3wxBk9WF",
+                ts = "3:35:41",
+                t = {
+                    b_585 = "106",
+                    b_586 = "139",
+                    b_587 = "160",
+                    b_588 = "108",
+                    b_589 = "199",
+                    b_590 = "91",
+                    b_591 = "130",
+                    b_592 = "268",
+                    b_717 = "504"
+                }
+            },
+ {
+                g = "Milk",
+                r = "us",
+                s =  "wild growth",
+                id = "tZDgTahWQBLx93Xd",
+                ts = "50:42",
+                t = {
+                    b_585 = "93",
+                    b_586 = "87",
+                    b_587 = "94",
+                    b_588 = "55",
+                    b_589 = "119",
+                    b_590 = "68",
+                    b_591 = "66",
+                    b_592 = "71",
+                    b_717 = "244"
+                }
+            },
+ {
+                g = "Elysîum",
+                r = "us",
+                s =  "wild growth",
+                id = "kQzAvYaFPN1WD2w6",
+                ts = "59:33",
+                t = {
+                    b_585 = "67",
+                    b_586 = "72",
+                    b_587 = "90",
+                    b_588 = "54",
+                    b_589 = "107",
+                    b_590 = "64",
+                    b_591 = "83",
+                    b_592 = "68",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "Valhalla - Balmung",
+                r = "us",
+                s =  "wild growth",
+                id = "JLY837Bb4hFZmnav",
+                ts = "1:00:56",
+                t = {
+                    b_585 = "93",
+                    b_586 = "93",
+                    b_587 = "91",
+                    b_588 = "61",
+                    b_589 = "121",
+                    b_590 = "67",
+                    b_591 = "93",
+                    b_592 = "85",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "Skill Issue",
+                r = "us",
+                s =  "wild growth",
+                id = "bx3drywMv1n8VWHC",
+                ts = "1:05:50",
+                t = {
+                    b_585 = "70",
+                    b_586 = "80",
+                    b_587 = "89",
+                    b_588 = "51",
+                    b_589 = "104",
+                    b_590 = "71",
+                    b_591 = "57",
+                    b_592 = "65",
+                    b_717 = "249"
+                }
+            },
+ {
+                g = "Downtime",
+                r = "us",
+                s =  "wild growth",
+                id = "Yfg3vAZdpw7BjGaC",
+                ts = "1:08:59",
+                t = {
+                    b_585 = "94",
+                    b_586 = "87",
+                    b_587 = "96",
+                    b_588 = "57",
+                    b_589 = "115",
+                    b_590 = "71",
+                    b_591 = "68",
+                    b_592 = "77",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Downtime PUGs",
+                r = "us",
+                s =  "wild growth",
+                id = "3nzdLBVgZFGYCpxw",
+                ts = "1:11:28",
+                t = {
+                    b_585 = "89",
+                    b_586 = "92",
+                    b_587 = "99",
+                    b_588 = "56",
+                    b_589 = "91",
+                    b_590 = "72",
+                    b_591 = "79",
+                    b_592 = "78",
+                    b_717 = "299"
+                }
+            },
+ {
+                g = "Critical Mass",
+                r = "us",
+                s =  "wild growth",
+                id = "bmYBayghP762cFwA",
+                ts = "1:13:20",
+                t = {
+                    b_585 = "80",
+                    b_586 = "97",
+                    b_587 = "118",
+                    b_588 = "64",
+                    b_589 = "118",
+                    b_590 = "77",
+                    b_591 = "75",
+                    b_592 = "88",
+                    b_717 = "288"
+                }
+            },
+ {
+                g = "Ten",
+                r = "us",
+                s =  "wild growth",
+                id = "w8vZpXW3MyHLcFYR",
+                ts = "1:13:33",
+                t = {
+                    b_585 = "79",
+                    b_586 = "93",
+                    b_587 = "98",
+                    b_588 = "66",
+                    b_589 = "101",
+                    b_590 = "73",
+                    b_591 = "81",
+                    b_592 = "99",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Late Night",
+                r = "us",
+                s =  "wild growth",
+                id = "MfqARyncK1bLVWNh",
+                ts = "1:14:03",
+                t = {
+                    b_585 = "129",
+                    b_586 = "100",
+                    b_587 = "105",
+                    b_588 = "61",
+                    b_589 = "161",
+                    b_590 = "78",
+                    b_591 = "121",
+                    b_592 = "99",
+                    b_717 = "271"
+                }
+            },
+ {
+                g = "RECKONING",
+                r = "us",
+                s =  "wild growth",
+                id = "74rQ2Zj9RwWKg3Bv",
+                ts = "1:14:20",
+                t = {
+                    b_585 = "76",
+                    b_586 = "103",
+                    b_587 = "89",
+                    b_588 = "54",
+                    b_589 = "102",
+                    b_590 = "68",
+                    b_591 = "91",
+                    b_592 = "74",
+                    b_717 = "270"
+                }
+            },
+ {
+                g = "What in LokTarnation",
+                r = "us",
+                s =  "wild growth",
+                id = "Tm3yknbB18NKFCAw",
+                ts = "1:14:58",
+                t = {
+                    b_585 = "103",
+                    b_586 = "108",
+                    b_587 = "121",
+                    b_588 = "84",
+                    b_589 = "162",
+                    b_590 = "98",
+                    b_591 = "113",
+                    b_592 = "97",
+                    b_717 = "304"
+                }
+            },
+ {
+                g = "Memento",
+                r = "us",
+                s =  "wild growth",
+                id = "YaZCVjh9y64KMPwf",
+                ts = "1:15:55",
+                t = {
+                    b_585 = "89",
+                    b_586 = "102",
+                    b_587 = "115",
+                    b_588 = "62",
+                    b_589 = "132",
+                    b_590 = "70",
+                    b_591 = "93",
+                    b_592 = "80",
+                    b_717 = "343"
+                }
+            },
+ {
+                g = "Imperium",
+                r = "us",
+                s =  "wild growth",
+                id = "KRchmN7fQ8p2zCPy",
+                ts = "1:16:45",
+                t = {
+                    b_585 = "93",
+                    b_586 = "102",
+                    b_587 = "121",
+                    b_588 = "66",
+                    b_589 = "162",
+                    b_590 = "75",
+                    b_591 = "113",
+                    b_592 = "84",
+                    b_717 = "315"
+                }
+            },
+ {
+                g = "Slappys Friends",
+                r = "us",
+                s =  "wild growth",
+                id = "rNnCJf7xWZgLXBQ9",
+                ts = "1:16:54",
+                t = {
+                    b_585 = "105",
+                    b_586 = "98",
+                    b_587 = "110",
+                    b_588 = "70",
+                    b_589 = "115",
+                    b_590 = "74",
+                    b_591 = "92",
+                    b_592 = "86",
+                    b_717 = "263"
+                }
+            },
+ {
+                g = "Crown",
+                r = "us",
+                s =  "wild growth",
+                id = "VPAgBfY9HnbrM7x3",
+                ts = "1:16:59",
+                t = {
+                    b_585 = "93",
+                    b_586 = "119",
+                    b_587 = "109",
+                    b_588 = "66",
+                    b_589 = "122",
+                    b_590 = "86",
+                    b_591 = "135",
+                    b_592 = "87",
+                    b_717 = "283"
+                }
+            },
+ {
+                g = "Meet Me at Naxxramas",
+                r = "us",
+                s =  "wild growth",
+                id = "xkfdAypwQB71t2T3",
+                ts = "1:17:30",
+                t = {
+                    b_585 = "98",
+                    b_586 = "123",
+                    b_587 = "122",
+                    b_588 = "77",
+                    b_589 = "168",
+                    b_590 = "90",
+                    b_591 = "105",
+                    b_592 = "101",
+                    b_717 = "275"
+                }
+            },
+ {
+                g = "Tuesday Raid",
+                r = "us",
+                s =  "wild growth",
+                id = "y4bQt7c9CDvkVdRw",
+                ts = "1:17:42",
+                t = {
+                    b_585 = "91",
+                    b_586 = "97",
+                    b_587 = "103",
+                    b_588 = "67",
+                    b_589 = "133",
+                    b_590 = "78",
+                    b_591 = "129",
+                    b_592 = "96",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "BiS IRL",
+                r = "us",
+                s =  "wild growth",
+                id = "zJ3gKnm2hxfpM6X1",
+                ts = "1:17:42",
+                t = {
+                    b_585 = "91",
+                    b_586 = "97",
+                    b_587 = "103",
+                    b_588 = "67",
+                    b_589 = "133",
+                    b_590 = "78",
+                    b_591 = "129",
+                    b_592 = "96",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "Spectra",
+                r = "us",
+                s =  "wild growth",
+                id = "C36zGM4JPVhFLaX9",
+                ts = "1:18:08",
+                t = {
+                    b_585 = "89",
+                    b_586 = "108",
+                    b_587 = "116",
+                    b_588 = "67",
+                    b_589 = "161",
+                    b_590 = "84",
+                    b_591 = "98",
+                    b_592 = "96",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Guardians Of New Azeroth",
+                r = "us",
+                s =  "wild growth",
+                id = "DWyLXNR4fC7qT9tM",
+                ts = "1:18:20",
+                t = {
+                    b_585 = "104",
+                    b_586 = "110",
+                    b_587 = "109",
+                    b_588 = "83",
+                    b_589 = "128",
+                    b_590 = "77",
+                    b_591 = "107",
+                    b_592 = "94",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Straight Blastin",
+                r = "us",
+                s =  "wild growth",
+                id = "KFQwC8WNGDAymZjc",
+                ts = "1:18:55",
+                t = {
+                    b_585 = "82",
+                    b_586 = "98",
+                    b_587 = "103",
+                    b_588 = "60",
+                    b_589 = "109",
+                    b_590 = "73",
+                    b_591 = "88",
+                    b_592 = "84",
+                    b_717 = "330"
+                }
+            },
+ {
+                g = "Spirit of The Horde",
+                r = "us",
+                s =  "wild growth",
+                id = "rJnhjpVY8F4ZHN3x",
+                ts = "1:19:04",
+                t = {
+                    b_585 = "111",
+                    b_586 = "108",
+                    b_587 = "125",
+                    b_588 = "72",
+                    b_589 = "117",
+                    b_590 = "80",
+                    b_591 = "146",
+                    b_592 = "100",
+                    b_717 = "387"
+                }
+            },
+ {
+                g = "Ascendance",
+                r = "us",
+                s =  "wild growth",
+                id = "mLt7QfkZ8VAFz9PG",
+                ts = "1:19:09",
+                t = {
+                    b_585 = "90",
+                    b_586 = "111",
+                    b_587 = "117",
+                    b_588 = "71",
+                    b_589 = "136",
+                    b_590 = "83",
+                    b_591 = "136",
+                    b_592 = "82",
+                    b_717 = "410"
+                }
+            },
+ {
+                g = "Apex",
+                r = "us",
+                s =  "wild growth",
+                id = "bkhNmnw1HZaRDLXY",
+                ts = "1:19:59",
+                t = {
+                    b_585 = "96",
+                    b_586 = "95",
+                    b_587 = "110",
+                    b_588 = "80",
+                    b_589 = "140",
+                    b_590 = "77",
+                    b_591 = "80",
+                    b_592 = "97",
+                    b_717 = "292"
+                }
+            },
+ {
+                g = "raid and fade",
+                r = "us",
+                s =  "wild growth",
+                id = "hjmHfgzvyxWq14LJ",
+                ts = "1:20:31",
+                t = {
+                    b_585 = "95",
+                    b_586 = "110",
+                    b_587 = "142",
+                    b_588 = "71",
+                    b_589 = "156",
+                    b_590 = "86",
+                    b_591 = "120",
+                    b_592 = "93",
+                    b_717 = "313"
+                }
+            },
+ {
+                g = "Cecil Raiders",
+                r = "us",
+                s =  "wild growth",
+                id = "HTh9BaGJQpd46jqP",
+                ts = "1:20:43",
+                t = {
+                    b_585 = "85",
+                    b_586 = "93",
+                    b_587 = "117",
+                    b_588 = "66",
+                    b_589 = "172",
+                    b_590 = "76",
+                    b_591 = "94",
+                    b_592 = "107",
+                    b_717 = "271"
+                }
+            },
+ {
+                g = "Froppy - Thursday",
+                r = "us",
+                s =  "wild growth",
+                id = "HBCcJfd9QMbGK8FY",
+                ts = "1:21:00",
+                t = {
+                    b_585 = "96",
+                    b_586 = "87",
+                    b_587 = "113",
+                    b_588 = "66",
+                    b_589 = "115",
+                    b_590 = "77",
+                    b_591 = "84",
+                    b_592 = "89",
+                    b_717 = "289"
+                }
+            },
+ {
+                g = "Under Oats",
+                r = "us",
+                s =  "wild growth",
+                id = "8APB6tgNWkmz3YKF",
+                ts = "1:23:25",
+                t = {
+                    b_585 = "91",
+                    b_586 = "90",
+                    b_587 = "92",
+                    b_588 = "66",
+                    b_589 = "122",
+                    b_590 = "72",
+                    b_591 = "82",
+                    b_592 = "90",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "<Bubs>",
+                r = "us",
+                s =  "wild growth",
+                id = "xfCVzLtcr36dX7wk",
+                ts = "1:23:35",
+                t = {
+                    b_585 = "99",
+                    b_586 = "103",
+                    b_587 = "135",
+                    b_588 = "74",
+                    b_589 = "134",
+                    b_590 = "79",
+                    b_591 = "93",
+                    b_592 = "125",
+                    b_717 = "303"
+                }
+            },
+ {
+                g = "Starry Nights",
+                r = "us",
+                s =  "wild growth",
+                id = "pd8fKhVaXG9RATgv",
+                ts = "1:23:37",
+                t = {
+                    b_585 = "95",
+                    b_586 = "129",
+                    b_587 = "126",
+                    b_588 = "89",
+                    b_589 = "165",
+                    b_590 = "87",
+                    b_591 = "162",
+                    b_592 = "90",
+                    b_717 = "419"
+                }
+            },
+ {
+                g = "Death Row",
+                r = "us",
+                s =  "wild growth",
+                id = "HJLjqXNnpCRtVfmT",
+                ts = "1:23:45",
+                t = {
+                    b_585 = "82",
+                    b_586 = "90",
+                    b_587 = "96",
+                    b_588 = "55",
+                    b_589 = "120",
+                    b_590 = "70",
+                    b_591 = "94",
+                    b_592 = "104",
+                    b_717 = "338"
+                }
+            },
+ {
+                g = "Lineage",
+                r = "us",
+                s =  "wild growth",
+                id = "6MtB2azfA9W7X13Q",
+                ts = "1:24:15",
+                t = {
+                    b_585 = "89",
+                    b_586 = "95",
+                    b_587 = "121",
+                    b_588 = "73",
+                    b_589 = "109",
+                    b_590 = "70",
+                    b_591 = "86",
+                    b_592 = "80",
+                    b_717 = "48"
+                }
+            },
+ {
+                g = "Beef n Lechon",
+                r = "us",
+                s =  "wild growth",
+                id = "fgYvA2X9QHyBN3mJ",
+                ts = "1:24:31",
+                t = {
+                    b_585 = "80",
+                    b_586 = "108",
+                    b_587 = "98",
+                    b_588 = "67",
+                    b_589 = "145",
+                    b_590 = "73",
+                    b_591 = "144",
+                    b_592 = "78",
+                    b_717 = "265"
+                }
+            },
+ {
+                g = "Grim",
+                r = "us",
+                s =  "wild growth",
+                id = "wcY7Rkfyh2FKpg9A",
+                ts = "1:24:35",
+                t = {
+                    b_585 = "113",
+                    b_586 = "98",
+                    b_587 = "110",
+                    b_588 = "62",
+                    b_589 = "116",
+                    b_590 = "75",
+                    b_591 = "89",
+                    b_592 = "85",
+                    b_717 = "321"
+                }
+            },
+ {
+                g = "Might",
+                r = "us",
+                s =  "wild growth",
+                id = "tZWjv7JHAQw3NTrn",
+                ts = "1:24:43",
+                t = {
+                    b_585 = "104",
+                    b_586 = "129",
+                    b_587 = "141",
+                    b_588 = "68",
+                    b_589 = "118",
+                    b_590 = "80",
+                    b_591 = "118",
+                    b_592 = "105",
+                    b_717 = "273"
+                }
+            },
+ {
+                g = "Bloodlust",
+                r = "us",
+                s =  "wild growth",
+                id = "MkWZdrG1VRPjy8xn",
+                ts = "1:24:51",
+                t = {
+                    b_585 = "91",
+                    b_586 = "85",
+                    b_587 = "108",
+                    b_588 = "59",
+                    b_589 = "127",
+                    b_590 = "69",
+                    b_591 = "99",
+                    b_592 = "85",
+                    b_717 = "45"
+                }
+            },
+ {
+                g = "Group 8",
+                r = "us",
+                s =  "wild growth",
+                id = "bzqn7DL6ZrNjBdxR",
+                ts = "1:26:13",
+                t = {
+                    b_585 = "108",
+                    b_586 = "114",
+                    b_587 = "125",
+                    b_588 = "71",
+                    b_589 = "232",
+                    b_590 = "95",
+                    b_591 = "134",
+                    b_592 = "107",
+                    b_717 = "416"
+                }
+            },
+ {
+                g = "The Bakery",
+                r = "us",
+                s =  "wild growth",
+                id = "7fj46JM3Q1v8gCxK",
+                ts = "1:26:16",
+                t = {
+                    b_585 = "139",
+                    b_586 = "132",
+                    b_587 = "146",
+                    b_588 = "95",
+                    b_589 = "158",
+                    b_590 = "95",
+                    b_591 = "119",
+                    b_592 = "133",
+                    b_717 = "432"
+                }
+            },
+ {
+                g = "Horizons",
+                r = "us",
+                s =  "wild growth",
+                id = "v1MwRFZzybJDGXkt",
+                ts = "1:26:24",
+                t = {
+                    b_585 = "82",
+                    b_586 = "103",
+                    b_587 = "96",
+                    b_588 = "55",
+                    b_589 = "107",
+                    b_590 = "67",
+                    b_591 = "70",
+                    b_592 = "78",
+                    b_717 = "296"
+                }
+            },
+ {
+                g = "Maelstrom",
+                r = "us",
+                s =  "wild growth",
+                id = "BQxLvza9Ndwnqyjh",
+                ts = "1:26:30",
+                t = {
+                    b_585 = "139",
+                    b_586 = "101",
+                    b_587 = "108",
+                    b_588 = "75",
+                    b_589 = "121",
+                    b_590 = "79",
+                    b_591 = "104",
+                    b_592 = "104",
+                    b_717 = "304"
+                }
+            },
+ {
+                g = "Redacted",
+                r = "us",
+                s =  "wild growth",
+                id = "f4MwCZR1Y3KmXWVh",
+                ts = "1:27:32",
+                t = {
+                    b_585 = "79",
+                    b_586 = "93",
+                    b_587 = "111",
+                    b_588 = "62",
+                    b_589 = "109",
+                    b_590 = "74",
+                    b_591 = "103",
+                    b_592 = "84",
+                    b_717 = "282"
+                }
+            },
+ {
+                g = "Hurricane",
+                r = "us",
+                s =  "wild growth",
+                id = "mLvnRjrfHtb7ghz9",
+                ts = "1:28:02",
+                t = {
+                    b_585 = "83",
+                    b_586 = "111",
+                    b_587 = "161",
+                    b_588 = "98",
+                    b_589 = "220",
+                    b_590 = "85",
+                    b_591 = "99",
+                    b_592 = "92",
+                    b_717 = "311"
+                }
+            },
+ {
+                g = "Unyielding",
+                r = "us",
+                s =  "wild growth",
+                id = "fbHnc4PDKzMaGQ7d",
+                ts = "1:28:16",
+                t = {
+                    b_585 = "98",
+                    b_586 = "105",
+                    b_587 = "111",
+                    b_588 = "77",
+                    b_589 = "144",
+                    b_590 = "82",
+                    b_591 = "138",
+                    b_592 = "89",
+                    b_717 = "309"
+                }
+            },
+ {
+                g = "Small Potatoes",
+                r = "us",
+                s =  "wild growth",
+                id = "HWcy78RjtA3BDkzd",
+                ts = "1:28:37",
+                t = {
+                    b_585 = "110",
+                    b_586 = "123",
+                    b_587 = "108",
+                    b_588 = "73",
+                    b_589 = "138",
+                    b_590 = "79",
+                    b_591 = "155",
+                    b_592 = "92",
+                    b_717 = "506"
+                }
+            },
+ {
+                g = "Get in the Bag",
+                r = "us",
+                s =  "wild growth",
+                id = "YMyDCHxnrBmpc4gN",
+                ts = "1:29:24",
+                t = {
+                    b_585 = "91",
+                    b_586 = "108",
+                    b_587 = "110",
+                    b_588 = "63",
+                    b_589 = "167",
+                    b_590 = "70",
+                    b_591 = "108",
+                    b_592 = "95",
+                    b_717 = "418"
+                }
+            },
+ {
+                g = "Galaxy",
+                r = "us",
+                s =  "wild growth",
+                id = "1q9thgmTZ63CFdVN",
+                ts = "1:29:39",
+                t = {
+                    b_585 = "81",
+                    b_586 = "85",
+                    b_587 = "125",
+                    b_588 = "50",
+                    b_589 = "170",
+                    b_590 = "64",
+                    b_591 = "64",
+                    b_592 = "74",
+                    b_717 = "246"
+                }
+            },
+ {
+                g = "Froppy - Saturday",
+                r = "us",
+                s =  "wild growth",
+                id = "gd7armRH28p1fWZq",
+                ts = "1:30:00",
+                t = {
+                    b_585 = "120",
+                    b_586 = "105",
+                    b_587 = "127",
+                    b_588 = "71",
+                    b_589 = "165",
+                    b_590 = "84",
+                    b_591 = "87",
+                    b_592 = "118",
+                    b_717 = "412"
+                }
+            },
+ {
+                g = "Reducted",
+                r = "us",
+                s =  "wild growth",
+                id = "bj3Ap8JnZmPTw1vH",
+                ts = "1:30:03",
+                t = {
+                    b_585 = "85",
+                    b_586 = "97",
+                    b_587 = "118",
+                    b_588 = "58",
+                    b_589 = "118",
+                    b_590 = "68",
+                    b_591 = "65",
+                    b_592 = "82",
+                    b_717 = "250"
+                }
+            },
+ {
+                g = "Spectrum",
+                r = "us",
+                s =  "wild growth",
+                id = "rLzVKxHDmAgd3FpZ",
+                ts = "1:30:28",
+                t = {
+                    b_585 = "98",
+                    b_586 = "119",
+                    b_587 = "110",
+                    b_588 = "59",
+                    b_589 = "107",
+                    b_590 = "78",
+                    b_591 = "120",
+                    b_592 = "81",
+                    b_717 = "272"
+                }
+            },
+ {
+                g = "The Parse is Right",
+                r = "us",
+                s =  "wild growth",
+                id = "2a9NnJwMWpC6b1TF",
+                ts = "1:31:12",
+                t = {
+                    b_585 = "92",
+                    b_586 = "108",
+                    b_587 = "101",
+                    b_588 = "71",
+                    b_589 = "140",
+                    b_590 = "80",
+                    b_591 = "126",
+                    b_592 = "82",
+                    b_717 = "330"
+                }
+            },
+ {
+                g = "Bees Make Honey",
+                r = "us",
+                s =  "wild growth",
+                id = "fb62zhpM8wVPQjTk",
+                ts = "1:31:16",
+                t = {
+                    b_585 = "118",
+                    b_586 = "129",
+                    b_587 = "147",
+                    b_588 = "88",
+                    b_589 = "142",
+                    b_590 = "93",
+                    b_591 = "130",
+                    b_592 = "104",
+                    b_717 = "384"
+                }
+            },
+ {
+                g = "Rogue",
+                r = "us",
+                s =  "wild growth",
+                id = "TGAC2XJDzf4mngKY",
+                ts = "1:31:26",
+                t = {
+                    b_585 = "130",
+                    b_586 = "129",
+                    b_587 = "128",
+                    b_588 = "71",
+                    b_589 = "114",
+                    b_590 = "85",
+                    b_591 = "153",
+                    b_592 = "100",
+                    b_717 = "444"
+                }
+            },
+ {
+                g = "Gambit",
+                r = "us",
+                s =  "wild growth",
+                id = "wq6XMVBazPkxg4Zd",
+                ts = "1:31:57",
+                t = {
+                    b_585 = "82",
+                    b_586 = "92",
+                    b_587 = "94",
+                    b_588 = "56",
+                    b_589 = "176",
+                    b_590 = "71",
+                    b_591 = "97",
+                    b_592 = "75",
+                    b_717 = "420"
+                }
+            },
+ {
+                g = "Iconic",
+                r = "us",
+                s =  "wild growth",
+                id = "CbjZ1Gmfgc7MNHvz",
+                ts = "1:32:33",
+                t = {
+                    b_585 = "98",
+                    b_586 = "90",
+                    b_587 = "89",
+                    b_588 = "58",
+                    b_589 = "154",
+                    b_590 = "81",
+                    b_591 = "93",
+                    b_592 = "76",
+                    b_717 = "240"
+                }
+            },
+ {
+                g = "Midnight Roaches",
+                r = "us",
+                s =  "wild growth",
+                id = "QfKj1WhYXHrzaLVC",
+                ts = "1:32:56",
+                t = {
+                    b_585 = "90",
+                    b_586 = "150",
+                    b_587 = "144",
+                    b_588 = "72",
+                    b_589 = "122",
+                    b_590 = "81",
+                    b_591 = "143",
+                    b_592 = "87",
+                    b_717 = "291"
+                }
+            },
+ {
+                g = "Pushing Up Peacebloom",
+                r = "us",
+                s =  "wild growth",
+                id = "NdVHXjatBDTK7Jw6",
+                ts = "1:33:04",
+                t = {
+                    b_585 = "114",
+                    b_586 = "103",
+                    b_587 = "112",
+                    b_588 = "78",
+                    b_589 = "152",
+                    b_590 = "86",
+                    b_591 = "97",
+                    b_592 = "99",
+                    b_717 = "292"
+                }
+            },
+ {
+                g = "Oblivion",
+                r = "us",
+                s =  "wild growth",
+                id = "NxPWnBVQGrX4j1mH",
+                ts = "1:33:14",
+                t = {
+                    b_585 = "103",
+                    b_586 = "127",
+                    b_587 = "113",
+                    b_588 = "75",
+                    b_589 = "152",
+                    b_590 = "78",
+                    b_591 = "166",
+                    b_592 = "99",
+                    b_717 = "350"
+                }
+            },
+ {
+                g = "Hawt Noods",
+                r = "us",
+                s =  "wild growth",
+                id = "9tXbP4vqVZKgW7dm",
+                ts = "1:33:46",
+                t = {
+                    b_585 = "116",
+                    b_586 = "118",
+                    b_587 = "128",
+                    b_588 = "89",
+                    b_589 = "158",
+                    b_590 = "92",
+                    b_591 = "168",
+                    b_592 = "126",
+                    b_717 = "404"
+                }
+            },
+ {
+                g = "Small Table",
+                r = "us",
+                s =  "wild growth",
+                id = "nfryCg2kxBY6ahAq",
+                ts = "1:33:52",
+                t = {
+                    b_585 = "113",
+                    b_586 = "101",
+                    b_587 = "100",
+                    b_588 = "57",
+                    b_589 = "100",
+                    b_590 = "81",
+                    b_591 = "92",
+                    b_592 = "80",
+                    b_717 = "499"
+                }
+            },
+ {
+                g = "femboys",
+                r = "us",
+                s =  "wild growth",
+                id = "3ALXpVcfwyMdQnRg",
+                ts = "1:35:06",
+                t = {
+                    b_585 = "120",
+                    b_586 = "116",
+                    b_587 = "120",
+                    b_588 = "88",
+                    b_589 = "144",
+                    b_590 = "81",
+                    b_591 = "152",
+                    b_592 = "84",
+                    b_717 = "282"
+                }
+            },
+ {
+                g = "Freak Athletes",
+                r = "us",
+                s =  "wild growth",
+                id = "tJGLFzNHd2mRAwKv",
+                ts = "1:35:16",
+                t = {
+                    b_585 = "91",
+                    b_586 = "129",
+                    b_587 = "124",
+                    b_588 = "81",
+                    b_589 = "141",
+                    b_590 = "87",
+                    b_591 = "126",
+                    b_592 = "99",
+                    b_717 = "361"
+                }
+            },
+ {
+                g = "One of Each",
+                r = "us",
+                s =  "wild growth",
+                id = "7VqdcpFxf2kRP9yW",
+                ts = "1:35:53",
+                t = {
+                    b_585 = "130",
+                    b_586 = "123",
+                    b_587 = "160",
+                    b_588 = "122",
+                    b_589 = "236",
+                    b_590 = "94",
+                    b_591 = "206",
+                    b_592 = "136",
+                    b_717 = "488"
+                }
+            },
+ {
+                g = "Papaya Pals",
+                r = "us",
+                s =  "wild growth",
+                id = "rxmvyf3BHc8n2ZDh",
+                ts = "1:36:47",
+                t = {
+                    b_585 = "120",
+                    b_586 = "131",
+                    b_587 = "146",
+                    b_588 = "89",
+                    b_589 = "163",
+                    b_590 = "90",
+                    b_591 = "151",
+                    b_592 = "108",
+                    b_717 = "415"
+                }
+            },
+ {
+                g = "Knightmare",
+                r = "us",
+                s =  "wild growth",
+                id = "Tyz9J4rcHKRfqnkW",
+                ts = "1:37:10",
+                t = {
+                    b_585 = "85",
+                    b_586 = "124",
+                    b_587 = "130",
+                    b_588 = "66",
+                    b_589 = "130",
+                    b_590 = "75",
+                    b_591 = "123",
+                    b_592 = "104",
+                    b_717 = "405"
+                }
+            },
+ {
+                g = "Deaths Gate",
+                r = "us",
+                s =  "wild growth",
+                id = "Y9TmqWbyvXJhDGAZ",
+                ts = "1:38:31",
+                t = {
+                    b_585 = "101",
+                    b_586 = "131",
+                    b_587 = "133",
+                    b_588 = "81",
+                    b_589 = "163",
+                    b_590 = "104",
+                    b_591 = "165",
+                    b_592 = "109",
+                    b_717 = "434"
+                }
+            },
+ {
+                g = "Omni",
+                r = "us",
+                s =  "wild growth",
+                id = "yZpKkwBb71dWH3vq",
+                ts = "1:38:51",
+                t = {
+                    b_585 = "119",
+                    b_586 = "119",
+                    b_587 = "145",
+                    b_588 = "93",
+                    b_589 = "147",
+                    b_590 = "96",
+                    b_591 = "125",
+                    b_592 = "102",
+                    b_717 = "489"
+                }
+            },
+ {
+                g = "Triumph",
+                r = "us",
+                s =  "wild growth",
+                id = "TYfdjH9DyFZBMrN4",
+                ts = "1:40:16",
+                t = {
+                    b_585 = "79",
+                    b_586 = "118",
+                    b_587 = "124",
+                    b_588 = "58",
+                    b_589 = "126",
+                    b_590 = "68",
+                    b_591 = "64",
+                    b_592 = "78",
+                    b_717 = "259"
+                }
+            },
+ {
+                g = "Retry",
+                r = "us",
+                s =  "wild growth",
+                id = "dZxpHV6QmAavkRTt",
+                ts = "1:41:16",
+                t = {
+                    b_585 = "93",
+                    b_586 = "106",
+                    b_587 = "114",
+                    b_588 = "70",
+                    b_589 = "136",
+                    b_590 = "78",
+                    b_591 = "110",
+                    b_592 = "82",
+                    b_717 = "353"
+                }
+            },
+ {
+                g = "Ashes of the Pyre",
+                r = "us",
+                s =  "wild growth",
+                id = "78jGNm3cVABdPD9L",
+                ts = "1:41:22",
+                t = {
+                    b_585 = "74",
+                    b_586 = "85",
+                    b_587 = "99",
+                    b_588 = "58",
+                    b_589 = "93",
+                    b_590 = "65",
+                    b_591 = "126",
+                    b_592 = "89",
+                    b_717 = "315"
+                }
+            },
+ {
+                g = "<Season of Dysfunction>",
+                r = "us",
+                s =  "wild growth",
+                id = "NCVX1LAMBWjR34Gr",
+                ts = "1:41:54",
+                t = {
+                    b_585 = "92",
+                    b_586 = "118",
+                    b_587 = "113",
+                    b_588 = "81",
+                    b_589 = "173",
+                    b_590 = "81",
+                    b_591 = "91",
+                    b_592 = "80",
+                    b_717 = "332"
+                }
+            },
+ {
+                g = "HOG CRANKERS",
+                r = "us",
+                s =  "wild growth",
+                id = "maJXW4KxZkQg6yY2",
+                ts = "1:42:10",
+                t = {
+                    b_585 = "100",
+                    b_586 = "105",
+                    b_587 = "134",
+                    b_588 = "79",
+                    b_589 = "146",
+                    b_590 = "81",
+                    b_591 = "92",
+                    b_592 = "102",
+                    b_717 = "318"
+                }
+            },
+ {
+                g = "Not Dead Yet",
+                r = "us",
+                s =  "wild growth",
+                id = "pc3Y1RHC8mv9XxF2",
+                ts = "1:42:57",
+                t = {
+                    b_585 = "101",
+                    b_586 = "115",
+                    b_587 = "133",
+                    b_588 = "79",
+                    b_589 = "148",
+                    b_590 = "85",
+                    b_591 = "116",
+                    b_592 = "104",
+                    b_717 = "298"
+                }
+            },
+ {
+                g = "Vanilla",
+                r = "us",
+                s =  "wild growth",
+                id = "HXnKvNDPWwkg3A7r",
+                ts = "1:43:18",
+                t = {
+                    b_585 = "114",
+                    b_586 = "103",
+                    b_587 = "122",
+                    b_588 = "79",
+                    b_589 = "183",
+                    b_590 = "73",
+                    b_591 = "145",
+                    b_592 = "98",
+                    b_717 = "379"
+                }
+            },
+ {
+                g = "Pretty Artistic",
+                r = "us",
+                s =  "wild growth",
+                id = "cXWLYgPJq4Fr2f8w",
+                ts = "1:43:28",
+                t = {
+                    b_585 = "110",
+                    b_586 = "113",
+                    b_587 = "119",
+                    b_588 = "86",
+                    b_589 = "172",
+                    b_590 = "81",
+                    b_591 = "133",
+                    b_592 = "131",
+                    b_717 = "636"
+                }
+            },
+ {
+                g = "Ember to Inferno",
+                r = "us",
+                s =  "wild growth",
+                id = "tKCg7wqjz218F9Wc",
+                ts = "1:43:46",
+                t = {
+                    b_585 = "100",
+                    b_586 = "116",
+                    b_587 = "116",
+                    b_588 = "73",
+                    b_589 = "120",
+                    b_590 = "78",
+                    b_591 = "126",
+                    b_592 = "85",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "Coup",
+                r = "us",
+                s =  "wild growth",
+                id = "DyVkYMHqrwxtLN4P",
+                ts = "1:44:01",
+                t = {
+                    b_585 = "154",
+                    b_586 = "114",
+                    b_587 = "124",
+                    b_588 = "78",
+                    b_589 = "118",
+                    b_590 = "87",
+                    b_591 = "220",
+                    b_592 = "97",
+                    b_717 = "374"
+                }
+            },
+ {
+                g = "Chungus",
+                r = "us",
+                s =  "wild growth",
+                id = "JVcqGZYFh9nt1XM3",
+                ts = "1:44:27",
+                t = {
+                    b_585 = "217",
+                    b_586 = "152",
+                    b_587 = "125",
+                    b_588 = "83",
+                    b_589 = "128",
+                    b_590 = "102",
+                    b_591 = "157",
+                    b_592 = "100",
+                    b_717 = "485"
+                }
+            },
+ {
+                g = "Murphys Law",
+                r = "us",
+                s =  "wild growth",
+                id = "P6r2mc3DfQbqKtFN",
+                ts = "1:44:51",
+                t = {
+                    b_585 = "109",
+                    b_586 = "126",
+                    b_587 = "129",
+                    b_588 = "90",
+                    b_589 = "197",
+                    b_590 = "93",
+                    b_591 = "166",
+                    b_592 = "101",
+                    b_717 = "536"
+                }
+            },
+ {
+                g = "Night Owls",
+                r = "us",
+                s =  "wild growth",
+                id = "7yGv8rzcgJpt3aQh",
+                ts = "1:45:55",
+                t = {
+                    b_585 = "86",
+                    b_586 = "85",
+                    b_587 = "105",
+                    b_588 = "59",
+                    b_589 = "229",
+                    b_590 = "75",
+                    b_591 = "82",
+                    b_592 = "75",
+                    b_717 = "244"
+                }
+            },
+ {
+                g = "Council of Knobs",
+                r = "us",
+                s =  "wild growth",
+                id = "pC4HN3arjGBYn6RV",
+                ts = "1:46:13",
+                t = {
+                    b_585 = "114",
+                    b_586 = "119",
+                    b_587 = "120",
+                    b_588 = "80",
+                    b_589 = "166",
+                    b_590 = "88",
+                    b_591 = "146",
+                    b_592 = "99",
+                    b_717 = "365"
+                }
+            },
+ {
+                g = "Tang Dynasty",
+                r = "us",
+                s =  "wild growth",
+                id = "Ab1fp7G6rhKjd3Tw",
+                ts = "1:46:20",
+                t = {
+                    b_585 = "118",
+                    b_586 = "144",
+                    b_587 = "153",
+                    b_588 = "97",
+                    b_589 = "212",
+                    b_590 = "112",
+                    b_591 = "175",
+                    b_592 = "144",
+                    b_717 = "518"
+                }
+            },
+ {
+                g = "Live Laugh Log",
+                r = "us",
+                s =  "wild growth",
+                id = "Dv1C34LrWGJkMaVA",
+                ts = "1:46:58",
+                t = {
+                    b_585 = "109",
+                    b_586 = "129",
+                    b_587 = "124",
+                    b_588 = "91",
+                    b_589 = "163",
+                    b_590 = "86",
+                    b_591 = "155",
+                    b_592 = "98",
+                    b_717 = "316"
+                }
+            },
+ {
+                g = "Exit Strategy",
+                r = "us",
+                s =  "wild growth",
+                id = "gKPaVGtvz14A2jY9",
+                ts = "1:47:05",
+                t = {
+                    b_585 = "153",
+                    b_586 = "126",
+                    b_587 = "128",
+                    b_588 = "87",
+                    b_589 = "178",
+                    b_590 = "96",
+                    b_591 = "150",
+                    b_592 = "102",
+                    b_717 = "517"
+                }
+            },
+ {
+                g = "scuffed",
+                r = "us",
+                s =  "wild growth",
+                id = "yfd7bNXDLYjrp3Zz",
+                ts = "1:47:37",
+                t = {
+                    b_585 = "121",
+                    b_586 = "110",
+                    b_587 = "133",
+                    b_588 = "73",
+                    b_589 = "149",
+                    b_590 = "86",
+                    b_591 = "117",
+                    b_592 = "107",
+                    b_717 = "468"
+                }
+            },
+ {
+                g = "Forsaken",
+                r = "us",
+                s =  "wild growth",
+                id = "gv2bWKjzhA6cMJxm",
+                ts = "1:47:41",
+                t = {
+                    b_585 = "81",
+                    b_586 = "111",
+                    b_587 = "125",
+                    b_588 = "69",
+                    b_589 = "103",
+                    b_590 = "73",
+                    b_591 = "170",
+                    b_592 = "88",
+                    b_717 = "290"
+                }
+            },
+ {
+                g = "hunnies",
+                r = "us",
+                s =  "wild growth",
+                id = "PMcdqkTxWvzhpRH6",
+                ts = "1:47:52",
+                t = {
+                    b_585 = "78",
+                    b_586 = "79",
+                    b_587 = "102",
+                    b_588 = "64",
+                    b_589 = "118",
+                    b_590 = "72",
+                    b_591 = "65",
+                    b_592 = "109",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "<FTW> Team Dumb Dumb",
+                r = "us",
+                s =  "wild growth",
+                id = "r31QG9AJHwpMZLcn",
+                ts = "1:47:53",
+                t = {
+                    b_585 = "144",
+                    b_586 = "126",
+                    b_587 = "150",
+                    b_588 = "88",
+                    b_589 = "177",
+                    b_590 = "87",
+                    b_591 = "162",
+                    b_592 = "138",
+                    b_717 = "345"
+                }
+            },
+ {
+                g = "First and Only",
+                r = "us",
+                s =  "wild growth",
+                id = "cP1ZmRDWnyQA7hGx",
+                ts = "1:47:53",
+                t = {
+                    b_585 = "78",
+                    b_586 = "79",
+                    b_587 = "102",
+                    b_588 = "64",
+                    b_589 = "118",
+                    b_590 = "72",
+                    b_591 = "65",
+                    b_592 = "109",
+                    b_717 = "286"
+                }
+            },
+ {
+                g = "Group Hug",
+                r = "us",
+                s =  "wild growth",
+                id = "vLmh1bAKcHRM2xfV",
+                ts = "1:48:07",
+                t = {
+                    b_585 = "170",
+                    b_586 = "194",
+                    b_587 = "153",
+                    b_588 = "120",
+                    b_589 = "195",
+                    b_590 = "111",
+                    b_591 = "158",
+                    b_592 = "116",
+                    b_717 = "691"
+                }
+            },
+ {
+                g = "No Remorse",
+                r = "us",
+                s =  "wild growth",
+                id = "jpBKZHNYAqWyGTv6",
+                ts = "1:48:25",
+                t = {
+                    b_585 = "112",
+                    b_586 = "133",
+                    b_587 = "116",
+                    b_588 = "89",
+                    b_589 = "149",
+                    b_590 = "87",
+                    b_591 = "194",
+                    b_592 = "106",
+                    b_717 = "355"
+                }
+            },
+ {
+                g = "Iron Wolf",
+                r = "us",
+                s =  "wild growth",
+                id = "FzrXYBRdhZCqy4WD",
+                ts = "1:48:27",
+                t = {
+                    b_585 = "92",
+                    b_586 = "118",
+                    b_587 = "126",
+                    b_588 = "85",
+                    b_589 = "112",
+                    b_590 = "81",
+                    b_591 = "130",
+                    b_592 = "86",
+                    b_717 = "498"
+                }
+            },
+ {
+                g = "ZugZug",
+                r = "us",
+                s =  "wild growth",
+                id = "wRJvWMXtLGB8QaNk",
+                ts = "1:48:27",
+                t = {
+                    b_585 = "124",
+                    b_586 = "105",
+                    b_587 = "153",
+                    b_588 = "84",
+                    b_589 = "113",
+                    b_590 = "77",
+                    b_591 = "95",
+                    b_592 = "104",
+                    b_717 = "318"
+                }
+            },
+ {
+                g = "Impromptu",
+                r = "us",
+                s =  "wild growth",
+                id = "3mLHAKc4gGV7rPJD",
+                ts = "1:49:11",
+                t = {
+                    b_585 = "85",
+                    b_586 = "101",
+                    b_587 = "122",
+                    b_588 = "69",
+                    b_589 = "176",
+                    b_590 = "74",
+                    b_591 = "74",
+                    b_592 = "79",
+                    b_717 = "406"
+                }
+            },
+ {
+                g = "The Apocalypse",
+                r = "us",
+                s =  "wild growth",
+                id = "K2Dkv6z9crQA47FX",
+                ts = "1:50:06",
+                t = {
+                    b_585 = "137",
+                    b_586 = "119",
+                    b_587 = "125",
+                    b_588 = "128",
+                    b_589 = "150",
+                    b_590 = "88",
+                    b_591 = "132",
+                    b_592 = "102",
+                    b_717 = "667"
+                }
+            },
+ {
+                g = "Body Type Three",
+                r = "us",
+                s =  "wild growth",
+                id = "HjGpa98rNqAMRwQZ",
+                ts = "1:50:07",
+                t = {
+                    b_585 = "133",
+                    b_586 = "132",
+                    b_587 = "142",
+                    b_588 = "86",
+                    b_589 = "176",
+                    b_590 = "89",
+                    b_591 = "109",
+                    b_592 = "109",
+                    b_717 = "653"
+                }
+            },
+ {
+                g = "We Like Big CRITS",
+                r = "us",
+                s =  "wild growth",
+                id = "9MXzYJFmAVWt3xjN",
+                ts = "1:50:08",
+                t = {
+                    b_585 = "136",
+                    b_586 = "153",
+                    b_587 = "200",
+                    b_588 = "114",
+                    b_589 = "122",
+                    b_590 = "88",
+                    b_591 = "228",
+                    b_592 = "112",
+                    b_717 = "388"
+                }
+            },
+ {
+                g = "bopha",
+                r = "us",
+                s =  "wild growth",
+                id = "cAyPVZCxd8Dz1kBt",
+                ts = "1:50:27",
+                t = {
+                    b_585 = "86",
+                    b_586 = "100",
+                    b_587 = "121",
+                    b_588 = "72",
+                    b_589 = "156",
+                    b_590 = "77",
+                    b_591 = "76",
+                    b_592 = "82",
+                    b_717 = "525"
+                }
+            },
+ {
+                g = "Ryan Prime",
+                r = "us",
+                s =  "wild growth",
+                id = "wV3ZDGyB1v6YLhrd",
+                ts = "1:51:33",
+                t = {
+                    b_585 = "102",
+                    b_586 = "119",
+                    b_587 = "138",
+                    b_588 = "84",
+                    b_589 = "208",
+                    b_590 = "83",
+                    b_591 = "121",
+                    b_592 = "117",
+                    b_717 = "415"
+                }
+            },
+ {
+                g = "GWR United",
+                r = "us",
+                s =  "wild growth",
+                id = "b8RFVnYNLC1jBxk6",
+                ts = "1:52:15",
+                t = {
+                    b_585 = "109",
+                    b_586 = "119",
+                    b_587 = "172",
+                    b_588 = "82",
+                    b_589 = "148",
+                    b_590 = "92",
+                    b_591 = "191",
+                    b_592 = "119",
+                    b_717 = "528"
+                }
+            },
+ {
+                g = "Blasphemy",
+                r = "us",
+                s =  "wild growth",
+                id = "gJakQP2Brt3hH7qm",
+                ts = "1:52:26",
+                t = {
+                    b_585 = "92",
+                    b_586 = "89",
+                    b_587 = "99",
+                    b_588 = "71",
+                    b_589 = "107",
+                    b_590 = "59",
+                    b_591 = "122",
+                    b_592 = "76",
+                    b_717 = "274"
+                }
+            },
+ {
+                g = "IPWN",
+                r = "us",
+                s =  "wild growth",
+                id = "4h62gkJtyK1L87Yb",
+                ts = "1:52:54",
+                t = {
+                    b_585 = "99",
+                    b_586 = "126",
+                    b_587 = "125",
+                    b_588 = "84",
+                    b_589 = "135",
+                    b_590 = "88",
+                    b_591 = "186",
+                    b_592 = "97",
+                    b_717 = "424"
+                }
+            },
+ {
+                g = "We are Prepared (SoD)",
+                r = "us",
+                s =  "wild growth",
+                id = "kbRwFBCf96HLAMvy",
+                ts = "1:52:58",
+                t = {
+                    b_585 = "131",
+                    b_586 = "107",
+                    b_587 = "107",
+                    b_588 = "78",
+                    b_589 = "133",
+                    b_590 = "83",
+                    b_591 = "99",
+                    b_592 = "103",
+                    b_717 = "504"
+                }
+            },
+ {
+                g = "Wisest Wizards",
+                r = "us",
+                s =  "wild growth",
+                id = "yPXLbHwDzntkfFMr",
+                ts = "1:53:01",
+                t = {
+                    b_585 = "136",
+                    b_586 = "118",
+                    b_587 = "118",
+                    b_588 = "85",
+                    b_589 = "230",
+                    b_590 = "94",
+                    b_591 = "106",
+                    b_592 = "116",
+                    b_717 = "320"
+                }
+            },
+ {
+                g = "Street Magic",
+                r = "us",
+                s =  "wild growth",
+                id = "JL4pFDfHAybtxqCd",
+                ts = "1:53:10",
+                t = {
+                    b_585 = "154",
+                    b_586 = "114",
+                    b_587 = "131",
+                    b_588 = "79",
+                    b_589 = "174",
+                    b_590 = "94",
+                    b_591 = "136",
+                    b_592 = "101",
+                    b_717 = "314"
+                }
+            },
+ {
+                g = "Singularity",
+                r = "us",
+                s =  "wild growth",
+                id = "ACkHVNWYhT41B7ZJ",
+                ts = "1:53:20",
+                t = {
+                    b_585 = "86",
+                    b_586 = "121",
+                    b_587 = "154",
+                    b_588 = "63",
+                    b_589 = "165",
+                    b_590 = "88",
+                    b_591 = "101",
+                    b_592 = "142",
+                    b_717 = "289"
+                }
+            },
+ {
+                g = "Big Booty Goose",
+                r = "us",
+                s =  "wild growth",
+                id = "kfrmnMgGzqJDYt4B",
+                ts = "1:53:23",
+                t = {
+                    b_585 = "101",
+                    b_586 = "111",
+                    b_587 = "146",
+                    b_588 = "70",
+                    b_589 = "158",
+                    b_590 = "81",
+                    b_591 = "275",
+                    b_592 = "103",
+                    b_717 = "424"
+                }
+            },
+ {
+                g = "FTW Team Inferno",
+                r = "us",
+                s =  "wild growth",
+                id = "fz8BxQ3Kgvpq4PZd",
+                ts = "1:53:42",
+                t = {
+                    b_585 = "128",
+                    b_586 = "143",
+                    b_587 = "194",
+                    b_588 = "103",
+                    b_589 = "179",
+                    b_590 = "104",
+                    b_591 = "143",
+                    b_592 = "129",
+                    b_717 = "423"
+                }
+            },
+ {
+                g = "Titan Slayers",
+                r = "us",
+                s =  "wild growth",
+                id = "MKzk3daBXVcQ26ZH",
+                ts = "1:53:50",
+                t = {
+                    b_585 = "156",
+                    b_586 = "120",
+                    b_587 = "140",
+                    b_588 = "88",
+                    b_589 = "24",
+                    b_590 = "100",
+                    b_591 = "162",
+                    b_592 = "111",
+                    b_717 = "295"
+                }
+            },
+ {
+                g = "Imperial Guard",
+                r = "us",
+                s =  "wild growth",
+                id = "Mp3GDchd7FtPL8Yr",
+                ts = "1:54:12",
+                t = {
+                    b_585 = "155",
+                    b_586 = "113",
+                    b_587 = "108",
+                    b_588 = "89",
+                    b_589 = "188",
+                    b_590 = "84",
+                    b_591 = "115",
+                    b_592 = "96",
+                    b_717 = "345"
+                }
+            },
+ {
+                g = "Tubey Discovered",
+                r = "us",
+                s =  "wild growth",
+                id = "N6G7bnBkmAx2VwRd",
+                ts = "1:54:17",
+                t = {
+                    b_585 = "148",
+                    b_586 = "150",
+                    b_587 = "128",
+                    b_588 = "94",
+                    b_589 = "210",
+                    b_590 = "99",
+                    b_591 = "338",
+                    b_592 = "106",
+                    b_717 = "390"
+                }
+            },
+ {
+                g = "All Mighty Colony",
+                r = "us",
+                s =  "wild growth",
+                id = "ngKxQ4kjwAMHWpLh",
+                ts = "1:55:24",
+                t = {
+                    b_585 = "112",
+                    b_586 = "124",
+                    b_587 = "108",
+                    b_588 = "88",
+                    b_589 = "117",
+                    b_590 = "84",
+                    b_591 = "85",
+                    b_592 = "100",
+                    b_717 = "396"
+                }
+            },
+ {
+                g = "After Life",
+                r = "us",
+                s =  "wild growth",
+                id = "4Ggm2D16p8zWFvAa",
+                ts = "1:56:01",
+                t = {
+                    b_585 = "113",
+                    b_586 = "150",
+                    b_587 = "210",
+                    b_588 = "89",
+                    b_589 = "193",
+                    b_590 = "86",
+                    b_591 = "111",
+                    b_592 = "106",
+                    b_717 = "490"
+                }
+            },
+ {
+                g = "The Darker Carnival",
+                r = "us",
+                s =  "wild growth",
+                id = "2VJ84W6BfGcAKRxd",
+                ts = "1:56:18",
+                t = {
+                    b_585 = "80",
+                    b_586 = "100",
+                    b_587 = "119",
+                    b_588 = "66",
+                    b_589 = "126",
+                    b_590 = "76",
+                    b_591 = "163",
+                    b_592 = "80",
+                    b_717 = "450"
+                }
+            },
+ {
+                g = "Casual Pumpers",
+                r = "us",
+                s =  "wild growth",
+                id = "dqD3MQ6fCJcvjzkK",
+                ts = "1:56:30",
+                t = {
+                    b_585 = "121",
+                    b_586 = "142",
+                    b_587 = "159",
+                    b_588 = "84",
+                    b_589 = "160",
+                    b_590 = "106",
+                    b_591 = "151",
+                    b_592 = "143",
+                    b_717 = "51"
+                }
+            },
+ {
+                g = "Night Shift",
+                r = "us",
+                s =  "wild growth",
+                id = "ZbhfmHWCq3xXcnQt",
+                ts = "1:59:16",
+                t = {
+                    b_585 = "126",
+                    b_586 = "111",
+                    b_587 = "134",
+                    b_588 = "74",
+                    b_589 = "102",
+                    b_590 = "89",
+                    b_591 = "114",
+                    b_592 = "146",
+                    b_717 = "638"
+                }
+            },
+ {
+                g = "Deaths Gate Group 2",
+                r = "us",
+                s =  "wild growth",
+                id = "p4k2y7aBvHqFwMfc",
+                ts = "1:59:37",
+                t = {
+                    b_585 = "154",
+                    b_586 = "166",
+                    b_587 = "167",
+                    b_588 = "149",
+                    b_589 = "159",
+                    b_590 = "118",
+                    b_591 = "222",
+                    b_592 = "133",
+                    b_717 = "481"
+                }
+            },
+ {
+                g = "Our Legacy",
+                r = "us",
+                s =  "wild growth",
+                id = "hHbjk9WqdfKgA4zY",
+                ts = "2:00:38",
+                t = {
+                    b_585 = "203",
+                    b_586 = "131",
+                    b_587 = "171",
+                    b_588 = "113",
+                    b_589 = "182",
+                    b_590 = "106",
+                    b_591 = "200",
+                    b_592 = "120",
+                    b_717 = "556"
+                }
+            },
+ {
+                g = "I'M EATING",
+                r = "us",
+                s =  "wild growth",
+                id = "rfPYcQRBK7XV9CHG",
+                ts = "2:00:39",
+                t = {
+                    b_585 = "138",
+                    b_586 = "150",
+                    b_587 = "195",
+                    b_588 = "111",
+                    b_589 = "146",
+                    b_590 = "108",
+                    b_591 = "193",
+                    b_592 = "138",
+                    b_717 = "442"
+                }
+            },
+ {
+                g = "The Treefort",
+                r = "us",
+                s =  "wild growth",
+                id = "q1chNnXY48fmgjtF",
+                ts = "2:00:51",
+                t = {
+                    b_585 = "109",
+                    b_586 = "146",
+                    b_587 = "150",
+                    b_588 = "77",
+                    b_589 = "179",
+                    b_590 = "100",
+                    b_591 = "204",
+                    b_592 = "143",
+                    b_717 = "298"
+                }
+            },
+ {
+                g = "Elunes Chosen",
+                r = "us",
+                s =  "wild growth",
+                id = "nC9r2DycXgBAZ8NK",
+                ts = "2:00:55",
+                t = {
+                    b_585 = "116",
+                    b_586 = "135",
+                    b_587 = "143",
+                    b_588 = "93",
+                    b_589 = "168",
+                    b_590 = "102",
+                    b_591 = "162",
+                    b_592 = "119",
+                    b_717 = "371"
+                }
+            },
+ {
+                g = "Regret",
+                r = "us",
+                s =  "wild growth",
+                id = "W8mjKhHZ2xLfpP6X",
+                ts = "2:01:29",
+                t = {
+                    b_585 = "165",
+                    b_586 = "155",
+                    b_587 = "157",
+                    b_588 = "142",
+                    b_589 = "171",
+                    b_590 = "114",
+                    b_591 = "113",
+                    b_592 = "150",
+                    b_717 = "482"
+                }
+            },
+ {
+                g = "End of an Era",
+                r = "us",
+                s =  "wild growth",
+                id = "8tWR9rVBj2KzhfaA",
+                ts = "2:01:55",
+                t = {
+                    b_585 = "101",
+                    b_586 = "126",
+                    b_587 = "124",
+                    b_588 = "82",
+                    b_589 = "130",
+                    b_590 = "93",
+                    b_591 = "49",
+                    b_592 = "119",
+                    b_717 = "419"
+                }
+            },
+ {
+                g = "Defiance",
+                r = "us",
+                s =  "wild growth",
+                id = "n3BKNZ1fzbgPyqLV",
+                ts = "2:03:29",
+                t = {
+                    b_585 = "219",
+                    b_586 = "155",
+                    b_587 = "143",
+                    b_588 = "98",
+                    b_589 = "225",
+                    b_590 = "113",
+                    b_591 = "370",
+                    b_592 = "121",
+                    b_717 = "544"
+                }
+            },
+ {
+                g = "My Diaper is Full",
+                r = "us",
+                s =  "wild growth",
+                id = "MykpwXAbvxaR8t7Z",
+                ts = "2:03:52",
+                t = {
+                    b_585 = "110",
+                    b_586 = "116",
+                    b_587 = "134",
+                    b_588 = "107",
+                    b_589 = "174",
+                    b_590 = "94",
+                    b_591 = "151",
+                    b_592 = "105",
+                    b_717 = "442"
+                }
+            },
+ {
+                g = "Grey Gods",
+                r = "us",
+                s =  "wild growth",
+                id = "cKya1ZxTtWfA6YRr",
+                ts = "2:04:19",
+                t = {
+                    b_585 = "112",
+                    b_586 = "110",
+                    b_587 = "112",
+                    b_588 = "93",
+                    b_589 = "145",
+                    b_590 = "80",
+                    b_591 = "133",
+                    b_592 = "95",
+                    b_717 = "301"
+                }
+            },
+ {
+                g = "TFS",
+                r = "us",
+                s =  "wild growth",
+                id = "XyzT7hnCNBpLawtH",
+                ts = "2:04:43",
+                t = {
+                    b_585 = "177",
+                    b_586 = "144",
+                    b_587 = "168",
+                    b_588 = "122",
+                    b_589 = "240",
+                    b_590 = "119",
+                    b_591 = "195",
+                    b_592 = "170",
+                    b_717 = "671"
+                }
+            },
+ {
+                g = "MAMUT",
+                r = "us",
+                s =  "wild growth",
+                id = "T83hcwWd2gt7PHBf",
+                ts = "2:05:47",
+                t = {
+                    b_585 = "137",
+                    b_586 = "144",
+                    b_587 = "132",
+                    b_588 = "110",
+                    b_589 = "200",
+                    b_590 = "99",
+                    b_591 = "191",
+                    b_592 = "118",
+                    b_717 = "449"
+                }
+            },
+ {
+                g = "Pawpular Demand",
+                r = "us",
+                s =  "wild growth",
+                id = "hztPVTw9jnDKrJNv",
+                ts = "2:07:28",
+                t = {
+                    b_585 = "135",
+                    b_586 = "144",
+                    b_587 = "171",
+                    b_588 = "108",
+                    b_589 = "150",
+                    b_590 = "106",
+                    b_591 = "160",
+                    b_592 = "134",
+                    b_717 = "446"
+                }
+            },
+ {
+                g = "Dumb",
+                r = "us",
+                s =  "wild growth",
+                id = "J9NPdVvKM6FmQbkj",
+                ts = "2:08:04",
+                t = {
+                    b_585 = "187",
+                    b_586 = "134",
+                    b_587 = "128",
+                    b_588 = "113",
+                    b_589 = "183",
+                    b_590 = "111",
+                    b_591 = "259",
+                    b_592 = "185",
+                    b_717 = "658"
+                }
+            },
+ {
+                g = "Dungeons and Daddies",
+                r = "us",
+                s =  "wild growth",
+                id = "aN2167dwCmpXQGA3",
+                ts = "2:08:05",
+                t = {
+                    b_585 = "115",
+                    b_586 = "142",
+                    b_587 = "137",
+                    b_588 = "145",
+                    b_589 = "158",
+                    b_590 = "108",
+                    b_591 = "182",
+                    b_592 = "137",
+                    b_717 = "555"
+                }
+            },
+ {
+                g = "Efficiently Casual",
+                r = "us",
+                s =  "wild growth",
+                id = "D9xZBfbRrG4t8p1P",
+                ts = "2:08:39",
+                t = {
+                    b_585 = "182",
+                    b_586 = "132",
+                    b_587 = "133",
+                    b_588 = "95",
+                    b_589 = "149",
+                    b_590 = "95",
+                    b_591 = "219",
+                    b_592 = "122",
+                    b_717 = "481"
+                }
+            },
+ {
+                g = "WHERE LOA",
+                r = "us",
+                s =  "wild growth",
+                id = "JzYDCk8QdmPGg9HZ",
+                ts = "2:09:00",
+                t = {
+                    b_585 = "204",
+                    b_586 = "178",
+                    b_587 = "174",
+                    b_588 = "120",
+                    b_589 = "164",
+                    b_590 = "114",
+                    b_591 = "213",
+                    b_592 = "179",
+                    b_717 = "486"
+                }
+            },
+ {
+                g = "Beanboozled",
+                r = "us",
+                s =  "wild growth",
+                id = "2NV7cbx6dHXJMhAk",
+                ts = "2:09:43",
+                t = {
+                    b_585 = "128",
+                    b_586 = "132",
+                    b_587 = "141",
+                    b_588 = "95",
+                    b_589 = "105",
+                    b_590 = "95",
+                    b_591 = "180",
+                    b_592 = "171",
+                    b_717 = "83"
+                }
+            },
+ {
+                g = "Salty Balls",
+                r = "us",
+                s =  "wild growth",
+                id = "n872wN3XHpQ6KMLW",
+                ts = "2:15:14",
+                t = {
+                    b_585 = "152",
+                    b_586 = "134",
+                    b_587 = "126",
+                    b_588 = "103",
+                    b_589 = "177",
+                    b_590 = "106",
+                    b_591 = "115",
+                    b_592 = "128",
+                    b_717 = "583"
+                }
+            },
+ {
+                g = "Argent Dawn",
+                r = "us",
+                s =  "wild growth",
+                id = "dyTVtwDhj1XGg2Yk",
+                ts = "2:16:19",
+                t = {
+                    b_585 = "129",
+                    b_586 = "116",
+                    b_587 = "120",
+                    b_588 = "99",
+                    b_589 = "109",
+                    b_590 = "89",
+                    b_591 = "119",
+                    b_592 = "95",
+                    b_717 = "457"
+                }
+            },
+ {
+                g = "Legacy H",
+                r = "us",
+                s =  "wild growth",
+                id = "DrTKy7MjJRXNctmB",
+                ts = "2:16:19",
+                t = {
+                    b_585 = "195",
+                    b_586 = "185",
+                    b_587 = "176",
+                    b_588 = "150",
+                    b_589 = "221",
+                    b_590 = "124",
+                    b_591 = "269",
+                    b_592 = "170",
+                    b_717 = "648"
+                }
+            },
+ {
+                g = "Selective Hearing",
+                r = "us",
+                s =  "wild growth",
+                id = "h1w9qXJ6KBgTv4VP",
+                ts = "2:17:16",
+                t = {
+                    b_585 = "132",
+                    b_586 = "158",
+                    b_587 = "135",
+                    b_588 = "93",
+                    b_589 = "262",
+                    b_590 = "100",
+                    b_591 = "294",
+                    b_592 = "133",
+                    b_717 = "749"
+                }
+            },
+ {
+                g = "SPITE",
+                r = "us",
+                s =  "wild growth",
+                id = "jgmNBPTbtyDXZHk6",
+                ts = "2:17:18",
+                t = {
+                    b_585 = "161",
+                    b_586 = "165",
+                    b_587 = "173",
+                    b_588 = "103",
+                    b_589 = "222",
+                    b_590 = "110",
+                    b_591 = "372",
+                    b_592 = "130",
+                    b_717 = "506"
+                }
+            },
+ {
+                g = "Gargoyles",
+                r = "us",
+                s =  "wild growth",
+                id = "MPQYHwxG7Xm3cRNz",
+                ts = "2:18:07",
+                t = {
+                    b_585 = "154",
+                    b_586 = "144",
+                    b_587 = "160",
+                    b_588 = "124",
+                    b_589 = "262",
+                    b_590 = "111",
+                    b_591 = "167",
+                    b_592 = "137",
+                    b_717 = "605"
+                }
+            },
+ {
+                g = "Body Type Two",
+                r = "us",
+                s =  "wild growth",
+                id = "Fq6Vp3JdthC4XZ9N",
+                ts = "2:18:18",
+                t = {
+                    b_585 = "177",
+                    b_586 = "138",
+                    b_587 = "146",
+                    b_588 = "83",
+                    b_589 = "162",
+                    b_590 = "85",
+                    b_591 = "113",
+                    b_592 = "103",
+                    b_717 = "537"
+                }
+            },
+ {
+                g = "Illumination",
+                r = "us",
+                s =  "wild growth",
+                id = "jP2yHRZA1GWt4Dcx",
+                ts = "2:18:56",
+                t = {
+                    b_585 = "153",
+                    b_586 = "139",
+                    b_587 = "132",
+                    b_588 = "97",
+                    b_589 = "134",
+                    b_590 = "102",
+                    b_591 = "94",
+                    b_592 = "130",
+                    b_717 = "433"
+                }
+            },
+ {
+                g = "ÆON",
+                r = "us",
+                s =  "wild growth",
+                id = "nMXp4qD7cKAgmk3r",
+                ts = "2:21:42",
+                t = {
+                    b_585 = "140",
+                    b_586 = "174",
+                    b_587 = "246",
+                    b_588 = "138",
+                    b_589 = "171",
+                    b_590 = "115",
+                    b_591 = "132",
+                    b_592 = "128",
+                    b_717 = "401"
+                }
+            },
+ {
+                g = "Back In My Day",
+                r = "us",
+                s =  "wild growth",
+                id = "rahvmkJwC38TVyPY",
+                ts = "2:21:53",
+                t = {
+                    b_585 = "178",
+                    b_586 = "189",
+                    b_587 = "178",
+                    b_588 = "94",
+                    b_589 = "224",
+                    b_590 = "132",
+                    b_591 = "171",
+                    b_592 = "157",
+                    b_717 = "54"
+                }
+            },
+ {
+                g = "Disappointments",
+                r = "us",
+                s =  "wild growth",
+                id = "vtBCYZ7PhAc2wkfr",
+                ts = "2:23:37",
+                t = {
+                    b_585 = "137",
+                    b_586 = "147",
+                    b_587 = "156",
+                    b_588 = "106",
+                    b_589 = "221",
+                    b_590 = "107",
+                    b_591 = "176",
+                    b_592 = "271",
+                    b_717 = "35"
+                }
+            },
+ {
+                g = "Rainfall SoD",
+                r = "us",
+                s =  "wild growth",
+                id = "rCLX2GnmgxBv79Zf",
+                ts = "2:24:35",
+                t = {
+                    b_585 = "119",
+                    b_586 = "108",
+                    b_587 = "109",
+                    b_588 = "89",
+                    b_589 = "144",
+                    b_590 = "84",
+                    b_591 = "161",
+                    b_592 = "113",
+                    b_717 = "318"
+                }
+            },
+ {
+                g = "Choo Choo",
+                r = "us",
+                s =  "wild growth",
+                id = "HygkpfNnJVMWB1Tj",
+                ts = "2:25:48",
+                t = {
+                    b_585 = "149",
+                    b_586 = "147",
+                    b_587 = "129",
+                    b_588 = "107",
+                    b_589 = "23",
+                    b_590 = "94",
+                    b_591 = "271",
+                    b_592 = "110",
+                    b_717 = "108"
+                }
+            },
+ {
+                g = "Soulbound",
+                r = "us",
+                s =  "wild growth",
+                id = "r2DR7zFxyPw4jv6q",
+                ts = "2:26:19",
+                t = {
+                    b_585 = "120",
+                    b_586 = "152",
+                    b_587 = "186",
+                    b_588 = "124",
+                    b_589 = "158",
+                    b_590 = "107",
+                    b_591 = "237",
+                    b_592 = "141",
+                    b_717 = "251"
+                }
+            },
+ {
+                g = "PEBCAK",
+                r = "us",
+                s =  "wild growth",
+                id = "WJcZXpRDFjLT8g27",
+                ts = "2:30:33",
+                t = {
+                    b_585 = "139",
+                    b_586 = "162",
+                    b_587 = "171",
+                    b_588 = "115",
+                    b_589 = "144",
+                    b_590 = "118",
+                    b_591 = "282",
+                    b_592 = "131",
+                    b_717 = "588"
+                }
+            },
+ {
+                g = "The Great Tomb of Nazarick",
+                r = "us",
+                s =  "wild growth",
+                id = "WXygH9cGrq4YZaJt",
+                ts = "2:31:10",
+                t = {
+                    b_585 = "123",
+                    b_586 = "124",
+                    b_587 = "145",
+                    b_588 = "114",
+                    b_589 = "235",
+                    b_590 = "128",
+                    b_591 = "198",
+                    b_592 = "204",
+                    b_717 = "373"
+                }
+            },
+ {
+                g = "Gryphons",
+                r = "us",
+                s =  "wild growth",
+                id = "JzWcfDFMgnhd2HAK",
+                ts = "2:34:06",
+                t = {
+                    b_585 = "246",
+                    b_586 = "147",
+                    b_587 = "182",
+                    b_588 = "111",
+                    b_589 = "271",
+                    b_590 = "114",
+                    b_591 = "205",
+                    b_592 = "127",
+                    b_717 = "438"
+                }
+            },
+ {
+                g = "MOAR DOTS",
+                r = "us",
+                s =  "wild growth",
+                id = "jDf4Y8nkQzVvcHRZ",
+                ts = "2:34:55",
+                t = {
+                    b_585 = "181",
+                    b_586 = "241",
+                    b_587 = "274",
+                    b_588 = "137",
+                    b_589 = "228",
+                    b_590 = "133",
+                    b_591 = "148",
+                    b_592 = "198",
+                    b_717 = "517"
+                }
+            },
+ {
+                g = "Pink Portal",
+                r = "us",
+                s =  "wild growth",
+                id = "wTznt6YHvQ4PDgqa",
+                ts = "2:37:06",
+                t = {
+                    b_585 = "194",
+                    b_586 = "168",
+                    b_587 = "158",
+                    b_588 = "132",
+                    b_589 = "247",
+                    b_590 = "127",
+                    b_591 = "220",
+                    b_592 = "136",
+                    b_717 = "383"
+                }
+            },
+ {
+                g = "The Argent Crusade",
+                r = "us",
+                s =  "wild growth",
+                id = "1Lg2R36CXqv78HAm",
+                ts = "2:42:33",
+                t = {
+                    b_585 = "95",
+                    b_586 = "136",
+                    b_587 = "124",
+                    b_588 = "89",
+                    b_589 = "138",
+                    b_590 = "88",
+                    b_591 = "131",
+                    b_592 = "83",
+                    b_717 = "351"
+                }
+            },
+ {
+                g = "Blanket Fort",
+                r = "us",
+                s =  "wild growth",
+                id = "ZPBnXqgdcRyaAzWj",
+                ts = "2:44:54",
+                t = {
+                    b_585 = "145",
+                    b_586 = "134",
+                    b_587 = "139",
+                    b_588 = "86",
+                    b_589 = "219",
+                    b_590 = "96",
+                    b_591 = "231",
+                    b_592 = "112",
+                    b_717 = "118"
+                }
+            },
+ {
+                g = "Orgrimmar After Dark",
+                r = "us",
+                s =  "wild growth",
+                id = "tRzB2wApdXWMnGZq",
+                ts = "2:54:09",
+                t = {
+                    b_585 = "122",
+                    b_586 = "160",
+                    b_587 = "176",
+                    b_588 = "111",
+                    b_589 = "207",
+                    b_590 = "116",
+                    b_591 = "186",
+                    b_592 = "136",
+                    b_717 = "302"
+                }
+            },
+ {
+                g = "Raiders Anonymous",
+                r = "us",
+                s =  "wild growth",
+                id = "dhy6CJG4TBctH9rz",
+                ts = "3:01:23",
+                t = {
+                    b_585 = "141",
+                    b_586 = "137",
+                    b_587 = "23",
+                    b_588 = "106",
+                    b_589 = "24",
+                    b_590 = "100",
+                    b_591 = "179",
+                    b_592 = "117",
+                    b_717 = "97"
+                }
+            },
+ {
+                g = "Extra Sauce",
+                r = "us",
+                s =  "wild growth",
+                id = "nRXwAcLDgWfN3HY9",
+                ts = "3:15:39",
+                t = {
+                    b_585 = "206",
+                    b_586 = "194",
+                    b_587 = "202",
+                    b_588 = "192",
+                    b_589 = "350",
+                    b_590 = "143",
+                    b_591 = "374",
+                    b_592 = "252",
+                    b_717 = "544"
+                }
+            },
+ {
+                g = "Morally Grey",
+                r = "us",
+                s =  "wild growth",
+                id = "mCTRkbdYxQAvyhpD",
+                ts = "3:35:37",
+                t = {
+                    b_585 = "134",
+                    b_586 = "74",
+                    b_587 = "157",
+                    b_588 = "122",
+                    b_589 = "368",
+                    b_590 = "102",
+                    b_591 = "140",
+                    b_592 = "186",
+                    b_717 = "627"
                 }
             }
 }

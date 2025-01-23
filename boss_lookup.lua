@@ -967,17 +967,17 @@ Addon.boss_lookup = {
         JournalInstanceID = "240",
     },
     ["591"] = {
-        Name_lang = "Verdan the Everliving",
+        Name_lang = "Verdan the Ev.",
         ID = "480",
         JournalInstanceID = "240",
     },
     ["592"] = {
-        Name_lang = "Mutanus the Devourer",
+        Name_lang = "Mutanus the D.",
         ID = "481",
         JournalInstanceID = "240",
     },
     ["593"] = {
-        Name_lang = "Hydromancer Velratha",
+        Name_lang = "Hydromancer Vel.",
         ID = "482",
         JournalInstanceID = "241",
     },
@@ -2547,27 +2547,27 @@ Addon.boss_lookup = {
         JournalInstanceID = "743",
     },
     ["709"] = {
-        Name_lang = "The Prophet Skeram",
+        Name_lang = "Skeram",
         ID = "1543",
         JournalInstanceID = "744",
     },
     ["711"] = {
-        Name_lang = "Battleguard Sartura",
+        Name_lang = "Sartura",
         ID = "1544",
         JournalInstanceID = "744",
     },
     ["712"] = {
-        Name_lang = "Fankriss the Unyielding",
+        Name_lang = "Fankriss",
         ID = "1545",
         JournalInstanceID = "744",
     },
     ["714"] = {
-        Name_lang = "Princess Huhuran",
+        Name_lang = "Huhuran",
         ID = "1546",
         JournalInstanceID = "744",
     },
     ["710"] = {
-        Name_lang = "Silithid Royalty",
+        Name_lang = "Bug Trio",
         ID = "1547",
         JournalInstanceID = "744",
     },
@@ -2577,7 +2577,7 @@ Addon.boss_lookup = {
         JournalInstanceID = "744",
     },
     ["715"] = {
-        Name_lang = "The Twin Emperors",
+        Name_lang = "Twins",
         ID = "1549",
         JournalInstanceID = "744",
     },
