@@ -1,6 +1,8 @@
 local BossBeater, Addon = ...
 Addon = Addon or {}
 
+local SpeedrunView = LoadAddOn("SpeedrunView") or {}
+
 -- Create empty global tables
 local raidTable
 local sortedBossIDs
@@ -669,19 +671,22 @@ end)
 -- Function to initialize the addon when it loads
 -- This function sets up the database, loads previous raid data, and prints the player's guild name after a delay
 local function OnAddonLoaded()
-  -- Initialize BossBeaterDB if it doesn't exist
-  BossBeaterDB = BossBeaterDB or {
-    frameX = nil,
-    frameY = nil,
-    compactMode = false,
-    liveData = {}  -- Change raidData to liveData to store only live session data
-  }
-  Addon.BossBeaterDB = BossBeaterDB
+    -- Initialize BossBeaterDB if it doesn't exist
+    BossBeaterDB = BossBeaterDB or {
+        frameX = nil,
+        frameY = nil,
+        compactMode = false,
+        liveData = {}  -- Change raidData to liveData to store only live session data
+    }
+    Addon.BossBeaterDB = BossBeaterDB
 
-  -- Load previous raid table
-  raidTable = Addon.BossBeaterDB.raidData or raidTable
+    -- Load previous raid table
+    raidTable = Addon.BossBeaterDB.raidData or raidTable
 
-  CreateRaidTable()
+    CreateRaidTable()
+
+    -- Initialize SpeedrunView
+    SpeedrunView.CreateSpeedrunUI(raidTable, sortedBossIDs)
 end
 
 -- Create a frame to handle the ADDON_LOADED event
