@@ -7,3 +7,4 @@
 boss_lookup.lua
 ranking_data.lua
 BossBeater.lua
+SpeedrunView.lua
